@@ -1,0 +1,170 @@
+// ==========================================================================
+// Base - 기본 스타일 & Reset
+// ==========================================================================
+
+// Box Sizing
+// --------------------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Reset
+// --------------------------------------------------------------------------
+html {
+  font-size: $font-size-root;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: $font-family-base;
+  font-size: map-get($font-sizes, base);
+  font-weight: map-get($font-weights, normal);
+  line-height: map-get($line-heights, normal);
+  color: map-get($colors, text-primary);
+  background-color: map-get($colors, bg-primary);
+  word-break: keep-all;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+// 헤딩
+// --------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 map-get($spacers, 4) 0;
+  font-weight: map-get($font-weights, bold);
+  line-height: map-get($line-heights, tight);
+  color: map-get($colors, text-primary);
+}
+
+h1 { font-size: map-get($font-sizes, 4xl); }
+h2 { font-size: map-get($font-sizes, 3xl); }
+h3 { font-size: map-get($font-sizes, 2xl); }
+h4 { font-size: map-get($font-sizes, xl); }
+h5 { font-size: map-get($font-sizes, lg); }
+h6 { font-size: map-get($font-sizes, base); }
+
+// 문단
+// --------------------------------------------------------------------------
+p {
+  margin: 0 0 map-get($spacers, 4) 0;
+}
+
+// 링크
+// --------------------------------------------------------------------------
+a {
+  color: map-get($colors, primary);
+  text-decoration: none;
+  transition: $transition-fast;
+  
+  &:hover {
+    color: map-get($colors, primary-dark);
+    text-decoration: underline;
+  }
+  
+  &:focus-visible {
+    @include focus-outline;
+  }
+}
+
+// 리스트
+// --------------------------------------------------------------------------
+ul, ol {
+  margin: 0 0 map-get($spacers, 4) 0;
+  padding-left: map-get($spacers, 6);
+}
+
+li {
+  margin-bottom: map-get($spacers, 2);
+}
+
+// 이미지
+// --------------------------------------------------------------------------
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+// 버튼
+// --------------------------------------------------------------------------
+button {
+  @include button-reset;
+}
+
+// 폼 요소
+// --------------------------------------------------------------------------
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// 테이블
+// --------------------------------------------------------------------------
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// 포커스 기본 스타일 (접근성)
+// --------------------------------------------------------------------------
+:focus-visible {
+  @include focus-outline;
+}
+
+// 스킵 네비게이션 (접근성)
+// --------------------------------------------------------------------------
+.skip-nav {
+  @include sr-only;
+  @include sr-only-focusable;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: map-get($spacers, 4);
+  background: map-get($colors, primary);
+  color: map-get($colors, white);
+  font-weight: map-get($font-weights, bold);
+}
+
+// 컨테이너
+// --------------------------------------------------------------------------
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: map-get($spacers, 6);
+  padding-left: map-get($spacers, 6);
+  
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include respond-to($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: map-get($spacers, 6);
+  padding-left: map-get($spacers, 6);
+}
+
+// 유틸리티 클래스 (선택사항)
+// --------------------------------------------------------------------------
+.sr-only {
+  @include sr-only;
+}
+
+.sr-only-focusable {
+  @include sr-only-focusable;
+}

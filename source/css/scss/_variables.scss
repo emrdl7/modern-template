@@ -1,0 +1,167 @@
+// ==========================================================================
+// Variables - 프로젝트 전역 변수
+// ==========================================================================
+
+// 색상 시스템
+// --------------------------------------------------------------------------
+$colors: (
+  // Primary Colors
+  primary: #246beb,
+  primary-light: #5a8df5,
+  primary-dark: #1a4fb8,
+  
+  // Secondary Colors
+  secondary: #003675,
+  secondary-light: #1a5599,
+  secondary-dark: #002051,
+  
+  // Accent Colors
+  accent: #e71825,
+  success: #008a1e,
+  warning: #ffb724,
+  info: #2768ff,
+  
+  // Grayscale
+  gray-100: #f8f9fa,
+  gray-200: #e9ecef,
+  gray-300: #dee2e6,
+  gray-400: #ced4da,
+  gray-500: #8e8e8e,
+  gray-600: #6c757d,
+  gray-700: #495057,
+  gray-800: #343a40,
+  gray-900: #212529,
+  
+  // Base
+  white: #ffffff,
+  black: #000000,
+  
+  // Semantic
+  text-primary: #212529,
+  text-secondary: #6c757d,
+  bg-primary: #ffffff,
+  bg-secondary: #f8f9fa,
+  border: #dee2e6,
+);
+
+// 타이포그래피
+// --------------------------------------------------------------------------
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// 기본 폰트 크기 (1rem = 10px)
+$font-size-root: 62.5%;
+
+// 폰트 크기 시스템
+$font-sizes: (
+  xs: 1.2rem,    // 12px
+  sm: 1.4rem,    // 14px
+  base: 1.6rem,  // 16px
+  lg: 1.8rem,    // 18px
+  xl: 2rem,      // 20px
+  2xl: 2.4rem,   // 24px
+  3xl: 3rem,     // 30px
+  4xl: 3.6rem,   // 36px
+  5xl: 4.8rem,   // 48px
+  6xl: 6rem,     // 60px
+);
+
+// 폰트 굵기
+$font-weights: (
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+);
+
+// 행간
+$line-heights: (
+  tight: 1.25,
+  normal: 1.5,
+  relaxed: 1.75,
+  loose: 2,
+);
+
+// 간격 시스템 (spacing scale)
+// --------------------------------------------------------------------------
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,   // 2.5px
+  2: $spacer * 0.5,    // 5px
+  3: $spacer * 0.75,   // 7.5px
+  4: $spacer,          // 10px
+  5: $spacer * 1.5,    // 15px
+  6: $spacer * 2,      // 20px
+  7: $spacer * 2.5,    // 25px
+  8: $spacer * 3,      // 30px
+  10: $spacer * 4,     // 40px
+  12: $spacer * 5,     // 50px
+  16: $spacer * 6,     // 60px
+  20: $spacer * 8,     // 80px
+);
+
+// 브레이크포인트
+// --------------------------------------------------------------------------
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
+);
+
+// Border Radius
+// --------------------------------------------------------------------------
+$border-radius: (
+  none: 0,
+  sm: 0.4rem,
+  base: 0.8rem,
+  md: 1.2rem,
+  lg: 1.6rem,
+  xl: 2.4rem,
+  full: 9999px,
+);
+
+// Shadow
+// --------------------------------------------------------------------------
+$shadows: (
+  sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+  base: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+  inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06),
+  none: none,
+);
+
+// Transition
+// --------------------------------------------------------------------------
+$transition-base: all 0.3s ease-in-out;
+$transition-fast: all 0.15s ease-in-out;
+$transition-slow: all 0.5s ease-in-out;
+
+// Z-index
+// --------------------------------------------------------------------------
+$z-index: (
+  dropdown: 1000,
+  sticky: 1020,
+  fixed: 1030,
+  modal-backdrop: 1040,
+  modal: 1050,
+  popover: 1060,
+  tooltip: 1070,
+);
+
+// Container
+// --------------------------------------------------------------------------
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  2xl: 1320px,
+);

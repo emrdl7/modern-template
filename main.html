@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO -->
+  <title>프로젝트 제목</title>
+  <meta name="description" content="프로젝트 설명">
+  <meta name="keywords" content="키워드1, 키워드2">
+  <meta name="author" content="작성자">
+  
+  <!-- Open Graph (SNS 공유) -->
+  <meta property="og:title" content="프로젝트 제목">
+  <meta property="og:description" content="프로젝트 설명">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com">
+  <meta property="og:image" content="https://example.com/image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="source/images/favicon.ico">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="source/css/style.css">
+</head>
+<body>
+  <!-- Skip Navigation (접근성) -->
+  <a href="#main-content" class="skip-nav">본문 바로가기</a>
+  
+  <!-- Header -->
+  <header id="header" role="banner">
+    <div class="container">
+      <h1 class="logo">
+        <a href="/">프로젝트 로고</a>
+      </h1>
+      
+      <nav role="navigation" aria-label="주 메뉴">
+        <ul>
+          <li><a href="#" aria-current="page">홈</a></li>
+          <li><a href="#">소개</a></li>
+          <li><a href="#">서비스</a></li>
+          <li><a href="#">문의</a></li>
+        </ul>
+      </nav>
+      
+      <button type="button" class="mobile-menu-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2>메인 타이틀</h2>
+        <p>메인 설명 문구가 들어갑니다.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary">시작하기</a>
+          <a href="#" class="btn btn-outline">더 알아보기</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>주요 기능</h2>
+        
+        <div class="feature-grid">
+          <article class="card">
+            <div class="card-body">
+              <h3>기능 1</h3>
+              <p>기능 설명이 들어갑니다.</p>
+            </div>
+          </article>
+          
+          <article class="card">
+            <div class="card-body">
+              <h3>기능 2</h3>
+              <p>기능 설명이 들어갑니다.</p>
+            </div>
+          </article>
+          
+          <article class="card">
+            <div class="card-body">
+              <h3>기능 3</h3>
+              <p>기능 설명이 들어갑니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact">
+      <div class="container">
+        <h2>문의하기</h2>
+        
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="name" class="form-label">이름</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              class="form-control" 
+              required
+              aria-required="true"
+              placeholder="홍길동"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">이메일</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-control" 
+              required
+              aria-required="true"
+              placeholder="example@email.com"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">메시지</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              class="form-control" 
+              required
+              aria-required="true"
+              placeholder="문의 내용을 입력하세요"
+            ></textarea>
+          </div>
+          
+          <div class="form-check">
+            <input 
+              type="checkbox" 
+              id="agree" 
+              name="agree" 
+              class="form-check-input" 
+              required
+              aria-required="true"
+            >
+            <label for="agree" class="form-check-label">
+              개인정보 수집 및 이용에 동의합니다
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">제출하기</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2026 회사명. All rights reserved.</p>
+      <nav aria-label="푸터 메뉴">
+        <ul>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="source/js/common.js"></script>
+</body>
+</html>
