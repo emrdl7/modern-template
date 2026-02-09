@@ -1,0 +1,13 @@
+// ==========================================================================
+// Main Page Stylesheet
+// ==========================================================================
+
+// 공통 스타일
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'layout';
+@import 'components';
+
+// 메인 페이지 전용
+@import 'pages/main';

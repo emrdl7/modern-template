@@ -1,0 +1,72 @@
+// ==========================================================================
+// Main Page - 메인 페이지 전용 스타일
+// ==========================================================================
+
+// Hero Section
+// --------------------------------------------------------------------------
+.hero {
+  padding: map-get($spacers, 20) 0;
+  text-align: center;
+  background: linear-gradient(135deg, map-get($colors, primary-light), map-get($colors, primary));
+  color: map-get($colors, white);
+  
+  h2 {
+    font-size: map-get($font-sizes, 5xl);
+    margin-bottom: map-get($spacers, 6);
+    color: map-get($colors, white);
+  }
+  
+  p {
+    font-size: map-get($font-sizes, xl);
+    margin-bottom: map-get($spacers, 8);
+    opacity: 0.95;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: map-get($spacers, 4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+// Features Section
+// --------------------------------------------------------------------------
+.features {
+  padding: map-get($spacers, 20) 0;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: map-get($spacers, 12);
+  }
+  
+  .feature-grid {
+    display: grid;
+    gap: map-get($spacers, 8);
+    
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Contact Section
+// --------------------------------------------------------------------------
+.contact {
+  padding: map-get($spacers, 20) 0;
+  background-color: map-get($colors, bg-secondary);
+  
+  h2 {
+    text-align: center;
+    margin-bottom: map-get($spacers, 12);
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}

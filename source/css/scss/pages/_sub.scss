@@ -1,0 +1,41 @@
+// ==========================================================================
+// Sub Page - 서브 페이지 전용 스타일
+// ==========================================================================
+
+// 서브 페이지 전용 스타일은 _layout.scss에 이미 포함되어 있음
+// (breadcrumb, page-header, sidebar 등)
+
+// 추가 커스텀 스타일이 필요하면 여기에 작성
+
+// Card Grid (서브 페이지용)
+// --------------------------------------------------------------------------
+.card-grid {
+  display: grid;
+  gap: map-get($spacers, 6);
+  
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Figure (이미지 + 캡션)
+// --------------------------------------------------------------------------
+figure {
+  margin: map-get($spacers, 8) 0;
+  
+  img {
+    width: 100%;
+    border-radius: map-get($border-radius, md);
+  }
+  
+  figcaption {
+    margin-top: map-get($spacers, 3);
+    font-size: map-get($font-sizes, sm);
+    color: map-get($colors, text-secondary);
+    text-align: center;
+  }
+}
