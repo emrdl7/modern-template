@@ -8,7 +8,7 @@
 // ==========================================================================
 const initMobileMenu = () => {
   const toggle = document.querySelector('.mobile-menu-toggle');
-  const nav = document.querySelector('header nav');
+  const nav = document.getElementById('nav');
   
   if (!toggle || !nav) return;
   
