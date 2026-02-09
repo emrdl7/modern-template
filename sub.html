@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO -->
+  <title>서브 페이지 - 프로젝트 제목</title>
+  <meta name="description" content="서브 페이지 설명">
+  <meta name="keywords" content="키워드1, 키워드2">
+  <meta name="author" content="작성자">
+  
+  <!-- Open Graph (SNS 공유) -->
+  <meta property="og:title" content="서브 페이지 - 프로젝트 제목">
+  <meta property="og:description" content="서브 페이지 설명">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/sub.html">
+  <meta property="og:image" content="https://example.com/image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="source/images/favicon.ico">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="source/css/style.css">
+</head>
+<body>
+  <!-- Skip Navigation (접근성) -->
+  <a href="#main-content" class="skip-nav">본문 바로가기</a>
+  
+  <!-- Header -->
+  <header id="header" role="banner">
+    <div class="container">
+      <h1 class="logo">
+        <a href="/">프로젝트 로고</a>
+      </h1>
+      
+      <button type="button" class="mobile-menu-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Navigation -->
+  <nav id="nav" role="navigation" aria-label="주 메뉴">
+    <div class="container">
+      <ul>
+        <li><a href="main.html">홈</a></li>
+        <li><a href="sub.html" aria-current="page">소개</a></li>
+        <li><a href="#">서비스</a></li>
+        <li><a href="#">문의</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Breadcrumb (경로) -->
+    <div class="breadcrumb">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol>
+            <li><a href="main.html">홈</a></li>
+            <li aria-current="page">서브 페이지</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h2>서브 페이지 제목</h2>
+        <p>서브 페이지 설명 문구가 들어갑니다.</p>
+      </div>
+    </section>
+    
+    <!-- Content Section -->
+    <section class="content-section">
+      <div class="container">
+        <article>
+          <h3>섹션 제목 1</h3>
+          <p>내용이 들어갑니다. 서브 페이지의 주요 콘텐츠를 작성하세요.</p>
+          <p>여러 문단으로 구성할 수 있습니다. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          
+          <h4>소제목</h4>
+          <ul>
+            <li>리스트 항목 1</li>
+            <li>리스트 항목 2</li>
+            <li>리스트 항목 3</li>
+          </ul>
+        </article>
+        
+        <article>
+          <h3>섹션 제목 2</h3>
+          <p>또 다른 내용 섹션입니다.</p>
+          
+          <!-- 이미지 예시 -->
+          <figure>
+            <img src="source/images/placeholder.jpg" alt="설명" loading="lazy">
+            <figcaption>이미지 설명</figcaption>
+          </figure>
+        </article>
+        
+        <article>
+          <h3>섹션 제목 3</h3>
+          
+          <!-- 카드 그리드 -->
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-body">
+                <h4>카드 제목 1</h4>
+                <p>카드 내용이 들어갑니다.</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-body">
+                <h4>카드 제목 2</h4>
+                <p>카드 내용이 들어갑니다.</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-body">
+                <h4>카드 제목 3</h4>
+                <p>카드 내용이 들어갑니다.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h3>문의하기</h3>
+        <p>궁금한 점이 있으신가요?</p>
+        <a href="#" class="btn btn-primary">문의하기</a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2026 회사명. All rights reserved.</p>
+      <nav aria-label="푸터 메뉴">
+        <ul>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="source/js/common.js"></script>
+</body>
+</html>
