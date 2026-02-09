@@ -39,16 +39,24 @@ modern-template/
 
 SCSS를 CSS로 컴파일해야 합니다.
 
-**방법 1: Sass CLI 사용**
+**방법 1: npm script 사용 (추천)**
 
 ```bash
-# 설치 (한 번만)
-npm install -g sass
-
-# 컴파일
-sass source/css/scss/style.scss source/css/style.css
+# 한 번에 모든 CSS 컴파일
+npm run build:css
 
 # Watch 모드 (개발 중)
+npm run watch:css
+```
+
+**방법 2: Sass CLI 사용**
+
+```bash
+# 개별 컴파일
+sass source/css/scss/main.scss source/css/main.css
+sass source/css/scss/sub.scss source/css/sub.css
+
+# Watch 모드
 sass --watch source/css/scss:source/css
 ```
 
@@ -69,11 +77,17 @@ npx serve .
 ### 3. 개발자에게 전달
 
 SCSS 컴파일 후 다음 파일/폴더만 전달:
-- `main.html` (또는 작업한 HTML 파일들)
-- `source/css/style.css` (컴파일된 CSS)
+- HTML 파일들 (`main.html`, `sub.html` 등)
+- `source/css/main.css` (메인 페이지용 CSS)
+- `source/css/sub.css` (서브 페이지용 CSS)
 - `source/js/`
 - `source/font/`
 - `source/images/`
+
+**페이지별 CSS 구조:**
+- `main.css` - 메인 페이지 전용 (공통 스타일 + 메인 페이지 스타일 포함)
+- `sub.css` - 서브 페이지 전용 (공통 스타일 + 서브 페이지 스타일 포함)
+- 각 페이지는 하나의 CSS 파일만 로드
 
 SCSS 소스(`source/css/scss/`)는 개발용이므로 선택사항
 
