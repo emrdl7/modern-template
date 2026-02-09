@@ -46,7 +46,8 @@ $colors: (
 
 // 타이포그래피
 // --------------------------------------------------------------------------
-$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-family-webfont: 'WebFont';
+$font-family-base: $font-family-webfont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 $font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 // 기본 폰트 크기 (1rem = 10px)

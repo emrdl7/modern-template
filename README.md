@@ -21,16 +21,15 @@ modern-template/
 ├── README.md               # 문서 (이 파일)
 └── source/
     ├── css/
-    │   ├── style.css       # 컴파일된 CSS (공통)
-    │   ├── main.css        # 컴파일된 CSS (메인 페이지)
-    │   ├── sub.css         # 컴파일된 CSS (서브 페이지)
-    │   └── scss/           # SCSS 소스 (개발용)
+    │   ├── main.css              # 컴파일된 CSS (메인 페이지)
+    │   ├── sub.css               # 컴파일된 CSS (서브 페이지)
+    │   └── scss/                 # SCSS 소스 (개발용)
     │       ├── _variables.scss   # 변수 + 헬퍼 함수
+    │       ├── _fonts.scss       # 웹폰트 (@font-face)
     │       ├── _mixins.scss      # 믹스인
     │       ├── _base.scss        # 기본 스타일
     │       ├── _layout.scss      # 레이아웃 (헤더, 사이드바 등)
     │       ├── _components.scss  # UI 컴포넌트
-    │       ├── style.scss        # 공통 엔트리
     │       ├── main.scss         # 메인 페이지 엔트리
     │       ├── sub.scss          # 서브 페이지 엔트리
     │       └── pages/

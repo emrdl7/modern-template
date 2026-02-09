@@ -1,0 +1,26 @@
+// ==========================================================================
+// Fonts - 웹폰트 선언
+// ==========================================================================
+// 사용법:
+//   1. source/font/ 폴더에 폰트 파일(.woff2, .woff) 추가
+//   2. 아래 @font-face의 font-family, src 경로 수정
+//   3. _variables.scss의 $font-family-webfont 변수명 수정
+// --------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'WebFont';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../font/WebFont-Regular.woff2') format('woff2'),
+       url('../../font/WebFont-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WebFont';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../font/WebFont-Bold.woff2') format('woff2'),
+       url('../../font/WebFont-Bold.woff') format('woff');
+}
