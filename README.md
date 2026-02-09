@@ -7,7 +7,7 @@
 - ✅ **시맨틱 HTML5** - 명확한 문서 구조
 - ✅ **WCAG 2.1 AA 접근성** - ARIA 속성, 키보드 네비게이션
 - ✅ **모듈화 SCSS** - 변수, 믹스인, 컴포넌트 분리
-- ✅ **Vanilla JavaScript** - ES6+ 문법, jQuery 미사용
+- ✅ **Vanilla JavaScript** - ES Module, jQuery 미사용
 - ✅ **반응형 디자인** - 모바일 우선
 - ✅ **크로스 브라우저** - 최신 브라우저 지원
 
@@ -16,21 +16,36 @@
 ```
 modern-template/
 ├── index.html              # 프로젝트 인덱스
-├── main.html              # 메인 페이지 템플릿
-├── README.md              # 문서 (이 파일)
+├── main.html               # 메인 페이지 템플릿
+├── sub.html                # 서브 페이지 템플릿
+├── README.md               # 문서 (이 파일)
 └── source/
     ├── css/
-    │   ├── style.css      # 컴파일된 CSS (개발자에게 전달)
-    │   └── scss/          # SCSS 소스 (개발용)
-    │       ├── _variables.scss   # 변수 (색상, 폰트 등)
+    │   ├── style.css       # 컴파일된 CSS (공통)
+    │   ├── main.css        # 컴파일된 CSS (메인 페이지)
+    │   ├── sub.css         # 컴파일된 CSS (서브 페이지)
+    │   └── scss/           # SCSS 소스 (개발용)
+    │       ├── _variables.scss   # 변수 + 헬퍼 함수
     │       ├── _mixins.scss      # 믹스인
     │       ├── _base.scss        # 기본 스타일
-    │       ├── _components.scss  # 컴포넌트
-    │       └── style.scss        # 메인 파일
+    │       ├── _layout.scss      # 레이아웃 (헤더, 사이드바 등)
+    │       ├── _components.scss  # UI 컴포넌트
+    │       ├── style.scss        # 공통 엔트리
+    │       ├── main.scss         # 메인 페이지 엔트리
+    │       ├── sub.scss          # 서브 페이지 엔트리
+    │       └── pages/
+    │           ├── _main.scss    # 메인 페이지 전용 스타일
+    │           └── _sub.scss     # 서브 페이지 전용 스타일
     ├── js/
-    │   └── common.js      # 공통 JavaScript
-    ├── font/              # 웹폰트
-    └── images/            # 이미지 리소스
+    │   ├── common.js             # 엔트리 포인트 (ES Module)
+    │   ├── utils.js              # 유틸리티 함수 (debounce, throttle)
+    │   └── modules/
+    │       ├── navigation.js     # 모바일메뉴, 스티키헤더, 스무스스크롤
+    │       ├── ui.js             # 모달, 탭
+    │       ├── form.js           # 폼 유효성 검사
+    │       └── lazyLoad.js       # 이미지 레이지 로딩
+    ├── font/                     # 웹폰트
+    └── images/                   # 이미지 리소스
 ```
 
 ## 빠른 시작
@@ -80,7 +95,7 @@ SCSS 컴파일 후 다음 파일/폴더만 전달:
 - HTML 파일들 (`main.html`, `sub.html` 등)
 - `source/css/main.css` (메인 페이지용 CSS)
 - `source/css/sub.css` (서브 페이지용 CSS)
-- `source/js/`
+- `source/js/` (common.js + utils.js + modules/)
 - `source/font/`
 - `source/images/`
 
@@ -128,6 +143,33 @@ $breakpoints: (
 );
 ```
 
+### 헬퍼 함수
+
+`map-get()` 대신 축약 헬퍼 함수를 사용합니다:
+
+```scss
+// 기존
+background-color: map-get($colors, primary);
+font-size: map-get($font-sizes, base);
+padding: map-get($spacers, 6);
+
+// 헬퍼 함수
+background-color: color(primary);
+font-size: font-size(base);
+padding: spacer(6);
+```
+
+| 헬퍼 함수 | 대상 Map |
+|-----------|----------|
+| `color($key)` | `$colors` |
+| `font-size($key)` | `$font-sizes` |
+| `font-weight($key)` | `$font-weights` |
+| `line-height($key)` | `$line-heights` |
+| `spacer($key)` | `$spacers` |
+| `radius($key)` | `$border-radius` |
+| `shadow($key)` | `$shadows` |
+| `z($key)` | `$z-index` |
+
 ## 컴포넌트 사용법
 
 ### 버튼
@@ -172,15 +214,21 @@ $breakpoints: (
 
 ## JavaScript 기능
 
-`common.js`에 포함된 기능:
+ES Module 기반으로 기능별 파일이 분리되어 있습니다:
 
-- ✅ 모바일 메뉴 토글
-- ✅ 스크롤 시 헤더 고정/숨김
-- ✅ 스무스 스크롤 (앵커 링크)
-- ✅ 폼 유효성 검사
-- ✅ 모달
-- ✅ 탭
-- ✅ 이미지 레이지 로딩 (Intersection Observer)
+| 모듈 | 기능 |
+|------|------|
+| `modules/navigation.js` | 모바일 메뉴 토글, 스티키 헤더, 스무스 스크롤 |
+| `modules/ui.js` | 모달, 탭 |
+| `modules/form.js` | 폼 유효성 검사 |
+| `modules/lazyLoad.js` | 이미지 레이지 로딩 (Intersection Observer) |
+| `utils.js` | debounce, throttle |
+
+HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩니다:
+
+```html
+<script type="module" src="source/js/common.js"></script>
+```
 
 ### 모달 사용 예
 

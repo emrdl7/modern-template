@@ -137,7 +137,7 @@
       <li>시맨틱 HTML5 구조</li>
       <li>WCAG 2.1 AA 접근성 준수</li>
       <li>모듈화된 SCSS 구조</li>
-      <li>Vanilla JavaScript (ES6+)</li>
+      <li>Vanilla JavaScript (ES Module)</li>
       <li>반응형 디자인</li>
       <li>크로스 브라우저 호환</li>
     </ul>
@@ -181,18 +181,23 @@
     <pre style="background: #f8f9fa; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6;">
 modern-template/
 ├── index.html              # 프로젝트 인덱스 (이 파일)
-├── main.html              # 메인 페이지 템플릿
+├── main.html               # 메인 페이지 템플릿
+├── sub.html                # 서브 페이지 템플릿
 └── source/
     ├── css/
-    │   ├── style.css      # 컴파일된 CSS
-    │   └── scss/          # SCSS 소스
-    │       ├── _variables.scss
+    │   ├── main.css        # 컴파일된 CSS (메인 페이지)
+    │   ├── sub.css         # 컴파일된 CSS (서브 페이지)
+    │   └── scss/           # SCSS 소스
+    │       ├── _variables.scss   # 변수 + 헬퍼 함수
     │       ├── _mixins.scss
     │       ├── _base.scss
+    │       ├── _layout.scss
     │       ├── _components.scss
-    │       └── style.scss
+    │       └── pages/
     ├── js/
-    │   └── common.js      # 공통 JavaScript
+    │   ├── common.js             # 엔트리 포인트 (ES Module)
+    │   ├── utils.js              # 유틸리티 함수
+    │   └── modules/              # 기능별 모듈
     ├── font/
     └── images/
     </pre>

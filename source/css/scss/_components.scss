@@ -8,23 +8,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: map-get($spacers, 2);
-  padding: map-get($spacers, 3) map-get($spacers, 6);
-  font-size: map-get($font-sizes, base);
-  font-weight: map-get($font-weights, medium);
+  gap: spacer(2);
+  padding: spacer(3) spacer(6);
+  font-size: font-size(base);
+  font-weight: font-weight(medium);
   line-height: 1;
   text-align: center;
   text-decoration: none;
   border: 1px solid transparent;
-  border-radius: map-get($border-radius, base);
+  border-radius: radius(base);
   cursor: pointer;
   transition: $transition-base;
   user-select: none;
-  
+
   &:focus-visible {
     @include focus-outline;
   }
-  
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -33,46 +33,46 @@
 
 // 버튼 크기
 .btn-sm {
-  padding: map-get($spacers, 2) map-get($spacers, 4);
-  font-size: map-get($font-sizes, sm);
+  padding: spacer(2) spacer(4);
+  font-size: font-size(sm);
 }
 
 .btn-lg {
-  padding: map-get($spacers, 4) map-get($spacers, 8);
-  font-size: map-get($font-sizes, lg);
+  padding: spacer(4) spacer(8);
+  font-size: font-size(lg);
 }
 
 // 버튼 스타일
 .btn-primary {
-  color: map-get($colors, white);
-  background-color: map-get($colors, primary);
-  border-color: map-get($colors, primary);
-  
+  color: color(white);
+  background-color: color(primary);
+  border-color: color(primary);
+
   &:hover:not(:disabled) {
-    background-color: map-get($colors, primary-dark);
-    border-color: map-get($colors, primary-dark);
+    background-color: color(primary-dark);
+    border-color: color(primary-dark);
   }
 }
 
 .btn-secondary {
-  color: map-get($colors, white);
-  background-color: map-get($colors, secondary);
-  border-color: map-get($colors, secondary);
-  
+  color: color(white);
+  background-color: color(secondary);
+  border-color: color(secondary);
+
   &:hover:not(:disabled) {
-    background-color: map-get($colors, secondary-dark);
-    border-color: map-get($colors, secondary-dark);
+    background-color: color(secondary-dark);
+    border-color: color(secondary-dark);
   }
 }
 
 .btn-outline {
-  color: map-get($colors, primary);
+  color: color(primary);
   background-color: transparent;
-  border-color: map-get($colors, primary);
-  
+  border-color: color(primary);
+
   &:hover:not(:disabled) {
-    color: map-get($colors, white);
-    background-color: map-get($colors, primary);
+    color: color(white);
+    background-color: color(primary);
   }
 }
 
@@ -81,67 +81,67 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: map-get($colors, white);
-  border: 1px solid map-get($colors, border);
-  border-radius: map-get($border-radius, md);
-  box-shadow: map-get($shadows, sm);
+  background-color: color(white);
+  border: 1px solid color(border);
+  border-radius: radius(md);
+  box-shadow: shadow(sm);
   overflow: hidden;
 }
 
 .card-header {
-  padding: map-get($spacers, 6);
-  border-bottom: 1px solid map-get($colors, border);
-  font-weight: map-get($font-weights, semibold);
+  padding: spacer(6);
+  border-bottom: 1px solid color(border);
+  font-weight: font-weight(semibold);
 }
 
 .card-body {
   flex: 1;
-  padding: map-get($spacers, 6);
+  padding: spacer(6);
 }
 
 .card-footer {
-  padding: map-get($spacers, 6);
-  border-top: 1px solid map-get($colors, border);
-  background-color: map-get($colors, bg-secondary);
+  padding: spacer(6);
+  border-top: 1px solid color(border);
+  background-color: color(bg-secondary);
 }
 
 // 입력 필드
 // --------------------------------------------------------------------------
 .form-group {
-  margin-bottom: map-get($spacers, 6);
+  margin-bottom: spacer(6);
 }
 
 .form-label {
   display: block;
-  margin-bottom: map-get($spacers, 2);
-  font-weight: map-get($font-weights, medium);
-  color: map-get($colors, text-primary);
+  margin-bottom: spacer(2);
+  font-weight: font-weight(medium);
+  color: color(text-primary);
 }
 
 .form-control {
   display: block;
   width: 100%;
-  padding: map-get($spacers, 3) map-get($spacers, 4);
-  font-size: map-get($font-sizes, base);
-  line-height: map-get($line-heights, normal);
-  color: map-get($colors, text-primary);
-  background-color: map-get($colors, white);
-  border: 1px solid map-get($colors, border);
-  border-radius: map-get($border-radius, base);
+  padding: spacer(3) spacer(4);
+  font-size: font-size(base);
+  line-height: line-height(normal);
+  color: color(text-primary);
+  background-color: color(white);
+  border: 1px solid color(border);
+  border-radius: radius(base);
   transition: $transition-fast;
-  
+
   &:focus {
     outline: none;
-    border-color: map-get($colors, primary);
-    box-shadow: 0 0 0 3px rgba(map-get($colors, primary), 0.1);
+    border-color: color(primary);
+    box-shadow: 0 0 0 3px rgba(color(primary), 0.1);
   }
-  
+
   &::placeholder {
-    color: map-get($colors, gray-500);
+    color: color(gray-500);
   }
-  
+
   &:disabled {
-    background-color: map-get($colors, gray-100);
+    background-color: color(gray-100);
     cursor: not-allowed;
   }
 }
@@ -156,15 +156,15 @@ textarea.form-control {
 .form-check {
   display: flex;
   align-items: center;
-  gap: map-get($spacers, 2);
-  margin-bottom: map-get($spacers, 3);
+  gap: spacer(2);
+  margin-bottom: spacer(3);
 }
 
 .form-check-input {
   width: 1.6rem;
   height: 1.6rem;
   cursor: pointer;
-  
+
   &:focus-visible {
     @include focus-outline;
   }
@@ -179,53 +179,53 @@ textarea.form-control {
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: map-get($spacers, 1) map-get($spacers, 3);
-  font-size: map-get($font-sizes, xs);
-  font-weight: map-get($font-weights, semibold);
+  padding: spacer(1) spacer(3);
+  font-size: font-size(xs);
+  font-weight: font-weight(semibold);
   line-height: 1;
-  border-radius: map-get($border-radius, full);
+  border-radius: radius(full);
 }
 
 .badge-primary {
-  color: map-get($colors, white);
-  background-color: map-get($colors, primary);
+  color: color(white);
+  background-color: color(primary);
 }
 
 .badge-success {
-  color: map-get($colors, white);
-  background-color: map-get($colors, success);
+  color: color(white);
+  background-color: color(success);
 }
 
 .badge-warning {
-  color: map-get($colors, gray-900);
-  background-color: map-get($colors, warning);
+  color: color(gray-900);
+  background-color: color(warning);
 }
 
 // 알림 (Alert)
 // --------------------------------------------------------------------------
 .alert {
-  padding: map-get($spacers, 6);
-  margin-bottom: map-get($spacers, 6);
+  padding: spacer(6);
+  margin-bottom: spacer(6);
   border: 1px solid transparent;
-  border-radius: map-get($border-radius, base);
+  border-radius: radius(base);
 }
 
 .alert-info {
-  color: darken(map-get($colors, info), 20%);
-  background-color: lighten(map-get($colors, info), 40%);
-  border-color: lighten(map-get($colors, info), 30%);
+  color: darken(color(info), 20%);
+  background-color: lighten(color(info), 40%);
+  border-color: lighten(color(info), 30%);
 }
 
 .alert-success {
-  color: darken(map-get($colors, success), 20%);
-  background-color: lighten(map-get($colors, success), 60%);
-  border-color: lighten(map-get($colors, success), 50%);
+  color: darken(color(success), 20%);
+  background-color: lighten(color(success), 60%);
+  border-color: lighten(color(success), 50%);
 }
 
 .alert-warning {
-  color: darken(map-get($colors, warning), 40%);
-  background-color: lighten(map-get($colors, warning), 30%);
-  border-color: lighten(map-get($colors, warning), 20%);
+  color: darken(color(warning), 40%);
+  background-color: lighten(color(warning), 30%);
+  border-color: lighten(color(warning), 20%);
 }
 
 // 모달 (기본 구조)
@@ -237,9 +237,9 @@ textarea.form-control {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: map-get($z-index, modal);
+  z-index: z(modal);
   overflow: auto;
-  
+
   &.is-active {
     display: flex;
     align-items: center;
@@ -254,32 +254,32 @@ textarea.form-control {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: map-get($z-index, modal-backdrop);
+  z-index: z(modal-backdrop);
 }
 
 .modal-content {
   position: relative;
-  background-color: map-get($colors, white);
-  border-radius: map-get($border-radius, lg);
+  background-color: color(white);
+  border-radius: radius(lg);
   max-width: 500px;
   width: 90%;
-  z-index: map-get($z-index, modal);
-  box-shadow: map-get($shadows, 2xl);
+  z-index: z(modal);
+  box-shadow: shadow(2xl);
 }
 
 .modal-header,
 .modal-body,
 .modal-footer {
-  padding: map-get($spacers, 6);
+  padding: spacer(6);
 }
 
 .modal-header {
-  border-bottom: 1px solid map-get($colors, border);
+  border-bottom: 1px solid color(border);
 }
 
 .modal-footer {
-  border-top: 1px solid map-get($colors, border);
+  border-top: 1px solid color(border);
   display: flex;
-  gap: map-get($spacers, 3);
+  gap: spacer(3);
   justify-content: flex-end;
 }

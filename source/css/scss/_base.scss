@@ -23,11 +23,11 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: $font-family-base;
-  font-size: map-get($font-sizes, base);
-  font-weight: map-get($font-weights, normal);
-  line-height: map-get($line-heights, normal);
-  color: map-get($colors, text-primary);
-  background-color: map-get($colors, bg-primary);
+  font-size: font-size(base);
+  font-weight: font-weight(normal);
+  line-height: line-height(normal);
+  color: color(text-primary);
+  background-color: color(bg-primary);
   word-break: keep-all;
   word-wrap: break-word;
   overflow-x: hidden;
@@ -36,37 +36,37 @@ body {
 // 헤딩
 // --------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 map-get($spacers, 4) 0;
-  font-weight: map-get($font-weights, bold);
-  line-height: map-get($line-heights, tight);
-  color: map-get($colors, text-primary);
+  margin: 0 0 spacer(4) 0;
+  font-weight: font-weight(bold);
+  line-height: line-height(tight);
+  color: color(text-primary);
 }
 
-h1 { font-size: map-get($font-sizes, 4xl); }
-h2 { font-size: map-get($font-sizes, 3xl); }
-h3 { font-size: map-get($font-sizes, 2xl); }
-h4 { font-size: map-get($font-sizes, xl); }
-h5 { font-size: map-get($font-sizes, lg); }
-h6 { font-size: map-get($font-sizes, base); }
+h1 { font-size: font-size(4xl); }
+h2 { font-size: font-size(3xl); }
+h3 { font-size: font-size(2xl); }
+h4 { font-size: font-size(xl); }
+h5 { font-size: font-size(lg); }
+h6 { font-size: font-size(base); }
 
 // 문단
 // --------------------------------------------------------------------------
 p {
-  margin: 0 0 map-get($spacers, 4) 0;
+  margin: 0 0 spacer(4) 0;
 }
 
 // 링크
 // --------------------------------------------------------------------------
 a {
-  color: map-get($colors, primary);
+  color: color(primary);
   text-decoration: none;
   transition: $transition-fast;
-  
+
   &:hover {
-    color: map-get($colors, primary-dark);
+    color: color(primary-dark);
     text-decoration: underline;
   }
-  
+
   &:focus-visible {
     @include focus-outline;
   }
@@ -75,12 +75,12 @@ a {
 // 리스트
 // --------------------------------------------------------------------------
 ul, ol {
-  margin: 0 0 map-get($spacers, 4) 0;
-  padding-left: map-get($spacers, 6);
+  margin: 0 0 spacer(4) 0;
+  padding-left: spacer(6);
 }
 
 li {
-  margin-bottom: map-get($spacers, 2);
+  margin-bottom: spacer(2);
 }
 
 // 이미지
@@ -126,15 +126,15 @@ table {
 .skip-nav {
   @include sr-only;
   @include sr-only-focusable;
-  
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  padding: map-get($spacers, 4);
-  background: map-get($colors, primary);
-  color: map-get($colors, white);
-  font-weight: map-get($font-weights, bold);
+  padding: spacer(4);
+  background: color(primary);
+  color: color(white);
+  font-weight: font-weight(bold);
 }
 
 // 컨테이너
@@ -143,9 +143,9 @@ table {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: map-get($spacers, 6);
-  padding-left: map-get($spacers, 6);
-  
+  padding-right: spacer(6);
+  padding-left: spacer(6);
+
   @each $breakpoint, $max-width in $container-max-widths {
     @include respond-to($breakpoint) {
       max-width: $max-width;
@@ -155,8 +155,8 @@ table {
 
 .container-fluid {
   width: 100%;
-  padding-right: map-get($spacers, 6);
-  padding-left: map-get($spacers, 6);
+  padding-right: spacer(6);
+  padding-left: spacer(6);
 }
 
 // 유틸리티 클래스 (선택사항)

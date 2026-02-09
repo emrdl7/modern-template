@@ -165,3 +165,46 @@ $container-max-widths: (
   xl: 1140px,
   2xl: 1320px,
 );
+
+// ==========================================================================
+// 헬퍼 함수 - map-get 축약
+// ==========================================================================
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+@function font-weight($key) {
+  @return map-get($font-weights, $key);
+}
+
+@function line-height($key) {
+  @return map-get($line-heights, $key);
+}
+
+@function spacer($key) {
+  @return map-get($spacers, $key);
+}
+
+@function radius($key) {
+  @return map-get($border-radius, $key);
+}
+
+@function shadow($key) {
+  @return map-get($shadows, $key);
+}
+
+@function z($key) {
+  @return map-get($z-index, $key);
+}
+
+// 유닛 제거 함수
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
