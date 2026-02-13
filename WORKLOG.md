@@ -1,5 +1,15 @@
 # 작업 로그 (WORKLOG)
 
+## 2026-02-13 (금) - 런타임 테마(CSS 변수) 컬러 토큰 실사용 반영
+- **주제:** CSS 변수(--color-*) 기반 테마 토큰을 실제 UI에 반영 (다크모드/커스텀 범용성 강화)
+- **활동:**
+  - `source/css/scss/_base.scss`: body/링크/토글 등 핵심 색상을 `var(--color-*)` 우선으로 변경(fallback 포함)
+  - `source/css/scss/_components.scss`: 버튼/카드/폼 입력 등 컴포넌트 색상도 `var(--color-*)` 소비하도록 변경
+  - 폼 focus 스타일을 box-shadow → outline 기반으로 통일(다크모드에서 일관 + 접근성)
+  - `main.css`, `sub.css` 컴파일 반영
+- **커밋:** 8abbe91
+- **결과:** 다크모드 토글(data-theme/prefers-color-scheme) 시 색 토큰이 실제로 적용되며, 프로젝트별 커스터마이징도 CSS 변수 오버라이드만으로 쉬워짐.
+
 ## 2026-02-13 (금)
 - **주제:** CSS in 2026 (LogRocket) & JS 모듈화
 - **활동:**
