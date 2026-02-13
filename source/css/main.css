@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-bg: #ffffff;
+  --color-bg-dark: #181a1b;
+  --color-text: #212529;
+  --color-link: #246beb;
+  --color-link-hover: #1a4fb8;
+  --color-border: #dee2e6;
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--color-bg-dark);
+  --color-text: #f4f6fb;
+  --color-link: #76aff8;
+  --color-link-hover: #b2d1fd;
+  --color-border: #253046;
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -18,8 +35,8 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #ffffff;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   word-break: keep-all;
   word-wrap: break-word;
   overflow-x: hidden;
