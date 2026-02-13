@@ -1,0 +1,5 @@
+index.html에 실제로 <meta> charset, description, og:title, og:description, og:image, og:url, twitter:title, twitter:description, twitter:image, twitter:card 태그를 추가/수정해 소셜 미디어와 검색엔진에 최적화되었습니다.
+외부 MDN + CSS-Tricks 메타태그 아티클로 공부하고 내용을 STUDY-NOTES.md, WORKLOG.md에 기록, 실제 코드 반영 후 git commit까지 완료했습니다.
+
+참조: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta, https://css-tricks.com/essential-meta-tags-social-media/
+최신 웹에서 반드시 적용해야 하는 내용이라 공유합니다!
