@@ -141,7 +141,15 @@
               
               <!-- 이미지 예시 -->
               <figure>
-                <img src="source/images/placeholder.jpg" alt="설명" loading="lazy">
+                <picture>
+                  <source srcset="source/images/placeholder.webp" type="image/webp">
+                  <source srcset="source/images/placeholder.avif" type="image/avif">
+                  <picture>
+  <source srcset="source/images/placeholder.webp" type="image/webp">
+  <source srcset="source/images/placeholder.avif" type="image/avif">
+  <img src="source/images/placeholder.jpg" alt="설명" loading="lazy">
+</picture>
+                </picture>
                 <figcaption>이미지 설명</figcaption>
               </figure>
             </article>
