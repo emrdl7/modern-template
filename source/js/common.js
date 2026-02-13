@@ -9,6 +9,7 @@ import { initFormValidation } from './modules/form.js';
 import { initLazyLoad } from './modules/lazyLoad.js';
 import { initTheme } from './modules/theme.js';
 import { initWebVitals } from './modules/web-vitals.js';
+import { initScrollAnim } from './modules/scroll-anim.js';
 import { debounce, throttle } from './utils.js';
 
 // ==========================================================================
@@ -17,6 +18,7 @@ import { debounce, throttle } from './utils.js';
 const init = () => {
   initTheme();
   initWebVitals();
+  initScrollAnim();
   initMobileMenu();
   initStickyHeader();
   initSmoothScroll();

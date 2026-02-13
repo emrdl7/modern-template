@@ -768,3 +768,24 @@ textarea.form-control {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+/* Scroll Animation Styles */
+.anim-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.anim-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-on-scroll {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
