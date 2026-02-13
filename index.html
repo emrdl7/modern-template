@@ -126,61 +126,58 @@
 <body>
   <!-- Dark Mode Toggle -->
   <button id="darkModeToggle" onclick="document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark'" style="position:fixed;top:16px;right:16px;z-index:9999;padding:8px 16px;cursor:pointer;border-radius:8px;border:1px solid #ccc;background:#fff;">🌙 다크모드</button>
-  <h1>
-    Modern Template
-    <small>현대적 HTML/CSS/JS 템플릿</small>
-  </h1>
-  
-  <div class="info-box">
-    <h2>📦 템플릿 소개</h2>
-    <p>이 템플릿은 <strong>최신 웹 표준</strong>과 <strong>접근성</strong>을 고려하여 제작되었습니다.</p>
-    <p><strong>주요 특징:</strong></p>
-    <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
-      <li>시맨틱 HTML5 구조</li>
-      <li>WCAG 2.1 AA 접근성 준수</li>
-      <li>모듈화된 SCSS 구조</li>
-      <li>Vanilla JavaScript (ES Module)</li>
-      <li>반응형 디자인</li>
-      <li>크로스 브라우저 호환</li>
-    </ul>
-  </div>
-  
-  <div class="info-box">
-    <h2>🚀 빠른 시작</h2>
-    <p><strong>1. SCSS 컴파일</strong></p>
-    <p style="margin: 10px 0;">
-      <code>sass source/css/scss/style.scss source/css/style.css</code>
-    </p>
-    
-    <p style="margin-top: 20px;"><strong>2. 파일 수정</strong></p>
-    <p>SCSS 파일 수정 후 재컴파일하거나, Watch 모드 사용:</p>
-    <p style="margin: 10px 0;">
-      <code>sass --watch source/css/scss:source/css</code>
-    </p>
-    
-    <p style="margin-top: 20px;"><strong>3. 개발 서버</strong></p>
-    <p>Live Server 등을 사용하여 개발 서버 실행</p>
-  </div>
-  
-  <h2 style="margin: 40px 0 20px; font-size: 28px;">📄 페이지 목록</h2>
-  
-  <div class="page-list">
-    <a href="main.html" class="page-link">
-      <h3>메인 페이지</h3>
-      <p>Hero, Features, Contact 섹션이 포함된 메인 템플릿</p>
-      <span class="badge">Template</span>
-    </a>
-    
-    <a href="sub.html" class="page-link">
-      <h3>서브 페이지</h3>
-      <p>Breadcrumb, 콘텐츠 섹션, CTA가 포함된 서브 템플릿</p>
-      <span class="badge">Template</span>
-    </a>
-  </div>
-  
-  <div class="info-box">
-    <h2>📁 디렉토리 구조</h2>
-    <pre style="background: #f8f9fa; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6;">
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+  <header role="banner" aria-label="사이트 헤더">
+    <h1>
+      Modern Template
+      <small>현대적 HTML/CSS/JS 템플릿</small>
+    </h1>
+  </header>
+  <nav role="navigation" aria-label="주요 메뉴" style="display:none;"></nav>
+  <main id="main-content" role="main" aria-label="본문 영역">
+    <div class="info-box">
+      <h2>📦 템플릿 소개</h2>
+      <p>이 템플릿은 <strong>최신 웹 표준</strong>과 <strong>접근성</strong>을 고려하여 제작되었습니다.</p>
+      <p><strong>주요 특징:</strong></p>
+      <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
+        <li>시맨틱 HTML5 구조</li>
+        <li>WCAG 2.1 AA 접근성 준수</li>
+        <li>모듈화된 SCSS 구조</li>
+        <li>Vanilla JavaScript (ES Module)</li>
+        <li>반응형 디자인</li>
+        <li>크로스 브라우저 호환</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h2>🚀 빠른 시작</h2>
+      <p><strong>1. SCSS 컴파일</strong></p>
+      <p style="margin: 10px 0;">
+        <code>sass source/css/scss/style.scss source/css/style.css</code>
+      </p>
+      <p style="margin-top: 20px;"><strong>2. 파일 수정</strong></p>
+      <p>SCSS 파일 수정 후 재컴파일하거나, Watch 모드 사용:</p>
+      <p style="margin: 10px 0;">
+        <code>sass --watch source/css/scss:source/css</code>
+      </p>
+      <p style="margin-top: 20px;"><strong>3. 개발 서버</strong></p>
+      <p>Live Server 등을 사용하여 개발 서버 실행</p>
+    </div>
+    <h2 style="margin: 40px 0 20px; font-size: 28px;">📄 페이지 목록</h2>
+    <div class="page-list">
+      <a href="main.html" class="page-link">
+        <h3>메인 페이지</h3>
+        <p>Hero, Features, Contact 섹션이 포함된 메인 템플릿</p>
+        <span class="badge">Template</span>
+      </a>
+      <a href="sub.html" class="page-link">
+        <h3>서브 페이지</h3>
+        <p>Breadcrumb, 콘텐츠 섹션, CTA가 포함된 서브 템플릿</p>
+        <span class="badge">Template</span>
+      </a>
+    </div>
+    <div class="info-box">
+      <h2>📁 디렉토리 구조</h2>
+      <pre style="background: #f8f9fa; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6;">
 modern-template/
 ├── index.html              # 프로젝트 인덱스 (이 파일)
 ├── main.html               # 메인 페이지 템플릿
@@ -203,23 +200,22 @@ modern-template/
     │   └── modules/              # 기능별 모듈
     ├── font/
     └── images/
-    </pre>
-  </div>
-  
-  <div class="info-box">
-    <h2>🎨 컴포넌트</h2>
-    <p>다음 컴포넌트들이 기본 제공됩니다:</p>
-    <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
-      <li><strong>버튼:</strong> .btn, .btn-primary, .btn-secondary, .btn-outline</li>
-      <li><strong>카드:</strong> .card, .card-header, .card-body, .card-footer</li>
-      <li><strong>폼:</strong> .form-group, .form-label, .form-control</li>
-      <li><strong>뱃지:</strong> .badge, .badge-primary, .badge-success</li>
-      <li><strong>알림:</strong> .alert, .alert-info, .alert-success, .alert-warning</li>
-      <li><strong>모달:</strong> .modal, .modal-content</li>
-    </ul>
-  </div>
-  
-  <footer>
+      </pre>
+    </div>
+    <div class="info-box">
+      <h2>🎨 컴포넌트</h2>
+      <p>다음 컴포넌트들이 기본 제공합니다:</p>
+      <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
+        <li><strong>버튼:</strong> .btn, .btn-primary, .btn-secondary, .btn-outline</li>
+        <li><strong>카드:</strong> .card, .card-header, .card-body, .card-footer</li>
+        <li><strong>폼:</strong> .form-group, .form-label, .form-control</li>
+        <li><strong>뱃지:</strong> .badge, .badge-primary, .badge-success</li>
+        <li><strong>알림:</strong> .alert, .alert-info, .alert-success, .alert-warning</li>
+        <li><strong>모달:</strong> .modal, .modal-content</li>
+      </ul>
+    </div>
+  </main>
+  <footer role="contentinfo" aria-label="사이트 정보">
     <p>&copy; 2026 Modern Template. All rights reserved.</p>
     <p>Created by 야옹이 🐱</p>
   </footer>

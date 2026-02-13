@@ -121,20 +121,21 @@ table {
   @include focus-outline;
 }
 
-// 스킵 네비게이션 (접근성)
+// Skip Navigation 링크 (접근성)
 // --------------------------------------------------------------------------
-.skip-nav {
-  @include sr-only;
-  @include sr-only-focusable;
-
-  position: fixed;
-  top: 0;
+.skip-link {
+  position: absolute;
+  top: -100%;
   left: 0;
-  z-index: 9999;
-  padding: spacer(4);
-  background: color(primary);
-  color: color(white);
-  font-weight: font-weight(bold);
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--color-primary, #246beb);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 0 0 8px 0;
+  &:focus {
+    top: 0;
+  }
 }
 
 // 컨테이너
@@ -145,7 +146,6 @@ table {
   margin-left: auto;
   padding-right: spacer(6);
   padding-left: spacer(6);
-
   @each $breakpoint, $max-width in $container-max-widths {
     @include respond-to($breakpoint) {
       max-width: $max-width;
