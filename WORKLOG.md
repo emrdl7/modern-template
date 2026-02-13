@@ -1,14 +1,14 @@
 # 작업 로그 (WORKLOG)
 
-## 2026-02-13 (금) 22:25 - 런타임 테마(CSS 변수) 컬러 토큰 실사용 반영
-- **주제:** CSS 변수(--color-*) 기반 테마 토큰을 실제 UI에 반영 (다크모드/커스텀 범용성 강화)
+## 2026-02-13 (금) 23:00 - ARIA·접근성 + 최신 디자인 패턴 실무 반영
+- **주제:** ARIA 접근성 실전, 디자인 패턴 최신 트렌드(UX/UI)
 - **활동:**
-  - `source/css/scss/_base.scss`: body/링크/토글 등 핵심 색상을 `var(--color-*)` 우선으로 변경(fallback 포함)
-  - `source/css/scss/_components.scss`: 버튼/카드/폼 입력 등 컴포넌트 색상도 `var(--color-*)` 소비하도록 변경
-  - 폼 focus 스타일을 box-shadow → outline 기반으로 통일(다크모드에서 일관 + 접근성)
-  - `main.css`, `sub.css` 컴파일 반영
-- **커밋:** 8abbe91
-- **결과:** 다크모드 토글(data-theme/prefers-color-scheme) 시 색 토큰이 실제로 적용되며, 프로젝트별 커스터마이징도 CSS 변수 오버라이드만으로 쉬워짐.
+  - MDN ARIA/landmark, Smashing Magazine AI UX/Colorblind 대응/알림 UX 실무 강독 및 요약
+  - color token·outline·알림/disabled UX 처리, landmark 시맨틱 태그·skip link·모션감소 미디어쿼리/outline 등 한국 gov 기준 + WCAG 2.1 AA 반영
+  - main.css, 컴포넌트에서 aria-role 과도 사용 제거와 landmark role 실전 적용
+  - color contrast/shape/font-weight 등 실제 disabled, highlight, emergency(알림) 상태 개선
+- **커밋:** f9a1342
+- **결과:** UI/UX 접근성 강화(실제 구동 포함), color/outline/skipnav/알림/disabled 상태 개선, 코드에서 과도한 ARIA 사용 분리, 진짜 landmark 태그 우선
 
 ## 2026-02-13 (금)
 - **주제:** CSS in 2026 (LogRocket) & JS 모듈화
