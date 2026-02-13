@@ -5,6 +5,11 @@
 //   1. source/font/ 폴더에 폰트 파일(.woff2, .woff) 추가
 //   2. 아래 @font-face의 font-family, src 경로 수정
 //   3. _variables.scss의 $font-family-webfont 변수명 수정
+//
+// 한글 폰트 추천:
+//   - Pretendard (https://cactus.tistory.com/306) - 현대적, 가변 폰트 지원
+//   - Noto Sans KR (Google Fonts)
+//   - Spoqa Han Sans Neo
 // --------------------------------------------------------------------------
 
 @font-face {

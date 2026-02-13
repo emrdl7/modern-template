@@ -15,6 +15,15 @@ export const initMobileMenu = () => {
     nav.classList.toggle('is-active');
   });
 
+  // ESC 키로 메뉴 닫기
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-active')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-active');
+      toggle.focus();
+    }
+  });
+
   // 메뉴 외부 클릭 시 닫기
   document.addEventListener('click', (e) => {
     if (!toggle.contains(e.target) && !nav.contains(e.target)) {
@@ -32,7 +41,7 @@ export const initStickyHeader = () => {
   let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    const currentScroll = window.scrollY;
 
     // 스크롤 다운: 헤더 숨김
     if (currentScroll > lastScroll && currentScroll > 100) {

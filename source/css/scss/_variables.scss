@@ -1,6 +1,7 @@
 // ==========================================================================
 // Variables - 프로젝트 전역 변수
 // ==========================================================================
+@use "sass:math";
 
 // 색상 시스템
 // --------------------------------------------------------------------------
@@ -9,18 +10,18 @@ $colors: (
   primary: #246beb,
   primary-light: #5a8df5,
   primary-dark: #1a4fb8,
-  
+
   // Secondary Colors
   secondary: #003675,
   secondary-light: #1a5599,
   secondary-dark: #002051,
-  
+
   // Accent Colors
   accent: #e71825,
   success: #008a1e,
   warning: #ffb724,
   info: #2768ff,
-  
+
   // Grayscale
   gray-100: #f8f9fa,
   gray-200: #e9ecef,
@@ -31,40 +32,63 @@ $colors: (
   gray-700: #495057,
   gray-800: #343a40,
   gray-900: #212529,
-  
+
   // Base
   white: #ffffff,
   black: #000000,
-  
+
   // Semantic
   text-primary: #212529,
   text-secondary: #6c757d,
   bg-primary: #ffffff,
   bg-secondary: #f8f9fa,
-  border: #dee2e6,
+  border: #dee2e6
 );
 
 // 타이포그래피
 // --------------------------------------------------------------------------
-$font-family-webfont: 'WebFont';
-$font-family-base: $font-family-webfont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-$font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-webfont: "WebFont";
+$font-family-base:
+  $font-family-webfont,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  "Apple SD Gothic Neo",
+  "맑은 고딕",
+  "Malgun Gothic",
+  "Noto Sans KR",
+  sans-serif;
+$font-family-mono:
+  SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+  monospace;
 
 // 기본 폰트 크기 (1rem = 10px)
 $font-size-root: 62.5%;
 
 // 폰트 크기 시스템
 $font-sizes: (
-  xs: 1.2rem,    // 12px
-  sm: 1.4rem,    // 14px
-  base: 1.6rem,  // 16px
-  lg: 1.8rem,    // 18px
-  xl: 2rem,      // 20px
-  2xl: 2.4rem,   // 24px
-  3xl: 3rem,     // 30px
-  4xl: 3.6rem,   // 36px
-  5xl: 4.8rem,   // 48px
-  6xl: 6rem,     // 60px
+  xs: 1.2rem,
+  // 12px
+  sm: 1.4rem,
+  // 14px
+  base: 1.6rem,
+  // 16px
+  lg: 1.8rem,
+  // 18px
+  xl: 2rem,
+  // 20px
+  2xl: 2.4rem,
+  // 24px
+  3xl: 3rem,
+  // 30px
+  4xl: 3.6rem,
+  // 36px
+  5xl: 4.8rem,
+  // 48px
+  6xl: 6rem, // 60px
 );
 
 // 폰트 굵기
@@ -90,18 +114,29 @@ $line-heights: (
 $spacer: 1rem;
 $spacers: (
   0: 0,
-  1: $spacer * 0.25,   // 2.5px
-  2: $spacer * 0.5,    // 5px
-  3: $spacer * 0.75,   // 7.5px
-  4: $spacer,          // 10px
-  5: $spacer * 1.5,    // 15px
-  6: $spacer * 2,      // 20px
-  7: $spacer * 2.5,    // 25px
-  8: $spacer * 3,      // 30px
-  10: $spacer * 4,     // 40px
-  12: $spacer * 5,     // 50px
-  16: $spacer * 6,     // 60px
-  20: $spacer * 8,     // 80px
+  1: $spacer * 0.25,
+  // 2.5px
+  2: $spacer * 0.5,
+  // 5px
+  3: $spacer * 0.75,
+  // 7.5px
+  4: $spacer,
+  // 10px
+  5: $spacer * 1.5,
+  // 15px
+  6: $spacer * 2,
+  // 20px
+  7: $spacer * 2.5,
+  // 25px
+  8: $spacer * 3,
+  // 30px
+  10: $spacer * 4,
+  // 40px
+  12: $spacer * 5,
+  // 50px
+  16: $spacer * 6,
+  // 60px
+  20: $spacer * 8, // 80px
 );
 
 // 브레이크포인트
@@ -204,8 +239,8 @@ $container-max-widths: (
 
 // 유닛 제거 함수
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
   }
   @return $number;
 }
@@ -228,24 +263,8 @@ $container-max-widths: (
   --color-black: #{map-get($colors, black)};
 }
 
-// Dark mode: prefers-color-scheme
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #91baff;
-    --color-primary-dark: #6a9eff;
-    --color-secondary: #6fa3f7;
-    --color-accent: #ff6b6b;
-    --color-text: #e4e8f0;
-    --color-bg: #181c21;
-    --color-bg-alt: #23272e;
-    --color-border: #3a3f4a;
-    --color-white: #181c21;
-    --color-black: #f0f4ff;
-  }
-}
-
-// Dark mode: data-theme attribute (manual toggle)
-[data-theme="dark"] {
+// 다크모드 색상 정의 (mixin으로 중복 제거)
+@mixin dark-mode-colors {
   --color-primary: #91baff;
   --color-primary-dark: #6a9eff;
   --color-secondary: #6fa3f7;
@@ -256,4 +275,16 @@ $container-max-widths: (
   --color-border: #3a3f4a;
   --color-white: #181c21;
   --color-black: #f0f4ff;
+}
+
+// Dark mode: prefers-color-scheme
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-mode-colors;
+  }
+}
+
+// Dark mode: data-theme attribute (manual toggle)
+[data-theme="dark"] {
+  @include dark-mode-colors;
 }

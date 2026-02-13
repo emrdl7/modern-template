@@ -7,7 +7,7 @@
 <meta property="og:description" content="최신 웹 퍼블리싱과 프론트엔드 작업들을 MDN/CSS-Tricks 기반으로 개선">
 <meta property="og:image" content="/img/preview.png">
 <meta property="og:url" content="https://yourmodern.site/">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta property="og:locale" content="ko_KR">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modern Template - 프로젝트 인덱스</title>
   
@@ -130,16 +130,15 @@
 </head>
 <body>
   <!-- Dark Mode Toggle -->
-  <button id="darkModeToggle" onclick="document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark'" style="position:fixed;top:16px;right:16px;z-index:9999;padding:8px 16px;cursor:pointer;border-radius:8px;border:1px solid #ccc;background:#fff;">🌙 다크모드</button>
-  <a href="#main-content" class="skip-link">본문 바로가기</a>
-  <header role="banner" aria-label="사이트 헤더">
+  <button id="darkModeToggle" class="dark-mode-toggle" aria-pressed="false" onclick="var d=document.body.dataset,v=d.theme==='dark'?'':'dark';d.theme=v;this.setAttribute('aria-pressed',v==='dark')">🌙 다크모드</button>
+  <a href="#main-content" class="skip-nav">본문 바로가기</a>
+  <header aria-label="사이트 헤더">
     <h1>
       Modern Template
       <small>현대적 HTML/CSS/JS 템플릿</small>
     </h1>
   </header>
-  <nav role="navigation" aria-label="주요 메뉴" style="display:none;"></nav>
-  <main id="main-content" role="main" aria-label="본문 영역">
+  <main id="main-content" aria-label="본문 영역">
     <div class="info-box">
       <h2>📦 템플릿 소개</h2>
       <p>이 템플릿은 <strong>최신 웹 표준</strong>과 <strong>접근성</strong>을 고려하여 제작되었습니다.</p>
@@ -220,7 +219,7 @@ modern-template/
       </ul>
     </div>
   </main>
-  <footer role="contentinfo" aria-label="사이트 정보">
+  <footer aria-label="사이트 정보">
     <p>&copy; 2026 Modern Template. All rights reserved.</p>
     <p>Created by 야옹이 🐱</p>
   </footer>

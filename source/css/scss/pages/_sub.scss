@@ -11,7 +11,7 @@
 // --------------------------------------------------------------------------
 .card-grid {
   display: grid;
-  gap: map-get($spacers, 6);
+  gap: spacer(6);
   
   @include respond-to(md) {
     grid-template-columns: repeat(2, 1fr);
@@ -25,17 +25,17 @@
 // Figure (이미지 + 캡션)
 // --------------------------------------------------------------------------
 figure {
-  margin: map-get($spacers, 8) 0;
+  margin: spacer(8) 0;
   
   img {
     width: 100%;
-    border-radius: map-get($border-radius, md);
+    border-radius: radius(md);
   }
   
   figcaption {
-    margin-top: map-get($spacers, 3);
-    font-size: map-get($font-sizes, sm);
-    color: map-get($colors, text-secondary);
+    margin-top: spacer(3);
+    font-size: font-size(sm);
+    color: color(text-secondary);
     text-align: center;
   }
 }

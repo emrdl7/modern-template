@@ -1,3 +1,58 @@
+@charset "UTF-8";
+:root {
+  --color-primary: #246beb;
+  --color-primary-dark: #1a4fb8;
+  --color-secondary: #003675;
+  --color-accent: #e71825;
+  --color-text: #212529;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-border: #dee2e6;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #91baff;
+    --color-primary-dark: #6a9eff;
+    --color-secondary: #6fa3f7;
+    --color-accent: #ff6b6b;
+    --color-text: #e4e8f0;
+    --color-bg: #181c21;
+    --color-bg-alt: #23272e;
+    --color-border: #3a3f4a;
+    --color-white: #181c21;
+    --color-black: #f0f4ff;
+  }
+}
+[data-theme=dark] {
+  --color-primary: #91baff;
+  --color-primary-dark: #6a9eff;
+  --color-secondary: #6fa3f7;
+  --color-accent: #ff6b6b;
+  --color-text: #e4e8f0;
+  --color-bg: #181c21;
+  --color-bg-alt: #23272e;
+  --color-border: #3a3f4a;
+  --color-white: #181c21;
+  --color-black: #f0f4ff;
+}
+
+@font-face {
+  font-family: "WebFont";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../font/WebFont-Regular.woff2") format("woff2"), url("../../font/WebFont-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "WebFont";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../font/WebFont-Bold.woff2") format("woff2"), url("../../font/WebFont-Bold.woff") format("woff");
+}
 *,
 *::before,
 *::after {
@@ -14,7 +69,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: "WebFont", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "Noto Sans KR", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
@@ -97,7 +152,7 @@ button {
   color: inherit;
   cursor: pointer;
 }
-button:focus {
+button:focus-visible {
   outline: 2px solid #246beb;
   outline-offset: 2px;
 }
@@ -123,32 +178,17 @@ table {
 
 .skip-nav {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-.skip-nav:focus, .skip-nav:active {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-.skip-nav {
-  position: fixed;
-  top: 0;
+  top: -100%;
   left: 0;
-  z-index: 9999;
-  padding: 1rem;
-  background: #246beb;
-  color: #ffffff;
-  font-weight: 700;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--color-primary, #246beb);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 0 0 8px 0;
+}
+.skip-nav:focus {
+  top: 0;
 }
 
 .container {
@@ -211,6 +251,34 @@ table {
   white-space: normal;
 }
 
+.dark-mode-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  border: 1px solid #dee2e6;
+  background: #ffffff;
+  color: #212529;
+  font-size: 1.4rem;
+  transition: all 0.15s ease-in-out;
+}
+.dark-mode-toggle:hover {
+  background: #f8f9fa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 .content-wrapper {
   display: grid;
   gap: 4rem;
@@ -505,7 +573,7 @@ table {
   box-shadow: 0 0 0 3px rgba(36, 107, 235, 0.1);
 }
 .form-control::placeholder {
-  color: #8e8e8e;
+  color: #6c757d;
 }
 .form-control:disabled {
   background-color: #f8f9fa;

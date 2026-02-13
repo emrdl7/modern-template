@@ -20,8 +20,6 @@ const init = () => {
   initModal();
   initTabs();
   initLazyLoad();
-
-  console.log('Common JavaScript initialized');
 };
 
 // DOM 로드 완료 후 실행

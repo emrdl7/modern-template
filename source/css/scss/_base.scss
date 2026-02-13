@@ -123,7 +123,7 @@ table {
 
 // Skip Navigation 링크 (접근성)
 // --------------------------------------------------------------------------
-.skip-link {
+.skip-nav {
   position: absolute;
   top: -100%;
   left: 0;
@@ -167,4 +167,38 @@ table {
 
 .sr-only-focusable {
   @include sr-only-focusable;
+}
+
+// 다크모드 토글 버튼
+// --------------------------------------------------------------------------
+.dark-mode-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: radius(base);
+  border: 1px solid color(border);
+  background: color(white);
+  color: color(text-primary);
+  font-size: font-size(sm);
+  transition: $transition-fast;
+
+  &:hover {
+    background: color(bg-secondary);
+  }
+}
+
+// 모션 감소 선호 (접근성)
+// --------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
