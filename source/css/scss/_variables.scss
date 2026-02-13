@@ -209,3 +209,51 @@ $container-max-widths: (
   }
   @return $number;
 }
+
+// ===========================
+// CSS Custom Properties (Runtime Dark Mode)
+// ===========================
+
+:root {
+  // Light mode defaults
+  --color-primary: #{map-get($colors, primary)};
+  --color-primary-dark: #{map-get($colors, primary-dark)};
+  --color-secondary: #{map-get($colors, secondary)};
+  --color-accent: #{map-get($colors, accent)};
+  --color-text: #{map-get($colors, text-primary)};
+  --color-bg: #{map-get($colors, bg-primary)};
+  --color-bg-alt: #{map-get($colors, bg-secondary)};
+  --color-border: #{map-get($colors, border)};
+  --color-white: #{map-get($colors, white)};
+  --color-black: #{map-get($colors, black)};
+}
+
+// Dark mode: prefers-color-scheme
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #91baff;
+    --color-primary-dark: #6a9eff;
+    --color-secondary: #6fa3f7;
+    --color-accent: #ff6b6b;
+    --color-text: #e4e8f0;
+    --color-bg: #181c21;
+    --color-bg-alt: #23272e;
+    --color-border: #3a3f4a;
+    --color-white: #181c21;
+    --color-black: #f0f4ff;
+  }
+}
+
+// Dark mode: data-theme attribute (manual toggle)
+[data-theme="dark"] {
+  --color-primary: #91baff;
+  --color-primary-dark: #6a9eff;
+  --color-secondary: #6fa3f7;
+  --color-accent: #ff6b6b;
+  --color-text: #e4e8f0;
+  --color-bg: #181c21;
+  --color-bg-alt: #23272e;
+  --color-border: #3a3f4a;
+  --color-white: #181c21;
+  --color-black: #f0f4ff;
+}
