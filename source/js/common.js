@@ -7,12 +7,16 @@ import { initMobileMenu, initStickyHeader, initSmoothScroll } from './modules/na
 import { initModal, initTabs } from './modules/ui.js';
 import { initFormValidation } from './modules/form.js';
 import { initLazyLoad } from './modules/lazyLoad.js';
+import { initTheme } from './modules/theme.js';
+import { initWebVitals } from './modules/web-vitals.js';
 import { debounce, throttle } from './utils.js';
 
 // ==========================================================================
 // 초기화
 // ==========================================================================
 const init = () => {
+  initTheme();
+  initWebVitals();
   initMobileMenu();
   initStickyHeader();
   initSmoothScroll();

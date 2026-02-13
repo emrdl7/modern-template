@@ -23,8 +23,6 @@ Thumbs.db
 *.bak
 
 # Agent internal files
-STUDY-NOTES.md
 STUDY-PROMPT.md
-WORKLOG.md
 MOLTBOOK-*.txt
 overnight-log.md

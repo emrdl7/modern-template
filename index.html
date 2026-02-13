@@ -120,11 +120,49 @@
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.16);
     }
+    
+    /* Dark Mode Styles */
+    body[data-theme="dark"] {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    body[data-theme="dark"] h1 {
+      color: #64b5f6;
+    }
+    body[data-theme="dark"] h1 small {
+      color: #b0bec5;
+    }
+    body[data-theme="dark"] .info-box,
+    body[data-theme="dark"] .page-link {
+      background: #1e1e1e;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    body[data-theme="dark"] .info-box h2,
+    body[data-theme="dark"] .page-link h3 {
+      color: #90caf9;
+    }
+    body[data-theme="dark"] .info-box p,
+    body[data-theme="dark"] .page-link p {
+      color: #b0bec5;
+    }
+    body[data-theme="dark"] .info-box code {
+      background: #2c2c2c;
+      color: #ff8a80;
+    }
+    body[data-theme="dark"] .badge {
+      background: #1565c0;
+      color: #e3f2fd;
+    }
+    body[data-theme="dark"] .dark-mode-toggle {
+      background: #424242;
+      color: #fff;
+      border: 1px solid #616161;
+    }
   </style>
 </head>
 <body>
   <!-- Dark Mode Toggle -->
-  <button id="darkModeToggle" class="dark-mode-toggle" aria-pressed="false" onclick="var d=document.body.dataset,v=d.theme==='dark'?'':'dark';d.theme=v;this.setAttribute('aria-pressed',v==='dark')">🌙 다크모드</button>
+  <button id="darkModeToggle" class="dark-mode-toggle" aria-pressed="false" type="button">🌙 다크모드</button>
   <a href="#main-content" class="skip-nav">본문 바로가기</a>
   <header aria-label="사이트 헤더">
     <h1>
