@@ -73,8 +73,8 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #ffffff;
+  color: var(--color-text, #212529);
+  background-color: var(--color-bg, #ffffff);
   word-break: keep-all;
   word-wrap: break-word;
   overflow-x: hidden;
@@ -116,16 +116,16 @@ p {
 }
 
 a {
-  color: #246beb;
+  color: var(--color-primary, #246beb);
   text-decoration: none;
   transition: all 0.15s ease-in-out;
 }
 a:hover {
-  color: #1a4fb8;
+  color: var(--color-primary-dark, #1a4fb8);
   text-decoration: underline;
 }
 a:focus-visible {
-  outline: 2px solid #246beb;
+  outline: 2px solid var(--color-primary, #246beb);
   outline-offset: 2px;
 }
 
@@ -259,14 +259,14 @@ table {
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 0.8rem;
-  border: 1px solid #dee2e6;
-  background: #ffffff;
-  color: #212529;
+  border: 1px solid var(--color-border, #dee2e6);
+  background: var(--color-bg, #ffffff);
+  color: var(--color-text, #212529);
   font-size: 1.4rem;
   transition: all 0.15s ease-in-out;
 }
 .dark-mode-toggle:hover {
-  background: #f8f9fa;
+  background: var(--color-bg-alt, #f8f9fa);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -279,47 +279,18 @@ table {
     scroll-behavior: auto !important;
   }
 }
-/* Flexbox fallback for Korean gov compatibility, then grid via @supports for progressive enhancement */
 .content-wrapper {
-  /* Flexbox fallback: single column on small screens */
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 4rem;
 }
 @media (min-width: 768px) {
-  /* Two-column layout using flex when grid is not supported */
   .content-wrapper {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  .sidebar {
-    flex: 0 0 250px;
-  }
-  .main-content {
-    flex: 1 1 auto;
+    grid-template-columns: 250px 1fr;
   }
 }
 @media (min-width: 1024px) {
-  .sidebar {
-    flex: 0 0 300px;
-  }
-}
-
-/* Prefer grid when available for more robust layout control */
-@supports (display: grid) {
   .content-wrapper {
-    display: grid;
-    gap: 4rem;
-  }
-  @media (min-width: 768px) {
-    .content-wrapper {
-      grid-template-columns: 250px 1fr;
-    }
-  }
-  @media (min-width: 1024px) {
-    .content-wrapper {
-      grid-template-columns: 300px 1fr;
-    }
+    grid-template-columns: 300px 1fr;
   }
 }
 
@@ -517,19 +488,19 @@ table {
 }
 
 .btn-primary {
-  color: #ffffff;
-  background-color: #246beb;
-  border-color: #246beb;
+  color: var(--color-white, #ffffff);
+  background-color: var(--color-primary, #246beb);
+  border-color: var(--color-primary, #246beb);
 }
 .btn-primary:hover:not(:disabled) {
-  background-color: #1a4fb8;
-  border-color: #1a4fb8;
+  background-color: var(--color-primary-dark, #1a4fb8);
+  border-color: var(--color-primary-dark, #1a4fb8);
 }
 
 .btn-secondary {
-  color: #ffffff;
-  background-color: #003675;
-  border-color: #003675;
+  color: var(--color-white, #ffffff);
+  background-color: var(--color-secondary, #003675);
+  border-color: var(--color-secondary, #003675);
 }
 .btn-secondary:hover:not(:disabled) {
   background-color: #002051;
@@ -537,20 +508,20 @@ table {
 }
 
 .btn-outline {
-  color: #246beb;
+  color: var(--color-primary, #246beb);
   background-color: transparent;
-  border-color: #246beb;
+  border-color: var(--color-primary, #246beb);
 }
 .btn-outline:hover:not(:disabled) {
-  color: #ffffff;
-  background-color: #246beb;
+  color: var(--color-white, #ffffff);
+  background-color: var(--color-primary, #246beb);
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  background-color: var(--color-bg, #ffffff);
+  border: 1px solid var(--color-border, #dee2e6);
   border-radius: 1.2rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -569,8 +540,8 @@ table {
 
 .card-footer {
   padding: 2rem;
-  border-top: 1px solid #dee2e6;
-  background-color: #f8f9fa;
+  border-top: 1px solid var(--color-border, #dee2e6);
+  background-color: var(--color-bg-alt, #f8f9fa);
 }
 
 .form-group {
@@ -590,16 +561,16 @@ table {
   padding: 0.75rem 1rem;
   font-size: 1.6rem;
   line-height: 1.5;
-  color: #212529;
-  background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  color: var(--color-text, #212529);
+  background-color: var(--color-bg, #ffffff);
+  border: 1px solid var(--color-border, #dee2e6);
   border-radius: 0.8rem;
   transition: all 0.15s ease-in-out;
 }
 .form-control:focus {
-  outline: none;
-  border-color: #246beb;
-  box-shadow: 0 0 0 3px rgba(36, 107, 235, 0.1);
+  outline: 2px solid var(--color-primary, #246beb);
+  outline-offset: 2px;
+  border-color: var(--color-primary, #246beb);
 }
 .form-control::placeholder {
   color: #6c757d;
@@ -797,24 +768,3 @@ textarea.form-control {
 }
 
 /*# sourceMappingURL=main.css.map */
-
-/* Scroll Animation Styles */
-.anim-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
-}
-
-.anim-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .anim-on-scroll {
-    transition: none;
-    opacity: 1;
-    transform: none;
-  }
-}

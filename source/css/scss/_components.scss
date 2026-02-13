@@ -44,35 +44,35 @@
 
 // 버튼 스타일
 .btn-primary {
-  color: color(white);
-  background-color: color(primary);
-  border-color: color(primary);
+  color: var(--color-white, #{color(white)});
+  background-color: var(--color-primary, #{color(primary)});
+  border-color: var(--color-primary, #{color(primary)});
 
   &:hover:not(:disabled) {
-    background-color: color(primary-dark);
-    border-color: color(primary-dark);
+    background-color: var(--color-primary-dark, #{color(primary-dark)});
+    border-color: var(--color-primary-dark, #{color(primary-dark)});
   }
 }
 
 .btn-secondary {
-  color: color(white);
-  background-color: color(secondary);
-  border-color: color(secondary);
+  color: var(--color-white, #{color(white)});
+  background-color: var(--color-secondary, #{color(secondary)});
+  border-color: var(--color-secondary, #{color(secondary)});
 
   &:hover:not(:disabled) {
-    background-color: color(secondary-dark);
-    border-color: color(secondary-dark);
+    background-color: #{color(secondary-dark)};
+    border-color: #{color(secondary-dark)};
   }
 }
 
 .btn-outline {
-  color: color(primary);
+  color: var(--color-primary, #{color(primary)});
   background-color: transparent;
-  border-color: color(primary);
+  border-color: var(--color-primary, #{color(primary)});
 
   &:hover:not(:disabled) {
-    color: color(white);
-    background-color: color(primary);
+    color: var(--color-white, #{color(white)});
+    background-color: var(--color-primary, #{color(primary)});
   }
 }
 
@@ -81,8 +81,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: color(white);
-  border: 1px solid color(border);
+  background-color: var(--color-bg, #{color(bg-primary)});
+  border: 1px solid var(--color-border, #{color(border)});
   border-radius: radius(md);
   box-shadow: shadow(sm);
   overflow: hidden;
@@ -101,8 +101,8 @@
 
 .card-footer {
   padding: spacer(6);
-  border-top: 1px solid color(border);
-  background-color: color(bg-secondary);
+  border-top: 1px solid var(--color-border, #{color(border)});
+  background-color: var(--color-bg-alt, #{color(bg-secondary)});
 }
 
 // 입력 필드
@@ -124,24 +124,25 @@
   padding: spacer(3) spacer(4);
   font-size: font-size(base);
   line-height: line-height(normal);
-  color: color(text-primary);
-  background-color: color(white);
-  border: 1px solid color(border);
+  color: var(--color-text, #{color(text-primary)});
+  background-color: var(--color-bg, #{color(bg-primary)});
+  border: 1px solid var(--color-border, #{color(border)});
   border-radius: radius(base);
   transition: $transition-fast;
 
   &:focus {
-    outline: none;
-    border-color: color(primary);
-    box-shadow: 0 0 0 3px rgba(color(primary), 0.1);
+    // box-shadow는 색상 변형이 필요해 다크모드에서 어색해질 수 있어 outline 기반으로 통일
+    outline: 2px solid var(--color-primary, #{color(primary)});
+    outline-offset: 2px;
+    border-color: var(--color-primary, #{color(primary)});
   }
 
   &::placeholder {
-    color: color(gray-600);
+    color: #{color(gray-600)};
   }
 
   &:disabled {
-    background-color: color(gray-100);
+    background-color: #{color(gray-100)};
     cursor: not-allowed;
   }
 }
