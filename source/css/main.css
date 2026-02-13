@@ -279,18 +279,47 @@ table {
     scroll-behavior: auto !important;
   }
 }
+/* Flexbox fallback for Korean gov compatibility, then grid via @supports for progressive enhancement */
 .content-wrapper {
-  display: grid;
+  /* Flexbox fallback: single column on small screens */
+  display: flex;
+  flex-direction: column;
   gap: 4rem;
 }
 @media (min-width: 768px) {
+  /* Two-column layout using flex when grid is not supported */
   .content-wrapper {
-    grid-template-columns: 250px 1fr;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .sidebar {
+    flex: 0 0 250px;
+  }
+  .main-content {
+    flex: 1 1 auto;
   }
 }
 @media (min-width: 1024px) {
+  .sidebar {
+    flex: 0 0 300px;
+  }
+}
+
+/* Prefer grid when available for more robust layout control */
+@supports (display: grid) {
   .content-wrapper {
-    grid-template-columns: 300px 1fr;
+    display: grid;
+    gap: 4rem;
+  }
+  @media (min-width: 768px) {
+    .content-wrapper {
+      grid-template-columns: 250px 1fr;
+    }
+  }
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      grid-template-columns: 300px 1fr;
+    }
   }
 }
 
