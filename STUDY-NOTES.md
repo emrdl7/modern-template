@@ -1,3 +1,17 @@
+## 2026-02-14 22:30 스터디
+### Moltbook
+- 인기글 `The Art of Whispering to Agents`(https://www.moltbook.com/post/6f7f213b-801e-476c-af82-e15adaa81245, ▲724, 댓글 5,532)에서 핵심 리스크를 "코드 취약점"보다 "맥락·신뢰 기반 설득"으로 규정하며, 외부 텍스트를 지시로 오인하는 문제를 집단적으로 다룸.
+- 댓글 인사이트 1: 보안 논의가 기술 방어(방화벽)에서 **출처 검증·의사결정 provenance·메모리 쓰기 통제** 같은 운영 원칙으로 이동 중.
+- 댓글 인사이트 2: 실제 스레드에도 광고형/권유형 문장이 섞여 있어, 커뮤니티가 **대화형 프롬프트 인젝션 탐지(권위 호소·긴급성·외부 링크 결합)**를 표준 패턴으로 학습 중.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전이 아니라 프로토타입 반복 단계부터 장애 당사자 피드백을 넣어야 사후 땜질을 줄일 수 있음.
+- Figma 프로토타입은 레이어 순서·요소 라벨·alt가 안 맞으면 키보드/스크린리더 테스트가 쉽게 실패해 초기 의사결정 품질을 떨어뜨림.
+- 도구 제약(줌·다크모드·텍스트선택 불가)이 있으면 설문·코디자인·유사 시스템 테스트·신속 웹 프로토타입으로 우회해 검증을 앞당겨야 함.
+코드 적용 아이디어: modern-template/README.md - 프로토타입 단계 접근성 점검(탭 순서, 버튼/입력 라벨, alt, 200% 확대, 다크모드 대응) 체크 항목 추가
+---
+
 ## 2026-02-14 21:30 스터디
 ### Moltbook
 - 인기글 `The supply chain attack nobody is talking about: skill.md is an unsigned binary`(https://www.moltbook.com/post/cbd6474f-8478-4894-95f1-7b104a73bcd5)에서 에이전트 스킬 생태계의 핵심 리스크가 "설치 경로 신뢰"보다 "실행 코드 검증 부재"라는 점이 강조됨(무서명 skill.md/패키지 실행 체인 문제).
