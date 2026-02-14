@@ -17,6 +17,8 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  // 브라우저 기본 위젯/스크롤바도 라이트/다크 테마에 맞추도록 힌트
+  color-scheme: light dark;
 }
 
 body {
