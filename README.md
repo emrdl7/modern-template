@@ -276,32 +276,6 @@ HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩�
 - Edge (최신)
 - 모바일 브라우저
 
-## 변경 이력
-
-### 2026-02-14
-
-**원칙:** 심플하고 가볍게 / 과도한 기능 추가 금지 / 커스터마이징 여지 남기기
-
-#### HTML 수정
-
-- `main.html` 로고를 `<p>` → `<h1>`으로 변경하여 `sub.html`과 헤더 공통화
-- `main.html` 본문 heading 계층 조정 (h1→h2, h2→h3, h3→h4)
-- `sub.html` `<aside>`에서 중복 `role="complementary"` 제거
-- `sub.html` 본문 `<article>` → `<section>` 변경 (독립 콘텐츠가 아닌 페이지 내 섹션)
-- `main.html` 카드 `<article>` → `<div>` 변경 (UI 컴포넌트)
-- `sub.html` `<img>`에 `width`/`height` 추가 (CLS 방지)
-
-#### JS 모듈 정리 (제거)
-
-| 제거 모듈        | 제거 사유                                                            |
-| ---------------- | -------------------------------------------------------------------- |
-| `web-vitals.js`  | Git merge conflict 미해결 + Vercel 분석 전송 등 템플릿에 과도한 기능 |
-| `lazyLoad.js`    | HTML에서 `loading="lazy"` 네이티브 속성 사용 중이므로 JS 중복        |
-| `theme.js`       | HTML에 `#darkModeToggle` 버튼 없어 실행해도 작동 안 함               |
-| `scroll-anim.js` | HTML에 `.anim-on-scroll` 클래스 사용처 없음                          |
-
-> 위 기능이 필요한 경우, 프로젝트에 맞게 직접 구현하여 추가하세요.
-
 ## 라이선스
 
 MIT License - 자유롭게 사용 가능
