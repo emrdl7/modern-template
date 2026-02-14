@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 08:00 - focus-visible 링 대비 강화 + reduced-motion 링크/토글 확장
+- **수정 파일:** source/css/scss/_mixins.scss, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 포커스 스타일 믹스인에 `border-radius`와 더 두꺼운 외곽 halo를 추가해 키보드 탐색 시 시인성을 높였고, `prefers-reduced-motion: reduce`에서 버튼/카드뿐 아니라 링크(`a`)와 다크모드 토글까지 모션 차단 대상으로 확장해 인터랙션 흔들림을 줄임.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 실제 main/sub 페이지에서 포커스 링이 과한 컴포넌트가 없는지 시각 점검 후 필요 시 컴포넌트별 미세 조정.
+---
+
 ## 2026-02-15 (일요일) 07:00 - 프로토타입 접근성 기본 템플릿 블록 고정
 - **수정 파일:** README.md
 - **변경 내용:** 프로토타입 접근성 QA 체크리스트 아래에 이슈/PR에 바로 붙여 넣을 수 있는 `Prototype A11y Check (Default)` 블록을 추가해 탭 순서·포커스 가시성·라벨·alt·200% 확대·다크/고대비 확인을 기본 항목으로 고정함.

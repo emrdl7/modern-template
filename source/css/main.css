@@ -128,7 +128,8 @@ a:hover {
 a:focus-visible {
   outline: 3px solid var(--color-primary, #246beb);
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 
 ul, ol {
@@ -157,7 +158,8 @@ button {
 button:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 
 input,
@@ -177,7 +179,8 @@ table {
 :focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 
 .skip-nav {
@@ -283,7 +286,9 @@ table {
   }
   .btn,
   .card,
-  [class*=card] {
+  [class*=card],
+  .dark-mode-toggle,
+  a {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -484,7 +489,8 @@ table {
 .btn:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 .btn:disabled {
   opacity: 0.6;
@@ -513,7 +519,8 @@ table {
 .btn-primary:focus-visible {
   outline: 3px solid var(--color-primary, #246beb);
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 
 .btn-secondary {
@@ -619,7 +626,8 @@ textarea.form-control {
 .form-check-input:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 
 .form-check-label {

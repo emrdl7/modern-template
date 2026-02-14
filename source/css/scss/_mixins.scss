@@ -85,9 +85,10 @@
   // 키보드 포커스 가시성 강화: 고대비 외곽선 + 이중 halo
   outline: 3px solid $color;
   outline-offset: $offset;
+  border-radius: 4px;
   box-shadow:
     0 0 0 2px var(--color-bg, #{color(bg-primary)}),
-    0 0 0 5px rgba(36, 107, 235, 0.28);
+    0 0 0 6px rgba(36, 107, 235, 0.36);
 }
 
 // 버튼 리셋
