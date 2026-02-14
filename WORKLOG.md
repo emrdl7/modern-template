@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 01:00 - 프로토타입 접근성 QA 체크리스트 보강
+- **수정 파일:** README.md
+- **변경 내용:** 프로토타입 접근성 QA 항목에 포커스 가시성·헤딩 구조·200% 확대 리플로우·다크모드/고대비 확인을 추가해 초기 검증 기준을 더 명확히 했고, "키보드 탐색 → 200% 확대 → alt/라벨 점검" 권장 루틴을 문서에 반영함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** README 체크리스트를 기준으로 main/sub 템플릿의 폼·내비게이션 요소 1~2곳에 실제 점검/수정 샘플 반영.
+---
+
 ## 2026-02-15 (일요일) 00:00 - focus-visible 대비 강화 및 reduced-motion 버튼/카드 명시 처리
 - **수정 파일:** source/css/scss/_mixins.scss, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 포커스 링에 이중 halo를 추가해 키보드 탐색 시 대비를 강화했고, `prefers-reduced-motion: reduce`에서 `.btn`/`.card` 계열의 transition·transform을 명시적으로 비활성화해 모션 민감 사용자 경험을 안정화함.
