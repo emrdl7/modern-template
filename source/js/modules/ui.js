@@ -74,7 +74,12 @@ export const initModal = () => {
 export const initTabs = () => {
   document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
     const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+    // 현재 tablist가 실제로 제어하는 패널만 매핑 (role 문맥 분리)
+    const panels = tabs
+      .map((tab) => tab.getAttribute("aria-controls"))
+      .filter(Boolean)
+      .map((panelId) => document.getElementById(panelId))
+      .filter((panel) => panel?.getAttribute("role") === "tabpanel");
 
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", (e) => {
@@ -86,7 +91,7 @@ export const initTabs = () => {
           t.classList.remove("is-active");
         });
 
-        // 모든 패널 숨김
+        // 이 tablist의 패널만 숨김
         panels.forEach((p) => (p.hidden = true));
 
         // 선택된 탭 활성화
@@ -96,7 +101,7 @@ export const initTabs = () => {
         // 해당 패널 표시
         const panelId = tab.getAttribute("aria-controls");
         const panel = document.getElementById(panelId);
-        if (panel) panel.hidden = false;
+        if (panel?.getAttribute("role") === "tabpanel") panel.hidden = false;
       });
 
       // 키보드 네비게이션

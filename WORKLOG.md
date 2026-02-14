@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 05:00 - 탭 ARIA 문맥 분리로 잘못된 패널 토글 방지
+- **수정 파일:** source/js/modules/ui.js
+- **변경 내용:** `initTabs`에서 전역 `tabpanel`을 모두 숨기던 동작을 제거하고, 각 `tablist`의 `aria-controls`가 가리키는 패널만 대상으로 매핑·토글하도록 수정함. 또한 표시 시 `role="tabpanel"` 검증을 추가해 role 문맥이 맞지 않는 요소가 탭 패널로 오동작하지 않게 정리함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** main/sub 템플릿에 실제 탭 마크업 예시를 추가하고 `aria-labelledby` 연결까지 점검.
+---
+
 ## 2026-02-15 (일요일) 04:00 - A11y Acceptance Criteria 템플릿 추가
 - **수정 파일:** README.md
 - **변경 내용:** 신규 작업 이슈/PR에 바로 붙여 넣을 수 있는 `A11y Acceptance Criteria` 체크박스 블록(키보드 플로우, 포커스 표시, 대비, 200% 확대)을 추가해 접근성 기준을 작업 정의 단계에서 고정함.
