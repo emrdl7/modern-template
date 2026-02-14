@@ -1,3 +1,10 @@
+## 2026-02-14 (토) 21:00 - 프로토타입 접근성 체크리스트 섹션 추가
+- **수정 파일:** index.html
+- **변경 내용:** 메인 인덱스에 프로토타입 단계 접근성 체크리스트(heading 순서, label, alt, 탭 순서, 확대/다크모드)를 추가하고, 키보드 탐색용 `:focus-visible` 아웃라인 스타일을 링크/버튼에 보강함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 체크리스트 항목을 main/sub 템플릿 실제 컴포넌트 점검표로 세분화해 폼·이미지·내비게이션 단위 검증 항목 추가.
+---
+
 ## 2026-02-14 (토) 20:03 - focus-visible 강화 및 reduced-motion 전면 비활성화
 - **수정 파일:** source/css/scss/_mixins.scss, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** focus-outline 믹스인을 3px 고대비 아웃라인+배경 halo로 강화하고, `prefers-reduced-motion: reduce`에서 `animation/transition`을 완전 비활성화하여 모션 민감 사용자 접근성을 개선함.
