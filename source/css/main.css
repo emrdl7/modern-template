@@ -497,6 +497,10 @@ table {
   background-color: var(--color-primary-dark, #1a4fb8);
   border-color: var(--color-primary-dark, #1a4fb8);
 }
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-primary, #246beb);
+  outline-offset: 2px;
+}
 
 .btn-secondary {
   color: var(--color-white, #ffffff);

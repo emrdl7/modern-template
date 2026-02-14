@@ -52,6 +52,10 @@
     background-color: var(--color-primary-dark, #{color(primary-dark)});
     border-color: var(--color-primary-dark, #{color(primary-dark)});
   }
+
+  &:focus-visible {
+    @include focus-outline(var(--color-primary, #{color(primary)}));
+  }
 }
 
 .btn-secondary {
