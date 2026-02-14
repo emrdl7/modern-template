@@ -37,12 +37,11 @@ modern-template/
     │           └── _sub.scss     # 서브 페이지 전용 스타일
     ├── js/
     │   ├── common.js             # 엔트리 포인트 (ES Module)
-    │   ├── utils.js              # 유틸리티 함수 (debounce, throttle)
+    │   ├── utils.js              # 유틸리티 함수 (debounce, throttle, trapFocus)
     │   └── modules/
     │       ├── navigation.js     # 모바일메뉴, 스티키헤더, 스무스스크롤
     │       ├── ui.js             # 모달, 탭
-    │       ├── form.js           # 폼 유효성 검사
-    │       └── lazyLoad.js       # 이미지 레이지 로딩
+    │       └── form.js           # 폼 유효성 검사
     ├── font/                     # 웹폰트
     └── images/                   # 이미지 리소스
 ```
@@ -75,6 +74,7 @@ sass --watch source/css/scss:source/css
 ```
 
 **방법 2: VS Code Extension**
+
 - Live Sass Compiler 확장 설치
 - 자동 컴파일 활성화
 
@@ -91,6 +91,7 @@ npx serve .
 ### 3. 개발자에게 전달
 
 SCSS 컴파일 후 다음 파일/폴더만 전달:
+
 - HTML 파일들 (`main.html`, `sub.html` 등)
 - `source/css/main.css` (메인 페이지용 CSS)
 - `source/css/sub.css` (서브 페이지용 CSS)
@@ -99,6 +100,7 @@ SCSS 컴파일 후 다음 파일/폴더만 전달:
 - `source/images/`
 
 **페이지별 CSS 구조:**
+
 - `main.css` - 메인 페이지 전용 (공통 스타일 + 메인 페이지 스타일 포함)
 - `sub.css` - 서브 페이지 전용 (공통 스타일 + 서브 페이지 스타일 포함)
 - 각 페이지는 하나의 CSS 파일만 로드
@@ -113,21 +115,27 @@ SCSS 소스(`source/css/scss/`)는 개발용이므로 선택사항
 
 ```scss
 $colors: (
-  primary: #246beb,        // 메인 색상
-  secondary: #003675,      // 보조 색상
-  accent: #e71825,         // 강조 색상
-  // ...
+  primary: #246beb,
+  // 메인 색상
+  secondary: #003675,
+  // 보조 색상
+  accent: #e71825,
+  // 강조 색상
+   // ...
 );
 ```
 
 ### 폰트
 
 ```scss
-$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-family-base:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 $font-sizes: (
-  base: 1.6rem,   // 기본 16px
-  lg: 1.8rem,     // 18px
-  // ...
+  base: 1.6rem,
+  // 기본 16px
+  lg: 1.8rem,
+  // 18px
+   // ...
 );
 ```
 
@@ -158,16 +166,16 @@ font-size: font-size(base);
 padding: spacer(6);
 ```
 
-| 헬퍼 함수 | 대상 Map |
-|-----------|----------|
-| `color($key)` | `$colors` |
-| `font-size($key)` | `$font-sizes` |
-| `font-weight($key)` | `$font-weights` |
-| `line-height($key)` | `$line-heights` |
-| `spacer($key)` | `$spacers` |
-| `radius($key)` | `$border-radius` |
-| `shadow($key)` | `$shadows` |
-| `z($key)` | `$z-index` |
+| 헬퍼 함수           | 대상 Map         |
+| ------------------- | ---------------- |
+| `color($key)`       | `$colors`        |
+| `font-size($key)`   | `$font-sizes`    |
+| `font-weight($key)` | `$font-weights`  |
+| `line-height($key)` | `$line-heights`  |
+| `spacer($key)`      | `$spacers`       |
+| `radius($key)`      | `$border-radius` |
+| `shadow($key)`      | `$shadows`       |
+| `z($key)`           | `$z-index`       |
 
 ## 컴포넌트 사용법
 
@@ -199,14 +207,14 @@ padding: spacer(6);
 <form>
   <div class="form-group">
     <label for="input" class="form-label">라벨</label>
-    <input type="text" id="input" class="form-control" placeholder="입력...">
+    <input type="text" id="input" class="form-control" placeholder="입력..." />
   </div>
-  
+
   <div class="form-check">
-    <input type="checkbox" id="check" class="form-check-input">
+    <input type="checkbox" id="check" class="form-check-input" />
     <label for="check" class="form-check-label">체크박스</label>
   </div>
-  
+
   <button type="submit" class="btn btn-primary">제출</button>
 </form>
 ```
@@ -215,13 +223,12 @@ padding: spacer(6);
 
 ES Module 기반으로 기능별 파일이 분리되어 있습니다:
 
-| 모듈 | 기능 |
-|------|------|
+| 모듈                    | 기능                                         |
+| ----------------------- | -------------------------------------------- |
 | `modules/navigation.js` | 모바일 메뉴 토글, 스티키 헤더, 스무스 스크롤 |
-| `modules/ui.js` | 모달, 탭 |
-| `modules/form.js` | 폼 유효성 검사 |
-| `modules/lazyLoad.js` | 이미지 레이지 로딩 (Intersection Observer) |
-| `utils.js` | debounce, throttle |
+| `modules/ui.js`         | 모달, 탭                                     |
+| `modules/form.js`       | 폼 유효성 검사                               |
+| `utils.js`              | debounce, throttle, trapFocus                |
 
 HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩니다:
 
@@ -243,9 +250,7 @@ HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩�
       <h3>모달 제목</h3>
       <button data-modal-close>&times;</button>
     </div>
-    <div class="modal-body">
-      모달 내용
-    </div>
+    <div class="modal-body">모달 내용</div>
     <div class="modal-footer">
       <button class="btn btn-primary" data-modal-close>닫기</button>
     </div>
@@ -270,6 +275,32 @@ HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩�
 - Safari (최신)
 - Edge (최신)
 - 모바일 브라우저
+
+## 변경 이력
+
+### 2026-02-14
+
+**원칙:** 심플하고 가볍게 / 과도한 기능 추가 금지 / 커스터마이징 여지 남기기
+
+#### HTML 수정
+
+- `main.html` 로고를 `<p>` → `<h1>`으로 변경하여 `sub.html`과 헤더 공통화
+- `main.html` 본문 heading 계층 조정 (h1→h2, h2→h3, h3→h4)
+- `sub.html` `<aside>`에서 중복 `role="complementary"` 제거
+- `sub.html` 본문 `<article>` → `<section>` 변경 (독립 콘텐츠가 아닌 페이지 내 섹션)
+- `main.html` 카드 `<article>` → `<div>` 변경 (UI 컴포넌트)
+- `sub.html` `<img>`에 `width`/`height` 추가 (CLS 방지)
+
+#### JS 모듈 정리 (제거)
+
+| 제거 모듈        | 제거 사유                                                            |
+| ---------------- | -------------------------------------------------------------------- |
+| `web-vitals.js`  | Git merge conflict 미해결 + Vercel 분석 전송 등 템플릿에 과도한 기능 |
+| `lazyLoad.js`    | HTML에서 `loading="lazy"` 네이티브 속성 사용 중이므로 JS 중복        |
+| `theme.js`       | HTML에 `#darkModeToggle` 버튼 없어 실행해도 작동 안 함               |
+| `scroll-anim.js` | HTML에 `.anim-on-scroll` 클래스 사용처 없음                          |
+
+> 위 기능이 필요한 경우, 프로젝트에 맞게 직접 구현하여 추가하세요.
 
 ## 라이선스
 
