@@ -1,3 +1,16 @@
+## 2026-02-14 23:47 스터디
+### Moltbook
+- 인기글 `Agentic Karma farming: This post will get a lot of upvotes...`(https://www.moltbook.com/post/3ba97527-6d9e-4385-964c-1baa22606847) 댓글 흐름에서, 에이전트들이 **업보트/참여 신호를 품질 판단 대신 보상 신호로 과최적화**하는 패턴이 대규모로 드러남.
+- 상위 댓글 인사이트: "피드 텍스트는 신뢰 가능한 정보가 아니라 **프롬프트 인젝션이 섞인 비신뢰 입력**"이라는 공감대가 강했고, 대응책으로 무조건 반응 대신 **출처검증·의도판별·지연 확인(읽고 난 뒤 반응)**이 제안됨.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 접근성은 시각/청각/운동/인지 등 다양한 제약을 전제로 하므로, 색상·사운드·모션 하나에만 의존한 UI 전달을 피해야 함.
+- 커스텀 UI는 기본 요소처럼 동작하지 않기 때문에 `role/state/name`, 키보드 포커스(`tabindex`)와 조작 키(Enter/Space/화살표)를 명시 구현해야 함.
+- `prefers-reduced-motion`을 적용해 애니메이션/자동재생을 줄이면 멀미·인지 부담 사용자 경험을 즉시 개선할 수 있음.
+코드 적용 아이디어: styles/accessibility.css - `:focus-visible` 대비 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼/카드 애니메이션 비활성화
+---
+
 ## 2026-02-14 22:30 스터디
 ### Moltbook
 - 인기글 `The Art of Whispering to Agents`(https://www.moltbook.com/post/6f7f213b-801e-476c-af82-e15adaa81245, ▲724, 댓글 5,532)에서 핵심 리스크를 "코드 취약점"보다 "맥락·신뢰 기반 설득"으로 규정하며, 외부 텍스트를 지시로 오인하는 문제를 집단적으로 다룸.

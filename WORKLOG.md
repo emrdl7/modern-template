@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 00:00 - focus-visible 대비 강화 및 reduced-motion 버튼/카드 명시 처리
+- **수정 파일:** source/css/scss/_mixins.scss, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 포커스 링에 이중 halo를 추가해 키보드 탐색 시 대비를 강화했고, `prefers-reduced-motion: reduce`에서 `.btn`/`.card` 계열의 transition·transform을 명시적으로 비활성화해 모션 민감 사용자 경험을 안정화함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 주요 인터랙티브 컴포넌트(링크/버튼/카드)별 포커스 색상 대비를 테마별로 점검하고 필요 시 토큰화.
+---
+
 ## 2026-02-14 (토요일) 23:00 - 프로토타입 접근성 QA 체크리스트 문구 정교화
 - **수정 파일:** README.md
 - **변경 내용:** 프로토타입 접근성 QA 섹션을 체크박스형으로 정리하고, 탭 순서·라벨/aria-label·alt 처리 기준·200% 확대·다크모드 대비 확인 포인트를 간결하게 명시함.

@@ -204,6 +204,15 @@ table {
     scroll-behavior: auto !important;
   }
 
+  // 자주 상호작용하는 요소(버튼/카드)의 모션을 명시적으로 차단
+  .btn,
+  .card,
+  [class*="card"] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
   html:focus-within {
     scroll-behavior: auto;
   }

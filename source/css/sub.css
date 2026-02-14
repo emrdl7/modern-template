@@ -128,7 +128,7 @@ a:hover {
 a:focus-visible {
   outline: 3px solid var(--color-primary, #246beb);
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
 }
 
 ul, ol {
@@ -157,7 +157,7 @@ button {
 button:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
 }
 
 input,
@@ -177,7 +177,7 @@ table {
 :focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
 }
 
 .skip-nav {
@@ -280,6 +280,13 @@ table {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+  .btn,
+  .card,
+  [class*=card] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
   html:focus-within {
     scroll-behavior: auto;
@@ -477,7 +484,7 @@ table {
 .btn:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
 }
 .btn:disabled {
   opacity: 0.6;
@@ -506,7 +513,7 @@ table {
 .btn-primary:focus-visible {
   outline: 3px solid var(--color-primary, #246beb);
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
 }
 
 .btn-secondary {
@@ -612,7 +619,7 @@ textarea.form-control {
 .form-check-input:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 5px rgba(36, 107, 235, 0.28);
 }
 
 .form-check-label {
