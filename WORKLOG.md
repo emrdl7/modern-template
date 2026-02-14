@@ -1,3 +1,20 @@
+## 2026-02-14 (토) 20:03 - focus-visible 강화 및 reduced-motion 전면 비활성화
+- **수정 파일:** source/css/scss/_mixins.scss, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** focus-outline 믹스인을 3px 고대비 아웃라인+배경 halo로 강화하고, `prefers-reduced-motion: reduce`에서 `animation/transition`을 완전 비활성화하여 모션 민감 사용자 접근성을 개선함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 버튼·카드·네비게이션 등 주요 인터랙티브 컴포넌트별 focus-visible 대비를 점검하고 색상 대비(명암비) 수치 검증까지 확장.
+---
+
+## 2026-02-14 (토) 19:11 - 메인 템플릿 heading 구조·대체텍스트 접근성 정리
+- **주제:** 스크린리더 기준으로 메인 템플릿의 페이지 제목 계층과 이미지 대체텍스트를 더 명확하게 다듬기
+- **수정 파일:** main.html, sub.html
+- **변경 내용:**
+  - main.html: 헤더 로고를 시각적 로고(p)로 조정하고, Hero 섹션의 메인 타이틀을 페이지 단일 `<h1>`로 승격해 스크린리더용 문서 아웃라인 명확화
+  - sub.html: 예시 이미지의 `alt="설명"`을 실제 콘텐츠 맥락을 반영하는 `alt="서비스 관련 예시 이미지"`로 구체화해 의미 없는 대체텍스트 제거
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** main/sub 템플릿 전반의 landmark·heading 계층을 한 번 더 점검하고, 카드/섹션 타이틀에도 일관된 레벨링 가이드 추가
+---
+
 ## 2026-02-14 (Sat) 15:16 - 기본 버튼(.btn-primary) 포커스 가시성 개선
 - **주제:** 키보드 사용자용으로 primary 버튼의 focus-visible 상태를 더 분명하게 표시해서 접근성 향상
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css
@@ -24,4 +41,3 @@
   - main.css에서 info/success/warning를 CSS var()로 치환하여 디자인 커스텀, 테마 일원화, WCAG 2.1 대비 개선
   - 커밋/푸시 및 WORKLOG/노트 자동 동기화 준비
 - **성과:** 알림 UI 색상, 커스텀·범용성·명확성 모두상승. 접근성/톤일관성 개선 및 코드 커스터마이즈 편의 실전 구현.
-

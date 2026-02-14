@@ -126,8 +126,9 @@ a:hover {
   text-decoration: underline;
 }
 a:focus-visible {
-  outline: 2px solid var(--color-primary, #246beb);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-primary, #246beb);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
 }
 
 ul, ol {
@@ -154,8 +155,9 @@ button {
   cursor: pointer;
 }
 button:focus-visible {
-  outline: 2px solid #246beb;
-  outline-offset: 2px;
+  outline: 3px solid #246beb;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
 }
 
 input,
@@ -173,8 +175,9 @@ table {
 }
 
 :focus-visible {
-  outline: 2px solid #246beb;
-  outline-offset: 2px;
+  outline: 3px solid #246beb;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
 }
 
 .skip-nav {
@@ -274,10 +277,12 @@ table {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
+  }
+  html:focus-within {
+    scroll-behavior: auto;
   }
 }
 .content-wrapper {
@@ -470,8 +475,9 @@ table {
   user-select: none;
 }
 .btn:focus-visible {
-  outline: 2px solid #246beb;
-  outline-offset: 2px;
+  outline: 3px solid #246beb;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
 }
 .btn:disabled {
   opacity: 0.6;
@@ -498,8 +504,9 @@ table {
   border-color: var(--color-primary-dark, #1a4fb8);
 }
 .btn-primary:focus-visible {
-  outline: 2px solid var(--color-primary, #246beb);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-primary, #246beb);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
 }
 
 .btn-secondary {
@@ -603,8 +610,9 @@ textarea.form-control {
   cursor: pointer;
 }
 .form-check-input:focus-visible {
-  outline: 2px solid #246beb;
-  outline-offset: 2px;
+  outline: 3px solid #246beb;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff);
 }
 
 .form-check-label {
