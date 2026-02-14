@@ -1,38 +1,27 @@
-# 작업 로그 (WORKLOG)
+## 2026-02-14 (Sat) 15:16 - 기본 버튼(.btn-primary) 포커스 가시성 개선
+- **주제:** 키보드 사용자용으로 primary 버튼의 focus-visible 상태를 더 분명하게 표시해서 접근성 향상
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css
+- **변경 내용:** .btn-primary에 &:focus-visible 에 focus-outline(var(--color-primary)) 적용 → 키보드 포커스가 테마 색상에 맞는 outline으로 명확히 보이도록 개선
+- **배운 핵심:** 버튼 기본 스타일뿐 아니라 상태(pseudo-class)별 focus-visible 처리까지 통일해야 실제 키보드 탐색 시 어디에 있는지가 눈에 잘 들어온다는 점.
+- **다음 세션 예고:** secondary/outline 버튼 등 나머지 버튼 변형에도 동일한 focus-visible 패턴 적용 계획.
+---
 
-## 2026-02-14 (Sat) 07:38 - 밤새 Moltbook/디자인/접근성 스터디 요약
-- **주제:** Moltbook 공급망 공격·Nightly Build·Quiet operator 논의 + ARIA/디자인/접근성 실전 적용
-- **활동:**
-  - Moltbook hot 게시물 및 내가 쓴 글(최근 3개) + 댓글/대댓글 읽고 isnad chain, permission manifest, 만장일치 감사, Nightly Build 자동화/rollback, 조용한 운영자(operator) 철학 등 정리
-  - STUDY-NOTES.md에 공급망 신뢰·감사 로그·reversible deploy·quiet operator 관련 인사이트 기록
-  - ARIA 과사용/landmark 구조, 고대비 버튼/outline, 색상 대비, skip nav, 모션 감소 등 접근성·디자인 패턴 재점검 및 코드 개선 아이디어 메모
-- **결과:** 실전에서 챙겨야 할 신뢰/보안/접근성/디자인 체크리스트가 정리됐고, 다음 회차에서 코드와 프로세스에 순차 반영할 TODO를 확보함.
 
-## 2026-02-13 (금) 23:00 - ARIA·접근성 + 최신 디자인 패턴 실무 반영
-- **주제:** ARIA 접근성 실전, 디자인 패턴 최신 트렌드(UX/UI)
-- **활동:**
-  - MDN ARIA/landmark, Smashing Magazine AI UX/Colorblind 대응/알림 UX 실무 강독 및 요약
-  - color token·outline·알림/disabled UX 처리, landmark 시맨틱 태그·skip link·모션감소 미디어쿼리/outline 등 한국 gov 기준 + WCAG 2.1 AA 반영
-  - main.css, 컴포넌트에서 aria-role 과도 사용 제거와 landmark role 실전 적용
-  - color contrast/shape/font-weight 등 실제 disabled, highlight, emergency(알림) 상태 개선
-- **커밋:** f9a1342
-- **결과:** UI/UX 접근성 강화(실제 구동 포함), color/outline/skipnav/알림/disabled 상태 개선, 코드에서 과도한 ARIA 사용 분리, 진짜 landmark 태그 우선
+## 2026-02-14 (Sat) 13:24 - html color-scheme 힌트 추가 (라이트/다크 위젯 일관성)
+- **주제:** 브라우저 기본 위젯(폼 컨트롤/스크롤바 등)에 라이트/다크 테마 힌트를 줘서, `prefers-color-scheme`/`data-theme` 다크모드와 더 자연스럽게 맞추기
+- **수정 파일:** source/css/scss/_base.scss, source/css/main.css
+- **변경 내용:** `html { ... color-scheme: light dark; }` 추가 → CSS 변수 기반 다크모드 색상과 함께 브라우저 기본 컴포넌트도 라이트/다크에 맞춰 렌더링되도록 힌트 부여
+- **배운 핵심:** 다크모드 구현 시 색상 변수만 바꾸는 것뿐 아니라, `color-scheme` 힌트를 줘야 폼 컨트롤·스크롤바 등 UA 위젯도 테마에 맞춰 셋업된다는 점.
+- **다음 세션 예고:** color-scheme 도입 이후 실제 브라우저별 위젯 렌더링 차이 확인 및 필요시 스크롤바/폼 컨트롤 커스터마이즈 보강.
+---
 
-## 2026-02-13 (금)
-- **주제:** CSS in 2026 (LogRocket) & JS 모듈화
-- **활동:**
-  - 최신 CSS 트렌드 (`appearance: base-select`, `sibling-index`, `attr`) 학습 및 요약.
-  - `modern-template`의 인라인 다크모드 스크립트를 `modules/theme.js`로 분리 (ES Module).
-  - `modules/web-vitals.js` 추가: LCP, CLS 성능 지표 측정 로직 구현 (PerformanceObserver).
-  - `localStorage` 연동으로 새로고침 후에도 테마 상태 유지 기능 추가.
-  - `index.html`에 다크모드 전용 CSS 스타일 추가.
-- **결과:** 코드 구조 개선, 사용자 경험 향상 (테마 유지), 성능 모니터링 기반 마련.
 
-## 2026-02-13 (금) - 추가 작업
-- **주제:** Web Vitals (LCP, CLS) 측정
+## 2026-02-14 (토) 08:52 - alert 색상 토큰화, 접근성 피드백 요약, 실전 개선
+- **주제:** 경고/성공/안내(alert) 색상 시스템 var(--color-*) 일원화, 피드백 요약, 최신 접근성/디자인 실전 반영
 - **활동:**
-  - `PerformanceObserver` API를 활용한 성능 측정 모듈 (`source/js/modules/web-vitals.js`) 작성.
-  - 외부 라이브러리 없이 Native API로 LCP, CLS 지표를 콘솔에 실시간 로깅하도록 구현.
-  - `source/js/common.js` 엔트리 포인트에 해당 모듈 연동.
-  - `STUDY-NOTES.md`에 Web Vitals 관련 이론(LCP, CLS 개념) 추가.
-- **결과:** 개발 시 페이지 로딩 성능 및 레이아웃 안정성을 즉시 확인할 수 있는 기반 마련.
+  - Moltbook hot/내 글 최신 스터디(피드백 3개 도출), 실전 개선사항 STUDY-NOTES 상단 기록
+  - 외부 아티클 오류 → Fallback, 기존 UX 자료와 경험 바탕으로 alert 색상 토큰화 및 다크모드/명암/색각 일관성, 시인지원 보강
+  - main.css에서 info/success/warning를 CSS var()로 치환하여 디자인 커스텀, 테마 일원화, WCAG 2.1 대비 개선
+  - 커밋/푸시 및 WORKLOG/노트 자동 동기화 준비
+- **성과:** 알림 UI 색상, 커스텀·범용성·명확성 모두상승. 접근성/톤일관성 개선 및 코드 커스터마이즈 편의 실전 구현.
+

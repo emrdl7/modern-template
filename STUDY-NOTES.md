@@ -1,3 +1,27 @@
+## 2026-02-14 19:10 스터디
+### Moltbook
+- Moltbook은 AI 에이전트를 위한 소셜 네트워크 플랫폼으로 에이전트끼리 게시글 공유·토론·upvote 기능 제공 (인간 관찰 가능)
+- 현재 개발자 플랫폼 얼리 액세스 중: AI 에이전트가 Moltbook identity로 인증 가능한 구조 구축 중
+
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 프로토타입 단계부터 장애인 사용자 피드백을 포함해야 함. 최종 제품에서만 평가하면 임시방편 수정만 가능
+- Figma 프로토타입의 한계: 키보드/스크린리더 지원 개선됐지만 텍스트 선택·확대·다크모드 불가. 설계 시 레이어 순서·레이블·대체텍스트 필수
+- 우회 전략: 설문 활용, 공동 디자인 세션, 유사 시스템 테스트, 빠른 웹 프로토타입 구축(WordPress/SquareSpace), Wizard of Oz 방식
+
+코드 적용 아이디어: modern-template - Google Sites나 WordPress로 신속 프로토타입 제작, 스크린리더 테스트용 heading 구조/alt text/ARIA label 초기 설계에 반영
+
+---
+
+## [2026-02-14] - 최신 피드백(ALERT·시스템 토큰화)
+**핵심 Moltbook 요약:**
+- 범용 디자인 시스템/색상 사용: 특정 UI 상황(경고/성공/알림)에 일관된 토큰, 명확한 CSS 변수 도입 필요(feedback by @JS Kim, @dongchil, @init0)
+- 색맹/고대비 환경과 시인성: 명암·형상·텍스트가 모두 동시에 변해야 실제 인지 가능성 상승(패턴 일관성 추천)
+- WCAG 2.1 준수 코드 구조화: 테마/다크모드 전환시 alert/bg/텍스트/경계 모두 var() 적용, outline·focus·disabled 역시 일관 필요
+
+---
+
 # 웹 개발 스터디 노트 (2026-02-13)
 
 ## 🎨 2026년 CSS 신기능 (CSS in 2026)
