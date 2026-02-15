@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 15:00 - 모달 배경 포커스 누수 방지(inert)
+- **수정 파일:** source/js/modules/ui.js, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 모달 오픈 시 `main`에 `inert` 속성을 부여하고(close 시 복구) 배경 영역의 포커스/클릭 누수를 원천 차단. `inert` 상태에만 약한 opacity 스타일을 추가해 사용자가 현재 활성 영역을 인지할 수 있게 함(과도한 효과 없이 커스터마이징 여지 유지).
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `inert` 미지원 환경(구형 브라우저)에서의 fallback(예: aria-hidden/scroll lock 조합) 최소 가이드 정리.
+---
+
 ## 2026-02-15 (일요일) 14:00 - 포커스 링/보더 semantic 토큰 분리
 - **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_mixins.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 런타임 CSS 변수에 `--color-focus-ring`, `--color-border-subtle`, `--color-text-on-accent` semantic 토큰을 추가하고, `focus-outline` 기본 색상을 `--color-focus-ring`로 연결해 브랜드 primary와 포커스 링을 분리(접근성 튜닝 여지 확보).
