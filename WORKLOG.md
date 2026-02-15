@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 18:00 - 대비 체크 결과를 JSON으로 저장하는 옵션 추가
+- **수정 파일:** scripts/check-contrast.js
+- **변경 내용:** `check:contrast` 실행 결과를 CI/아카이빙에 재사용할 수 있도록 `--out <path>`(또는 `--json <path>`) 옵션을 추가해 JSON 리포트를 저장할 수 있게 함. 기본 동작(콘솔 출력/실패 시 exit 1)은 유지해 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 의미 토큰 페어(텍스트/서피스, 포커스링/서피스 등)를 몇 개 더 정리해서 체크 리스트를 최소 확장.
+---
+
 ## 2026-02-15 (일요일) 17:00 - reduced-motion 환경에서 스무스 스크롤 비활성화
 - **수정 파일:** source/js/modules/navigation.js
 - **변경 내용:** 앵커 클릭 스크롤에서 `prefers-reduced-motion: reduce`를 감지해 스크롤 동작을 `auto`로 전환(모션 민감 사용자 배려). 포커스 이동 시 `preventScroll`을 사용하고, non-focusable 요소에도 포커스를 줄 수 있도록 `tabindex=-1`을 부여해 키보드 사용자 흐름을 안정화.

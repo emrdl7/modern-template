@@ -22,11 +22,19 @@ const DEFAULT_TOKENS_PATH = path.join(
 );
 
 function parseArgs(argv) {
-  const args = { tokens: DEFAULT_TOKENS_PATH };
+  const args = {
+    tokens: DEFAULT_TOKENS_PATH,
+    out: null, // optional JSON report path
+  };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--tokens' && argv[i + 1]) {
       args.tokens = path.resolve(process.cwd(), argv[i + 1]);
+      i++;
+      continue;
+    }
+    if ((a === '--out' || a === '--json') && argv[i + 1]) {
+      args.out = path.resolve(process.cwd(), argv[i + 1]);
       i++;
       continue;
     }
@@ -141,16 +149,39 @@ function main() {
     }
   }
 
+  // Optional JSON report (kept simple so teams can extend it)
+  const report = {
+    tool: 'scripts/check-contrast.js',
+    tokensPath: path.relative(REPO_ROOT, tokensPath),
+    generatedAt: new Date().toISOString(),
+    results: results.map((r) => ({
+      label: r.label,
+      ratio: Number(r.ratio.toFixed(4)),
+      min: r.min,
+      ok: r.ok,
+    })),
+    failures,
+  };
+
+  if (args.out) {
+    fs.mkdirSync(path.dirname(args.out), { recursive: true });
+    fs.writeFileSync(args.out, JSON.stringify(report, null, 2) + '\n', 'utf8');
+  }
+
   // Output
   console.log(`\nWCAG contrast check: ${path.relative(REPO_ROOT, tokensPath)}\n`);
   for (const r of results) {
     const status = r.ok ? 'PASS' : 'FAIL';
     console.log(`${status}  ${r.label}  =>  ${formatRatio(r.ratio)} (min ${r.min}:1)`);
   }
+  if (args.out) {
+    console.log(`\nJSON report written: ${path.relative(REPO_ROOT, args.out)}`);
+  }
 
   if (failures.length) {
     console.error(`\n${failures.length} contrast check(s) failed:`);
     for (const f of failures) console.error(`- ${f.label}: ${f.error}`);
+    if (args.out) console.error(`- Report: ${args.out}`);
     console.error('\nFix tokens or adjust the check list in scripts/check-contrast.js');
     process.exit(1);
   }
