@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 16:00 - 포커스 링 geometry 토큰(두께/오프셋/라운드) 추가
+- **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_mixins.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 포커스 링의 두께/오프셋/라운드를 `--focus-ring-width/--focus-ring-offset/--focus-ring-radius` 런타임 토큰으로 분리하고, `focus-outline` 믹스인이 해당 토큰을 사용하도록 연결해 프로젝트별 튜닝 여지를 확보. `prefers-contrast: more`에서는 기본 두께보다 +1px로 강화.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 버튼/링크처럼 컴포넌트에서 포커스 링 radius를 다르게 쓰고 싶을 때(예: pill 버튼), 토큰 override 패턴을 1곳에만 예시로 추가.
+---
+
 ## 2026-02-15 (일요일) 15:00 - 모달 배경 포커스 누수 방지(inert)
 - **수정 파일:** source/js/modules/ui.js, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 모달 오픈 시 `main`에 `inert` 속성을 부여하고(close 시 복구) 배경 영역의 포커스/클릭 누수를 원천 차단. `inert` 상태에만 약한 opacity 스타일을 추가해 사용자가 현재 활성 영역을 인지할 수 있게 함(과도한 효과 없이 커스터마이징 여지 유지).

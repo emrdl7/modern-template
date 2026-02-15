@@ -269,6 +269,11 @@ $container-max-widths: (
   --color-focus-ring: var(--color-primary);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #ffffff;
+
+  // Focus ring geometry tokens (keep simple; easy to tweak per project)
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 3px;
+  --focus-ring-radius: 4px;
 }
 
 // 다크모드 색상 정의 (mixin으로 중복 제거)

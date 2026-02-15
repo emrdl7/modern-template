@@ -87,16 +87,17 @@
 ) {
   // 키보드 포커스 가시성 강화: 고대비 외곽선 + 이중 halo
   // NOTE: $color는 CSS 변수일 수도 있으므로(rgba 변환 불가) color-mix를 사용한다.
-  outline: 3px solid $color;
-  outline-offset: $offset;
-  border-radius: 4px;
+  outline: var(--focus-ring-width, 3px) solid $color;
+  outline-offset: var(--focus-ring-offset, #{$offset});
+  border-radius: var(--focus-ring-radius, 4px);
   box-shadow:
     0 0 0 2px var(--color-bg, #{color(bg-primary)}),
     0 0 0 6px color-mix(in srgb, #{$color} 36%, transparent);
 
   // 고대비 선호 환경에서 포커스 링을 더 두껍게(가시성 강화)
   @media (prefers-contrast: more) {
-    outline-width: 4px;
+    // Slightly thicker ring for higher contrast preference.
+    outline-width: calc(var(--focus-ring-width, 3px) + 1px);
     box-shadow:
       0 0 0 2px var(--color-bg, #{color(bg-primary)}),
       0 0 0 8px color-mix(in srgb, #{$color} 40%, transparent);
