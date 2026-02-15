@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 02:00 - 비텍스트 대비(1.4.11) 토큰 매트릭스 리포트 추가
+- **수정 파일:** scripts/check-contrast.js
+- **변경 내용:**
+  - `scripts/check-contrast.js --nontext` 모드를 추가해, **UI 토큰(현재: `border*`)이 surface 토큰(`bg-*`, `white`)과의 대비 3:1을 만족하는지** 매트릭스로 점검.
+  - 결과를 `reports/contrast-nontext.json`으로 저장(기본 경로)해 PR/CI에서 바로 확인 가능.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 01:45) ‘코드 적용 아이디어’
+- **다음 세션 예고:** `focus-ring`/`icon-*` 같은 비텍스트 토큰을 실제로 추가한 뒤, non-text 매트릭스 체크 범위를 1~2개 토큰으로만 점진 확장.
+---
+
 ## 2026-02-16 (월요일) 01:15 - a11y:e2e summary에 incomplete 항목을 URL/룰별로 분리 출력
 - **수정 파일:** scripts/a11y-e2e.js
 - **변경 내용:**

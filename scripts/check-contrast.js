@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 /*
   WCAG contrast checker for design tokens.
+
   - Reads SCSS $colors map from source/css/scss/_variables.scss
-  - Checks a small curated set of foreground/background pairs
-  - Exits non-zero if any pair fails minimum ratio
+  - Default mode: checks a small curated set of fg/bg pairs
+  - Non-text mode (--nontext): checks UI tokens (borders/focus/icons/etc) against surface tokens
+  - Exits non-zero if any check fails minimum ratio
 
   References:
   - WCAG 2.x contrast ratio: (L1 + 0.05) / (L2 + 0.05)
+  - WCAG 2.1 AA Non-text contrast (1.4.11): 3:1 minimum for UI components/graphics needed to understand content
 */
 
 const fs = require('node:fs');
@@ -25,20 +28,37 @@ function parseArgs(argv) {
   const args = {
     tokens: DEFAULT_TOKENS_PATH,
     out: null, // optional JSON report path
+    mode: 'default', // default | nontext
   };
+
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
+
     if (a === '--tokens' && argv[i + 1]) {
       args.tokens = path.resolve(process.cwd(), argv[i + 1]);
       i++;
       continue;
     }
+
     if ((a === '--out' || a === '--json') && argv[i + 1]) {
       args.out = path.resolve(process.cwd(), argv[i + 1]);
       i++;
       continue;
     }
+
+    if (a === '--nontext' || (a === '--mode' && argv[i + 1] === 'nontext')) {
+      args.mode = 'nontext';
+      if (a === '--mode') i++;
+      continue;
+    }
   }
+
+  // If user explicitly runs non-text mode but doesn't specify output,
+  // keep a stable default location so it can be used in CI/PRs.
+  if (args.mode === 'nontext' && !args.out) {
+    args.out = path.join(REPO_ROOT, 'reports', 'contrast-nontext.json');
+  }
+
   return args;
 }
 
@@ -102,13 +122,34 @@ function formatRatio(r) {
   return `${r.toFixed(2)}:1`;
 }
 
-function main() {
-  const args = parseArgs(process.argv);
-  const tokensPath = args.tokens;
+function pickSurfaceTokens(colors) {
+  // Keep it conservative by default:
+  // - bg-* are the real “surface” tokens in this project
+  // - include white as a common surface reference
+  const surface = [];
+  for (const k of colors.keys()) {
+    if (/^bg-/.test(k)) surface.push(k);
+  }
+  if (colors.has('white') && !surface.includes('white')) surface.push('white');
+  return surface;
+}
 
-  const scss = fs.readFileSync(tokensPath, 'utf8');
-  const colors = extractColorsFromScss(scss);
+function pickNonTextUiTokens(colors) {
+  // Non-text (1.4.11) is meant for UI boundaries/indicators, so default to:
+  // - border*, focus*, icon*
+  // This avoids creating “false work” by treating all brand/status colors as non-text UI.
+  const ui = [];
 
+  for (const k of colors.keys()) {
+    if (/^(border|border-)/.test(k)) ui.push(k);
+    if (/^(focus|focus-)/.test(k)) ui.push(k);
+    if (/^(icon|icon-)/.test(k)) ui.push(k);
+  }
+
+  return ui;
+}
+
+function runDefaultChecks(colors) {
   // Minimal, high-signal checks (expand over time)
   // - 4.5:1 for normal text
   // - 3:1 for UI components / non-text (borders, focus rings, icons)
@@ -149,9 +190,119 @@ function main() {
     }
   }
 
+  return { results, failures };
+}
+
+function runNonTextMatrix(colors) {
+  const min = 3.0;
+  const surfaces = pickSurfaceTokens(colors);
+  const uiTokens = pickNonTextUiTokens(colors);
+
+  const results = [];
+  const failures = [];
+
+  for (const ui of uiTokens) {
+    const uiHex = colors.get(ui);
+    if (!uiHex) continue;
+
+    for (const s of surfaces) {
+      const sHex = colors.get(s);
+      if (!sHex) continue;
+
+      const ratio = contrastRatio(uiHex, sHex);
+      const ok = ratio >= min;
+      results.push({
+        kind: 'nontext',
+        ui,
+        surface: s,
+        uiHex,
+        surfaceHex: sHex,
+        ratio,
+        min,
+        ok,
+      });
+      if (!ok) {
+        failures.push({
+          label: `${ui} on ${s}`,
+          error: `${formatRatio(ratio)} < ${min}:1`,
+        });
+      }
+    }
+  }
+
+  return { results, failures, surfaces, uiTokens, min };
+}
+
+function writeJsonReport(outPath, report) {
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, JSON.stringify(report, null, 2) + '\n', 'utf8');
+}
+
+function main() {
+  const args = parseArgs(process.argv);
+  const tokensPath = args.tokens;
+
+  const scss = fs.readFileSync(tokensPath, 'utf8');
+  const colors = extractColorsFromScss(scss);
+
+  if (args.mode === 'nontext') {
+    const matrix = runNonTextMatrix(colors);
+
+    const report = {
+      tool: 'scripts/check-contrast.js',
+      mode: 'nontext',
+      tokensPath: path.relative(REPO_ROOT, tokensPath),
+      generatedAt: new Date().toISOString(),
+      min: matrix.min,
+      surfaces: matrix.surfaces,
+      uiTokens: matrix.uiTokens,
+      results: matrix.results.map((r) => ({
+        ui: r.ui,
+        surface: r.surface,
+        uiHex: r.uiHex,
+        surfaceHex: r.surfaceHex,
+        ratio: Number(r.ratio.toFixed(4)),
+        min: r.min,
+        ok: r.ok,
+      })),
+      failures: matrix.failures,
+    };
+
+    console.log(`\nWCAG non-text contrast matrix (min ${matrix.min}:1): ${path.relative(REPO_ROOT, tokensPath)}\n`);
+    console.log(`UI tokens: ${matrix.uiTokens.join(', ') || '(none found)'}`);
+    console.log(`Surfaces:  ${matrix.surfaces.join(', ') || '(none found)'}`);
+
+    const failCount = matrix.failures.length;
+    const totalCount = matrix.results.length;
+    console.log(`\nChecked: ${totalCount} pairs`);
+    console.log(`PASS:   ${totalCount - failCount}`);
+    console.log(`FAIL:   ${failCount}`);
+
+    if (args.out) {
+      writeJsonReport(args.out, report);
+      console.log(`\nJSON report written: ${path.relative(REPO_ROOT, args.out)}`);
+    }
+
+    if (failCount) {
+      console.error(`\n${failCount} non-text contrast pair(s) failed:`);
+      for (const f of matrix.failures.slice(0, 20)) console.error(`- ${f.label}: ${f.error}`);
+      if (matrix.failures.length > 20) {
+        console.error(`- ...and ${matrix.failures.length - 20} more (see JSON report)`);
+      }
+      process.exit(1);
+    }
+
+    console.log('\nAll non-text contrast pairs passed.');
+    return;
+  }
+
+  // Default (curated) checks
+  const { results, failures } = runDefaultChecks(colors);
+
   // Optional JSON report (kept simple so teams can extend it)
   const report = {
     tool: 'scripts/check-contrast.js',
+    mode: 'default',
     tokensPath: path.relative(REPO_ROOT, tokensPath),
     generatedAt: new Date().toISOString(),
     results: results.map((r) => ({
@@ -164,8 +315,7 @@ function main() {
   };
 
   if (args.out) {
-    fs.mkdirSync(path.dirname(args.out), { recursive: true });
-    fs.writeFileSync(args.out, JSON.stringify(report, null, 2) + '\n', 'utf8');
+    writeJsonReport(args.out, report);
   }
 
   // Output
