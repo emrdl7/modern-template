@@ -7,11 +7,24 @@ import { trapFocus } from "../utils.js";
 export const initModal = () => {
   let lastFocusedElement = null;
 
+  // `inert` 지원 브라우저에서는 모달 오픈 시 배경 영역의 포커스/클릭 누수를 원천 차단
+  const getInertRoot = () =>
+    document.querySelector("main") ||
+    document.querySelector('[role="main"]') ||
+    document.getElementById("main");
+
   const openModal = (modal) => {
     modal.setAttribute("role", "dialog");
     modal.setAttribute("aria-modal", "true");
     modal.classList.add("is-active");
     document.body.style.overflow = "hidden";
+
+    const inertRoot = getInertRoot();
+    if (inertRoot && !inertRoot.hasAttribute("inert")) {
+      inertRoot.setAttribute("inert", "");
+      inertRoot.dataset.inertByModal = "true";
+    }
+
     trapFocus(modal);
 
     // 접근성: 첫 번째 포커스 가능한 요소로 포커스 이동
@@ -25,6 +38,12 @@ export const initModal = () => {
     modal.classList.remove("is-active");
     modal.removeAttribute("aria-modal");
     document.body.style.overflow = "";
+
+    const inertRoot = getInertRoot();
+    if (inertRoot?.dataset?.inertByModal === "true") {
+      inertRoot.removeAttribute("inert");
+      delete inertRoot.dataset.inertByModal;
+    }
 
     // 트리거 버튼으로 포커스 복원
     if (lastFocusedElement) {

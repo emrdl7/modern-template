@@ -90,6 +90,12 @@ body {
   overflow-x: hidden;
 }
 
+[inert] {
+  opacity: 0.75;
+  transition: opacity 160ms ease;
+  user-select: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1rem 0;
   font-weight: 700;
