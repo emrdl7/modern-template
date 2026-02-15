@@ -29,6 +29,9 @@
   [role="button"],
   [tabindex]:not([tabindex="-1"])
 ):focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
+  /*
+    NOTE:
+    - `outline none/0`(포커스 제거)는 키보드 포커스 표시 회귀를 유발하기 쉬워 금지한다.
+    - 마우스 클릭 시 포커스 링을 숨기려면 :focus-visible 쪽을 디자인으로 조정한다.
+  */
 }

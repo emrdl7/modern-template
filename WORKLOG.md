@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 03:15 - `outline: none/0` 금지 린트 추가 + CI 연동
+- **수정/추가 파일:** package.json, scripts/lint-a11y.js, .github/workflows/ci.yml, source/css/scss/_focus.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - `npm run lint:a11y` 추가: 저장소 내 CSS/SCSS/HTML/JS 등에서 `outline: none` 또는 `outline: 0` 사용을 탐지하면 **exit 1로 실패**(포커스 표시 회귀 방지).
+  - CI(`.github/workflows/ci.yml`)에 lint 단계 추가(또한 `npm run build`에도 lint를 포함)해 PR/푸시에서 자동으로 차단.
+  - 기존 `:focus:not(:focus-visible)`에서 `outline: none`을 제거해 규칙에 부합하도록 정리.
+- **출처:** STUDY-NOTES 2026-02-16 02:45 회차 ‘outline 제거 금지 + lint/stylelint 차단’ 아이디어
+---
+
 ## 2026-02-16 (월요일) 02:00 - 비텍스트 대비(1.4.11) 토큰 매트릭스 리포트 추가
 - **수정 파일:** scripts/check-contrast.js
 - **변경 내용:**

@@ -6,9 +6,10 @@
     "check:contrast": "node scripts/check-contrast.js --out reports/contrast-report.json",
     "check:contrast:print": "node scripts/check-contrast.js",
     "a11y:e2e": "node scripts/a11y-e2e.js",
+    "lint:a11y": "node scripts/lint-a11y.js",
     "build:css": "sass source/css/scss/main.scss source/css/main.css && sass source/css/scss/sub.scss source/css/sub.css",
     "watch:css": "sass --watch source/css/scss:source/css",
-    "build": "npm run check:contrast && npm run build:css"
+    "build": "npm run check:contrast && npm run lint:a11y && npm run build:css"
   },
   "keywords": [],
   "author": "",
