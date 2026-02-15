@@ -128,17 +128,24 @@
   padding: spacer(3) spacer(4);
   font-size: font-size(base);
   line-height: line-height(normal);
-  color: var(--color-text, #{color(text-primary)});
-  background-color: var(--color-bg, #{color(bg-primary)});
-  border: 1px solid var(--color-border, #{color(border)});
+  color: var(--text-primary, var(--color-text, #{color(text-primary)}));
+  background-color: var(--surface, var(--color-bg, #{color(bg-primary)}));
+
+  // NOTE(a11y): input/textarea/select 같은 UI 컴포넌트 경계선은
+  // WCAG 2.1 1.4.11(비텍스트 대비) 기준(인접 대비 3:1+)을 만족하는 색을 우선 사용.
+  border: 1px solid var(--border, var(--color-border, #{color(border)}));
   border-radius: radius(base);
   transition: $transition-fast;
 
+  // 포커스 링은 전역 토큰/믹스인으로 통일(:focus-visible 우선)
+  &:focus-visible {
+    @include focus-outline(var(--focus-ring, var(--color-primary, #{color(primary)})));
+    border-color: var(--focus-ring, var(--color-primary, #{color(primary)}));
+  }
+
+  // 폼 컨트롤은 focus-visible 미지원 환경에서도 최소한의 구분은 필요
   &:focus {
-    // box-shadow는 색상 변형이 필요해 다크모드에서 어색해질 수 있어 outline 기반으로 통일
-    outline: 2px solid var(--color-primary, #{color(primary)});
-    outline-offset: 2px;
-    border-color: var(--color-primary, #{color(primary)});
+    border-color: var(--focus-ring, var(--color-primary, #{color(primary)}));
   }
 
   &::placeholder {

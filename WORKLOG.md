@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 04:00 - 폼 컨트롤 border/focus 토큰 정렬(1.4.11 비텍스트 대비 전제)
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - `.form-control`(input/select/textarea)의 기본 색을 `--text-primary`/`--surface`/`--border` 토큰으로 연결해, **UI 경계선은 1.4.11(비텍스트 대비 3:1+)를 만족하는 토큰을 우선 사용**하도록 가이드.
+  - 포커스는 `:focus-visible`에서 `@include focus-outline(...)`를 사용해 **전역 포커스 링 토큰(`--focus-ring`)과 동작을 일치**.
+  - `:focus`(fallback)에서는 최소한의 `border-color` 변화만 유지해, *focus-visible 미지원 환경에서도* 구분은 되게 하되 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 03:45) ‘비텍스트 대비(1.4.11) + 토큰 조합 운영’ 아이디어
+- **다음 세션 예고:** `checkbox/radio`의 비텍스트 대비(테두리/체크 표시)도 `--border`/`--focus-ring` 토큰으로 1곳만 더 정렬하고, 필요하면 간단한 대비 매트릭스(토큰 조합 선언)로 확장.
+---
+
 ## 2026-02-16 (월요일) 03:15 - `outline: none/0` 금지 린트 추가 + CI 연동
 - **수정/추가 파일:** package.json, scripts/lint-a11y.js, .github/workflows/ci.yml, source/css/scss/_focus.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
