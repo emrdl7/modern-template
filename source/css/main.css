@@ -16,6 +16,13 @@
   --focus-ring-width: 3px;
   --focus-ring-offset: 3px;
   --focus-ring-radius: 4px;
+  --text-primary: var(--color-text);
+  --text-on-accent: var(--color-text-on-accent);
+  --surface: var(--color-bg);
+  --surface-muted: var(--color-bg-alt);
+  --border: var(--color-border);
+  --border-subtle: var(--color-border-subtle);
+  --focus-ring: var(--color-focus-ring);
 }
 
 @media (prefers-color-scheme: dark) {
