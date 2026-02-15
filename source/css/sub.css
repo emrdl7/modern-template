@@ -129,7 +129,13 @@ a:focus-visible {
   outline: 3px solid var(--color-primary, #246beb);
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-primary, #246beb) 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  a:focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-primary, #246beb) 40%, transparent);
+  }
 }
 
 ul, ol {
@@ -159,7 +165,13 @@ button:focus-visible {
   outline: 3px solid #246beb;
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  button:focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+  }
 }
 
 input,
@@ -180,7 +192,13 @@ table {
   outline: 3px solid #246beb;
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  :focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+  }
 }
 
 .skip-nav {
@@ -490,7 +508,13 @@ table {
   outline: 3px solid #246beb;
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .btn:focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+  }
 }
 .btn:disabled {
   opacity: 0.6;
@@ -520,7 +544,13 @@ table {
   outline: 3px solid var(--color-primary, #246beb);
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-primary, #246beb) 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .btn-primary:focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-primary, #246beb) 40%, transparent);
+  }
 }
 
 .btn-secondary {
@@ -627,7 +657,13 @@ textarea.form-control {
   outline: 3px solid #246beb;
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px rgba(36, 107, 235, 0.36);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .form-check-input:focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+  }
 }
 
 .form-check-label {
