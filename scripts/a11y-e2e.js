@@ -115,12 +115,56 @@ async function runAxeOnPage(page, axeSource, url) {
   return result;
 }
 
+async function runRoleSmokeOnCurrentPage(page, url) {
+  // Lightweight smoke checks for ARIA role/name computation (Interop 2024 a11y theme).
+  // Goal: catch accidental regressions where semantic structure/labels are removed.
+
+  const checks = [];
+
+  // Common across pages.
+  checks.push({ role: 'link', name: '본문 바로가기' });
+  checks.push({ role: 'main' });
+
+  const isIndex = url.endsWith('/index.html') || url.endsWith('/');
+  const isMainOrSub = url.endsWith('/main.html') || url.endsWith('/sub.html');
+
+  // main/sub pages share the primary navigation + mobile menu toggle.
+  if (isMainOrSub) {
+    checks.push({ role: 'navigation', name: '주 메뉴' });
+    checks.push({ role: 'button', name: '메뉴 열기' });
+  }
+
+  // index.html has explicit labels (good target for AccName smoke testing).
+  if (isIndex) {
+    checks.push({ role: 'banner', name: '사이트 헤더' });
+    checks.push({ role: 'main', name: '본문 영역' });
+    checks.push({ role: 'contentinfo', name: '사이트 정보' });
+    checks.push({ role: 'button', name: '🌙 다크모드' });
+  }
+
+  const failures = [];
+
+  for (const c of checks) {
+    const locator = c.name
+      ? page.getByRole(c.role, { name: c.name })
+      : page.getByRole(c.role);
+
+    const count = await locator.count();
+    if (count < 1) {
+      failures.push({ ...c, expected: 1, actual: count });
+    }
+  }
+
+  return { failures, totalChecks: checks.length };
+}
+
 function summarize(resultsByUrl) {
   const summary = {
     urls: Object.keys(resultsByUrl).length,
     violations: 0,
     incomplete: 0,
     passes: 0,
+    roleSmokeFailures: 0,
   };
 
   for (const url of Object.keys(resultsByUrl)) {
@@ -128,6 +172,11 @@ function summarize(resultsByUrl) {
     summary.violations += (r.violations || []).length;
     summary.incomplete += (r.incomplete || []).length;
     summary.passes += (r.passes || []).length;
+
+    const roleSmoke = r.roleSmoke;
+    if (roleSmoke && Array.isArray(roleSmoke.failures)) {
+      summary.roleSmokeFailures += roleSmoke.failures.length;
+    }
   }
 
   return summary;
@@ -160,7 +209,9 @@ function summarize(resultsByUrl) {
       const url = `${baseUrl}/${p.replace(/^\//, '')}`;
       // eslint-disable-next-line no-console
       console.log(`[a11y:e2e] axe run: ${url}`);
-      resultsByUrl[url] = await runAxeOnPage(page, axeSource, url);
+      const axeResult = await runAxeOnPage(page, axeSource, url);
+      const roleSmoke = await runRoleSmokeOnCurrentPage(page, url);
+      resultsByUrl[url] = { ...axeResult, roleSmoke };
     }
   } finally {
     await page.close();
@@ -194,10 +245,30 @@ function summarize(resultsByUrl) {
     return lines;
   }
 
+  function listRoleSmokeFailures() {
+    const lines = [];
+    const urls = Object.keys(resultsByUrl);
+
+    for (const url of urls) {
+      const roleSmoke = resultsByUrl[url] && resultsByUrl[url].roleSmoke;
+      const failures = roleSmoke && Array.isArray(roleSmoke.failures) ? roleSmoke.failures : [];
+      if (failures.length === 0) continue;
+
+      lines.push(`- URL: ${url} (${failures.length})`);
+      for (const f of failures) {
+        const namePart = f.name ? ` name="${f.name}"` : '';
+        lines.push(`  - role=${f.role}${namePart} (found: ${f.actual})`);
+      }
+    }
+
+    return lines;
+  }
+
   const summaryLines = [
     `A11Y E2E (axe-core + Playwright)`,
     `URLs: ${s.urls}`,
     `Violations: ${s.violations}`,
+    `Role smoke failures: ${s.roleSmokeFailures}`,
     `Incomplete (manual review): ${s.incomplete}`,
     `Passes: ${s.passes}`,
     `Report: ${path.relative(PROJECT_ROOT, outJson)}`,
@@ -206,6 +277,11 @@ function summarize(resultsByUrl) {
   const incompleteLines = listChecks('incomplete');
   if (incompleteLines.length > 0) {
     summaryLines.push('', '== INCOMPLETE CHECKS (manual review) ==', ...incompleteLines);
+  }
+
+  const roleSmokeLines = listRoleSmokeFailures();
+  if (roleSmokeLines.length > 0) {
+    summaryLines.push('', '== ROLE/ACCNAME SMOKE FAILURES ==', ...roleSmokeLines);
   }
 
   const violationLines = listChecks('violations');
@@ -229,6 +305,12 @@ function summarize(resultsByUrl) {
   if (s.violations > 0) {
     // eslint-disable-next-line no-console
     console.error(`\n[a11y:e2e] FAIL: axe violations detected.`);
+    process.exitCode = 1;
+  }
+
+  if (s.roleSmokeFailures > 0) {
+    // eslint-disable-next-line no-console
+    console.error(`\n[a11y:e2e] FAIL: role/accessible-name smoke checks failed.`);
     process.exitCode = 1;
   }
 })();

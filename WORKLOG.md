@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 05:00 - a11y:e2e에 role/AccName 스모크 체크 추가
+- **수정 파일:** scripts/a11y-e2e.js
+- **변경 내용:**
+  - Playwright의 `getByRole()` 기반으로 `skip link`, `main`, (main/sub 페이지의) `주 메뉴` 내비게이션/`메뉴 열기` 버튼 등 핵심 요소가 **computed role + accessible name을 유지하는지** 간단히 검증.
+  - axe-core 결과와 별도로 `roleSmokeFailures`를 요약/리포트에 포함하고, 실패 시 exit 1로 처리해 “시맨틱/라벨 제거” 회귀를 조기 탐지.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 04:30) ‘computed role/AccName 스모크 테스트’ 아이디어
+- **다음 세션 예고:** role smoke 체크를 환경변수로 on/off 가능하게 하거나, 템플릿 커스터마이징 시 수정 포인트를 README에 1줄만 안내.
+---
+
 ## 2026-02-16 (월요일) 04:00 - 폼 컨트롤 border/focus 토큰 정렬(1.4.11 비텍스트 대비 전제)
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
