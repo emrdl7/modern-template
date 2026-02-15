@@ -10,6 +10,9 @@
   --color-border: #8e8e8e;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-focus-ring: var(--color-primary);
+  --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
+  --color-text-on-accent: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,6 +27,9 @@
     --color-border: #3a3f4a;
     --color-white: #181c21;
     --color-black: #f0f4ff;
+    --color-focus-ring: var(--color-primary);
+    --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
+    --color-text-on-accent: #0b0f14;
   }
 }
 [data-theme=dark] {
@@ -37,6 +43,9 @@
   --color-border: #3a3f4a;
   --color-white: #181c21;
   --color-black: #f0f4ff;
+  --color-focus-ring: var(--color-primary);
+  --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
+  --color-text-on-accent: #0b0f14;
 }
 
 @font-face {
@@ -162,15 +171,15 @@ button {
   cursor: pointer;
 }
 button:focus-visible {
-  outline: 3px solid #246beb;
+  outline: 3px solid var(--color-focus-ring, var(--color-primary, #246beb));
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   button:focus-visible {
     outline-width: 4px;
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
   }
 }
 
@@ -189,15 +198,15 @@ table {
 }
 
 :focus-visible {
-  outline: 3px solid #246beb;
+  outline: 3px solid var(--color-focus-ring, var(--color-primary, #246beb));
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   :focus-visible {
     outline-width: 4px;
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
   }
 }
 
@@ -515,15 +524,15 @@ table {
   user-select: none;
 }
 .btn:focus-visible {
-  outline: 3px solid #246beb;
+  outline: 3px solid var(--color-focus-ring, var(--color-primary, #246beb));
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn:focus-visible {
     outline-width: 4px;
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
   }
 }
 .btn:disabled {
@@ -664,15 +673,15 @@ textarea.form-control {
   cursor: pointer;
 }
 .form-check-input:focus-visible {
-  outline: 3px solid #246beb;
+  outline: 3px solid var(--color-focus-ring, var(--color-primary, #246beb));
   outline-offset: 3px;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #246beb 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .form-check-input:focus-visible {
     outline-width: 4px;
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #246beb 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
   }
 }
 

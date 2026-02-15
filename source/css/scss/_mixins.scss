@@ -81,7 +81,10 @@
 
 // 포커스 스타일
 // --------------------------------------------------------------------------
-@mixin focus-outline($color: color(primary), $offset: 3px) {
+@mixin focus-outline(
+  $color: var(--color-focus-ring, var(--color-primary, #{color(primary)})),
+  $offset: 3px
+) {
   // 키보드 포커스 가시성 강화: 고대비 외곽선 + 이중 halo
   // NOTE: $color는 CSS 변수일 수도 있으므로(rgba 변환 불가) color-mix를 사용한다.
   outline: 3px solid $color;

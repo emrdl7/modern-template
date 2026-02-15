@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 14:00 - 포커스 링/보더 semantic 토큰 분리
+- **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_mixins.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 런타임 CSS 변수에 `--color-focus-ring`, `--color-border-subtle`, `--color-text-on-accent` semantic 토큰을 추가하고, `focus-outline` 기본 색상을 `--color-focus-ring`로 연결해 브랜드 primary와 포커스 링을 분리(접근성 튜닝 여지 확보).
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `border-subtle`을 실제 컴포넌트(카드/인풋 보더) 1곳에만 시범 적용해서 3:1 필요한 보더 vs 장식 보더를 분리하는 패턴을 정리.
+---
+
 ## 2026-02-15 (일요일) 13:00 - A11y Acceptance Criteria 대비 기준(4.5:1/3:1) 명시
 - **수정 파일:** README.md
 - **변경 내용:** `A11y Acceptance Criteria`에서 대비 기준을 “일반 텍스트 4.5:1 + 비텍스트 UI 3:1”로 함께 명시해, 체크 시점에 판단 기준이 흔들리지 않도록 문구를 보강함.
