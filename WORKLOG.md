@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 10:00 - skip-nav(스킵 링크) focus-visible 링 적용
+- **수정 파일:** source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** `.skip-nav` 스킵 링크가 키보드 포커스일 때만(`:focus-visible`) 화면에 노출되도록 하고, 밝은 배경에서도 잘 보이도록 흰색 포커스 링(`focus-outline`)을 함께 적용해 접근성을 개선함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** index/main/sub 템플릿에 실제 `.skip-nav` 마크업이 있는지 점검하고, 없으면 최소 예시 1개를 추가.
+---
+
 ## 2026-02-15 (일요일) 09:00 - focus-visible 링 컬러 믹스 기반 halo + 고대비 선호 시 두께 강화
 - **수정 파일:** source/css/scss/_mixins.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** `focus-outline` 믹스인의 두 번째 halo를 고정 `rgba(...)` 값 대신 `color-mix()`로 계산하도록 바꿔(테마/primary 색 변경에도 일관), `prefers-contrast: more` 환경에서 outline/halo 두께를 추가로 키워 키보드 포커스 시인성을 강화함.
