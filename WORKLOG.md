@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 11:00 - A11y Acceptance Criteria 설득용 3문장 스크립트 추가
+- **수정 파일:** README.md
+- **변경 내용:** 신규 작업 템플릿의 `A11y Acceptance Criteria` 섹션 아래에, 접근성을 “도덕”이 아니라 전환/리스크/운영 효율로 연결해 설명하는 **3문장 설득 스크립트(복붙용)**를 추가함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `A11y Acceptance Criteria`를 이슈/PR 템플릿(또는 CONTRIBUTING)으로도 재사용할 수 있게 최소 가이드 추가 검토.
+---
+
 ## 2026-02-15 (일요일) 10:00 - skip-nav(스킵 링크) focus-visible 링 적용
 - **수정 파일:** source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** `.skip-nav` 스킵 링크가 키보드 포커스일 때만(`:focus-visible`) 화면에 노출되도록 하고, 밝은 배경에서도 잘 보이도록 흰색 포커스 링(`focus-outline`)을 함께 적용해 접근성을 개선함.
