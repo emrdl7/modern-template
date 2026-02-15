@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 17:00 - reduced-motion 환경에서 스무스 스크롤 비활성화
+- **수정 파일:** source/js/modules/navigation.js
+- **변경 내용:** 앵커 클릭 스크롤에서 `prefers-reduced-motion: reduce`를 감지해 스크롤 동작을 `auto`로 전환(모션 민감 사용자 배려). 포커스 이동 시 `preventScroll`을 사용하고, non-focusable 요소에도 포커스를 줄 수 있도록 `tabindex=-1`을 부여해 키보드 사용자 흐름을 안정화.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** README 신규 작업 템플릿에 `A11y DoD` 체크리스트(키보드 탭 완주, focus-visible, 3:1, 200% 확대, reduce-motion)를 한 블록으로 추가.
+---
+
 ## 2026-02-15 (일요일) 16:00 - 포커스 링 geometry 토큰(두께/오프셋/라운드) 추가
 - **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_mixins.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 포커스 링의 두께/오프셋/라운드를 `--focus-ring-width/--focus-ring-offset/--focus-ring-radius` 런타임 토큰으로 분리하고, `focus-outline` 믹스인이 해당 토큰을 사용하도록 연결해 프로젝트별 튜닝 여지를 확보. `prefers-contrast: more`에서는 기본 두께보다 +1px로 강화.

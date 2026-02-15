@@ -65,6 +65,9 @@ export const initStickyHeader = () => {
 
 // 스무스 스크롤 (앵커 링크)
 export const initSmoothScroll = () => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -87,11 +90,15 @@ export const initSmoothScroll = () => {
 
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: scrollBehavior
         });
 
-        // 접근성: 포커스 이동
-        target.focus();
+        // 접근성: 포커스 이동(스크롤 중복 방지)
+        // NOTE: non-focusable 요소에도 포커스를 줄 수 있도록 tabindex를 부여(커스터마이징 여지 위해 유지)
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+        }
+        target.focus({ preventScroll: true });
 
         // 히스토리 업데이트
         if (history.pushState) {
