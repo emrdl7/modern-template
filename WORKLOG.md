@@ -1,3 +1,12 @@
+## 2026-02-15 (일요일) 23:00 - 다중 랜드마크(nav/aside) 이름 누락 힌트 추가
+- **수정 파일:** source/js/common.js
+- **변경 내용:**
+  - 페이지에 `<nav>`/`<aside>`가 여러 개 있을 때, 일부가 `aria-label`/`aria-labelledby` 없이 남아 있으면 탐색성이 떨어질 수 있어 **콘솔 경고(힌트)** 를 출력하도록 추가.
+  - 빌드/런타임을 막지 않고, 프로젝트별 커스터마이징을 위해 **강제 규칙이 아니라 개발용 가이드**로만 동작.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `<header>`/`<footer>` 등 다른 landmark도 포함할지, 또는 scripts/에서 “선택적 검사”로 분리할지 1가지 방향만 결정.
+---
+
 ## 2026-02-15 (일요일) 22:00 - focus-visible 포커스 링 규칙 통일(토큰 기반)
 - **수정 파일:** source/css/scss/_base.scss, source/css/scss/_focus.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
