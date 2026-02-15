@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 09:00 - focus-visible 링 컬러 믹스 기반 halo + 고대비 선호 시 두께 강화
+- **수정 파일:** source/css/scss/_mixins.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** `focus-outline` 믹스인의 두 번째 halo를 고정 `rgba(...)` 값 대신 `color-mix()`로 계산하도록 바꿔(테마/primary 색 변경에도 일관), `prefers-contrast: more` 환경에서 outline/halo 두께를 추가로 키워 키보드 포커스 시인성을 강화함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** Safari/구형 브라우저에서 `color-mix()` 지원 여부를 점검하고 필요 시 fallback(단일 outline) 처리.
+---
+
 ## 2026-02-15 (일요일) 08:00 - focus-visible 링 대비 강화 + reduced-motion 링크/토글 확장
 - **수정 파일:** source/css/scss/_mixins.scss, source/css/scss/_base.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 포커스 스타일 믹스인에 `border-radius`와 더 두꺼운 외곽 halo를 추가해 키보드 탐색 시 시인성을 높였고, `prefers-reduced-motion: reduce`에서 버튼/카드뿐 아니라 링크(`a`)와 다크모드 토글까지 모션 차단 대상으로 확장해 인터랙션 흔들림을 줄임.
