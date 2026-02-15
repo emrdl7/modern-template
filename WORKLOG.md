@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 07:15 - non-text 대비 리포트에 alpha/overlay(합성) 샘플 2개 기록
+- **수정 파일:** scripts/check-contrast.js (`reports/contrast-nontext.json` 산출물은 실행 시 생성되며 저장소에서는 `.gitignore` 처리)
+- **변경 내용:**
+  - `check-contrast.js --nontext` 실행 시, 기존 non-text 매트릭스 결과 외에 **반투명 오버레이(스크림) 합성 결과**를 추가로 계산/기록.
+  - 현재는 최소 구현으로 `overlay-black-20` / `overlay-black-40`(배경: `bg-primary`)의 **합성 색상(blendedHex)** 과, 대표 토큰(`white`, `text-primary`, `border`) 대비비율을 `overlayCombos` 섹션으로 리포트에 포함.
+  - overlay 조합은 **정보성(informational) 출력**으로 두고(게이트 X), 향후 “허용 배경 리스트/게이팅” 확장 기반만 마련.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 06:45) ‘alpha/오버레이 조합까지 대비 회귀 테스트 확장’ 아이디어
+---
+
 ## 2026-02-16 (월요일) 06:00 - lint:a11y에 non-text contrast(1.4.11) 게이트 추가
 - **수정 파일:** scripts/lint-a11y.js, package.json
 - **변경 내용:**

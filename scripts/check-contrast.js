@@ -98,6 +98,20 @@ function contrastRatio(hex1, hex2) {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
+function blendRgbOverBg(fgRgb, bgRgb, alpha) {
+  // Standard source-over alpha compositing (sRGB space)
+  return {
+    r: Math.round(fgRgb.r * alpha + bgRgb.r * (1 - alpha)),
+    g: Math.round(fgRgb.g * alpha + bgRgb.g * (1 - alpha)),
+    b: Math.round(fgRgb.b * alpha + bgRgb.b * (1 - alpha)),
+  };
+}
+
+function rgbToHex({ r, g, b }) {
+  const h = (n) => n.toString(16).padStart(2, '0');
+  return `#${h(r)}${h(g)}${h(b)}`;
+}
+
 function extractColorsFromScss(scssText) {
   // Extract the $colors: ( ... ); block, then parse lines like: key: #rrggbb,
   const blockMatch = scssText.match(/\$colors\s*:\s*\(([\s\S]*?)\)\s*;/m);
@@ -230,7 +244,51 @@ function runNonTextMatrix(colors) {
     }
   }
 
-  return { results, failures, surfaces, uiTokens, min };
+  // --- Experimental: alpha/overlay combinations (informational, not gating yet)
+  // Rationale: Many UI surfaces include semi-transparent overlays (scrims, glass)
+  // and contrast should be evaluated on the final composited color.
+  const overlayCombos = [];
+  const base = 'bg-primary';
+  const baseHex = colors.get(base);
+  const blackHex = colors.get('black');
+  const whiteHex = colors.get('white');
+  const textHex = colors.get('text-primary');
+  const borderHex = colors.get('border');
+
+  if (baseHex && blackHex) {
+    const baseRgb = hexToRgb(baseHex);
+    const blackRgb = hexToRgb(blackHex);
+
+    const overlays = [
+      { name: 'overlay-black-20', alpha: 0.2 },
+      { name: 'overlay-black-40', alpha: 0.4 },
+    ];
+
+    for (const o of overlays) {
+      const blendedHex = rgbToHex(blendRgbOverBg(blackRgb, baseRgb, o.alpha));
+      const contrasts = [];
+
+      if (whiteHex) contrasts.push({ fg: 'white', fgHex: whiteHex, ratio: contrastRatio(whiteHex, blendedHex) });
+      if (textHex) contrasts.push({ fg: 'text-primary', fgHex: textHex, ratio: contrastRatio(textHex, blendedHex) });
+      if (borderHex) contrasts.push({ fg: 'border', fgHex: borderHex, ratio: contrastRatio(borderHex, blendedHex) });
+
+      overlayCombos.push({
+        kind: 'overlay',
+        overlay: o.name,
+        alpha: o.alpha,
+        base,
+        baseHex,
+        blendedHex,
+        contrasts: contrasts.map((c) => ({
+          fg: c.fg,
+          fgHex: c.fgHex,
+          ratio: Number(c.ratio.toFixed(4)),
+        })),
+      });
+    }
+  }
+
+  return { results, failures, surfaces, uiTokens, min, overlayCombos };
 }
 
 function writeJsonReport(outPath, report) {
@@ -265,6 +323,8 @@ function main() {
         min: r.min,
         ok: r.ok,
       })),
+      // Informational overlay samples (alpha compositing): not gated yet.
+      overlayCombos: matrix.overlayCombos,
       failures: matrix.failures,
     };
 
