@@ -800,6 +800,18 @@ textarea.form-control {
 .modal-header {
   border-bottom: 1px solid #8e8e8e;
 }
+.modal-header > :is(h1, h2, h3, h4, h5, h6)[tabindex="-1"]:focus {
+  outline: var(--focus-ring-width, 3px) solid var(--color-focus-ring, var(--color-primary, #246beb));
+  outline-offset: var(--focus-ring-offset, 3px);
+  border-radius: var(--focus-ring-radius, 4px);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .modal-header > :is(h1, h2, h3, h4, h5, h6)[tabindex="-1"]:focus {
+    outline-width: calc(var(--focus-ring-width, 3px) + 1px);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
+  }
+}
 
 .modal-footer {
   border-top: 1px solid #8e8e8e;

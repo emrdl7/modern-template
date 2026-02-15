@@ -280,6 +280,13 @@ textarea.form-control {
 
 .modal-header {
   border-bottom: 1px solid color(border);
+
+  // 접근성: 모달 오픈 시 제목(heading)에 프로그램 포커스를 줄 수 있도록
+  // tabindex="-1" 제목에 포커스 스타일을 제공한다.
+  // (:focus-visible만으로는 프로그램 포커스가 표시되지 않을 수 있음)
+  > :is(h1, h2, h3, h4, h5, h6)[tabindex="-1"]:focus {
+    @include focus-outline;
+  }
 }
 
 .modal-footer {

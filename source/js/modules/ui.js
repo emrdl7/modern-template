@@ -27,7 +27,28 @@ export const initModal = () => {
 
     trapFocus(modal);
 
-    // 접근성: 첫 번째 포커스 가능한 요소로 포커스 이동
+    // 접근성: 모달 오픈 시 제목(heading)에 먼저 포커스 제공
+    // - heading에 tabindex="-1"를 부여하면 탭 순서에 끼지 않으면서도 프로그램 포커스를 받을 수 있다.
+    // - 제목 포커스가 없으면 스크린리더/키보드 사용자가 “어디로 들어왔는지”를 놓치기 쉽다.
+    const title = modal.querySelector(
+      ".modal-header h1, .modal-header h2, .modal-header h3, .modal-header h4, .modal-header h5, .modal-header h6",
+    );
+
+    if (title) {
+      // aria-labelledby 연결(없을 때만)
+      if (!title.id) title.id = `modal-title-${modal.id || ""}-${Date.now()}`;
+      if (!modal.hasAttribute("aria-labelledby")) {
+        modal.setAttribute("aria-labelledby", title.id);
+      }
+
+      // 프로그램 포커스용 tabindex
+      if (!title.hasAttribute("tabindex")) title.setAttribute("tabindex", "-1");
+
+      title.focus();
+      return;
+    }
+
+    // fallback: 첫 번째 포커스 가능한 요소로 이동
     const focusable = modal.querySelector(
       'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
     );

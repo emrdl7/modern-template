@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 20:00 - 모달 오픈 시 제목(heading) 포커스/aria-labelledby 표준화
+- **수정 파일:** source/js/modules/ui.js, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 모달 열릴 때 첫 포커스를 “첫 컨트롤” 대신 **모달 제목(heading)** 으로 이동하도록 개선하고, 제목에 `tabindex="-1"`를 부여해 탭 순서에 섞이지 않으면서도 프로그램 포커스를 받을 수 있게 표준화. 또한 `aria-labelledby`를 제목과 연결해 스크린리더가 모달 컨텍스트를 즉시 인식하도록 함. 제목 포커스가 눈에 보이도록 `tabindex="-1"` heading의 `:focus`에도 포커스 링을 제공.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 예시(README)에서 제목에 `id`/`tabindex=-1`를 명시해 패턴을 문서로 고정하고, “포커스 복원/ESC 닫기”까지 포함한 QA 체크 한 줄 추가.
+---
+
 ## 2026-02-15 (일요일) 19:02 - WCAG 대비/분류 기반 semantic 토큰 별칭 추가
 - **수정 파일:** source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 팔레트/브랜드 색상(`--color-*`) 위에 WCAG 분류에 맞춘 semantic alias 토큰(`--text-primary`, `--surface`, `--border-subtle`, `--focus-ring` 등)을 추가해, 프로젝트별로 “대비 기준(1.4.3) / 비텍스트 대비(1.4.11) / 색 단독 정보 금지(1.4.1)” 관점의 커스터마이징 여지를 확보.
