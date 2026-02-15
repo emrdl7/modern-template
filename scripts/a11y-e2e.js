@@ -172,6 +172,28 @@ function summarize(resultsByUrl) {
   fs.writeFileSync(outJson, JSON.stringify({ generatedAt: new Date().toISOString(), resultsByUrl }, null, 2));
 
   const s = summarize(resultsByUrl);
+
+  function listChecks(kind) {
+    const lines = [];
+    const urls = Object.keys(resultsByUrl);
+
+    for (const url of urls) {
+      const checks = (resultsByUrl[url] && resultsByUrl[url][kind]) || [];
+      if (!Array.isArray(checks) || checks.length === 0) continue;
+
+      lines.push(`- URL: ${url} (${checks.length})`);
+      for (const c of checks) {
+        const id = c.id || '(no id)';
+        const impact = c.impact || 'unknown';
+        const nodes = Array.isArray(c.nodes) ? c.nodes.length : 0;
+        const help = c.help ? ` — ${c.help}` : '';
+        lines.push(`  - ${id} | impact: ${impact} | nodes: ${nodes}${help}`);
+      }
+    }
+
+    return lines;
+  }
+
   const summaryLines = [
     `A11Y E2E (axe-core + Playwright)`,
     `URLs: ${s.urls}`,
@@ -180,6 +202,16 @@ function summarize(resultsByUrl) {
     `Passes: ${s.passes}`,
     `Report: ${path.relative(PROJECT_ROOT, outJson)}`,
   ];
+
+  const incompleteLines = listChecks('incomplete');
+  if (incompleteLines.length > 0) {
+    summaryLines.push('', '== INCOMPLETE CHECKS (manual review) ==', ...incompleteLines);
+  }
+
+  const violationLines = listChecks('violations');
+  if (violationLines.length > 0) {
+    summaryLines.push('', '== VIOLATIONS ==', ...violationLines);
+  }
 
   const outTxt = path.join(REPORTS_DIR, 'a11y-axe-summary.txt');
   fs.writeFileSync(outTxt, summaryLines.join('\n') + '\n');

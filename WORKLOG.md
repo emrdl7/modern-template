@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 01:15 - a11y:e2e summary에 incomplete 항목을 URL/룰별로 분리 출력
+- **수정 파일:** scripts/a11y-e2e.js
+- **변경 내용:**
+  - `reports/a11y-axe-summary.txt`에 `== INCOMPLETE CHECKS (manual review) ==` 섹션을 추가해, URL별/룰(id)별로 incomplete 항목을 명확히 나눠 출력.
+  - 동일 포맷으로 `== VIOLATIONS ==` 섹션도 추가(violation 발생 시 요약에서 바로 확인 가능).
+- **의도:** CI 로그/summary만 봐도 “수동 검토 필요(incomplete)”와 “즉시 수정 필요(violation)”를 혼동하지 않도록 가독성 개선.
+- **출처:** STUDY-NOTES 2026-02-16 00:45 회차 ‘대비 회귀 테스트 + 운영 개선’ 아이디어 중 (a)
+---
+
 ## 2026-02-16 (월요일) 00:15 - Playwright + axe-core E2E 접근성 체크 추가 (incomplete=warning, violations=FAIL)
 - **수정/추가 파일:** package.json, package-lock.json, scripts/a11y-e2e.js, README.md, .github/workflows/a11y-e2e.yml, source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css, index.html
 - **변경 내용:**
