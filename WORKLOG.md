@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 08:00 - link-reset 믹스인에 focus-visible 포커스 링 기본 적용
+- **수정 파일:** source/css/scss/_mixins.scss
+- **변경 내용:**
+  - `@mixin link-reset`에 `:focus-visible { @include focus-outline; }`를 추가해, 링크들도 키보드 네비게이션 시 **일관된 포커스 링**이 보이도록 기본값을 강화.
+  - 컴포넌트/페이지별로 링크 포커스를 따로 처리하지 않아도 되게 만들어, 커스터마이징(토큰/outline 변수) 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 07:45) ‘A11y Quality Gates(포커스 가시성 기본값 강화)’ 아이디어
+- **다음 세션 예고:** PR 템플릿(체크박스)처럼 “사람이 놓치기 쉬운 Quick wins”를 한 줄로라도 강제/가이드하는 장치를 더 단순하게 추가.
+---
+
 ## 2026-02-16 (월요일) 07:15 - non-text 대비 리포트에 alpha/overlay(합성) 샘플 2개 기록
 - **수정 파일:** scripts/check-contrast.js (`reports/contrast-nontext.json` 산출물은 실행 시 생성되며 저장소에서는 `.gitignore` 처리)
 - **변경 내용:**

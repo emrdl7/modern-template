@@ -130,6 +130,12 @@
   &:hover {
     text-decoration: underline;
   }
+
+  // 링크도 키보드 포커스가 명확히 보이도록 통일
+  // (컴포넌트별 개별 처리 대신 기본 믹스인에서 가시성 확보)
+  &:focus-visible {
+    @include focus-outline;
+  }
 }
 
 // 스크롤바 스타일
