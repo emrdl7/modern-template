@@ -7,7 +7,7 @@
   --color-text: #212529;
   --color-bg: #ffffff;
   --color-bg-alt: #f8f9fa;
-  --color-border: #dee2e6;
+  --color-border: #8e8e8e;
   --color-white: #ffffff;
   --color-black: #000000;
 }
@@ -294,7 +294,7 @@ table {
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 0.8rem;
-  border: 1px solid var(--color-border, #dee2e6);
+  border: 1px solid var(--color-border, #8e8e8e);
   background: var(--color-bg, #ffffff);
   color: var(--color-text, #212529);
   font-size: 1.4rem;
@@ -352,7 +352,7 @@ table {
 }
 .sidebar nav {
   background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  border: 1px solid #8e8e8e;
   border-radius: 1.2rem;
   padding: 2rem;
 }
@@ -392,7 +392,7 @@ table {
 .sidebar nav ul li ul {
   margin-top: 0.5rem;
   margin-left: 1rem;
-  border-left: 2px solid #dee2e6;
+  border-left: 2px solid #8e8e8e;
 }
 .sidebar nav ul li ul a {
   font-size: 1.4rem;
@@ -587,7 +587,7 @@ table {
   display: flex;
   flex-direction: column;
   background-color: var(--color-bg, #ffffff);
-  border: 1px solid var(--color-border, #dee2e6);
+  border: 1px solid var(--color-border, #8e8e8e);
   border-radius: 1.2rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -595,7 +595,7 @@ table {
 
 .card-header {
   padding: 2rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #8e8e8e;
   font-weight: 600;
 }
 
@@ -606,7 +606,7 @@ table {
 
 .card-footer {
   padding: 2rem;
-  border-top: 1px solid var(--color-border, #dee2e6);
+  border-top: 1px solid var(--color-border, #8e8e8e);
   background-color: var(--color-bg-alt, #f8f9fa);
 }
 
@@ -629,7 +629,7 @@ table {
   line-height: 1.5;
   color: var(--color-text, #212529);
   background-color: var(--color-bg, #ffffff);
-  border: 1px solid var(--color-border, #dee2e6);
+  border: 1px solid var(--color-border, #8e8e8e);
   border-radius: 0.8rem;
   transition: all 0.15s ease-in-out;
 }
@@ -773,11 +773,11 @@ textarea.form-control {
 }
 
 .modal-header {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #8e8e8e;
 }
 
 .modal-footer {
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid #8e8e8e;
   display: flex;
   gap: 0.75rem;
   justify-content: flex-end;

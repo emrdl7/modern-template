@@ -42,7 +42,8 @@ $colors: (
   text-secondary: #6c757d,
   bg-primary: #ffffff,
   bg-secondary: #f8f9fa,
-  border: #dee2e6
+  // NOTE(a11y): UI boundary color should meet 3:1 contrast against bg-primary for essential borders.
+  border: #8e8e8e
 );
 
 // 타이포그래피
