@@ -212,8 +212,18 @@ table {
   font-weight: bold;
   border-radius: 0 0 8px 0;
 }
-.skip-nav:focus {
+.skip-nav:focus-visible {
   top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, #fff 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .skip-nav:focus-visible {
+    outline-width: 4px;
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, #fff 40%, transparent);
+  }
 }
 
 .container {
