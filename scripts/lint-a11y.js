@@ -1,17 +1,21 @@
 #!/usr/bin/env node
 /*
-  lint-a11y: prevent accidental removal of focus indicators.
+  lint:a11y
 
-  Rule:
-  - Disallow `outline none/0` declarations (including no-space variants).
+  Gates:
+  1) Non-text contrast matrix (WCAG 2.1 1.4.11) via scripts/check-contrast.js --nontext
+  2) Prevent accidental removal of focus indicators:
+     - Disallow `outline none/0` declarations (including no-space variants).
 
   Why:
-  - WCAG 2.4.7 (Focus Visible). Removing outline is a common regression.
+  - WCAG 1.4.11 (Non-text Contrast): essential UI boundaries/indicators need 3:1.
+  - WCAG 2.4.7 (Focus Visible): removing outline is a common regression.
 */
 
 const fs = require('node:fs');
 const fsp = require('node:fs/promises');
 const path = require('node:path');
+const { spawnSync } = require('node:child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -84,7 +88,25 @@ async function checkFile(filePath) {
   return hits;
 }
 
+function runNonTextContrastCheck() {
+  // Keep it lightweight: reuse scripts/check-contrast.js --nontext.
+  // This catches regressions where essential UI boundaries (borders/focus/icons tokens) lose 3:1 contrast.
+  const script = path.join(ROOT, 'scripts', 'check-contrast.js');
+  const res = spawnSync(process.execPath, [script, '--nontext'], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+  return res.status === 0;
+}
+
 (async () => {
+  // 1) Non-text contrast gate (WCAG 1.4.11)
+  if (!runNonTextContrastCheck()) {
+    console.error('\nlint:a11y FAIL — non-text contrast checks failed (WCAG 1.4.11)');
+    process.exit(1);
+  }
+
+  // 2) Static scan: prevent accidental removal of focus indicators
   const violations = [];
   for await (const filePath of walk(ROOT)) {
     const rel = path.relative(ROOT, filePath);

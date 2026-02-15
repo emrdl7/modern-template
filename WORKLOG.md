@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 06:00 - lint:a11y에 non-text contrast(1.4.11) 게이트 추가
+- **수정 파일:** scripts/lint-a11y.js, package.json
+- **변경 내용:**
+  - `lint:a11y` 실행 시 먼저 `scripts/check-contrast.js --nontext`를 호출해, **UI 경계/인디케이터 토큰이 surface 대비 3:1을 유지하는지(WCAG 2.1 1.4.11)** 회귀를 조기 차단.
+  - 실행 편의용으로 `npm run check:contrast:nontext` 스크립트도 추가.
+  - focus indicator 회귀 방지(`outline: none/0` 탐지) 규칙은 그대로 유지.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 05:45) ‘비텍스트 대비(3:1) 토큰을 CI/lint에서 FAIL’ 아이디어
+- **다음 세션 예고:** `focus-ring`/`icon-*` 같은 비텍스트 토큰을 실제로 추가한 뒤, non-text 매트릭스 대상 토큰을 1~2개만 더 확장.
+---
+
 ## 2026-02-16 (월요일) 05:00 - a11y:e2e에 role/AccName 스모크 체크 추가
 - **수정 파일:** scripts/a11y-e2e.js
 - **변경 내용:**
