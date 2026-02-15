@@ -1,3 +1,10 @@
+## 2026-02-15 (일요일) 19:02 - WCAG 대비/분류 기반 semantic 토큰 별칭 추가
+- **수정 파일:** source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:** 팔레트/브랜드 색상(`--color-*`) 위에 WCAG 분류에 맞춘 semantic alias 토큰(`--text-primary`, `--surface`, `--border-subtle`, `--focus-ring` 등)을 추가해, 프로젝트별로 “대비 기준(1.4.3) / 비텍스트 대비(1.4.11) / 색 단독 정보 금지(1.4.1)” 관점의 커스터마이징 여지를 확보.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 실제 컴포넌트 1곳(버튼/카드/인풋 중 1개)에서 `--border-subtle` 같은 semantic 토큰을 시범 적용해 ‘장식 보더 vs 필수 보더(3:1)’ 패턴을 문서화.
+---
+
 ## 2026-02-15 (일요일) 18:00 - 대비 체크 결과를 JSON으로 저장하는 옵션 추가
 - **수정 파일:** scripts/check-contrast.js
 - **변경 내용:** `check:contrast` 실행 결과를 CI/아카이빙에 재사용할 수 있도록 `--out <path>`(또는 `--json <path>`) 옵션을 추가해 JSON 리포트를 저장할 수 있게 함. 기본 동작(콘솔 출력/실패 시 exit 1)은 유지해 커스터마이징 여지를 남김.
