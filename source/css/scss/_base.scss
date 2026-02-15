@@ -77,10 +77,6 @@ a {
     color: var(--color-primary-dark, #{color(primary-dark)});
     text-decoration: underline;
   }
-
-  &:focus-visible {
-    @include focus-outline(var(--color-primary, #{color(primary)}));
-  }
 }
 
 // 리스트
@@ -128,9 +124,7 @@ table {
 
 // 포커스 기본 스타일 (접근성)
 // --------------------------------------------------------------------------
-:focus-visible {
-  @include focus-outline;
-}
+@import 'focus';
 
 // Skip Navigation 링크 (접근성)
 // --------------------------------------------------------------------------

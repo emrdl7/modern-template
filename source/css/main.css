@@ -150,18 +150,6 @@ a:hover {
   color: var(--color-primary-dark, #1a4fb8);
   text-decoration: underline;
 }
-a:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--color-primary, #246beb);
-  outline-offset: var(--focus-ring-offset, 3px);
-  border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-primary, #246beb) 36%, transparent);
-}
-@media (prefers-contrast: more) {
-  a:focus-visible {
-    outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-primary, #246beb) 40%, transparent);
-  }
-}
 
 ul, ol {
   margin: 0 0 1rem 0;
@@ -213,17 +201,43 @@ table {
   border-spacing: 0;
 }
 
-:focus-visible {
+:where(a,
+button,
+input,
+textarea,
+select,
+summary,
+[role=button],
+[tabindex]:not([tabindex="-1"])):focus-visible {
   outline: var(--focus-ring-width, 3px) solid var(--color-focus-ring, var(--color-primary, #246beb));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
   box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
-  :focus-visible {
+  :where(a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  [role=button],
+  [tabindex]:not([tabindex="-1"])):focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
     box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
   }
+}
+
+:where(a,
+button,
+input,
+textarea,
+select,
+summary,
+[role=button],
+[tabindex]:not([tabindex="-1"])):focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 .skip-nav {

@@ -1,3 +1,12 @@
+## 2026-02-15 (일요일) 22:00 - focus-visible 포커스 링 규칙 통일(토큰 기반)
+- **수정 파일:** source/css/scss/_base.scss, source/css/scss/_focus.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - `:where(...) :focus-visible` 규칙을 공통화해 링크/버튼/폼 요소 등 주요 인터랙티브 요소의 **키보드 포커스 링을 토큰(--color-focus-ring, --focus-ring-*) 기반으로 통일**.
+  - `:focus:not(:focus-visible)`에서 기본 outline/box-shadow를 제거해 **마우스 클릭 시 불필요한 링 노출을 줄이면서** 키보드 탐색은 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `dialog`/모달 트리거의 “닫힐 때 포커스 복귀” 동작을 실제 예시(README 또는 ui.js)로 1곳만 더 고정.
+---
+
 ## 2026-02-15 (일요일) 21:15 - 대비 자동점검 리포트 고정 경로 생성 + CI 빌드 추가
 - **수정 파일:** package.json, .gitignore, .github/workflows/ci.yml
 - **변경 내용:**
