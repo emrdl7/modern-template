@@ -39,7 +39,8 @@ $colors: (
 
   // Semantic
   text-primary: #212529,
-  text-secondary: #6c757d,
+  // WCAG AA: avoid too-light gray for body-sized secondary text
+  text-secondary: #495057,
   bg-primary: #ffffff,
   bg-secondary: #f8f9fa,
   // NOTE(a11y): UI boundary color should meet 3:1 contrast against bg-primary for essential borders.

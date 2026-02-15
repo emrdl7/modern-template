@@ -5,6 +5,7 @@
   "scripts": {
     "check:contrast": "node scripts/check-contrast.js --out reports/contrast-report.json",
     "check:contrast:print": "node scripts/check-contrast.js",
+    "a11y:e2e": "node scripts/a11y-e2e.js",
     "build:css": "sass source/css/scss/main.scss source/css/main.css && sass source/css/scss/sub.scss source/css/sub.css",
     "watch:css": "sass --watch source/css/scss:source/css",
     "build": "npm run check:contrast && npm run build:css"
@@ -13,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axe-core": "^4.10.3",
+    "playwright": "^1.52.0",
     "sass": "^1.97.3"
   }
 }

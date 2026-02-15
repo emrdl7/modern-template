@@ -1,3 +1,15 @@
+## 2026-02-16 (월요일) 00:15 - Playwright + axe-core E2E 접근성 체크 추가 (incomplete=warning, violations=FAIL)
+- **수정/추가 파일:** package.json, package-lock.json, scripts/a11y-e2e.js, README.md, .github/workflows/a11y-e2e.yml, source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css, index.html
+- **변경 내용:**
+  - `npm run a11y:e2e` 스크립트 추가: Playwright(Chromium)로 `index.html/main.html/sub.html`을 열고 axe-core를 실행.
+  - 리포팅 정책 고정: **`violations`는 FAIL(exit 1)**, **`incomplete`는 WARNING(수동 검토 필요)** 로 분리.
+  - 리포트 산출물: `reports/a11y-axe-report.json`, `reports/a11y-axe-summary.txt`.
+  - 템플릿 기본 화면의 `color-contrast` violations를 제거하기 위해 `text-secondary` 토큰과 일부 인라인 스타일(코드/배지/보조 텍스트)을 대비 기준에 맞게 조정.
+  - GitHub Actions에 placeholder 워크플로우 추가: PR/수동 실행에서 build + a11y:e2e 수행 후 reports artifact 업로드.
+- **출처:** STUDY-NOTES 23:45 회차 ‘Playwright + axe-core 기반 E2E 접근성 체크’ 아이디어
+- **다음 세션 TODO:** 워크플로우에서 `incomplete`를 GitHub annotation(Warning)으로 남기고, 대표 케이스(contrast incomplete 등) 스크린샷 첨부 옵션 추가.
+---
+
 ## 2026-02-15 (일요일) 23:00 - 다중 랜드마크(nav/aside) 이름 누락 힌트 추가
 - **수정 파일:** source/js/common.js
 - **변경 내용:**

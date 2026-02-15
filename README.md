@@ -150,6 +150,24 @@ Live Server 등을 사용하여 브라우저에서 확인
 npx serve .
 ```
 
+### 2.5. 접근성 E2E 자동 체크 (Playwright + axe-core)
+
+템플릿의 주요 페이지(`index.html`, `main.html`, `sub.html`)를 대상으로 axe-core를 실행합니다.
+
+- `violations`가 1개라도 있으면 **FAIL(종료코드 1)**
+- `incomplete`(예: color-contrast 분석 불가)는 **WARNING(수동 검토 필요)** 로 분리합니다.
+
+```bash
+npm run a11y:e2e
+
+# 검사 대상 페이지를 커스터마이즈 (콤마로 구분)
+A11Y_PAGES="index.html,main.html" npm run a11y:e2e
+```
+
+결과물:
+- `reports/a11y-axe-report.json`
+- `reports/a11y-axe-summary.txt`
+
 ### 3. 개발자에게 전달
 
 SCSS 컴파일 후 다음 파일/폴더만 전달:

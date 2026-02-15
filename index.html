@@ -36,7 +36,8 @@
       display: block;
       font-size: 20px;
       font-weight: 400;
-      color: #6c757d;
+      /* WCAG AA: ensure sufficient contrast on the light body background */
+      color: #495057;
       margin-top: 10px;
     }
     .info-box {
@@ -53,7 +54,8 @@
     }
     .info-box p {
       line-height: 1.6;
-      color: #6c757d;
+      /* WCAG AA: muted text still needs 4.5:1 against white */
+      color: #495057;
       margin-bottom: 10px;
     }
     .info-box code {
@@ -63,7 +65,8 @@
       border-radius: 4px;
       font-family: Monaco, Consolas, monospace;
       font-size: 14px;
-      color: #e71825;
+      /* WCAG AA: ensure code text has 4.5:1 contrast on light gray bg */
+      color: #b00020;
     }
     .page-list {
       display: grid;
@@ -93,14 +96,16 @@
     }
     .page-link p {
       font-size: 14px;
-      color: #6c757d;
+      /* WCAG AA: avoid too-light gray for small text */
+      color: #495057;
       line-height: 1.5;
     }
     .badge {
       display: inline-block;
       padding: 4px 12px;
       background: #e7f3ff;
-      color: #246beb;
+      /* WCAG AA: badge text is small; use a darker blue for contrast */
+      color: #0b4fb3;
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
@@ -125,7 +130,8 @@
     footer {
       text-align: center;
       padding: 40px 20px;
-      color: #6c757d;
+      /* WCAG AA: ensure footer text is readable */
+      color: #495057;
       font-size: 14px;
     }
     .preview-img {

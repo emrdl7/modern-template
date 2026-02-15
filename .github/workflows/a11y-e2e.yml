@@ -1,0 +1,37 @@
+name: a11y-e2e
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  axe_playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Install Playwright browsers (Chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Build (contrast + css)
+        run: npm run build
+
+      - name: A11Y E2E (axe-core)
+        run: npm run a11y:e2e
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-reports
+          path: reports/
