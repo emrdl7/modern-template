@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "현대적인 웹 표준과 접근성을 고려한 HTML/CSS/JavaScript 템플릿",
   "scripts": {
-    "check:contrast": "node scripts/check-contrast.js",
+    "check:contrast": "node scripts/check-contrast.js --out reports/contrast-report.json",
+    "check:contrast:print": "node scripts/check-contrast.js",
     "build:css": "sass source/css/scss/main.scss source/css/main.css && sass source/css/scss/sub.scss source/css/sub.css",
     "watch:css": "sass --watch source/css/scss:source/css",
     "build": "npm run check:contrast && npm run build:css"

@@ -22,6 +22,9 @@ Thumbs.db
 *.tmp
 *.bak
 
+# Reports / artifacts
+reports/
+
 # Agent internal files
 STUDY-PROMPT.md
 MOLTBOOK-*.txt

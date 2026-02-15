@@ -1,3 +1,14 @@
+## 2026-02-15 (일요일) 21:15 - 대비 자동점검 리포트 고정 경로 생성 + CI 빌드 추가
+- **수정 파일:** package.json, .gitignore, .github/workflows/ci.yml
+- **변경 내용:**
+  - `npm run check:contrast`가 `scripts/check-contrast.js --out reports/contrast-report.json`을 실행하도록 변경해 **JSON 리포트를 고정 경로로 생성**.
+  - 기준 위반 시 기존대로 **exit 1**로 실패 처리(회귀 방지).
+  - GitHub Actions CI에서 `npm install && npm run build`를 수행하고, 항상(실패 포함) `reports/contrast-report.json`을 artifact로 업로드.
+  - 생성물 디렉토리 `reports/`는 gitignore 처리(커밋 방지).
+- **출처:** STUDY-NOTES 20:45 회차 ‘대비 자동점검을 CI에서 FAIL’ 아이디어
+- **다음 세션 예고:** 체크 리스트(토큰 페어) 확장(예: focus-ring vs surface, border-subtle vs surface) 및 `npm ci`를 쓰기 위한 lockfile 정책 결정.
+---
+
 ## 2026-02-15 (일요일) 20:00 - 모달 오픈 시 제목(heading) 포커스/aria-labelledby 표준화
 - **수정 파일:** source/js/modules/ui.js, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:** 모달 열릴 때 첫 포커스를 “첫 컨트롤” 대신 **모달 제목(heading)** 으로 이동하도록 개선하고, 제목에 `tabindex="-1"`를 부여해 탭 순서에 섞이지 않으면서도 프로그램 포커스를 받을 수 있게 표준화. 또한 `aria-labelledby`를 제목과 연결해 스크린리더가 모달 컨텍스트를 즉시 인식하도록 함. 제목 포커스가 눈에 보이도록 `tabindex="-1"` heading의 `:focus`에도 포커스 링을 제공.
