@@ -3,6 +3,7 @@
   "checks": [
     {
       "id": "text-primary-on-surface",
+      "state": "default",
       "kind": "text",
       "fg": "--text-primary",
       "bg": "--surface",
@@ -10,6 +11,7 @@
     },
     {
       "id": "text-on-accent",
+      "state": "default",
       "kind": "text",
       "fg": "--text-on-accent",
       "bg": "--color-accent",
@@ -17,22 +19,33 @@
     },
     {
       "id": "border-on-surface",
+      "state": "default",
       "kind": "ui",
       "fg": "--border",
       "bg": "--surface",
       "min": 3
     },
     {
+      "id": "link-hover-on-surface",
+      "state": "hover",
+      "kind": "text",
+      "fg": "--color-primary-dark",
+      "bg": "--surface",
+      "min": 4.5
+    },
+    {
       "id": "focus-ring-on-surface",
+      "state": "focus",
       "kind": "ui",
       "fg": "--focus-ring",
       "bg": "--surface",
       "min": 3
     },
     {
-      "id": "primary-on-surface",
+      "id": "error-on-surface",
+      "state": "error",
       "kind": "ui",
-      "fg": "--color-primary",
+      "fg": "--color-accent",
       "bg": "--surface",
       "min": 3
     }

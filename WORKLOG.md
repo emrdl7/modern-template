@@ -1,3 +1,14 @@
+## 2026-02-16 (월요일) 19:01 - 상태별 대비 토큰 감사 확장
+- **수정 파일:** scripts/a11y-contrast-audit.mjs, scripts/a11y-contrast-audit.config.json
+- **변경 내용:**
+  - 최신 STUDY-NOTES(18:45) 코드 적용 아이디어를 반영해, 대비 감사에 `state` 필드(default/hover/focus/error)를 도입하고 상태별로 분리 출력/집계되도록 개선.
+  - 설정 파일 검사 항목을 상태별 체크로 확장해 hover 링크 텍스트(4.5:1), focus 링(3:1), error 컬러(3:1)까지 CI에서 함께 검증되게 정리.
+  - 기능 범위를 토큰 감사 흐름 안에서만 확장해 과도한 기능 추가 없이 커스터마이징 여지를 유지.
+- **점검:** `npm run audit:contrast:tokens` PASS
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `active` 상태 토큰(필요 시)과 다크 테마 전용 감사 옵션을 분리해 선택 실행 구조로 확장 검토.
+---
+
 ## 2026-02-16 (월요일) 18:15 - 프로토타입 접근성 대체 리서치 체크리스트 문서 추가
 - **수정 파일:** docs/a11y-prototype-research-checklist.md, README.md
 - **변경 내용:**

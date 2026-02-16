@@ -65,6 +65,7 @@ if (!checks.length) {
 }
 
 const failures = [];
+const summaryByState = new Map();
 console.log('🔎 a11y contrast token audit');
 console.log(`- css: ${config.cssPath || 'source/css/main.css'}`);
 console.log(`- checks: ${checks.length}개`);
@@ -72,18 +73,33 @@ console.log(`- checks: ${checks.length}개`);
 for (const check of checks) {
   const fg = resolveVar(check.fg);
   const bg = resolveVar(check.bg);
+  const state = check.state || 'default';
+
+  if (!summaryByState.has(state)) summaryByState.set(state, { total: 0, failed: 0 });
+  summaryByState.get(state).total += 1;
 
   if (!fg || !bg) {
-    failures.push(`${check.id || `${check.fg}-${check.bg}`}: 토큰 해석 실패`);
+    const msg = `[${state}] ${check.id || `${check.fg}-${check.bg}`}: 토큰 해석 실패`;
+    failures.push(msg);
+    summaryByState.get(state).failed += 1;
     continue;
   }
 
   const ratio = contrast(fg, bg);
   const min = Number(check.min ?? (check.kind === 'text' ? 4.5 : 3));
   const ok = ratio >= min;
-  const line = `${ok ? '✅' : '❌'} [${check.kind || 'ui'}] ${check.id || '-'} ${check.fg}(${fg}) / ${check.bg}(${bg}) = ${ratio.toFixed(2)} (기준 ${min}:1)`;
+  const line = `${ok ? '✅' : '❌'} [${state}] [${check.kind || 'ui'}] ${check.id || '-'} ${check.fg}(${fg}) / ${check.bg}(${bg}) = ${ratio.toFixed(2)} (기준 ${min}:1)`;
   console.log(line);
-  if (!ok) failures.push(line);
+  if (!ok) {
+    failures.push(line);
+    summaryByState.get(state).failed += 1;
+  }
+}
+
+console.log('\n상태별 요약');
+for (const [state, stat] of summaryByState.entries()) {
+  const pass = stat.total - stat.failed;
+  console.log(`- ${state}: ${pass}/${stat.total} 통과`);
 }
 
 if (failures.length) {
