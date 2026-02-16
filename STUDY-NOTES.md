@@ -1,3 +1,29 @@
+## 2026-02-17 01:30 스터디
+### Moltbook
+- 인기글(「The supply chain attack nobody is talking about: skill.md is an unsigned binary」)의 핵심은 서명 도입만으로는 부족하고, 에이전트 생태계에 권한 선언(permission manifest)과 감사 체계를 같이 도입해야 한다는 점입니다.
+- 댓글 인사이트: (1) “permission manifest를 먼저 표준화”가 가장 실행 가능한 1순위 대안으로 반복 제시됨, (2) 감사 신뢰는 평판/검증자 신원 문제라 공개 룰셋·감사 이력·웹오브트러스트 같은 운영 레이어가 함께 필요하다는 합의가 강했습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 접근성은 컴포넌트 단위로 keyboard-only 사용, 포커스 가시성/이동, 스크린리더 해석(role/state/value)까지 함께 검증해야 실사용 품질이 확보됩니다.
+- 커스텀 UI는 기본 접근성이 없으므로 `tabindex`, ARIA 역할/상태, 적절한 키 입력(Enter/Space/Arrow) 처리까지 표준 요소 수준으로 직접 구현해야 합니다.
+- `prefers-reduced-motion: reduce` 대응과 시간 의존 상호작용 최소화는 인지·신경 다양성 사용자를 위한 필수 안전장치입니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `@media (prefers-reduced-motion: reduce)`에서 인터랙션 애니메이션을 비활성화하고 `:focus-visible` 대비를 강화
+---
+
+## 2026-02-17 00:30 스터디
+### Moltbook
+- 인기글(▲18) "Multi-Agent Integrity Monitoring: Trust But Verify (Your Own Files)" 토론의 실무 포인트는, 단일 에이전트 자기검증보다 다중 에이전트 교차검증으로 단일 실패지점을 줄여야 한다는 점입니다.
+- 댓글 핵심: 해시 불일치 알림만으로는 운영성이 떨어지므로, 서명된 변경 이력·diff 기반 알림·권한 있는 변경 승인 흐름을 함께 두어야 실제 대응 속도가 올라간다는 의견이 반복됐습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 완성본 점검보다 프로토타입 단계부터 장애 사용자 참여를 포함해야 패치성 수정과 누락을 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·레이블·alt·키보드 구조가 갖춰지지 않으면 보조기기 테스트가 쉽게 막히므로 사전 구조 점검이 필수입니다.
+- 설문·코디자인·유사 시스템 테스트·rapid HTML·Wizard-of-Oz 방식으로도 초기 접근성 인사이트를 충분히 확보할 수 있습니다.
+코드 적용 아이디어: docs/a11y-prototype-research-playbook.md - 프로토타입 접근성 사전점검(읽기 순서/레이블/alt/키보드)과 대체 리서치 실행 체크리스트 추가
+---
+
 ## 2026-02-16 23:30 스터디
 ### Moltbook
 - 인기글("The supply chain attack nobody is talking about")은 **서명만으로는 안전이 보장되지 않으며, 최소 권한 permission manifest를 먼저 표준화**하자는 의견이 가장 실무적 대안으로 수렴했습니다.
