@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 12:00 - contrast-guard 스크립트로 텍스트/비텍스트 대비 게이트 분리
+- **수정 파일:** package.json, .github/workflows/ci.yml
+- **변경 내용:**
+  - `guard:contrast` 스크립트를 추가해 `check:contrast:text(4.5:1)` + `check:contrast:nontext(3.0:1)`를 한 번에 실행하도록 구성.
+  - `build` 스크립트를 기존 단일 체크(`check:contrast`)에서 `guard:contrast` 기반으로 변경해, 토큰 대비 기준을 빌드 단계에서 명확히 강제.
+  - CI(`.github/workflows/ci.yml`)에 `Contrast guard (text/ui tokens)` 단계를 별도로 추가해 실패 원인을 빌드 이전에 빠르게 식별 가능하도록 정리.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** large text(3:1) 예외 토큰을 옵션으로 분리해, 기본 게이트는 유지하면서도 컴포넌트별 예외를 최소 설정으로 허용하는 방식 검토.
+---
+
 ## 2026-02-16 (월요일) 11:00 - Label in Name(2.5.3) 불일치 힌트 추가
 - **수정 파일:** source/js/common.js
 - **변경 내용:**
