@@ -557,15 +557,15 @@ summary,
   user-select: none;
 }
 .btn:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--color-focus-ring, var(--color-primary, #246beb));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
   }
 }
 .btn:disabled {
@@ -850,6 +850,16 @@ textarea.form-control {
   justify-content: flex-end;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .modal,
+  .modal-backdrop,
+  .modal-content {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
 .hero {
   padding: 8rem 0;
   text-align: center;

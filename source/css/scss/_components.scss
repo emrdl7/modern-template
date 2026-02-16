@@ -22,7 +22,8 @@
   user-select: none;
 
   &:focus-visible {
-    @include focus-outline;
+    // 버튼 포커스 링 대비 강화(기본 primary보다 한 단계 진한 색 우선)
+    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   }
 
   &:disabled {
@@ -301,4 +302,17 @@ textarea.form-control {
   display: flex;
   gap: spacer(3);
   justify-content: flex-end;
+}
+
+// 모션 감소 선호 시 컴포넌트 전환 최소화
+// --------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .modal,
+  .modal-backdrop,
+  .modal-content {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }

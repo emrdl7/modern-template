@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 00:00 - 버튼/모달 모션 감소 및 포커스 대비 강화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(23:30) 아이디어를 반영해 `.btn:focus-visible` 포커스 링 기본색을 `primary-dark` 우선으로 조정해 대비를 강화.
+  - `@media (prefers-reduced-motion: reduce)`에서 `.btn`, `.modal`, `.modal-backdrop`, `.modal-content`의 animation/transition/transform을 비활성화해 모션 민감 사용자 설정을 명시적으로 존중.
+  - 변경 범위를 컴포넌트 SCSS 1개 중심으로 제한하고 CSS 빌드 산출물만 갱신해 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 제목/닫기 버튼의 키보드 포커스 이동 경로를 문서 체크리스트에 1개 추가.
+---
+
 ## 2026-02-16 (월요일) 23:00 - 프로토타입 사전검증 체크 추가
 - **수정 파일:** docs/a11y-prototype-research-playbook.md
 - **변경 내용:**
