@@ -36,27 +36,45 @@ export const throttle = (func, limit = 300) => {
 };
 
 /**
- * 포커스 트랩 (accessibility) - 모달 등에서 Tab 이동 제한
+ * 포커스 트랩(accessibility) - 모달 등에서 Tab 이동을 컨테이너 내부로 제한
  * @param {HTMLElement} container
+ * @returns {Function} cleanup 함수 (이벤트 제거)
  */
 export function trapFocus(container) {
-  const focusableSelectors = 'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"]), [contenteditable]';
-  const focusable = Array.from(container.querySelectorAll(focusableSelectors));
-  if (!focusable.length) return;
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
-  container.addEventListener('keydown', function(e) {
-    if (e.key !== 'Tab') return;
-    if (e.shiftKey) {
-      if (document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      }
-    } else {
-      if (document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+  const focusableSelectors =
+    'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"]), [contenteditable]';
+
+  const getFocusable = () => Array.from(container.querySelectorAll(focusableSelectors));
+
+  const onKeydown = (e) => {
+    if (e.key !== "Tab") return;
+
+    const focusable = getFocusable();
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    // 외부 포커스 누수 시 즉시 컨테이너 내부로 복귀
+    if (!container.contains(active)) {
+      e.preventDefault();
+      first.focus();
+      return;
     }
-  });
+
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
+  container.addEventListener("keydown", onKeydown);
+  return () => container.removeEventListener("keydown", onKeydown);
 }

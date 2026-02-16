@@ -6,6 +6,7 @@ import { trapFocus } from "../utils.js";
 // 모달
 export const initModal = () => {
   let lastFocusedElement = null;
+  let releaseFocusTrap = null;
 
   // `inert` 지원 브라우저에서는 모달 오픈 시 배경 영역의 포커스/클릭 누수를 원천 차단
   const getInertRoot = () =>
@@ -25,7 +26,9 @@ export const initModal = () => {
       inertRoot.dataset.inertByModal = "true";
     }
 
-    trapFocus(modal);
+    // 중복 바인딩 방지: 이전 트랩 정리 후 새로 연결
+    releaseFocusTrap?.();
+    releaseFocusTrap = trapFocus(modal);
 
     // 접근성: 모달 오픈 시 제목(heading)에 먼저 포커스 제공
     // - heading에 tabindex="-1"를 부여하면 탭 순서에 끼지 않으면서도 프로그램 포커스를 받을 수 있다.
@@ -59,6 +62,9 @@ export const initModal = () => {
     modal.classList.remove("is-active");
     modal.removeAttribute("aria-modal");
     document.body.style.overflow = "";
+
+    releaseFocusTrap?.();
+    releaseFocusTrap = null;
 
     const inertRoot = getInertRoot();
     if (inertRoot?.dataset?.inertByModal === "true") {

@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 14:00 - 모달 포커스 트랩 중복 바인딩 방지 정리
+- **수정 파일:** source/js/utils.js, source/js/modules/ui.js
+- **변경 내용:**
+  - `trapFocus(container)`가 cleanup 함수를 반환하도록 바꿔, 모달을 여러 번 열고 닫아도 `keydown` 핸들러가 중첩되지 않게 정리.
+  - 포커스 트랩 동작 시 매번 최신 focusable 요소 목록을 재계산하고, 포커스가 컨테이너 밖으로 누수되면 첫 요소로 복귀시키도록 보강.
+  - 모달 오픈/닫기 루틴(`initModal`)에 트랩 해제(`releaseFocusTrap`)를 연결해 가볍고 예측 가능한 포커스 순환 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 전역 `:focus-visible` 토큰 스타일이 실제 버튼/링크/입력에서 일관되게 보이는지 e2e 스모크 1개 추가.
+---
+
 ## 2026-02-16 (월요일) 13:00 - non-text 대비 상태 토큰 검사 옵션(--include-states) 추가
 - **수정 파일:** scripts/check-contrast.js, package.json
 - **변경 내용:**
