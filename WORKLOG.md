@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 10:00 - text 토큰 대비(1.4.3) 매트릭스 체크 모드 추가
+- **수정 파일:** scripts/check-contrast.js, package.json
+- **변경 내용:**
+  - `scripts/check-contrast.js`에 `--text`(또는 `--mode text`) 옵션을 추가해, `text-*` 토큰을 `bg-*`/`white` surface들과 조합으로 **WCAG 2.1 AA 텍스트 대비(4.5:1) 매트릭스**로 점검 가능하게 함.
+  - `npm run check:contrast:text` 스크립트를 추가하고, 기본 리포트 경로를 `reports/contrast-text.json`로 고정(자동 생성)해 CI에서 쓰기 쉽게 함.
+  - 과도한 규칙 확장은 피하고(`text-*`만), 추후 large text(3:1) 등은 필요 시 확장 가능하도록 여지 남김.
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 08:45) ‘비텍스트 대비(1.4.11) 회귀 테스트’ 아이디어를 “텍스트 토큰도 매트릭스로 쉽게 점검” 방향으로 최소 적용
+- **다음 세션 예고:** `text-muted` 등 텍스트 토큰이 늘어날 때, surface 조합(다크/카드) 추가와 large text(3:1) 예외 지원을 “옵션/화이트리스트”로만 가볍게 확장.
+---
+
 ## 2026-02-16 (월요일) 09:15 - non-text contrast(1.4.11) 회귀 테스트에 상태 토큰 2개 추가(border-subtle/focus-ring)
 - **수정 파일:** source/css/scss/_variables.scss
 - **변경 내용:**

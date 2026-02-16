@@ -28,7 +28,7 @@ function parseArgs(argv) {
   const args = {
     tokens: DEFAULT_TOKENS_PATH,
     out: null, // optional JSON report path
-    mode: 'default', // default | nontext
+    mode: 'default', // default | text | nontext
   };
 
   for (let i = 2; i < argv.length; i++) {
@@ -46,6 +46,12 @@ function parseArgs(argv) {
       continue;
     }
 
+    if (a === '--text' || (a === '--mode' && argv[i + 1] === 'text')) {
+      args.mode = 'text';
+      if (a === '--mode') i++;
+      continue;
+    }
+
     if (a === '--nontext' || (a === '--mode' && argv[i + 1] === 'nontext')) {
       args.mode = 'nontext';
       if (a === '--mode') i++;
@@ -53,8 +59,11 @@ function parseArgs(argv) {
     }
   }
 
-  // If user explicitly runs non-text mode but doesn't specify output,
+  // If user explicitly runs a matrix mode but doesn't specify output,
   // keep a stable default location so it can be used in CI/PRs.
+  if (args.mode === 'text' && !args.out) {
+    args.out = path.join(REPO_ROOT, 'reports', 'contrast-text.json');
+  }
   if (args.mode === 'nontext' && !args.out) {
     args.out = path.join(REPO_ROOT, 'reports', 'contrast-nontext.json');
   }
@@ -161,6 +170,44 @@ function pickNonTextUiTokens(colors) {
   }
 
   return ui;
+}
+
+function pickTextTokens(colors) {
+  // Text tokens are generally named text-*
+  // Keep it conservative: only check tokens explicitly intended for text.
+  const text = [];
+  for (const k of colors.keys()) {
+    if (/^text-/.test(k)) text.push(k);
+  }
+  return text;
+}
+
+function runTextMatrix(colors) {
+  const min = 4.5;
+  const surfaces = pickSurfaceTokens(colors);
+  const textTokens = pickTextTokens(colors);
+
+  const results = [];
+  const failures = [];
+
+  for (const fg of textTokens) {
+    const fgHex = colors.get(fg);
+    if (!fgHex) continue;
+
+    for (const bg of surfaces) {
+      const bgHex = colors.get(bg);
+      if (!bgHex) continue;
+
+      const ratio = contrastRatio(fgHex, bgHex);
+      const ok = ratio >= min;
+      results.push({ kind: 'text', fg, bg, fgHex, bgHex, ratio, min, ok });
+      if (!ok) {
+        failures.push({ label: `${fg} on ${bg}`, error: `${formatRatio(ratio)} < ${min}:1` });
+      }
+    }
+  }
+
+  return { results, failures, surfaces, textTokens, min };
 }
 
 function runDefaultChecks(colors) {
@@ -302,6 +349,57 @@ function main() {
 
   const scss = fs.readFileSync(tokensPath, 'utf8');
   const colors = extractColorsFromScss(scss);
+
+  if (args.mode === 'text') {
+    const matrix = runTextMatrix(colors);
+
+    const report = {
+      tool: 'scripts/check-contrast.js',
+      mode: 'text',
+      tokensPath: path.relative(REPO_ROOT, tokensPath),
+      generatedAt: new Date().toISOString(),
+      min: matrix.min,
+      surfaces: matrix.surfaces,
+      textTokens: matrix.textTokens,
+      results: matrix.results.map((r) => ({
+        fg: r.fg,
+        bg: r.bg,
+        fgHex: r.fgHex,
+        bgHex: r.bgHex,
+        ratio: Number(r.ratio.toFixed(4)),
+        min: r.min,
+        ok: r.ok,
+      })),
+      failures: matrix.failures,
+    };
+
+    console.log(`\nWCAG text contrast matrix (min ${matrix.min}:1): ${path.relative(REPO_ROOT, tokensPath)}\n`);
+    console.log(`Text tokens: ${matrix.textTokens.join(', ') || '(none found)'}`);
+    console.log(`Surfaces:    ${matrix.surfaces.join(', ') || '(none found)'}`);
+
+    const failCount = matrix.failures.length;
+    const totalCount = matrix.results.length;
+    console.log(`\nChecked: ${totalCount} pairs`);
+    console.log(`PASS:   ${totalCount - failCount}`);
+    console.log(`FAIL:   ${failCount}`);
+
+    if (args.out) {
+      writeJsonReport(args.out, report);
+      console.log(`\nJSON report written: ${path.relative(REPO_ROOT, args.out)}`);
+    }
+
+    if (failCount) {
+      console.error(`\n${failCount} text contrast pair(s) failed:`);
+      for (const f of matrix.failures.slice(0, 20)) console.error(`- ${f.label}: ${f.error}`);
+      if (matrix.failures.length > 20) {
+        console.error(`- ...and ${matrix.failures.length - 20} more (see JSON report)`);
+      }
+      process.exit(1);
+    }
+
+    console.log('\nAll text contrast pairs passed.');
+    return;
+  }
 
   if (args.mode === 'nontext') {
     const matrix = runNonTextMatrix(colors);
