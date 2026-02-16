@@ -64,16 +64,23 @@ if (!checks.length) {
   process.exit(1);
 }
 
+const requiredStates = Array.isArray(config.requiredStates)
+  ? config.requiredStates
+  : ['default', 'hover', 'focus', 'error'];
+
 const failures = [];
 const summaryByState = new Map();
+const stateSet = new Set();
 console.log('🔎 a11y contrast token audit');
 console.log(`- css: ${config.cssPath || 'source/css/main.css'}`);
 console.log(`- checks: ${checks.length}개`);
+console.log(`- required states: ${requiredStates.join(', ')}`);
 
 for (const check of checks) {
   const fg = resolveVar(check.fg);
   const bg = resolveVar(check.bg);
   const state = check.state || 'default';
+  stateSet.add(state);
 
   if (!summaryByState.has(state)) summaryByState.set(state, { total: 0, failed: 0 });
   summaryByState.get(state).total += 1;
@@ -100,6 +107,13 @@ console.log('\n상태별 요약');
 for (const [state, stat] of summaryByState.entries()) {
   const pass = stat.total - stat.failed;
   console.log(`- ${state}: ${pass}/${stat.total} 통과`);
+}
+
+const missingStates = requiredStates.filter((state) => !stateSet.has(state));
+if (missingStates.length) {
+  const msg = `❌ 필수 상태 누락: ${missingStates.join(', ')}`;
+  console.error(msg);
+  failures.push(msg);
 }
 
 if (failures.length) {

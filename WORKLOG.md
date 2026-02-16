@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 20:00 - 상태별 대비 감사 필수 상태 게이트 추가
+- **수정 파일:** scripts/a11y-contrast-audit.mjs, scripts/a11y-contrast-audit.config.json
+- **변경 내용:**
+  - 최신 STUDY-NOTES(19:45) 아이디어를 반영해 토큰 대비 감사에 `requiredStates`(default/hover/focus/error) 필수 게이트를 추가.
+  - 설정된 검사 항목이 필수 상태를 하나라도 빠뜨리면 즉시 실패(exit 1)하도록 해, 상태별 점검 누락이 CI를 통과하지 않게 정리.
+  - 기존 대비 계산/출력 구조는 유지하고 설정 파일만으로 필수 상태를 커스터마이징할 수 있게 최소 변경으로 확장.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 상태별 기준값을 프리셋(AA strict / relaxed)으로 분리해 팀별 적용 난이도 조절 옵션 검토.
+---
+
 ## 2026-02-16 (월요일) 19:01 - 상태별 대비 토큰 감사 확장
 - **수정 파일:** scripts/a11y-contrast-audit.mjs, scripts/a11y-contrast-audit.config.json
 - **변경 내용:**

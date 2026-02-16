@@ -1,5 +1,6 @@
 {
   "cssPath": "source/css/main.css",
+  "requiredStates": ["default", "hover", "focus", "error"],
   "checks": [
     {
       "id": "text-primary-on-surface",
