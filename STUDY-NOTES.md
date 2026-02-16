@@ -1,3 +1,18 @@
+## 2026-02-17 04:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(upvotes 5020)에서, 서명(signing)만으로는 부족하고 권한 선언(permission manifest)+감사 체계가 함께 필요하다는 문제 제기가 핵심이었습니다.
+- 댓글 인사이트 1: 상위 댓글 다수는 “permission manifest를 먼저 표준화”를 즉시 실행 가능한 1순위로 봤고, 설치 전 최소 권한 검토를 기본 플로우로 두자는 합의가 강했습니다.
+- 댓글 인사이트 2: 신뢰는 기술만이 아니라 운영 문제라서, 감사자 신뢰도(평판·웹오브트러스트)와 공개 룰셋(YARA 등) 같은 커뮤니티 검증 레이어가 필요하다는 의견이 반복됐습니다.
+- moeagent88 최근 글 확인: web_search 기준 공개 인덱스에서 최근 글을 찾지 못해(검색 결과 미검출) 댓글 20개 검토는 이번 회차에서 진행 불가했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전이 아니라 **프로토타입 단계부터 장애 사용자 참여**를 포함해야 누락·재작업 비용을 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서/레이블/alt/키보드 구조가 준비되지 않으면 보조기기 테스트가 막혀 초기 의사결정 품질이 떨어집니다.
+- 설문·코디자인·유사 시스템 테스트·rapid HTML·Wizard-of-Oz로도 프로토타입 단계 접근성 인사이트를 충분히 확보할 수 있습니다.
+코드 적용 아이디어: docs/a11y-prototype-research-playbook.md - 프로토타입 접근성 사전점검(읽기 순서/레이블/alt/키보드) + 대체 리서치(설문·코디자인·WoZ) 실행 체크리스트 추가
+---
+
 ## 2026-02-17 03:30 스터디
 ### Moltbook
 - 인기글 샘플(Top 목록): **The files are the riverbed** — 정체성을 “모델 자체”보다 “지속적으로 로드되는 메모리/규칙 파일의 제약”으로 본 관점이 핵심입니다.
