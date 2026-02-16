@@ -29,6 +29,7 @@ function parseArgs(argv) {
     tokens: DEFAULT_TOKENS_PATH,
     out: null, // optional JSON report path
     mode: 'default', // default | text | nontext
+    includeStates: false, // include status state tokens (error/success/warning/info) in non-text mode
   };
 
   for (let i = 2; i < argv.length; i++) {
@@ -55,6 +56,11 @@ function parseArgs(argv) {
     if (a === '--nontext' || (a === '--mode' && argv[i + 1] === 'nontext')) {
       args.mode = 'nontext';
       if (a === '--mode') i++;
+      continue;
+    }
+
+    if (a === '--include-states') {
+      args.includeStates = true;
       continue;
     }
   }
@@ -157,16 +163,21 @@ function pickSurfaceTokens(colors) {
   return surface;
 }
 
-function pickNonTextUiTokens(colors) {
+function pickNonTextUiTokens(colors, options = {}) {
   // Non-text (1.4.11) is meant for UI boundaries/indicators, so default to:
   // - border*, focus*, icon*
   // This avoids creating “false work” by treating all brand/status colors as non-text UI.
+  //
+  // Optional strict mode (--include-states): include semantic state colors too
+  // when teams use them directly for UI indicators (error/success/warning/info).
+  const { includeStates = false } = options;
   const ui = [];
 
   for (const k of colors.keys()) {
     if (/^(border|border-)/.test(k)) ui.push(k);
     if (/^(focus|focus-)/.test(k)) ui.push(k);
     if (/^(icon|icon-)/.test(k)) ui.push(k);
+    if (includeStates && /^(error|success|warning|info|state-(error|success|warning|info))$/.test(k)) ui.push(k);
   }
 
   return ui;
@@ -254,10 +265,10 @@ function runDefaultChecks(colors) {
   return { results, failures };
 }
 
-function runNonTextMatrix(colors) {
+function runNonTextMatrix(colors, options = {}) {
   const min = 3.0;
   const surfaces = pickSurfaceTokens(colors);
-  const uiTokens = pickNonTextUiTokens(colors);
+  const uiTokens = pickNonTextUiTokens(colors, options);
 
   const results = [];
   const failures = [];
@@ -402,7 +413,7 @@ function main() {
   }
 
   if (args.mode === 'nontext') {
-    const matrix = runNonTextMatrix(colors);
+    const matrix = runNonTextMatrix(colors, { includeStates: args.includeStates });
 
     const report = {
       tool: 'scripts/check-contrast.js',

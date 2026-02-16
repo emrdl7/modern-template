@@ -6,6 +6,7 @@
     "check:contrast": "node scripts/check-contrast.js --out reports/contrast-report.json",
     "check:contrast:text": "node scripts/check-contrast.js --text --out reports/contrast-text.json",
     "check:contrast:nontext": "node scripts/check-contrast.js --nontext --out reports/contrast-nontext.json",
+    "check:contrast:nontext:states": "node scripts/check-contrast.js --nontext --include-states --out reports/contrast-nontext-states.json",
     "check:contrast:print": "node scripts/check-contrast.js",
     "guard:contrast": "npm run check:contrast:text && npm run check:contrast:nontext",
     "a11y:e2e": "node scripts/a11y-e2e.js",

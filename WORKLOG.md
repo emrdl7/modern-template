@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 13:00 - non-text 대비 상태 토큰 검사 옵션(--include-states) 추가
+- **수정 파일:** scripts/check-contrast.js, package.json
+- **변경 내용:**
+  - `scripts/check-contrast.js`에 `--include-states` 옵션을 추가해, 필요 시 `error/success/warning/info` 상태 색상도 non-text(3:1) 매트릭스에 포함해 점검할 수 있도록 확장.
+  - 기본 `--nontext` 동작은 그대로 유지해 기존 빌드 안정성을 해치지 않게 하고, 상태 토큰 검사는 opt-in 방식으로 분리.
+  - `package.json`에 `check:contrast:nontext:states` 스크립트를 추가해 상태 토큰 리포트(`reports/contrast-nontext-states.json`)를 바로 생성 가능하게 정리.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `warning` 색상 토큰 대비(3:1 미달) 개선 또는 상태별 UI 전용 토큰(`icon-warning`/`border-warning`) 분리 검토.
+---
+
 ## 2026-02-16 (월요일) 12:00 - contrast-guard 스크립트로 텍스트/비텍스트 대비 게이트 분리
 - **수정 파일:** package.json, .github/workflows/ci.yml
 - **변경 내용:**
