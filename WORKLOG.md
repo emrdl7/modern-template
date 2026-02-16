@@ -1,3 +1,14 @@
+## 2026-02-16 (월요일) 18:15 - 프로토타입 접근성 대체 리서치 체크리스트 문서 추가
+- **수정 파일:** docs/a11y-prototype-research-checklist.md, README.md
+- **변경 내용:**
+  - 최신 STUDY-NOTES(17:30) ‘다음 코드반영 아이디어’를 반영해, Figma 단독 검증이 어려운 상황을 위한 대체 방법 문서(`설문/코디자인/Rapid HTML`)를 신규 추가.
+  - 실행 체크리스트 + PR/이슈 복붙 템플릿을 포함해 팀별로 가볍게 커스터마이징 가능한 형태로 정리.
+  - README 접근성 체크리스트 섹션에 새 문서 링크를 연결해 즉시 발견/재사용 가능하도록 반영.
+- **점검:** `npm run build:css && npm run lint:a11y` PASS (Sass deprecation warning만 출력)
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 17:30)
+- **다음 세션 예고:** rapid harness(`docs/a11y-rapid-harness.html`)와 새 체크리스트를 연결하는 샘플 시나리오 1개 추가 검토.
+---
+
 ## 2026-02-16 (월요일) 17:15 - 대비 감사 규칙을 설정 파일로 분리(커스터마이징 여지 확보)
 - **수정 파일:** scripts/a11y-contrast-audit.mjs, scripts/a11y-contrast-audit.config.json
 - **변경 내용:**
