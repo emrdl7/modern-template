@@ -43,8 +43,14 @@ $colors: (
   text-secondary: #495057,
   bg-primary: #ffffff,
   bg-secondary: #f8f9fa,
-  // NOTE(a11y): UI boundary color should meet 3:1 contrast against bg-primary for essential borders.
-  border: #8e8e8e
+
+  // Non-text UI (WCAG 2.1 AA 1.4.11)
+  // NOTE(a11y): UI boundary/indicator tokens should meet 3:1 contrast against common surfaces.
+  border: #8e8e8e,
+  // Slightly stronger than `border` to cover hover/focus-adjacent surfaces.
+  border-subtle: #6c757d,
+  // Focus indicator color (checked via scripts/check-contrast.js --nontext)
+  focus-ring: #246beb
 );
 
 // 타이포그래피

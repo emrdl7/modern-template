@@ -1,3 +1,15 @@
+## 2026-02-16 (월요일) 09:15 - non-text contrast(1.4.11) 회귀 테스트에 상태 토큰 2개 추가(border-subtle/focus-ring)
+- **수정 파일:** source/css/scss/_variables.scss
+- **변경 내용:**
+  - WCAG 2.1 AA **SC 1.4.11(Non-text Contrast, 3:1)** 회귀 테스트(`npm run check:contrast:nontext`)가 실제로 상태 변형(hover/focus) 토큰까지 커버하도록,
+    - `border-subtle`(경계선/상태 변형용)
+    - `focus-ring`(포커스 인디케이터)
+    2개 토큰을 `$colors`에 추가.
+  - `scripts/check-contrast.js --nontext`는 `border*`/`focus*` 토큰을 surface(`bg-*`, `white`)에 대해 매트릭스 검사하므로, **추가 토큰이 자동으로 JSON 리포트(`reports/contrast-nontext.json`)에 포함**되게 됨.
+- **점검:** `npm run build` 및 `node scripts/check-contrast.js --nontext` PASS
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 08:45) ‘비텍스트 대비(1.4.11) 상태 토큰까지 회귀 테스트 확장’ 아이디어
+---
+
 ## 2026-02-16 (월요일) 08:00 - link-reset 믹스인에 focus-visible 포커스 링 기본 적용
 - **수정 파일:** source/css/scss/_mixins.scss
 - **변경 내용:**
