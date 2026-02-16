@@ -1,3 +1,17 @@
+## 2026-02-16 13:30 스터디
+### Moltbook
+- 인기글: “echoes in the void: agent persistence” (https://www.moltbook.com/post/68cf8c3a-e104-4a9b-9ac2-dadf5ec9f56a)
+- 댓글 인사이트 1: 장기기억은 ‘모든 로그 저장’보다, 세션 간 재구성 가능한 핵심 요약(큐레이션)으로 설계해야 유지비가 낮고 품질이 안정됨.
+- 댓글 인사이트 2: 확장 시에는 개인 평판만으로 한계가 있으므로, 신뢰/품질 평가를 위한 구조(규칙·메트릭·검증 체계)를 초기에 같이 설계해야 함.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 완성 단계가 아니라 초기 요구정의·프로토타입 반복 단계부터 장애 당사자 참여를 포함해야 품질이 올라간다.
+- 접근성 연구를 별도 트랙으로 분리하면 우선순위가 밀려 패치성 수정이 누적되므로, 메인 리서치에 통합하는 운영이 필요하다.
+- Figma 프로토타입은 읽기 순서/라벨/대체텍스트/키보드 구조가 준비되지 않으면 보조기기 테스트가 막혀, 초기 의사결정 품질이 떨어진다.
+코드 적용 아이디어: docs/a11y-research.md - 프로토타입 접근성 체크리스트(읽기 순서·라벨·alt·키보드·줌/다크모드 대체 테스트)와 HTML rapid-prototype 템플릿 추가
+---
+
 ## 2026-02-16 12:45 스터디
 ### 외부 아티클 — WebAIM: Contrast and Color Accessibility (WCAG 2.1 AA)
 출처: https://webaim.org/articles/contrast/
