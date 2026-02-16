@@ -41,6 +41,47 @@ const initA11yLandmarkHints = () => {
   checkMany('aside', '<aside>');
 };
 
+/**
+ * WCAG 2.1 SC 2.5.3(Label in Name) 힌트:
+ * 화면에 보이는 라벨(visible text)이 있는 컨트롤에 aria-label을 붙일 때,
+ * 그 aria-label이 visible label을 포함하지 않으면 음성 입력(Voice Control)
+ * 사용자가 “보이는 대로 말해도” 조작이 안 되는 문제가 생길 수 있다.
+ *
+ * - 빌드/런타임을 막지 않는다.
+ * - 규칙 강제 대신, 개발 중 console.warn 힌트만 제공한다.
+ */
+const initA11yLabelInNameHints = () => {
+  const normalize = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+  const getVisibleText = (el) => normalize(el.textContent);
+
+  const candidates = Array.from(document.querySelectorAll('button, a[role="button"], input[type="button"], input[type="submit"]'));
+
+  const problems = candidates
+    .map((el) => {
+      const ariaLabel = el.getAttribute('aria-label');
+      if (!ariaLabel) return null;
+
+      // input[type=button|submit]은 value가 “보이는 라벨” 역할
+      const visible = el instanceof HTMLInputElement ? normalize(el.value) : getVisibleText(el);
+      if (!visible) return null;
+
+      const aria = normalize(ariaLabel);
+      if (!aria.includes(visible)) return { el, visible, ariaLabel };
+
+      return null;
+    })
+    .filter(Boolean);
+
+  if (problems.length === 0) return;
+
+  // eslint-disable-next-line no-console
+  console.warn(
+    `[a11y] Label in Name 힌트: visible label과 aria-label이 불일치하는 컨트롤이 있습니다. (총 ${problems.length}개)`,
+    problems,
+  );
+};
+
 // ==========================================================================
 // 초기화
 // ==========================================================================
@@ -52,8 +93,9 @@ const init = () => {
   initModal();
   initTabs();
 
-  // a11y: 개발 중 실수(랜드마크 이름 누락)만 조용히 힌트
+  // a11y: 개발 중 실수(랜드마크 이름 누락 / label-in-name 불일치)만 조용히 힌트
   initA11yLandmarkHints();
+  initA11yLabelInNameHints();
 };
 
 // DOM 로드 완료 후 실행
