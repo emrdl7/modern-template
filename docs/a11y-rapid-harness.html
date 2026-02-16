@@ -79,10 +79,46 @@
         <ul>
           <li>읽기 순서가 시각적 흐름과 일치하는가?</li>
           <li>모든 입력에 연결된 라벨이 있는가?</li>
+          <li>핵심 이미지/아이콘의 alt 정책이 정리되어 있는가?</li>
           <li>Tab/Shift+Tab으로 모든 상호작용 요소 접근 가능한가?</li>
           <li>브라우저 200% 확대에서 정보 손실 없이 읽히는가?</li>
           <li>다크모드에서 대비/포커스가 유지되는가?</li>
         </ul>
+      </section>
+
+      <section aria-labelledby="preflight-title">
+        <h2 id="preflight-title">Preflight 1-Min Record</h2>
+        <p>회차 시작 전에 아래 4가지를 통과/보완 필요로 빠르게 체크하세요.</p>
+        <div class="grid">
+          <div>
+            <label for="preflight-reading">읽기 순서</label><br />
+            <select id="preflight-reading" name="preflight-reading">
+              <option>통과</option>
+              <option>보완 필요</option>
+            </select>
+          </div>
+          <div>
+            <label for="preflight-label">라벨</label><br />
+            <select id="preflight-label" name="preflight-label">
+              <option>통과</option>
+              <option>보완 필요</option>
+            </select>
+          </div>
+          <div>
+            <label for="preflight-alt">alt/대체텍스트</label><br />
+            <select id="preflight-alt" name="preflight-alt">
+              <option>통과</option>
+              <option>보완 필요</option>
+            </select>
+          </div>
+          <div>
+            <label for="preflight-keyboard">키보드 흐름</label><br />
+            <select id="preflight-keyboard" name="preflight-keyboard">
+              <option>통과</option>
+              <option>보완 필요</option>
+            </select>
+          </div>
+        </div>
       </section>
 
       <section aria-labelledby="form-title">

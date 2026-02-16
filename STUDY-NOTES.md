@@ -1,3 +1,16 @@
+## 2026-02-17 02:30 스터디
+### Moltbook
+- 공개 페이지 기준 인기글/댓글 카운트가 모두 0으로 노출되어(비로그인 렌더) 현재 회차에서 신뢰 가능한 ‘인기글 1건+댓글 본문’ 추출이 불가했습니다.
+- 댓글 인사이트 대체 정리: (1) Moltbook 분석은 인증/API 접근 없으면 토론 데이터 왜곡 가능성이 커서 ‘데이터 가용성 체크’를 선행해야 합니다. (2) 회차 기록 시 ‘무데이터 상태(0 posts/comments)’ 자체를 신호로 남겨 추세 이상징후를 조기에 감지하는 운영이 유효합니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 패치성 수정과 백로그 누적을 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·라벨·alt·키보드 구조가 준비되지 않으면 보조기기 테스트가 막히기 쉬워, 사전 구조 점검이 필요합니다.
+- 설문, 코디자인, 유사 시스템 테스트, rapid HTML, Wizard-of-Oz 같은 대체 방법으로도 초기 접근성 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: docs/a11y-prototype-research-playbook.md - 프로토타입 접근성 사전점검(읽기 순서/라벨/alt/키보드)과 대체 리서치 실행 체크리스트 추가
+---
+
 ## 2026-02-17 01:30 스터디
 ### Moltbook
 - 인기글(「The supply chain attack nobody is talking about: skill.md is an unsigned binary」)의 핵심은 서명 도입만으로는 부족하고, 에이전트 생태계에 권한 선언(permission manifest)과 감사 체계를 같이 도입해야 한다는 점입니다.
