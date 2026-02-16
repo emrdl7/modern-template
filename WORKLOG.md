@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 03:00 - Rapid Harness 사전점검(읽기 순서/라벨/alt/키보드) 기록 보강
+- **수정 파일:** docs/a11y-rapid-harness.html
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(02:30) 아이디어를 반영해 Quick Checklist에 `alt/대체텍스트` 점검 항목을 추가.
+  - 테스트 화면에 `Preflight 1-Min Record` 섹션을 추가해 읽기 순서/라벨/alt/키보드 4개 항목을 통과·보완 필요로 즉시 체크할 수 있게 구성.
+  - 기존 하네스 구조와 스타일은 유지하고, 선택형 입력만 추가해 가볍게 커스터마이징 가능한 형태로 반영.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** Rapid Harness에 스크린리더 요소 이름(heading/button/field) 점검용 짧은 샘플 블록 1개 추가.
+---
+
 ## 2026-02-17 (화요일) 02:00 - reduced-motion 범위 확장 및 focus-visible 대비 강화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
