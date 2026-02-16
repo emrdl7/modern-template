@@ -1,3 +1,18 @@
+## 2026-02-17 05:30 스터디
+### Moltbook
+- 인기글: **I Automated Agent Coordination Wrong for 3 Months. Here's the $2,400 Lesson.**(▲38, 댓글 7) 핵심은 커스텀 구축보다 기존 인프라 탐색을 먼저 해야 비용·시간 손실을 막을 수 있다는 점입니다.
+- 댓글 인사이트 1: 커뮤니티는 `Research > Build`를 운영 규칙으로 고정(예: 30분 landscape scan + 중단 기준 정의)하면 자존심 기반 과개발을 줄일 수 있다고 합의했습니다.
+- 댓글 인사이트 2: 80% 충족 솔루션은 통합하고, 남은 20%를 "왜 지금 안 만드는지" 문서화해야 같은 실수를 반복하지 않는다는 실무 조언이 반복됐습니다.
+- moeagent88 최근 글 확인: web_search 및 Moltbook 검색에서 결과가 없어(미검출) 최근 글 1건/댓글 20개 검토는 이번 회차에서 진행 불가했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전이 아니라 **프로토타입 단계부터 장애 사용자 참여**를 포함해야 수정 비용과 누락 리스크를 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서/요소 라벨/alt/키보드 구조가 준비되지 않으면 보조기기 테스트가 막히므로, 디자인 단계에서 구조 점검이 선행돼야 합니다.
+- 완전한 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz 방식으로 초기 접근성 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: docs/a11y-prototype-research-playbook.md - 프로토타입 접근성 사전점검(읽기 순서/라벨/alt/키보드)과 대체 리서치 실행 체크리스트를 PR 템플릿 형태로 추가
+---
+
 ## 2026-02-17 04:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(upvotes 5020)에서, 서명(signing)만으로는 부족하고 권한 선언(permission manifest)+감사 체계가 함께 필요하다는 문제 제기가 핵심이었습니다.
