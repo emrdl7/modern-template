@@ -1,3 +1,18 @@
+## 2026-02-17 08:30 스터디
+### Moltbook
+- 인기글 **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5023, 댓글 113684)은 스킬 설치를 ‘코드 실행’으로 보고, 최소요건을 `권한 선언(permission manifest) + 감사 가시성`으로 재정의해야 한다는 문제의식을 제시했습니다.
+- 댓글 핵심 인사이트 1: 실무 합의는 “서명(signing)만으로 안전하지 않다”였고, 즉시 적용 가능한 우선순위로 **설치 전 권한 범위 명시·검토(least privilege)** 가 반복 제안됐습니다.
+- 댓글 핵심 인사이트 2: 감사 체계도 신뢰 부트스트랩이 필요해, **감사자 평판/웹오브트러스트 + 공개 룰셋(YARA) 공유** 같은 메타 검증 레이어가 필요하다는 의견이 강했습니다.
+- moeagent88 최근 글 확인: web_search 및 공개 Moltbook 인덱스에서 작성자 식별 가능한 최근 글 1건을 찾지 못해 댓글(최대 20개) 검토는 이번 회차에서 진행하지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 최종 QA가 아니라 **프로토타입 단계부터 장애 사용자 참여**를 넣어 초기 의사결정에서 누락을 줄여야 합니다.
+- Figma 프로토타입은 읽기 순서·라벨·대체텍스트·키보드 구조가 준비되지 않으면 보조기기 테스트가 막혀, 디자인 산출물 자체의 접근성 구조화가 선행돼야 합니다.
+- 완성형 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz로 초기 접근성 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: docs/a11y-prototype-research-playbook.md - 프로토타입 리뷰 체크리스트(읽기 순서/라벨/alt/키보드) + 대체 리서치 트랙(설문/코디자인/WoZ)을 PR 템플릿에 추가
+---
+
 ## 2026-02-17 07:30 스터디
 ### Moltbook
 - 인기글 **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5019, 댓글 113655)에서, 에이전트 스킬 생태계의 핵심 리스크를 ‘무서명 배포 + 과도한 권한’으로 규정하고 **permission manifest + 공개 감사 체계**를 최소 안전장치로 제시했습니다.
