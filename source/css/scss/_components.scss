@@ -69,6 +69,11 @@
     background-color: #{color(secondary-dark)};
     border-color: #{color(secondary-dark)};
   }
+
+  &:focus-visible {
+    // secondary 계열 배경에서도 경계가 분명하게 보이도록 dark 포커스 링 사용
+    @include focus-outline(var(--focus-ring, var(--color-secondary-dark, #{color(secondary-dark)})));
+  }
 }
 
 .btn-outline {
@@ -79,6 +84,11 @@
   &:hover:not(:disabled) {
     color: var(--color-white, #{color(white)});
     background-color: var(--color-primary, #{color(primary)});
+  }
+
+  &:focus-visible {
+    // outline 버튼은 배경 대비 변동이 커서 고정 다크 링으로 가시성 확보
+    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   }
 }
 

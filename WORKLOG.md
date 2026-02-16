@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 07:00 - 버튼 focus-visible 대비 보강
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(06:30) 아이디어를 반영해 `.btn-secondary:focus-visible`에 `secondary-dark` 우선 포커스 링을 추가해 색상 배경 위에서도 포커스 경계를 더 분명히 표시.
+  - `.btn-outline:focus-visible`에도 `primary-dark` 우선 포커스 링을 명시해 배경/테마 변경 시 포커스 가시성 편차를 줄임.
+  - 기존 reduced-motion 구조는 유지하고 버튼 포커스 대비만 경량 보강해 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 액션 버튼(확인/취소) 포커스 링 대비를 배경 조합별로 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 06:00 - A11y Preflight PR 템플릿 추가
 - **수정 파일:** index.html, STUDY-NOTES.md(자동 누적 커밋 포함)
 - **변경 내용:**

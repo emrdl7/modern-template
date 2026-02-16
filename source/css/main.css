@@ -614,6 +614,18 @@ summary,
   background-color: #002051;
   border-color: #002051;
 }
+.btn-secondary:focus-visible {
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-secondary-dark, #002051));
+  outline-offset: var(--focus-ring-offset, 3px);
+  border-radius: var(--focus-ring-radius, 4px);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-secondary-dark, #002051)) 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .btn-secondary:focus-visible {
+    outline-width: calc(var(--focus-ring-width, 3px) + 1px);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-secondary-dark, #002051)) 40%, transparent);
+  }
+}
 
 .btn-outline {
   color: var(--color-primary, #246beb);
@@ -623,6 +635,18 @@ summary,
 .btn-outline:hover:not(:disabled) {
   color: var(--color-white, #ffffff);
   background-color: var(--color-primary, #246beb);
+}
+.btn-outline:focus-visible {
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline-offset: var(--focus-ring-offset, 3px);
+  border-radius: var(--focus-ring-radius, 4px);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .btn-outline:focus-visible {
+    outline-width: calc(var(--focus-ring-width, 3px) + 1px);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+  }
 }
 
 .card {
