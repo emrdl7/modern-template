@@ -82,6 +82,90 @@ const initA11yLabelInNameHints = () => {
   );
 };
 
+/**
+ * 프로토타입 단계 접근성 사전점검(Preflight)
+ *
+ * 체크 항목(가벼운 자동 점검):
+ * - 읽기 순서(heading level skip)
+ * - 라벨(폼 컨트롤과 label 연결)
+ * - alt(의미 이미지 alt 누락)
+ * - 키보드 흐름(tabindex>0 사용)
+ *
+ * 실행 조건(옵트인):
+ * - URL 쿼리: ?a11y-preflight=1
+ * - 또는 <html data-a11y-preflight="true">
+ */
+const initA11yPrototypePreflight = () => {
+  const params = new URLSearchParams(window.location.search);
+  const enabledByQuery = params.get('a11y-preflight') === '1';
+  const enabledByAttr = document.documentElement.dataset.a11yPreflight === 'true';
+  if (!enabledByQuery && !enabledByAttr) return;
+
+  const headingLevels = Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+  const headingSkips = [];
+  let prev = 0;
+
+  headingLevels.forEach((h) => {
+    const current = Number(h.tagName.replace('H', ''));
+    if (prev !== 0 && current - prev > 1) {
+      headingSkips.push({ from: prev, to: current, node: h });
+    }
+    prev = current;
+  });
+
+  const controls = Array.from(document.querySelectorAll('input, select, textarea'))
+    .filter((el) => el.type !== 'hidden' && !el.disabled);
+
+  const unlabeledControls = controls.filter((el) => {
+    const id = el.getAttribute('id');
+    const hasForLabel = id ? document.querySelector(`label[for="${CSS.escape(id)}"]`) : null;
+    const hasWrappedLabel = !!el.closest('label');
+    const hasAriaName = el.hasAttribute('aria-label') || el.hasAttribute('aria-labelledby');
+    return !(hasForLabel || hasWrappedLabel || hasAriaName);
+  });
+
+  const imagesMissingAlt = Array.from(document.querySelectorAll('img')).filter((img) => !img.hasAttribute('alt'));
+
+  const positiveTabindex = Array.from(document.querySelectorAll('[tabindex]')).filter((el) => {
+    const value = Number(el.getAttribute('tabindex'));
+    return Number.isFinite(value) && value > 0;
+  });
+
+  const summary = {
+    headingSkips: headingSkips.length,
+    unlabeledControls: unlabeledControls.length,
+    imagesMissingAlt: imagesMissingAlt.length,
+    positiveTabindex: positiveTabindex.length,
+  };
+
+  // eslint-disable-next-line no-console
+  console.groupCollapsed('[a11y preflight] prototype review summary');
+  // eslint-disable-next-line no-console
+  console.table(summary);
+
+  if (headingSkips.length) {
+    // eslint-disable-next-line no-console
+    console.warn('[a11y preflight] Heading level skip 발견', headingSkips);
+  }
+  if (unlabeledControls.length) {
+    // eslint-disable-next-line no-console
+    console.warn('[a11y preflight] 라벨 없는 form control 발견', unlabeledControls);
+  }
+  if (imagesMissingAlt.length) {
+    // eslint-disable-next-line no-console
+    console.warn('[a11y preflight] alt 속성 없는 img 발견', imagesMissingAlt);
+  }
+  if (positiveTabindex.length) {
+    // eslint-disable-next-line no-console
+    console.warn('[a11y preflight] tabindex>0 요소 발견(탭 순서 왜곡 가능)', positiveTabindex);
+  }
+
+  // eslint-disable-next-line no-console
+  console.info('[a11y preflight] 대체 리서치 트랙: Survey / Co-design / Rapid HTML / Wizard-of-Oz 중 2개 이상을 PR 코멘트에 기록하세요.');
+  // eslint-disable-next-line no-console
+  console.groupEnd();
+};
+
 // ==========================================================================
 // 초기화
 // ==========================================================================
@@ -96,6 +180,7 @@ const init = () => {
   // a11y: 개발 중 실수(랜드마크 이름 누락 / label-in-name 불일치)만 조용히 힌트
   initA11yLandmarkHints();
   initA11yLabelInNameHints();
+  initA11yPrototypePreflight();
 };
 
 // DOM 로드 완료 후 실행

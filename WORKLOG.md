@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 08:00 - 프로토타입 A11y Preflight 콘솔 점검 추가
+- **수정 파일:** source/js/common.js
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(07:30) 아이디어를 반영해 프로토타입 단계 사전점검 루틴(읽기 순서/라벨/alt/키보드 흐름)을 콘솔에서 한 번에 확인하는 `initA11yPrototypePreflight()`를 추가.
+  - `?a11y-preflight=1` 또는 `<html data-a11y-preflight="true">`에서만 동작하도록 옵트인 방식으로 구성해 기본 동작은 가볍게 유지.
+  - 자동 점검은 heading level skip, 라벨 누락 컨트롤, alt 누락 이미지, `tabindex>0` 요소만 최소 범위로 포함하고, 대체 리서치 트랙(Survey/Co-design/Rapid HTML/Wizard-of-Oz) 기록 안내를 함께 출력.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** Preflight 결과를 PR 본문 체크리스트로 복사하기 위한 1클릭 스니펫 출력 옵션을 경량 추가.
+---
+
 ## 2026-02-17 (화요일) 07:00 - 버튼 focus-visible 대비 보강
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
