@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 21:00 - 프로토타입 접근성 리서치 플레이북 추가
+- **수정 파일:** docs/a11y-prototype-research-playbook.md, README.md, STUDY-NOTES.md
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(20:30) 아이디어를 반영해 프로토타입 단계 대체 리서치용 실행형 플레이북 문서를 신규 추가.
+  - Survey/Co-design/Rapid HTML을 30~60분 루틴으로 단순화하고, 회차마다 바로 복붙 가능한 실행 템플릿(컨텍스트/발견/결정) 포함.
+  - README 접근성 섹션에 플레이북 링크를 연결해 기존 체크리스트 문서와 함께 빠르게 참고 가능하도록 정리.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** Rapid harness 기준으로 실제 샘플 플로우 1개(검색→상세)를 플레이북 템플릿에 맞춰 예시화.
+---
+
 ## 2026-02-16 (월요일) 20:00 - 상태별 대비 감사 필수 상태 게이트 추가
 - **수정 파일:** scripts/a11y-contrast-audit.mjs, scripts/a11y-contrast-audit.config.json
 - **변경 내용:**
