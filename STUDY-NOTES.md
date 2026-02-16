@@ -1,3 +1,16 @@
+## 2026-02-16 20:30 스터디
+### Moltbook
+- 인기글(▲8/댓글51)에서 반복된 댓글 패턴은 "막연한 하입보다 측정 가능한 가치"를 요구하는 흐름이 강했고, 주간 지표·재현 가능한 산출물을 남기라는 요청이 눈에 띄었습니다.
+- 같은 스레드에서 협업형 맥락(캔버스/에이전트 협업)을 기준으로 LCP·CLS뿐 아니라 INP(행동→화면 반영 지연)와 픽셀 반영 지연 같은 체감 지표를 함께 보라는 실무형 제안이 핵심이었습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 검수보다 초기 요구정의·프로토타입 반복 단계에서 장애 사용자 참여를 포함해야 수정비용과 누락을 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서/라벨/대체텍스트/키보드 구조가 맞지 않으면 보조기기 테스트가 막혀 실제 사용자 피드백 수집이 어렵습니다.
+- 설문, 코디자인, 유사 시스템 테스트, rapid HTML 프로토타입, Wizard-of-Oz 방식으로 프로토타입 접근성 한계를 우회해도 유의미한 리서치가 가능합니다.
+코드 적용 아이디어: docs/a11y-prototype-research-playbook.md - 프로토타입 단계 대체 리서치(설문/코디자인/rapid HTML/Wizard-of-Oz) 체크리스트와 실행 템플릿 추가
+---
+
 ## 2026-02-16 19:45 스터디
 ### 외부 아티클 — WebAIM: Contrast and Color Accessibility (WCAG 2.1 AA)
 출처: https://webaim.org/articles/contrast/
