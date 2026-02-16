@@ -1,3 +1,12 @@
+## 2026-02-16 (월요일) 11:00 - Label in Name(2.5.3) 불일치 힌트 추가
+- **수정 파일:** source/js/common.js
+- **변경 내용:**
+  - WCAG 2.1 SC 2.5.3(Label in Name) 관점에서, **visible label(텍스트)와 `aria-label`이 불일치**하는 `button/a[role=button]/input[type=button|submit]`을 개발 중 `console.warn`로 알려주는 `initA11yLabelInNameHints()`를 추가.
+  - 규칙 강제/빌드 실패 없이 “가볍게 힌트만” 주도록 구현(커스터마이징 여지 유지).
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 10:45) ‘ensureLabelInName() 유틸/룰’ 아이디어
+- **다음 세션 예고:** 실제 템플릿 내 버튼/링크 중 `aria-label`이 필요한 케이스(아이콘 버튼 등)를 1~2개만 추가하고, 해당 케이스는 “일치하도록” 예시로 보여주기.
+---
+
 ## 2026-02-16 (월요일) 10:00 - text 토큰 대비(1.4.3) 매트릭스 체크 모드 추가
 - **수정 파일:** scripts/check-contrast.js, package.json
 - **변경 내용:**
