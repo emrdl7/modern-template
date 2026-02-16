@@ -593,15 +593,15 @@ summary,
   border-color: var(--color-primary-dark, #1a4fb8);
 }
 .btn-primary:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--color-primary, #246beb);
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-primary, #246beb) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn-primary:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-primary, #246beb) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
   }
 }
 
@@ -719,15 +719,15 @@ textarea.form-control {
   cursor: pointer;
 }
 .form-check-input:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--color-focus-ring, var(--color-primary, #246beb));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .form-check-input:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--color-focus-ring, var(--color-primary, #246beb)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
   }
 }
 
@@ -854,7 +854,8 @@ textarea.form-control {
   .btn,
   .modal,
   .modal-backdrop,
-  .modal-content {
+  .modal-content,
+  .form-control {
     animation: none !important;
     transition: none !important;
     transform: none !important;

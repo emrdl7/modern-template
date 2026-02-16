@@ -55,7 +55,8 @@
   }
 
   &:focus-visible {
-    @include focus-outline(var(--color-primary, #{color(primary)}));
+    // primary 배경 위에서도 링 경계가 분리되도록 더 진한 색 우선 사용
+    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   }
 }
 
@@ -179,7 +180,7 @@ textarea.form-control {
   cursor: pointer;
 
   &:focus-visible {
-    @include focus-outline;
+    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   }
 }
 
@@ -310,7 +311,8 @@ textarea.form-control {
   .btn,
   .modal,
   .modal-backdrop,
-  .modal-content {
+  .modal-content,
+  .form-control {
     animation: none !important;
     transition: none !important;
     transform: none !important;

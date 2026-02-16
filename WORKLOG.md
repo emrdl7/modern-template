@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 02:00 - reduced-motion 범위 확장 및 focus-visible 대비 강화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(01:30) 코드 적용 아이디어를 반영해 `.btn-primary:focus-visible` 링 색상을 `primary-dark` 우선으로 조정해 버튼 배경 위 포커스 대비를 강화.
+  - `.form-check-input:focus-visible`에도 동일한 고대비 포커스 링 토큰 우선순위를 적용해 컴포넌트 간 포커스 가시성을 일관화.
+  - `@media (prefers-reduced-motion: reduce)` 적용 대상을 `.form-control`까지 확장해 입력 상호작용 전환 모션도 최소화.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 닫기 버튼의 `:focus-visible` 대비(배경 조합별) 점검용 스모크 케이스 1개 추가.
+---
+
 ## 2026-02-17 (화요일) 01:00 - 프로토타입 사전점검/대체 리서치 체크리스트 보강
 - **수정 파일:** docs/a11y-prototype-research-playbook.md
 - **변경 내용:**
