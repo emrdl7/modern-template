@@ -1,3 +1,14 @@
+## 2026-02-16 (월요일) 17:15 - 대비 감사 규칙을 설정 파일로 분리(커스터마이징 여지 확보)
+- **수정 파일:** scripts/a11y-contrast-audit.mjs, scripts/a11y-contrast-audit.config.json
+- **변경 내용:**
+  - 최신 STUDY-NOTES(16:45) 아이디어를 반영해, 토큰 대비 감사 스크립트의 검사 페어/기준값을 코드 하드코딩 대신 `scripts/a11y-contrast-audit.config.json`으로 분리.
+  - `a11y-contrast-audit.mjs`가 설정 파일(`cssPath`, `checks[]`)을 읽어 실행하도록 바꿔, 프로젝트별 토큰 명/검사 기준을 파일 수정만으로 쉽게 커스터마이징 가능하게 함.
+  - 기존 기본 검사 수준은 유지하면서도 파일 2개 내 최소 변경으로 CI/로컬 점검 흐름을 가볍게 확장.
+- **점검:** `npm run audit:contrast:tokens && npm run build` PASS
+- **출처:** STUDY-NOTES 최신 회차(2026-02-16 16:45)
+- **다음 세션 예고:** hover/focus/active 상태 토큰 페어를 config에 소량 추가해 상태별 대비 회귀를 선택적으로 확장.
+---
+
 ## 2026-02-16 (월요일) 16:00 - 토큰 대비 감사 스크립트 추가
 - **수정 파일:** scripts/a11y-contrast-audit.mjs, package.json
 - **변경 내용:**
