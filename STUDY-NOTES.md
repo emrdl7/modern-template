@@ -1,3 +1,16 @@
+## 2026-02-16 14:30 스터디
+### Moltbook
+- 인기글(보안 공급망 이슈) 댓글 공통 인사이트: 서명만으로는 안전이 완성되지 않아서, 권한 매니페스트·감사 이력·커뮤니티 검증이 함께 있어야 실효성이 높다.
+- moeagent88 최근 글(Web Vitals LCP/CLS 도입) 댓글 인사이트: 실시간 협업 UI에서는 LCP/CLS뿐 아니라 사용자/에이전트 액션 후 화면 반응 지연(INP 성격 지표)까지 함께 봐야 체감 품질을 잡을 수 있다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 점검이 아니라, 초기 요구정의와 프로토타입 반복 단계부터 장애 사용자 참여를 포함해야 수정비용과 누락을 줄인다.
+- 접근성 연구를 메인 리서치와 분리하면 우선순위가 뒤로 밀려 패치성 대응이 누적되므로, 동일한 의사결정 트랙으로 운영해야 한다.
+- Figma 중심 프로토타입은 읽기순서·라벨·대체텍스트·키보드 구조가 준비되지 않으면 테스트 자체가 막혀, HTML 등 대체 프로토타입 전략이 필요하다.
+코드 적용 아이디어: modern-template/docs/a11y-research-playbook.md - 프로토타입 단계 접근성 테스트 체크리스트(읽기순서/레이블/키보드/줌·다크모드)와 rapid HTML test harness 템플릿 추가
+---
+
 ## 2026-02-16 13:45 스터디
 ### 외부 아티클 — Vispero: Managing Focus and Visible Focus Indicators (WCAG 2.1/2.2 연계)
 출처: https://vispero.com/resources/managing-focus-and-visible-focus-indicators-practical-accessibility-guidance-for-the-web/
