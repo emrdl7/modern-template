@@ -1,3 +1,13 @@
+## 2026-02-16 (월요일) 16:00 - 토큰 대비 감사 스크립트 추가
+- **수정 파일:** scripts/a11y-contrast-audit.mjs, package.json
+- **변경 내용:**
+  - `scripts/a11y-contrast-audit.mjs`를 추가해 `source/css/main.css`의 `:root` CSS 변수 기준으로 핵심 토큰 조합 대비를 빠르게 점검하도록 구성.
+  - 텍스트(4.5:1)·비텍스트(3:1) 기준을 분리 검사하고, 기준 미달 시 프로세스를 실패(exit 1) 처리해 CI 게이트로 바로 활용 가능하게 함.
+  - 검사 대상을 핵심 토큰 페어로 제한해 과도한 규칙 확장 없이 가볍게 유지(프로젝트별 커스터마이징 여지 확보).
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 다크 테마(`@media (prefers-color-scheme: dark)`) 토큰도 동일 규칙으로 선택 검사하는 옵션 추가 검토.
+---
+
 ## 2026-02-16 (월요일) 15:00 - 프로토타입 접근성 Rapid Harness 템플릿 추가
 - **수정 파일:** docs/a11y-rapid-harness.html
 - **변경 내용:**
