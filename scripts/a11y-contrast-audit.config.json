@@ -1,0 +1,40 @@
+{
+  "cssPath": "source/css/main.css",
+  "checks": [
+    {
+      "id": "text-primary-on-surface",
+      "kind": "text",
+      "fg": "--text-primary",
+      "bg": "--surface",
+      "min": 4.5
+    },
+    {
+      "id": "text-on-accent",
+      "kind": "text",
+      "fg": "--text-on-accent",
+      "bg": "--color-accent",
+      "min": 4.5
+    },
+    {
+      "id": "border-on-surface",
+      "kind": "ui",
+      "fg": "--border",
+      "bg": "--surface",
+      "min": 3
+    },
+    {
+      "id": "focus-ring-on-surface",
+      "kind": "ui",
+      "fg": "--focus-ring",
+      "bg": "--surface",
+      "min": 3
+    },
+    {
+      "id": "primary-on-surface",
+      "kind": "ui",
+      "fg": "--color-primary",
+      "bg": "--surface",
+      "min": 3
+    }
+  ]
+}

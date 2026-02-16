@@ -2,7 +2,9 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const cssPath = resolve(process.cwd(), 'source/css/main.css');
+const configPath = resolve(process.cwd(), 'scripts/a11y-contrast-audit.config.json');
+const config = JSON.parse(readFileSync(configPath, 'utf8'));
+const cssPath = resolve(process.cwd(), config.cssPath || 'source/css/main.css');
 const css = readFileSync(cssPath, 'utf8');
 
 const rootMatch = css.match(/:root\s*\{([\s\S]*?)\n\}/);
@@ -21,8 +23,10 @@ const resolveVar = (name, depth = 0) => {
   if (depth > 8) return null;
   const raw = rawVars.get(name);
   if (!raw) return null;
+
   const varRef = raw.match(/^var\((--[a-z0-9-]+)\)$/i);
   if (varRef) return resolveVar(varRef[1], depth + 1);
+
   const hex = raw.match(/#(?:[0-9a-f]{3}|[0-9a-f]{6})\b/i);
   return hex ? hex[0] : null;
 };
@@ -54,29 +58,30 @@ const contrast = (a, b) => {
   return (max + 0.05) / (min + 0.05);
 };
 
-const checks = [
-  { kind: 'text', fg: '--text-primary', bg: '--surface', min: 4.5 },
-  { kind: 'text', fg: '--text-on-accent', bg: '--color-accent', min: 4.5 },
-  { kind: 'ui', fg: '--border', bg: '--surface', min: 3.0 },
-  { kind: 'ui', fg: '--focus-ring', bg: '--surface', min: 3.0 },
-  { kind: 'ui', fg: '--color-primary', bg: '--surface', min: 3.0 },
-];
+const checks = Array.isArray(config.checks) ? config.checks : [];
+if (!checks.length) {
+  console.error('❌ checks 설정이 비어 있습니다. scripts/a11y-contrast-audit.config.json 확인 필요');
+  process.exit(1);
+}
 
 const failures = [];
 console.log('🔎 a11y contrast token audit');
+console.log(`- css: ${config.cssPath || 'source/css/main.css'}`);
+console.log(`- checks: ${checks.length}개`);
 
 for (const check of checks) {
   const fg = resolveVar(check.fg);
   const bg = resolveVar(check.bg);
 
   if (!fg || !bg) {
-    failures.push(`${check.fg} vs ${check.bg}: 토큰 해석 실패`);
+    failures.push(`${check.id || `${check.fg}-${check.bg}`}: 토큰 해석 실패`);
     continue;
   }
 
   const ratio = contrast(fg, bg);
-  const ok = ratio >= check.min;
-  const line = `${ok ? '✅' : '❌'} [${check.kind}] ${check.fg}(${fg}) / ${check.bg}(${bg}) = ${ratio.toFixed(2)} (기준 ${check.min}:1)`;
+  const min = Number(check.min ?? (check.kind === 'text' ? 4.5 : 3));
+  const ok = ratio >= min;
+  const line = `${ok ? '✅' : '❌'} [${check.kind || 'ui'}] ${check.id || '-'} ${check.fg}(${fg}) / ${check.bg}(${bg}) = ${ratio.toFixed(2)} (기준 ${min}:1)`;
   console.log(line);
   if (!ok) failures.push(line);
 }
