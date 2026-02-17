@@ -368,7 +368,8 @@ textarea.form-control {
   // 모달 계열 전환 비활성화(이동/페이드 모두 제거)
   .modal,
   .modal-backdrop,
-  .modal-content {
+  .modal-content,
+  .modal-content * {
     animation: none !important;
     transition: none !important;
     transform: none !important;

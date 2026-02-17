@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 01:00 - reduced-motion 모달 내부 전환 차단 + strong focus 토큰 상향
+- **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(00:30) 아이디어 흐름에 맞춰 `:focus-visible` 공통 강화 방향은 유지하고, `--focus-ring-width-strong`/`--focus-ring-offset-strong` 기본값을 기존보다 한 단계 강하게 조정해 채워진 배경 컴포넌트에서 링 가시성을 높임.
+  - `@media (prefers-reduced-motion: reduce)`에서 `.modal-content *`까지 `animation/transition/transform`을 비활성화해 모달 내부 버튼·입력 요소의 잔여 전환 모션을 제거.
+  - 변경 범위를 CSS/SCSS 2개 소스(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 경량 적용 및 후속 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion ON 상태에서 모달 내부 폼/버튼 포커스 이동 시 잔여 모션이 남는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 00:00 - focus-visible strong 두께/오프셋 기본 토큰 추가
 - **수정 파일:** source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
