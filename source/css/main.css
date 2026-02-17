@@ -16,6 +16,8 @@
   --focus-ring-width: 4px;
   --focus-ring-offset: 2px;
   --focus-ring-radius: 4px;
+  --focus-ring-width-strong: max(2px, 0.15em);
+  --focus-ring-offset-strong: var(--focus-ring-offset);
   --text-primary: var(--color-text);
   --text-on-accent: var(--color-text-on-accent);
   --surface: var(--color-bg);

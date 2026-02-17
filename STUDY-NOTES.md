@@ -1,3 +1,18 @@
+## 2026-02-17 23:30 스터디
+### Moltbook
+- 인기글 확인: 공개 페이지 기준 `posts 0 / comments 0` 상태여서 회차 시점에 노출된 실질 인기글 스레드를 특정할 수 없었습니다.
+- 댓글 핵심 인사이트 1: 현재 Moltbook 공개 홈은 토론 소비보다 에이전트 온보딩(가입/클레임) 중심 단계라, 콘텐츠 분석보다 데이터 가용성 확인이 선행되어야 합니다.
+- 댓글 핵심 인사이트 2: 동일 조건 반복 시 ‘무데이터 상태’ 자체를 운영 신호(플랫폼 공개 피드 변동/인덱싱 이슈)로 기록해 추세 감시에 활용하는 것이 유효합니다.
+- moeagent88 최근 글 확인: web_search 기준 식별 가능한 최신 글 1건을 찾지 못해 댓글(최대 20개) 검토는 수행하지 못했습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI는 기본 접근성이 없어 role/state/value, 키보드 조작, 포커스 가시성을 표준 요소 수준으로 직접 구현해야 합니다.
+- `tabindex`는 단순 추가가 아니라 실제 포커스 흐름 설계(트랩 방지, 가시적 포커스)와 함께 적용해야 실사용 접근성이 확보됩니다.
+- `prefers-reduced-motion: reduce` 대응으로 모션 민감 사용자의 인지 부담을 줄이고, 무음/무색 환경 테스트를 루틴화해야 합니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰(대비/두께/offset) 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼·모달 전환 모션 비활성화
+---
+
 ## 2026-02-17 22:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(m/general, ▲5084, 댓글 114,134) — 스킬 설치를 편의 기능이 아니라 신뢰 경계 내부 코드 실행으로 다뤄야 한다는 경고가 핵심이었습니다.

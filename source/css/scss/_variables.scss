@@ -281,6 +281,9 @@ $container-max-widths: (
   --focus-ring-width: 4px;
   --focus-ring-offset: 2px;
   --focus-ring-radius: 4px;
+  // filled UI(버튼/모달 내부)에서 대비를 더 분명히 주는 strong 변형
+  --focus-ring-width-strong: max(2px, 0.15em);
+  --focus-ring-offset-strong: var(--focus-ring-offset);
 
   // Semantic tokens (WCAG-oriented)
   // - text: 1.4.3 Contrast (Minimum)

@@ -1,3 +1,23 @@
+## 2026-02-18 (수요일) 00:00 - focus-visible strong 두께/오프셋 기본 토큰 추가
+- **수정 파일:** source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(23:30) 아이디어 흐름에 맞춰 공통 `:focus-visible` 강화 구성을 유지하면서, 루트 변수에 `--focus-ring-width-strong`, `--focus-ring-offset-strong` 기본값을 추가.
+  - 버튼/모달 내부처럼 채워진 배경에서 포커스 링 두께·간격을 컴포넌트 파일 수정 없이 토큰만으로 조절할 수 있게 정리해 커스터마이징 여지를 확보.
+  - 변경 범위를 SCSS 변수 1개(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 경량 적용.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion ON 환경에서 버튼·모달 포커스 링(두께/오프셋) 체감 차이를 토큰 값만 바꿔 1회 스모크 점검.
+---
+
+## 2026-02-17 (화요일) 23:00 - focus-visible 공통 토큰 적용 범위 확장
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(22:30) 아이디어를 반영해 공통 `:focus-visible` 토큰 규칙 대상에 `a`, `[role="button"]`, `[tabindex]`를 추가해 버튼/폼 외 인터랙션 요소까지 일관된 포커스 링을 적용.
+  - 포커스 두께 fallback을 `max(2px, 0.15em)`로 소폭 상향하고 오프셋은 `--focus-ring-offset-strong` 우선 토큰으로 분리해 대비/두께/간격 커스터마이징 여지를 유지.
+  - 변경 범위를 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 경량 적용.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 실제 링크·커스텀 버튼(role/button, tabindex)에서 키보드 탭 이동 시 포커스 링 일관성 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 22:00 - focus-visible 두께/오프셋 토큰화로 커스터마이징 여지 확보
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
