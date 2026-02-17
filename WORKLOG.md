@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 17:00 - 카드 내부 focus-visible 통일 및 토스트 reduced-motion 최소화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(16:30) 아이디어를 반영해 `.card` 내부 인터랙션 요소(`a/button/[role="button"]/tabindex`)의 `:focus-visible`을 `--focus-ring-strong` 우선 토큰으로 통일.
+  - `@media (prefers-reduced-motion: reduce)`에 `.toast`, `[data-toast]`, `.alert`를 추가해 토스트/알림 전환도 `60ms linear` 이하의 초단기 모션으로 제한.
+  - 변경을 컴포넌트 SCSS 1개(빌드 산출물 포함)로 유지해 과도한 기능 추가 없이 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 카드/토스트/모달의 키보드 포커스 대비와 reduced-motion 체감을 1회 통합 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 16:00 - focus-visible strong 토큰 통일 및 모달 전환 60ms 최소화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
