@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 13:00 - 폼/모달 focus-visible 대비 강화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(12:30) 아이디어를 반영해 `.form-control:focus-visible/:focus`의 포커스 컬러를 `primary-dark` 우선으로 조정해 밝은 배경에서 포커스 경계를 더 명확히 보이게 정리.
+  - 모달 헤더의 `tabindex="-1"` 제목 포커스 스타일도 `primary-dark` 우선 링으로 맞춰 키보드/프로그램 포커스 대비를 통일.
+  - `prefers-reduced-motion: reduce` 구간에 `html:focus-within { scroll-behavior: auto; }`를 추가해 모션 최소화 환경에서 불필요한 스크롤 모션을 억제.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달/폼 상태(기본·포커스·오류)에서 포커스 링 대비를 테마별로 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 12:00 - 모달 reduced-motion 대응 및 focus-visible 보강
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
