@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 09:00 - PR 템플릿에 프로토타입 A11y 리서치 체크 추가
+- **수정 파일:** .github/pull_request_template.md
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(08:30) 아이디어를 반영해 PR 본문에서 바로 사용하는 `A11y Prototype Preflight` 체크리스트를 추가.
+  - 읽기 순서/라벨/alt/키보드 흐름 4개 사전점검 항목과 대체 리서치 트랙(Survey/Co-design/Rapid HTML/Wizard-of-Oz) 체크를 한 파일에 경량 구성.
+  - 템플릿 기반 문서화만 추가해 기능 과확장을 피하고, 팀별 항목 확장이 가능하도록 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** PR 템플릿 Research Notes에 상태별(기본/포커스/오류) 관찰 칸 1줄 추가.
+---
+
 ## 2026-02-17 (화요일) 08:00 - 프로토타입 A11y Preflight 콘솔 점검 추가
 - **수정 파일:** source/js/common.js
 - **변경 내용:**
