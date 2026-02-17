@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 22:00 - focus-visible 두께/오프셋 토큰화로 커스터마이징 여지 확보
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(21:30) 아이디어를 반영해 공통 `:focus-visible` 규칙의 두께/오프셋 값을 `--focus-ring-width-strong`, `--focus-ring-offset` 토큰으로 노출.
+  - 기본 fallback(`max(2px, 0.14em)` / `2px`)은 유지해 기존 UI를 깨지 않으면서도 테마별 대비·두께 조정이 쉬운 경량 구조로 정리.
+  - 변경 범위를 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 접근성 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 라이트/다크 테마에서 `--focus-ring-width-strong` 값만 바꿔도 포커스 가시성이 안정적으로 유지되는지 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 21:00 - focus-visible 토큰 대비/두께 상향 + reduced-motion 입력 전환 차단
 - **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

@@ -335,9 +335,10 @@ textarea.form-control {
 // --------------------------------------------------------------------------
 :where(.btn, .form-control, .form-check-input, .modal-content):focus-visible {
   outline-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
-  outline-width: max(2px, 0.14em);
+  // 커스터마이징 여지를 위해 강한 포커스 링 두께/오프셋도 토큰으로 노출
+  outline-width: var(--focus-ring-width-strong, max(2px, 0.14em));
   outline-style: solid;
-  outline-offset: 2px;
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
 // 모션 감소 선호 시 컴포넌트 전환 비활성화
