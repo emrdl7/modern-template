@@ -695,6 +695,12 @@ summary,
   background-color: var(--color-bg-alt, #f8f9fa);
 }
 
+:root {
+  --form-focus-ring-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  --form-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
+  --form-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+}
+
 .form-group {
   margin-bottom: 2rem;
 }
@@ -719,19 +725,19 @@ summary,
   transition: var(--motion-transition-fast, all 0.15s ease-in-out);
 }
 .form-control:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  outline-offset: var(--focus-ring-offset, 3px);
+  outline: var(--focus-ring-width, 3px) solid var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  outline-offset: var(--focus-ring-offset, var(--form-focus-ring-offset, var(--focus-ring-offset, 2px)));
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .form-control:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 .form-control:focus-visible {
-  border-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  border-color: var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
 }
 .form-control:focus {
   border-color: var(--focus-ring, var(--color-primary-dark, #1a4fb8));
@@ -762,15 +768,15 @@ textarea.form-control {
   cursor: pointer;
 }
 .form-check-input:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  outline-offset: var(--focus-ring-offset, 3px);
+  outline: var(--focus-ring-width, 3px) solid var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  outline-offset: var(--focus-ring-offset, var(--form-focus-ring-offset, var(--focus-ring-offset, 2px)));
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .form-check-input:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 
@@ -926,7 +932,7 @@ textarea.form-control {
 a,
 [role=button],
 [tabindex]:not([tabindex="-1"])):focus-visible {
-  outline: var(--focus-ring-width-strong, max(2px, 0.15em)) var(--focus-ring-style-strong, var(--focus-ring-style, solid)) var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  outline: var(--form-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))) var(--focus-ring-style-strong, var(--focus-ring-style, solid)) var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
   box-shadow: 0 0 0 var(--focus-ring-gap, 2px) var(--focus-ring-surface, var(--color-bg, #ffffff)), 0 0 0 calc(var(--focus-ring-gap, 2px) + var(--focus-ring-width-strong, max(2px, 0.15em))) var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
 }

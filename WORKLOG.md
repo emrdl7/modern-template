@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 07:01 - 폼 포커스 토큰 분리로 입력/체크 컨트롤 일관화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 통일 + 폼 컨트롤 일관화)를 반영해 `--form-focus-ring-*` 토큰(color/width/offset)을 추가.
+  - `.form-control`, `.form-check-input`의 `:focus-visible`를 동일 토큰 기반으로 맞춰 입력 필드와 체크박스/라디오의 포커스 링 색·오프셋 동작을 통일.
+  - 공통 `:focus-visible` 규칙의 두께 fallback에도 `--form-focus-ring-width`를 연결해 테마 커스터마이징 여지를 유지하면서 변경 범위를 SCSS 1개(빌드 산출물 포함)로 제한.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `select/textarea` 포함 폼 요소에서 키보드 탭 이동 시 포커스 링 두께·오프셋 일관성을 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 06:00 - focus-visible shorthand 고정 + 마우스 포커스 링 분리
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
