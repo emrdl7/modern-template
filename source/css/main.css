@@ -915,11 +915,17 @@ textarea.form-control {
   justify-content: flex-end;
 }
 
-:where(.btn, .form-control, .form-check-input, .modal-content):focus-visible {
+:where(.btn,
+.form-control,
+.form-check-input,
+.modal-content,
+a,
+[role=button],
+[tabindex]:not([tabindex="-1"])):focus-visible {
   outline-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  outline-width: var(--focus-ring-width-strong, max(2px, 0.14em));
+  outline-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   outline-style: solid;
-  outline-offset: var(--focus-ring-offset, 2px);
+  outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
 }
 
 @media (prefers-reduced-motion: reduce) {

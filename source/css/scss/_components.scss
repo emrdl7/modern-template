@@ -333,12 +333,20 @@ textarea.form-control {
 
 // 공통 focus-visible 토큰: 주요 인터랙션 컴포넌트 링 대비/두께를 한 번 더 고정
 // --------------------------------------------------------------------------
-:where(.btn, .form-control, .form-check-input, .modal-content):focus-visible {
+:where(
+  .btn,
+  .form-control,
+  .form-check-input,
+  .modal-content,
+  a,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
   outline-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   // 커스터마이징 여지를 위해 강한 포커스 링 두께/오프셋도 토큰으로 노출
-  outline-width: var(--focus-ring-width-strong, max(2px, 0.14em));
+  outline-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   outline-style: solid;
-  outline-offset: var(--focus-ring-offset, 2px);
+  outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
 }
 
 // 모션 감소 선호 시 컴포넌트 전환 비활성화
