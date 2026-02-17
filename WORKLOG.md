@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 11:00 - Dev용 A11y role audit 힌트 추가
+- **수정 파일:** source/js/components/a11y-role-audit.js, source/js/common.js
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(10:30) 아이디어를 반영해 role fallback·컨텍스트 유효성(row/listitem)·landmark 과잉을 점검하는 `initA11yRoleAudit()`를 추가.
+  - `?a11y-role-audit=1` 또는 `<html data-a11y-role-audit="true">`에서만 동작하는 옵트인 dev 점검으로 구성해 기본 런타임은 가볍게 유지.
+  - 결과는 console summary/warn 힌트만 출력하도록 설계해 과도한 기능 추가를 피하고 팀별 규칙 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** role="grid"/"treegrid"에서 row/rowgroup 최소 구조 점검 힌트를 1단계 정교화.
+---
+
 ## 2026-02-17 (화요일) 10:00 - 프로토타입 A11y 리서치 PR 체크리스트 경량 보강
 - **수정 파일:** docs/a11y-prototype-research-playbook.md
 - **변경 내용:**
