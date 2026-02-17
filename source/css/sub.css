@@ -928,6 +928,7 @@ a,
   outline-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   outline-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  box-shadow: 0 0 0 var(--focus-ring-gap, 2px) var(--focus-ring-surface, var(--color-bg, #ffffff)), 0 0 0 calc(var(--focus-ring-gap, 2px) + var(--focus-ring-width-strong, max(2px, 0.15em))) var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
 }
 
 @media (prefers-reduced-motion: reduce) {

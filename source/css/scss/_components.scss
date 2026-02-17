@@ -347,6 +347,11 @@ textarea.form-control {
   outline-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   outline-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  // 밝거나 복잡한 배경에서도 링 식별이 쉬운 2중 대비 링(옵션 토큰)
+  box-shadow:
+    0 0 0 var(--focus-ring-gap, 2px) var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)})),
+    0 0 0 calc(var(--focus-ring-gap, 2px) + var(--focus-ring-width-strong, max(2px, 0.15em)))
+      var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
 }
 
 // 모션 감소 선호 시 컴포넌트 전환 비활성화
