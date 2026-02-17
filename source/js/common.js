@@ -7,6 +7,7 @@ import { initMobileMenu, initStickyHeader, initSmoothScroll } from './modules/na
 import { initModal, initTabs } from './modules/ui.js';
 import { initFormValidation } from './modules/form.js';
 import { initA11yRoleAudit } from './components/a11y-role-audit.js';
+import { initPerfMetrics } from './components/perf-metrics.js';
 
 // =====================================================================
 // A11y helpers (lightweight, non-blocking)
@@ -183,6 +184,7 @@ const init = () => {
   initA11yLabelInNameHints();
   initA11yPrototypePreflight();
   initA11yRoleAudit();
+  initPerfMetrics();
 };
 
 // DOM 로드 완료 후 실행

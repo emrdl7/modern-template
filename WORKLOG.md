@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 18:00 - INP 및 액션-페인트 지연 계측 추가
+- **수정 파일:** source/js/components/perf-metrics.js, source/js/common.js
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(17:30) 아이디어를 반영해 `LCP/CLS` 기본 수집에 `INP(지원 브라우저)`를 추가하고, 페이지 종료 시점(`visibilitychange`)에 요약 값을 기록하도록 구성.
+  - 사용자 `click/keydown` 이후 2프레임 기준으로 `ACTION_TO_PAINT` 지연을 근사 측정해 협업 화면 체감 반응성을 가볍게 추적할 수 있게 추가.
+  - 콘솔 출력 + `app:perf-metric` 커스텀 이벤트만 제공하는 경량 구조로 유지해 과도한 기능 추가 없이 후속 전송/대시보드 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `app:perf-metric` 이벤트를 샘플 리스너 1개로 수집해 화면별(INP/액션-페인트) 편차를 비교 점검.
+---
+
 ## 2026-02-17 (화요일) 17:00 - 카드 내부 focus-visible 통일 및 토스트 reduced-motion 최소화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
