@@ -912,6 +912,13 @@ textarea.form-control {
   justify-content: flex-end;
 }
 
+:where(.btn, .form-control, .form-check-input, .modal-content):focus-visible {
+  outline-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  outline-width: max(2px, 0.14em);
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -919,29 +926,22 @@ textarea.form-control {
   .btn,
   .form-control {
     animation: none !important;
-    transition-duration: 80ms !important;
-    transition-timing-function: linear !important;
+    transition: none !important;
     transform: none !important;
   }
   .modal,
   .modal-backdrop,
   .modal-content {
     animation: none !important;
+    transition: none !important;
     transform: none !important;
-  }
-  .modal-backdrop,
-  .modal-content {
-    transition-property: opacity !important;
-    transition-duration: 60ms !important;
-    transition-timing-function: linear !important;
   }
   .toast,
   [data-toast],
   .alert {
     animation: none !important;
+    transition: none !important;
     transform: none !important;
-    transition-duration: 60ms !important;
-    transition-timing-function: linear !important;
   }
 }
 .hero {

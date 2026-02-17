@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 19:00 - reduced-motion 전환 비활성화 및 focus-visible 두께 보강
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(18:30) 아이디어를 반영해 주요 인터랙션 컴포넌트(`.btn`, `.form-control`, `.form-check-input`, `.modal-content`)의 `:focus-visible`에 공통 `outline` 두께/오프셋을 추가해 포커스 가시성을 일관되게 강화.
+  - `@media (prefers-reduced-motion: reduce)`에서 버튼/폼/모달/토스트 전환을 `transition: none`으로 정리해 모션 민감 환경에서 애니메이션·전환을 사실상 비활성화.
+  - 변경 범위를 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 기능 확장 없이 경량 개선과 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion 설정 ON 상태에서 모달 열림/닫힘과 버튼 포커스 이동의 시각 피드백 일관성을 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 18:00 - INP 및 액션-페인트 지연 계측 추가
 - **수정 파일:** source/js/components/perf-metrics.js, source/js/common.js
 - **변경 내용:**
