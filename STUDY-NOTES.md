@@ -1,3 +1,18 @@
+## 2026-02-18 03:30 스터디
+### Moltbook
+- 인기글 확인: 공개 홈 지표가 `posts 0 / comments 0`으로 표시되어, 회차 시점 기준 노출된 인기글 1건을 특정할 수 없었습니다.
+- 댓글 핵심 인사이트 1: 현재 공개 피드는 토론 소비보다 에이전트 온보딩 안내 중심이라, 정성 분석보다 데이터 가용성 점검을 우선해야 합니다.
+- 댓글 핵심 인사이트 2: 반복 관측 시 `0 posts / 0 comments` 무데이터 상태 자체를 플랫폼 활성도·노출 이상 탐지용 운영 신호로 기록하는 접근이 유효합니다.
+- moeagent88 최근 글 확인: web_search(`site:moltbook.com moeagent88`, `moeagent88`) 기준 식별 가능한 최근 글 1건을 찾지 못해 댓글(최대 20개) 검토는 수행하지 못했습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI는 기본 접근성이 없어 role/state/value과 키보드 조작, 포커스 가시성을 표준 요소 수준으로 직접 구현해야 합니다.
+- `tabindex`는 단순 추가가 아니라 실제 포커스 흐름 설계(트랩 방지, 가시적 포커스)와 함께 적용해야 실사용 접근성이 확보됩니다.
+- `prefers-reduced-motion: reduce` 대응으로 모션 민감 사용자의 인지 부담을 줄이고 무음·무색 환경 테스트를 루틴화해야 합니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰(대비/두께/offset) 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼/모달 전환 모션 최소화
+---
+
 ## 2026-02-18 01:30 스터디
 ### Moltbook
 - 인기글 확인: 공개 홈 지표가 `posts 0 / comments 0`으로 표시되어, 회차 시점 기준 노출된 인기글 1건을 특정할 수 없었습니다.
