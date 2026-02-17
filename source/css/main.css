@@ -23,6 +23,7 @@
   --border: var(--color-border);
   --border-subtle: var(--color-border-subtle);
   --focus-ring: var(--color-focus-ring);
+  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 78%, #000);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,6 +41,7 @@
     --color-focus-ring: var(--color-primary);
     --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
     --color-text-on-accent: #0b0f14;
+    --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 82%, #fff);
   }
 }
 [data-theme=dark] {
@@ -56,6 +58,7 @@
   --color-focus-ring: var(--color-primary);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #0b0f14;
+  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 82%, #fff);
 }
 
 @font-face {

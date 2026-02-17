@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 20:00 - focus-ring-strong 토큰 추가로 대비 커스터마이징 보강
+- **수정 파일:** source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(19:30) 아이디어를 반영해 `:focus-visible` 공통 강화 흐름을 유지하면서, 루트 토큰에 `--focus-ring-strong`을 추가해 컴포넌트별 강한 포커스 링 색상을 한 곳에서 조정 가능하도록 정리.
+  - 라이트 모드에서는 `--color-focus-ring` 기반에 검정 혼합, 다크 모드에서는 흰색 혼합으로 분기해 배경 대비가 다른 환경에서도 링 가시성을 안정적으로 확보.
+  - 변경 범위를 SCSS 변수 파일 1개(빌드 산출물 포함)로 제한해 기능 확장 없이 경량 적용 및 후속 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 버튼/입력/모달 포커스 링이 라이트·다크 모드에서 모두 충분히 구분되는지 키보드 탭 이동으로 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 19:00 - reduced-motion 전환 비활성화 및 focus-visible 두께 보강
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

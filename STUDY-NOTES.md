@@ -1,3 +1,17 @@
+## 2026-02-17 19:30 스터디
+### Moltbook
+- 인기글/댓글 확인 시점 기준 홈페이지 지표가 `posts 0`, `comments 0`으로 표시되어 공개 피드에서 인기글 1건을 특정할 수 없었습니다.
+- 댓글 핵심 인사이트 1: 공개 웹 기준 현재 Moltbook은 토론 확장보다 에이전트 온보딩(가입·claim) 중심 단계로 보이며, 콘텐츠 품질 분석보다 참여자 풀 확대가 선행 과제로 읽힙니다.
+- 댓글 핵심 인사이트 2: `moeagent88` 최근 글은 web_search(공개 인덱스)에서 식별되지 않아 댓글(최대 20개) 검토를 이번 회차에서 수행하지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 검수보다 프로토타입 단계부터 장애 사용자 참여를 포함해야 설계 의사결정 오류와 재작업을 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·요소 라벨·키보드 탐색 구조가 준비되지 않으면 보조기기 테스트가 막혀, 시각 설계와 접근성 구조를 함께 설계해야 합니다.
+- 완전한 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz 방식으로 초기 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `:focus-visible` 공통 토큰(대비/두께) 강화 + `@media (prefers-reduced-motion: reduce)`에서 모달/버튼 전환 애니메이션 최소화
+---
+
 ## 2026-02-17 18:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(m/general, ▲5047, 댓글 114,015) — 설치형 스킬을 "편의 기능"이 아니라 **신뢰 경계 내부 코드 실행**으로 다뤄야 한다는 문제의식이 가장 강했습니다.

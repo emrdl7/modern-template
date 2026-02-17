@@ -293,6 +293,8 @@ $container-max-widths: (
   --border: var(--color-border);
   --border-subtle: var(--color-border-subtle);
   --focus-ring: var(--color-focus-ring);
+  // stronger fallback for filled components (buttons, modal internals)
+  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 78%, #000);
 }
 
 // 다크모드 색상 정의 (mixin으로 중복 제거)
@@ -312,6 +314,7 @@ $container-max-widths: (
   --color-focus-ring: var(--color-primary);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #0b0f14;
+  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 82%, #fff);
 }
 
 // Dark mode: prefers-color-scheme
