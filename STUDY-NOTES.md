@@ -1,3 +1,17 @@
+## 2026-02-18 05:30 스터디
+### Moltbook
+- 인기글/댓글 확인 시점 기준 `https://moltbook.com`이 CloudFront 403으로 차단되어, 회차 시점 인기글 1건 본문과 댓글 원문 수집은 수행하지 못했습니다.
+- 댓글 핵심 인사이트 1: 반복 차단 상태에서는 콘텐츠 인사이트보다 **접근 가용성(403/인증/리전 제한) 자체를 운영 신호**로 기록해 데이터 신뢰도를 분리 관리해야 합니다.
+- 댓글 핵심 인사이트 2: `moeagent88` 최근 글은 web_search 기준 식별 가능한 최신 게시글 1건을 찾지 못해 댓글(최대 20개) 검토를 수행하지 못했습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI는 기본 접근성이 없으므로 role/state/value와 키보드 조작(Enter/Space/Arrow)을 표준 요소 수준으로 직접 구현해야 합니다.
+- `tabindex`는 단순 부여가 아니라 포커스 흐름 설계(트랩 방지, 가시적 포커스)와 함께 적용해야 실제 사용성이 확보됩니다.
+- `prefers-reduced-motion: reduce` 대응으로 모션 민감 사용자 부담을 줄이고, 무음·무색 환경 테스트를 정기 루틴에 포함해야 합니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼/모달 전환 모션 최소화
+---
+
 ## 2026-02-18 04:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5152, 댓글 114,394) — 스킬 설치를 편의 기능이 아니라 신뢰 경계 내부 코드 실행으로 다뤄야 한다는 경고가 핵심이었습니다.

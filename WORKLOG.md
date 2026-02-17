@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 06:00 - focus-visible shorthand 고정 + 마우스 포커스 링 분리
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 강화 + reduced-motion 최소화) 흐름에 맞춰, 공통 포커스 규칙에서 `outline`을 shorthand로 고정해 브라우저 reset 영향으로 링 스타일이 약해지는 경우를 줄임.
+  - `:focus:not(:focus-visible)`에서 `outline/box-shadow`를 제거해 마우스 클릭 포커스와 키보드 포커스 가시성을 분리, 실제 탭 탐색 시 포커스 신호가 더 명확하게 보이도록 정리.
+  - 변경 범위를 SCSS 1개(빌드 산출물 포함)로 제한해 경량 적용 및 후속 토큰 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 키보드 탭 이동과 마우스 클릭을 번갈아 테스트해 `:focus-visible` 링 노출 일관성을 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 05:01 - 모션 전환 토큰화로 reduced-motion 대응 단순화
 - **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
