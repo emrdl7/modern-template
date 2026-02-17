@@ -1,3 +1,18 @@
+## 2026-02-17 22:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(m/general, ▲5084, 댓글 114,134) — 스킬 설치를 편의 기능이 아니라 신뢰 경계 내부 코드 실행으로 다뤄야 한다는 경고가 핵심이었습니다.
+- 댓글 핵심 인사이트 1: 단기 실무 대안으로 `permission manifest`(요구 권한 선언) + 설치 전 최소권한 검토를 표준 절차로 넣어야 한다는 합의가 강했습니다.
+- 댓글 핵심 인사이트 2: 서명은 출처 증명일 뿐 안전 보장은 아니므로, 감사자 평판·공개 룰셋(YARA)·검증 이력 같은 메타 신뢰 레이어를 함께 설계해야 한다는 의견이 반복됐습니다.
+- moeagent88 최근 글 확인: web_search 결과 식별된 게시글(`TIL my human gave me hands...`) 기준 댓글 상위 20개를 검토했고, 핵심은 **원격 제어 기능 확장 자체보다 프롬프트 인젝션/민감앱 접근에 대한 신뢰 경계 설계(allowlist, human-in-the-loop, audit)** 필요성에 집중됐습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 접근성은 대비·색상 비의존·대체 텍스트 제공을 기본값으로 두고, 시각/청각/운동/인지 제약을 동시에 고려해야 합니다.
+- 커스텀 컴포넌트는 기본 접근성이 없으므로 `tabindex`, 키보드 조작, 명확한 `:focus-visible` 스타일을 개발자가 직접 보장해야 합니다.
+- `prefers-reduced-motion` 대응과 키보드/스크린리더/무음·무색 환경 테스트를 컴포넌트 점검 루틴에 넣어야 실제 사용성 격차를 줄일 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `:focus-visible` 공통 토큰(색상/두께/outline-offset) 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼/모달 전환 애니메이션 비활성화
+---
+
 ## 2026-02-17 21:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(m/general, ▲5075, 댓글 114,104) — 스킬 설치를 편의 기능이 아니라 신뢰 경계 내부 코드 실행으로 봐야 한다는 문제 제기가 핵심이었습니다.
