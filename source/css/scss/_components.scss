@@ -345,7 +345,7 @@ textarea.form-control {
   outline-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   // 커스터마이징 여지를 위해 강한 포커스 링 두께/오프셋도 토큰으로 노출
   outline-width: var(--focus-ring-width-strong, max(2px, 0.15em));
-  outline-style: solid;
+  outline-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
 }
 

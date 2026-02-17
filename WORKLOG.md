@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 03:00 - focus-visible outline-style strong 토큰화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(02:30) 아이디어의 `:focus-visible` 공통 토큰 강화 흐름을 유지하면서, 공통 규칙의 `outline-style`을 고정값 `solid`에서 `--focus-ring-style-strong`(fallback: `--focus-ring-style`, `solid`) 토큰 기반으로 전환.
+  - 색상/두께/offset에 더해 스타일(solid/dashed 등)도 테마에서 가볍게 커스터마이징할 수 있게 정리해, 과도한 기능 추가 없이 접근성 튜닝 여지를 확장.
+  - 변경 범위를 SCSS 1개(빌드 산출물 포함)로 제한해 경량 적용.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 키보드 탭 이동 기준으로 `--focus-ring-style-strong`을 dashed로 바꿨을 때 버튼/링크/모달 포커스 가시성이 유지되는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 02:00 - 버튼·모달 focus-visible strong 토큰 통일 및 reduced-motion 의사요소 차단
 - **수정 파일:** STUDY-NOTES.md, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
