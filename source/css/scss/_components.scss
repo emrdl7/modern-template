@@ -279,6 +279,7 @@ textarea.form-control {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: z(modal-backdrop);
+  transition: $transition-base;
 }
 
 .modal-content {
@@ -289,6 +290,11 @@ textarea.form-control {
   width: 90%;
   z-index: z(modal);
   box-shadow: shadow(2xl);
+  transition: $transition-base;
+
+  &:focus-visible {
+    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+  }
 }
 
 .modal-header,

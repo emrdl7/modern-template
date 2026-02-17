@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 12:00 - 모달 reduced-motion 대응 및 focus-visible 보강
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(11:30) 아이디어를 반영해 `.modal-backdrop`, `.modal-content`에 기본 전환을 명시하고, 기존 `prefers-reduced-motion: reduce`에서 해당 전환이 완전히 비활성화되도록 정리.
+  - `.modal-content:focus-visible` 포커스 링을 추가해 `tabindex` 기반 포커스 이동 시 모달 컨테이너 경계가 더 분명히 보이도록 대비를 강화.
+  - 변경을 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 닫기 버튼/헤더 제목의 포커스 이동 경로를 키보드 탭 순서 기준으로 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 11:00 - Dev용 A11y role audit 힌트 추가
 - **수정 파일:** source/js/components/a11y-role-audit.js, source/js/common.js
 - **변경 내용:**
