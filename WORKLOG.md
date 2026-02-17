@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 16:00 - focus-visible strong 토큰 통일 및 모달 전환 60ms 최소화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(15:30) 아이디어를 반영해 `.btn`, `.form-control`, `.form-check-input`의 `:focus-visible`을 `--focus-ring-strong` 우선(fallback 유지)으로 통일해 공통 포커스 대비를 강화.
+  - `@media (prefers-reduced-motion: reduce)`에서 `.modal-backdrop`, `.modal-content` 전환을 `opacity` 단일 속성 + `60ms linear`로 축소해 모션 부담을 더 낮춤.
+  - 변경 범위를 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 키보드 탭 이동 시 버튼/폼/체크박스 focus-visible 대비와 모달 열림/닫힘 reduced-motion 체감을 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 15:00 - reduced-motion 전환 시간을 80ms로 경량 조정
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

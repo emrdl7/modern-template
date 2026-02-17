@@ -22,8 +22,8 @@
   user-select: none;
 
   &:focus-visible {
-    // 버튼 포커스 링 대비 강화(기본 primary보다 한 단계 진한 색 우선)
-    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+    // 버튼 포커스 링 대비 강화(공통 strong 토큰 우선)
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   }
 
   &:disabled {
@@ -151,8 +151,8 @@
 
   // 포커스 링은 전역 토큰/믹스인으로 통일(:focus-visible 우선)
   &:focus-visible {
-    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
-    border-color: var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}));
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+    border-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   }
 
   // 폼 컨트롤은 focus-visible 미지원 환경에서도 최소한의 구분은 필요
@@ -190,7 +190,7 @@ textarea.form-control {
   cursor: pointer;
 
   &:focus-visible {
-    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   }
 }
 
@@ -352,7 +352,8 @@ textarea.form-control {
 
   .modal-backdrop,
   .modal-content {
-    transition-duration: 80ms !important;
+    transition-property: opacity !important;
+    transition-duration: 60ms !important;
     transition-timing-function: linear !important;
   }
 }

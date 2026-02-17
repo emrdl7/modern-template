@@ -557,15 +557,15 @@ summary,
   user-select: none;
 }
 .btn:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 .btn:disabled {
@@ -700,19 +700,19 @@ summary,
   transition: all 0.15s ease-in-out;
 }
 .form-control:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .form-control:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 .form-control:focus-visible {
-  border-color: var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  border-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
 }
 .form-control:focus {
   border-color: var(--focus-ring, var(--color-primary-dark, #1a4fb8));
@@ -743,15 +743,15 @@ textarea.form-control {
   cursor: pointer;
 }
 .form-check-input:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .form-check-input:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 
@@ -919,7 +919,8 @@ textarea.form-control {
   }
   .modal-backdrop,
   .modal-content {
-    transition-duration: 80ms !important;
+    transition-property: opacity !important;
+    transition-duration: 60ms !important;
     transition-timing-function: linear !important;
   }
 }
