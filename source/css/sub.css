@@ -26,6 +26,8 @@
   --border-subtle: var(--color-border-subtle);
   --focus-ring: var(--color-focus-ring);
   --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 78%, #000);
+  --motion-transition-base: all 0.3s ease-in-out;
+  --motion-transition-fast: all 0.15s ease-in-out;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -558,7 +560,7 @@ summary,
   border: 1px solid transparent;
   border-radius: 0.8rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: var(--motion-transition-base, all 0.3s ease-in-out);
   user-select: none;
 }
 .btn:focus-visible {
@@ -714,7 +716,7 @@ summary,
   background-color: var(--surface, var(--color-bg, #ffffff));
   border: 1px solid var(--border, var(--color-border, #8e8e8e));
   border-radius: 0.8rem;
-  transition: all 0.15s ease-in-out;
+  transition: var(--motion-transition-fast, all 0.15s ease-in-out);
 }
 .form-control:focus-visible {
   outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
@@ -850,7 +852,7 @@ textarea.form-control {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1040;
-  transition: all 0.3s ease-in-out;
+  transition: var(--motion-transition-base, all 0.3s ease-in-out);
 }
 
 .modal-content {
@@ -861,7 +863,7 @@ textarea.form-control {
   width: 90%;
   z-index: 1050;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease-in-out;
+  transition: var(--motion-transition-base, all 0.3s ease-in-out);
 }
 .modal-content:focus-visible {
   outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
@@ -932,6 +934,10 @@ a,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-transition-base: none;
+    --motion-transition-fast: none;
+  }
   html:focus-within {
     scroll-behavior: auto;
   }

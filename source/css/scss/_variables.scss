@@ -298,6 +298,10 @@ $container-max-widths: (
   --focus-ring: var(--color-focus-ring);
   // stronger fallback for filled components (buttons, modal internals)
   --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 78%, #000);
+
+  // Motion tokens (customizable; reduced-motion media query can override these)
+  --motion-transition-base: #{$transition-base};
+  --motion-transition-fast: #{$transition-fast};
 }
 
 // 다크모드 색상 정의 (mixin으로 중복 제거)

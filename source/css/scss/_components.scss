@@ -18,7 +18,7 @@
   border: 1px solid transparent;
   border-radius: radius(base);
   cursor: pointer;
-  transition: $transition-base;
+  transition: var(--motion-transition-base, #{$transition-base});
   user-select: none;
 
   &:focus-visible {
@@ -152,7 +152,7 @@
   // WCAG 2.1 1.4.11(비텍스트 대비) 기준(인접 대비 3:1+)을 만족하는 색을 우선 사용.
   border: 1px solid var(--border, var(--color-border, #{color(border)}));
   border-radius: radius(base);
-  transition: $transition-fast;
+  transition: var(--motion-transition-fast, #{$transition-fast});
 
   // 포커스 링은 전역 토큰/믹스인으로 통일(:focus-visible 우선)
   &:focus-visible {
@@ -284,7 +284,7 @@ textarea.form-control {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: z(modal-backdrop);
-  transition: $transition-base;
+  transition: var(--motion-transition-base, #{$transition-base});
 }
 
 .modal-content {
@@ -295,7 +295,7 @@ textarea.form-control {
   width: 90%;
   z-index: z(modal);
   box-shadow: shadow(2xl);
-  transition: $transition-base;
+  transition: var(--motion-transition-base, #{$transition-base});
 
   &:focus-visible {
     @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
@@ -357,6 +357,11 @@ textarea.form-control {
 // 모션 감소 선호 시 컴포넌트 전환 비활성화
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-transition-base: none;
+    --motion-transition-fast: none;
+  }
+
   html:focus-within {
     scroll-behavior: auto;
   }

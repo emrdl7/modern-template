@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 05:01 - 모션 전환 토큰화로 reduced-motion 대응 단순화
+- **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차의 코드 적용 아이디어(`:focus-visible` 토큰 강화 + reduced-motion 최소화) 흐름을 유지하면서, 전환값을 `--motion-transition-base`, `--motion-transition-fast` 토큰으로 분리.
+  - `.btn`, `.form-control`, `.modal-backdrop`, `.modal-content` 전환을 모션 토큰 기반으로 바꿔 테마/프로젝트별 커스터마이징 여지를 남김.
+  - `@media (prefers-reduced-motion: reduce)`에서 모션 토큰을 `none`으로 덮어 기존 전환 차단 규칙과 함께 잔여 모션 가능성을 더 단순하게 억제.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion ON/OFF 토큰만 바꿨을 때 버튼/모달 전환 체감 차이를 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 04:00 - focus-visible 2중 대비 링 토큰 추가
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
