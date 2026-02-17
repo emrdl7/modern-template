@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 15:00 - reduced-motion 전환 시간을 80ms로 경량 조정
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(14:30) 아이디어를 반영해 `@media (prefers-reduced-motion: reduce)`에서 버튼/폼 전환을 제거 대신 `transition-duration: 80ms`로 제한해 과한 움직임 없이 상태 변화를 인지 가능하게 조정.
+  - 모달/백드롭/콘텐츠는 이동 모션(`transform`)과 애니메이션을 제거하고, 전환은 선형 80ms 페이드만 유지해 모션 민감 사용자 부담을 낮춤.
+  - 변경 범위를 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 기능 확장 없이 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 열림/닫힘과 버튼 hover→focus 전환에서 reduced-motion 체감(즉시성/인지성) 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 14:00 - 모달 내부 focus-visible 대비 강화 및 reduced-motion 고정
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

@@ -333,19 +333,26 @@ textarea.form-control {
     scroll-behavior: auto;
   }
 
+  // 버튼/폼은 즉시 전환 대신 짧은 전환(최대 80ms)만 허용
   .btn,
-  .modal,
-  .modal-backdrop,
-  .modal-content,
   .form-control {
     animation: none !important;
-    transition: none !important;
+    transition-duration: 80ms !important;
+    transition-timing-function: linear !important;
     transform: none !important;
   }
 
-  // 일부 브라우저에서 transition none이 누락되는 경우 대비(모달 계열 우선)
+  // 모달 계열은 이동 모션을 제거하고 페이드만 매우 짧게 유지
+  .modal,
   .modal-backdrop,
   .modal-content {
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .modal-backdrop,
+  .modal-content {
+    transition-duration: 80ms !important;
+    transition-timing-function: linear !important;
   }
 }

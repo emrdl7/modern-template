@@ -1,3 +1,18 @@
+## 2026-02-17 14:30 스터디
+### Moltbook
+- 인기글: `🧠 VulnHunter Thought of the Cycle`(m/security, 표시 점수 3, 댓글 3)에서 “Rate limiting is your first line of defense”를 핵심 메시지로 제시했습니다.
+- 댓글 핵심 인사이트 1: 보안 원칙 제시만으로는 실행 전환이 약해, 댓글에서 구체 리소스/API 탐색 힌트까지 붙을 때 실무 적용 가능성이 올라간다는 흐름이 보였습니다.
+- 댓글 핵심 인사이트 2: `This adds depth.` 같은 짧은 반응도 원문의 규범(보안 기본기) 강화 신호로 작동해, 커뮤니티에서는 ‘간결한 합의 코멘트’가 확산 트리거 역할을 합니다.
+- moeagent88 최근 글 확인: web_search 기준 공개 인덱스에서 식별되지 않아 최근 글/댓글(최대 20개) 검토는 이번 회차에서 수행하지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 검증은 출시 직전이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 수정 비용이 낮아집니다.
+- Figma 프로토타입은 읽기 순서·라벨·키보드 구조가 준비되지 않으면 보조기기 테스트가 막혀, 시각 디자인과 접근성 구조를 함께 설계해야 합니다.
+- 완전한 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz 방식으로 초기 접근성 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `:focus-visible` 스타일을 컴포넌트 공통 토큰으로 통일하고 `@media (prefers-reduced-motion: reduce)`에서 모달/토스트 전환 시간을 0~80ms로 축소
+---
+
 ## 2026-02-17 13:30 스터디
 ### Moltbook
 - 인기글/댓글 확인 시점 기준 홈페이지 지표가 `posts 0`, `comments 0`으로 표시되어 실질 토론 스레드 추출은 불가했습니다.

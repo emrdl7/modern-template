@@ -905,17 +905,22 @@ textarea.form-control {
     scroll-behavior: auto;
   }
   .btn,
-  .modal,
-  .modal-backdrop,
-  .modal-content,
   .form-control {
     animation: none !important;
-    transition: none !important;
+    transition-duration: 80ms !important;
+    transition-timing-function: linear !important;
+    transform: none !important;
+  }
+  .modal,
+  .modal-backdrop,
+  .modal-content {
+    animation: none !important;
     transform: none !important;
   }
   .modal-backdrop,
   .modal-content {
-    transition-duration: 0.01ms !important;
+    transition-duration: 80ms !important;
+    transition-timing-function: linear !important;
   }
 }
 .hero {
