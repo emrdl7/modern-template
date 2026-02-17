@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 04:00 - focus-visible 2중 대비 링 토큰 추가
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차의 코드 적용 아이디어(공통 `:focus-visible` 토큰 강화)를 따라, 공통 포커스 규칙에 2중 `box-shadow` 대비 링을 추가.
+  - `--focus-ring-gap`, `--focus-ring-surface` 토큰을 통해 배경이 복잡하거나 밝은 구간에서도 포커스 경계를 분리해 보이도록 했고, 기본 fallback을 둬 기존 테마를 깨지 않게 유지.
+  - 수정 범위를 SCSS 1개(빌드 산출물 포함)로 제한해 경량 적용 및 후속 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 라이트/다크 및 히어로 이미지 배경에서 키보드 탭 이동 시 2중 포커스 링 식별성을 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 03:00 - focus-visible outline-style strong 토큰화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
