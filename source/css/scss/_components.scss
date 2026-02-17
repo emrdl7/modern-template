@@ -102,6 +102,11 @@
   border-radius: radius(md);
   box-shadow: shadow(sm);
   overflow: hidden;
+
+  // 카드 내부 공통 인터랙션 포커스 스타일
+  :is(a, button, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+  }
 }
 
 .card-header {
@@ -353,6 +358,16 @@ textarea.form-control {
   .modal-backdrop,
   .modal-content {
     transition-property: opacity !important;
+    transition-duration: 60ms !important;
+    transition-timing-function: linear !important;
+  }
+
+  // 토스트/알림 계열도 축소 모션 환경에서는 즉시 또는 초단기 전환만 유지
+  .toast,
+  [data-toast],
+  .alert {
+    animation: none !important;
+    transform: none !important;
     transition-duration: 60ms !important;
     transition-timing-function: linear !important;
   }
