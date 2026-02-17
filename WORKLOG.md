@@ -1,3 +1,14 @@
+## 2026-02-17 (화요일) 21:00 - focus-visible 토큰 대비/두께 상향 + reduced-motion 입력 전환 차단
+- **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(20:30) 아이디어를 반영해 라이트/다크 모드의 `--color-focus-ring`을 각각 배경 대비가 더 높은 혼합 색으로 조정하고, `--focus-ring-width`를 `4px`로 상향해 `:focus-visible` 가시성을 강화.
+  - 포커스 링 오프셋을 `2px`로 조정해 두꺼워진 링이 컴포넌트 경계와 겹치지 않도록 균형을 맞춤.
+  - `@media (prefers-reduced-motion: reduce)`에서 `.form-check-input` 전환도 명시적으로 비활성화해 체크박스/라디오 인터랙션 모션을 최소화.
+  - 변경 범위를 CSS/SCSS 2개 소스(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 경량 적용 및 후속 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 키보드 탭 이동 기준으로 버튼/폼/체크박스의 포커스 링 두께 체감과 다크모드 대비를 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 20:00 - focus-ring-strong 토큰 추가로 대비 커스터마이징 보강
 - **수정 파일:** source/css/scss/_variables.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

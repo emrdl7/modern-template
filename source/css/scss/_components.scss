@@ -349,7 +349,8 @@ textarea.form-control {
 
   // 버튼/폼 전환 비활성화
   .btn,
-  .form-control {
+  .form-control,
+  .form-check-input {
     animation: none !important;
     transition: none !important;
     transform: none !important;

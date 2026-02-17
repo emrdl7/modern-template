@@ -273,13 +273,13 @@ $container-max-widths: (
   // Semantic tokens (a11y-friendly defaults)
   // - focus ring is separated so teams can tweak it without changing brand primary
   // - border-subtle lets you soften non-essential borders while keeping essential borders 3:1+ (WCAG 1.4.11)
-  --color-focus-ring: var(--color-primary);
+  --color-focus-ring: color-mix(in srgb, var(--color-primary) 84%, #000);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #ffffff;
 
   // Focus ring geometry tokens (keep simple; easy to tweak per project)
-  --focus-ring-width: 3px;
-  --focus-ring-offset: 3px;
+  --focus-ring-width: 4px;
+  --focus-ring-offset: 2px;
   --focus-ring-radius: 4px;
 
   // Semantic tokens (WCAG-oriented)
@@ -311,10 +311,10 @@ $container-max-widths: (
   --color-black: #f0f4ff;
 
   // Semantic tokens (dark)
-  --color-focus-ring: var(--color-primary);
+  --color-focus-ring: color-mix(in srgb, var(--color-primary) 86%, #fff);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #0b0f14;
-  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 82%, #fff);
+  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 88%, #fff);
 }
 
 // Dark mode: prefers-color-scheme

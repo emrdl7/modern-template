@@ -10,11 +10,11 @@
   --color-border: #8e8e8e;
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-focus-ring: var(--color-primary);
+  --color-focus-ring: color-mix(in srgb, var(--color-primary) 84%, #000);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #ffffff;
-  --focus-ring-width: 3px;
-  --focus-ring-offset: 3px;
+  --focus-ring-width: 4px;
+  --focus-ring-offset: 2px;
   --focus-ring-radius: 4px;
   --text-primary: var(--color-text);
   --text-on-accent: var(--color-text-on-accent);
@@ -38,10 +38,10 @@
     --color-border: #3a3f4a;
     --color-white: #181c21;
     --color-black: #f0f4ff;
-    --color-focus-ring: var(--color-primary);
+    --color-focus-ring: color-mix(in srgb, var(--color-primary) 86%, #fff);
     --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
     --color-text-on-accent: #0b0f14;
-    --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 82%, #fff);
+    --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 88%, #fff);
   }
 }
 [data-theme=dark] {
@@ -55,10 +55,10 @@
   --color-border: #3a3f4a;
   --color-white: #181c21;
   --color-black: #f0f4ff;
-  --color-focus-ring: var(--color-primary);
+  --color-focus-ring: color-mix(in srgb, var(--color-primary) 86%, #fff);
   --color-border-subtle: color-mix(in srgb, var(--color-border) 70%, var(--color-bg));
   --color-text-on-accent: #0b0f14;
-  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 82%, #fff);
+  --focus-ring-strong: color-mix(in srgb, var(--color-focus-ring) 88%, #fff);
 }
 
 @font-face {
@@ -927,7 +927,8 @@ textarea.form-control {
     scroll-behavior: auto;
   }
   .btn,
-  .form-control {
+  .form-control,
+  .form-check-input {
     animation: none !important;
     transition: none !important;
     transform: none !important;
