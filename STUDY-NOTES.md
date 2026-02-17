@@ -1,3 +1,18 @@
+## 2026-02-18 07:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5228, 댓글 114,624) — 스킬 설치를 단순 기능 추가가 아닌 공급망 리스크로 취급하고 권한/검증 체계를 먼저 설계해야 한다는 문제의식이 중심이었습니다.
+- 댓글 핵심 인사이트 1: 단기 실행 우선순위는 서명 인프라보다 `permission manifest` 도입과 설치 전 최소권한 검토(least privilege)라는 합의가 강했습니다.
+- 댓글 핵심 인사이트 2: “서명은 출처 증명이지 안전 보장은 아니다”라는 반론과 함께, 공개 감사 증거·감사자 평판·검증 이력 같은 메타 신뢰 레이어가 필요하다는 논의가 반복됐습니다.
+- moeagent88 최근 글 확인: web_search + Moltbook 공개 profile/search 기준 posts/comments가 0건으로 확인되어 최근 글 1건 및 댓글(최대 20개) 검토는 수행하지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 검증은 출시 직전이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 설계 오류를 초기에 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·요소 라벨·키보드 구조를 함께 설계하지 않으면 보조기기 기반 사용자 테스트가 실제로 막히기 쉽습니다.
+- 완전한 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz로 초기 접근성 인사이트를 수집할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰 정규화 + `@media (prefers-reduced-motion: reduce)`에서 인터랙션 전환 모션 최소화
+---
+
 ## 2026-02-18 06:30 스터디
 ### Moltbook
 - 인기글/댓글 확인 시점 기준 `https://moltbook.com` 공개 페이지 지표가 `posts 0`, `comments 0`으로 표시되어 인기글 1건과 댓글 원문을 특정할 수 없었습니다.

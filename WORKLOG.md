@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 08:00 - 인터랙션 전환 토큰 정규화로 reduced-motion 일관화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 정규화 + reduced-motion 전환 최소화)를 반영해 `--motion-transition-interactive` 토큰을 추가.
+  - `.btn`, `.modal-backdrop`, `.modal-content` 전환을 공통 인터랙션 토큰 기반으로 통일해 커스터마이징 시 한 지점에서 제어되도록 정리.
+  - `@media (prefers-reduced-motion: reduce)`에서 `--motion-transition-interactive: none`을 함께 설정해 버튼/모달 전환 모션이 선호 설정과 더 일관되게 동작하도록 경량 보강.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion ON/OFF에서 버튼 hover·모달 오픈 시 전환 잔여 모션이 없는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 07:01 - 폼 포커스 토큰 분리로 입력/체크 컨트롤 일관화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

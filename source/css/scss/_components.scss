@@ -18,7 +18,7 @@
   border: 1px solid transparent;
   border-radius: radius(base);
   cursor: pointer;
-  transition: var(--motion-transition-base, #{$transition-base});
+  transition: var(--motion-transition-interactive, var(--motion-transition-base, #{$transition-base}));
   user-select: none;
 
   &:focus-visible {
@@ -133,6 +133,7 @@
   --form-focus-ring-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   --form-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   --form-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
 }
 
 .form-group {
@@ -291,7 +292,7 @@ textarea.form-control {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: z(modal-backdrop);
-  transition: var(--motion-transition-base, #{$transition-base});
+  transition: var(--motion-transition-interactive, var(--motion-transition-base, #{$transition-base}));
 }
 
 .modal-content {
@@ -302,7 +303,7 @@ textarea.form-control {
   width: 90%;
   z-index: z(modal);
   box-shadow: shadow(2xl);
-  transition: var(--motion-transition-base, #{$transition-base});
+  transition: var(--motion-transition-interactive, var(--motion-transition-base, #{$transition-base}));
 
   &:focus-visible {
     @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
@@ -383,6 +384,7 @@ textarea.form-control {
   :root {
     --motion-transition-base: none;
     --motion-transition-fast: none;
+    --motion-transition-interactive: none;
   }
 
   html:focus-within {

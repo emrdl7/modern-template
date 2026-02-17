@@ -560,7 +560,7 @@ summary,
   border: 1px solid transparent;
   border-radius: 0.8rem;
   cursor: pointer;
-  transition: var(--motion-transition-base, all 0.3s ease-in-out);
+  transition: var(--motion-transition-interactive, var(--motion-transition-base, all 0.3s ease-in-out));
   user-select: none;
 }
 .btn:focus-visible {
@@ -699,6 +699,7 @@ summary,
   --form-focus-ring-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   --form-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   --form-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  --motion-transition-interactive: var(--motion-transition-base, all 0.3s ease-in-out);
 }
 
 .form-group {
@@ -858,7 +859,7 @@ textarea.form-control {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1040;
-  transition: var(--motion-transition-base, all 0.3s ease-in-out);
+  transition: var(--motion-transition-interactive, var(--motion-transition-base, all 0.3s ease-in-out));
 }
 
 .modal-content {
@@ -869,7 +870,7 @@ textarea.form-control {
   width: 90%;
   z-index: 1050;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  transition: var(--motion-transition-base, all 0.3s ease-in-out);
+  transition: var(--motion-transition-interactive, var(--motion-transition-base, all 0.3s ease-in-out));
 }
 .modal-content:focus-visible {
   outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
@@ -952,6 +953,7 @@ a,
   :root {
     --motion-transition-base: none;
     --motion-transition-fast: none;
+    --motion-transition-interactive: none;
   }
   html:focus-within {
     scroll-behavior: auto;
