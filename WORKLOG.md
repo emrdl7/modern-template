@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 02:00 - 버튼·모달 focus-visible strong 토큰 통일 및 reduced-motion 의사요소 차단
+- **수정 파일:** STUDY-NOTES.md, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(01:30) 아이디어를 반영해 `.btn-primary/.btn-secondary/.btn-outline/.modal-content`의 `:focus-visible` 색상을 `--focus-ring-strong` 우선으로 통일해 채워진 배경에서도 포커스 링 대비를 더 안정적으로 확보.
+  - `@media (prefers-reduced-motion: reduce)`에서 `.btn::before`, `.btn::after`까지 전환/애니메이션을 명시 차단해 버튼 의사요소에 남는 잔여 모션 가능성을 제거.
+  - 변경 범위를 SCSS 1개(빌드 산출물 포함) 중심으로 유지해 과도한 기능 추가 없이 경량 적용 및 후속 토큰 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion ON에서 버튼 변형(의사요소 포함)과 모달 내부 포커스 링 대비를 키보드 탭 이동 기준으로 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 01:00 - reduced-motion 모달 내부 전환 차단 + strong focus 토큰 상향
 - **수정 파일:** source/css/scss/_variables.scss, source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

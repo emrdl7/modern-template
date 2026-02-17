@@ -55,8 +55,8 @@
   }
 
   &:focus-visible {
-    // primary 배경 위에서도 링 경계가 분리되도록 더 진한 색 우선 사용
-    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+    // primary 배경 위에서도 링 경계가 분리되도록 strong 토큰 우선 사용
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   }
 }
 
@@ -71,8 +71,8 @@
   }
 
   &:focus-visible {
-    // secondary 계열 배경에서도 경계가 분명하게 보이도록 dark 포커스 링 사용
-    @include focus-outline(var(--focus-ring, var(--color-secondary-dark, #{color(secondary-dark)})));
+    // secondary 계열 배경에서도 경계가 분명하게 보이도록 strong 토큰 우선 사용
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-secondary-dark, #{color(secondary-dark)}))));
   }
 }
 
@@ -87,8 +87,8 @@
   }
 
   &:focus-visible {
-    // outline 버튼은 배경 대비 변동이 커서 고정 다크 링으로 가시성 확보
-    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+    // outline 버튼은 배경 대비 변동이 커서 strong 토큰으로 가시성 확보
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   }
 }
 
@@ -298,7 +298,7 @@ textarea.form-control {
   transition: $transition-base;
 
   &:focus-visible {
-    @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   }
 
   // 모달 내부 인터랙션 요소의 focus-visible 대비를 한 단계 더 진하게 통일
@@ -358,6 +358,8 @@ textarea.form-control {
 
   // 버튼/폼 전환 비활성화
   .btn,
+  .btn::before,
+  .btn::after,
   .form-control,
   .form-check-input {
     animation: none !important;

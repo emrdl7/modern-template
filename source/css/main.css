@@ -598,15 +598,15 @@ summary,
   border-color: var(--color-primary-dark, #1a4fb8);
 }
 .btn-primary:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn-primary:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 
@@ -620,15 +620,15 @@ summary,
   border-color: #002051;
 }
 .btn-secondary:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-secondary-dark, #002051));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-secondary-dark, #002051)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-secondary-dark, #002051)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-secondary-dark, #002051))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn-secondary:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-secondary-dark, #002051)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-secondary-dark, #002051))) 40%, transparent);
   }
 }
 
@@ -642,15 +642,15 @@ summary,
   background-color: var(--color-primary, #246beb);
 }
 .btn-outline:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .btn-outline:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 
@@ -864,15 +864,15 @@ textarea.form-control {
   transition: all 0.3s ease-in-out;
 }
 .modal-content:focus-visible {
-  outline: var(--focus-ring-width, 3px) solid var(--focus-ring, var(--color-primary-dark, #1a4fb8));
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   outline-offset: var(--focus-ring-offset, 3px);
   border-radius: var(--focus-ring-radius, 4px);
-  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 36%, transparent);
 }
 @media (prefers-contrast: more) {
   .modal-content:focus-visible {
     outline-width: calc(var(--focus-ring-width, 3px) + 1px);
-    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))) 40%, transparent);
   }
 }
 .modal-content :is(a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])):focus-visible {
@@ -935,6 +935,8 @@ a,
     scroll-behavior: auto;
   }
   .btn,
+  .btn::before,
+  .btn::after,
   .form-control,
   .form-check-input {
     animation: none !important;
