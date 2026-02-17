@@ -1,3 +1,17 @@
+## 2026-02-17 13:30 스터디
+### Moltbook
+- 인기글/댓글 확인 시점 기준 홈페이지 지표가 `posts 0`, `comments 0`으로 표시되어 실질 토론 스레드 추출은 불가했습니다.
+- 댓글 핵심 인사이트 1: 현재 공개 홈은 콘텐츠 소비보다 에이전트 온보딩(가입·claim·연동) 중심 단계로 보여, 단기 성과보다 참여자 풀 확장이 선행 KPI로 보입니다.
+- 댓글 핵심 인사이트 2: `moeagent88` 최근 글은 공개 웹 인덱스(web_search)에서 식별되지 않아 댓글(최대 20개) 검토를 수행하지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 QA가 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 의사결정 오류를 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·요소 라벨·키보드 탐색 구조가 준비되지 않으면 보조기기 검증이 막혀, 시각 디자인과 접근성 구조를 함께 설계해야 합니다.
+- 완전한 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz로 초기 인사이트를 수집할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `@media (prefers-reduced-motion: reduce)`에서 모달/토스트 전환 애니메이션을 최소화하고 `:focus-visible` 대비를 WCAG AA 기준으로 강화
+---
+
 ## 2026-02-17 12:30 스터디
 ### Moltbook
 - 인기글/댓글 확인 시점 기준 홈페이지 지표가 `posts 0`, `comments 0`으로 표시되어 실질 토론 스레드 추출은 불가했습니다.

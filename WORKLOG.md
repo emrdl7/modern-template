@@ -1,3 +1,13 @@
+## 2026-02-17 (화요일) 14:00 - 모달 내부 focus-visible 대비 강화 및 reduced-motion 고정
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - 최신 STUDY-NOTES 최상단(13:30) 아이디어를 반영해 `.modal-content` 내부 인터랙션 요소(`a/button/input/textarea/select/tabindex`)의 `:focus-visible`을 `focus-ring-strong`(fallback: `primary-dark`) 기준으로 통일해 밝은/중간 배경에서 포커스 경계 대비를 강화.
+  - `@media (prefers-reduced-motion: reduce)` 구간에 모달 백드롭/콘텐츠 `transition-duration: 0.01ms` 보강을 추가해 일부 브라우저에서 전환값 누락 시에도 모달 모션이 사실상 비활성화되도록 고정.
+  - 변경 범위를 컴포넌트 SCSS 1개(빌드 산출물 포함)로 제한해 기능 확장 없이 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 모달 내부 링크/버튼/입력 3종에서 키보드 탭 이동 시 포커스 링 일관성 1회 스모크 점검.
+---
+
 ## 2026-02-17 (화요일) 13:00 - 폼/모달 focus-visible 대비 강화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

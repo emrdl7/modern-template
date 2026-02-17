@@ -295,6 +295,11 @@ textarea.form-control {
   &:focus-visible {
     @include focus-outline(var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   }
+
+  // 모달 내부 인터랙션 요소의 focus-visible 대비를 한 단계 더 진하게 통일
+  :is(a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])):focus-visible {
+    @include focus-outline(var(--focus-ring-strong, var(--color-primary-dark, #{color(primary-dark)})));
+  }
 }
 
 .modal-header,
@@ -336,5 +341,11 @@ textarea.form-control {
     animation: none !important;
     transition: none !important;
     transform: none !important;
+  }
+
+  // 일부 브라우저에서 transition none이 누락되는 경우 대비(모달 계열 우선)
+  .modal-backdrop,
+  .modal-content {
+    transition-duration: 0.01ms !important;
   }
 }

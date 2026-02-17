@@ -858,6 +858,18 @@ textarea.form-control {
     box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
   }
 }
+.modal-content :is(a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-strong, var(--color-primary-dark, #1a4fb8));
+  outline-offset: var(--focus-ring-offset, 3px);
+  border-radius: var(--focus-ring-radius, 4px);
+  box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 6px color-mix(in srgb, var(--focus-ring-strong, var(--color-primary-dark, #1a4fb8)) 36%, transparent);
+}
+@media (prefers-contrast: more) {
+  .modal-content :is(a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline-width: calc(var(--focus-ring-width, 3px) + 1px);
+    box-shadow: 0 0 0 2px var(--color-bg, #ffffff), 0 0 0 8px color-mix(in srgb, var(--focus-ring-strong, var(--color-primary-dark, #1a4fb8)) 40%, transparent);
+  }
+}
 
 .modal-header,
 .modal-body,
@@ -900,6 +912,10 @@ textarea.form-control {
     animation: none !important;
     transition: none !important;
     transform: none !important;
+  }
+  .modal-backdrop,
+  .modal-content {
+    transition-duration: 0.01ms !important;
   }
 }
 .card-grid {
