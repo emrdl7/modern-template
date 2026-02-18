@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 15:00 - 버튼 변형 focus-visible 예외 제거로 공통 토큰 강제
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 강제, 컴포넌트별 예외 제거)를 반영해 `.btn-primary/.btn-secondary/.btn-outline`의 개별 `:focus-visible` 스타일을 제거.
+  - 버튼 포커스는 `.btn` 기본 규칙과 공통 `:where(...):focus-visible` 규칙만 사용하도록 단순화해 테마 변경 시 `--interactive-focus-ring` 한 지점 커스터마이징으로 일관 적용되게 정리.
+  - 변경 범위를 SCSS 1개(+빌드 산출물)로 제한해 가볍게 반영.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 버튼 외 카드/모달 내부에 남은 컴포넌트 스코프 포커스 규칙을 공통 토큰만으로 치환 가능한지 영향도 1회 점검.
+---
+
 ## 2026-02-18 (수요일) 14:00 - 공통 interactive focus 링 토큰으로 예외 축소
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

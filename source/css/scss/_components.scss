@@ -52,10 +52,6 @@
     background-color: var(--color-primary-dark, #{color(primary-dark)});
     border-color: var(--color-primary-dark, #{color(primary-dark)});
   }
-
-  &:focus-visible {
-    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
-  }
 }
 
 .btn-secondary {
@@ -67,10 +63,6 @@
     background-color: #{color(secondary-dark)};
     border-color: #{color(secondary-dark)};
   }
-
-  &:focus-visible {
-    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
-  }
 }
 
 .btn-outline {
@@ -81,10 +73,6 @@
   &:hover:not(:disabled) {
     color: var(--color-white, #{color(white)});
     background-color: var(--color-primary, #{color(primary)});
-  }
-
-  &:focus-visible {
-    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 }
 
