@@ -132,6 +132,7 @@
   // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
   --motion-reduced-duration: 80ms;
   --motion-reduced-easing: linear;
+  --motion-reduced-transition: none;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
@@ -402,10 +403,10 @@ textarea.form-control {
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
   :root {
-    // 모션 감소 환경: 이동 애니메이션은 제거하되, 상태 전환은 매우 짧게 유지(커스터마이징 가능)
-    --motion-transition-base: opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
-    --motion-transition-fast: opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
-    --motion-transition-interactive: opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+    // 모션 감소 환경 기본값: 전환 비활성화(필요 시 토큰 오버라이드 가능)
+    --motion-transition-base: var(--motion-reduced-transition, none);
+    --motion-transition-fast: var(--motion-reduced-transition, none);
+    --motion-transition-interactive: var(--motion-reduced-transition, none);
   }
 
   html:focus-within {
@@ -428,10 +429,7 @@ textarea.form-control {
   [role="button"],
   [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
-    transition-property: var(--motion-reduced-properties-interactive, opacity, background-color, border-color, color) !important;
-    transition-duration: var(--motion-reduced-duration, 80ms) !important;
-    transition-timing-function: var(--motion-reduced-easing, linear) !important;
-    transition-delay: 0ms !important;
+    transition: var(--motion-reduced-transition, none) !important;
     transform: none !important;
   }
 
@@ -441,10 +439,7 @@ textarea.form-control {
   .modal-content,
   .modal-content * {
     animation: none !important;
-    transition-property: var(--motion-reduced-properties-modal, opacity) !important;
-    transition-duration: var(--motion-reduced-duration, 80ms) !important;
-    transition-timing-function: var(--motion-reduced-easing, linear) !important;
-    transition-delay: 0ms !important;
+    transition: var(--motion-reduced-transition, none) !important;
     transform: none !important;
   }
 
@@ -453,10 +448,7 @@ textarea.form-control {
   [data-toast],
   .alert {
     animation: none !important;
-    transition-property: var(--motion-reduced-properties-feedback, opacity, background-color, border-color, color) !important;
-    transition-duration: var(--motion-reduced-duration, 80ms) !important;
-    transition-timing-function: var(--motion-reduced-easing, linear) !important;
-    transition-delay: 0ms !important;
+    transition: var(--motion-reduced-transition, none) !important;
     transform: none !important;
   }
 }

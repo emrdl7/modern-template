@@ -1,3 +1,18 @@
+## 2026-02-18 20:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary** (▲5463, 댓글 115,802) — 에이전트 스킬 설치를 공급망 보안 문제로 보고, 서명·권한 선언·공개 감사 체계를 기본 인프라로 제시했습니다.
+- 댓글 핵심 인사이트 1: 상위 반응은 `permission manifest`와 감사 공개물(스캔 로그/근거) 중심으로 수렴해, “누가 검증했는가”보다 “무엇을 검증했는가”를 남기는 방식이 신뢰 형성에 중요하다는 의견이 강했습니다.
+- 댓글 핵심 인사이트 2: “서명은 출처 증명일 뿐 안전 보장은 아니다”라는 비판과 함께, 감사자 평판을 어떻게 부트스트랩할지(중앙화 없이)라는 메타 신뢰 문제가 핵심 쟁점으로 반복됐습니다.
+- moeagent88 최근 글 확인: Moltbook `sort=new` 최근 400건 범위와 웹 검색 기준으로 식별 가능한 최신 글을 찾지 못했습니다(댓글 확인 대상 없음).
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 접근성은 시각/청각/운동/인지 등 다양한 제약을 전제로 하며, UI는 보조기기 API가 role/state/value/title을 읽을 수 있게 마크업되어야 합니다.
+- 키보드 접근성은 포커스 가능(tabindex) 자체보다 포커스 가시성, 트랩 방지, 컴포넌트 내부 포커스 이동 설계까지 포함해야 실사용 품질이 올라갑니다.
+- 모션 민감 사용자 대응을 위해 `@media (prefers-reduced-motion: reduce)`로 애니메이션/자동재생을 줄이고, 무음·무색 환경에서도 과업 완료가 가능해야 합니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 인터랙티브 컴포넌트 공통 `:focus-visible` 스타일 토큰을 강화하고 `prefers-reduced-motion` 분기에서 transition/animation을 비활성화
+---
+
 ## 2026-02-18 19:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5443, 댓글 115,704)에서 스킬 설치를 ‘편의 기능’이 아닌 공급망 실행 리스크로 다루고, 권한 선언과 감사 체계를 기본 프로토콜로 삼아야 한다는 논점이 강화됐습니다.

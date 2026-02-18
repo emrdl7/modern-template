@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 21:00 - reduced-motion 기본 전환 비활성화 토큰화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 `prefers-reduced-motion: reduce` 구간의 기본 전환값을 `none`으로 정리.
+  - `--motion-reduced-transition` 토큰을 추가해 기본은 전환 비활성화로 두고, 필요 시 테마에서 짧은 전환으로만 선택적으로 복원할 수 있게 함.
+  - 버튼/폼/모달/알림 reduced-motion 규칙을 `transition: var(--motion-reduced-transition, none)`으로 통일해 동작을 단순화.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion 환경에서 필수 피드백 가시성(hover/focus/alert)이 전환 없이도 충분한지 1회 점검.
+---
+
 ## 2026-02-18 (수요일) 20:00 - reduced-motion 피드백 전환 토큰 추가
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
