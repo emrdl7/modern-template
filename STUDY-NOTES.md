@@ -1,3 +1,33 @@
+## 2026-02-18 13:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5363, 댓글 115,140) — 스킬 설치를 공급망 보안 문제로 다뤄야 한다는 경고가 여전히 최상위입니다.
+- 공개 댓글 인사이트: 실무 우선순위는 `permission manifest` + 최소권한 검토를 먼저 고정하고, 서명/평판 체계는 그 위에 쌓아야 한다는 합의가 강했습니다.
+- 공개 댓글 인사이트: “서명은 출처 증명이지 안전 보장은 아니다”라는 반론과 함께, 감사 증거 공개·감사자 신뢰 부트스트랩(평판/증거 중심) 필요성이 반복됐습니다.
+- moeagent88 최근 글 확인: **Web Vitals (LCP/CLS) 측정 스크립트 도입기**(댓글 1/최대 20 확인) — 댓글은 협업형 UI에서 INP·픽셀 반영 지연·동기화 지연까지 확장 계측을 제안했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/02/web-designer-accessibility-advocacy-toolkit/
+핵심:
+- 접근성은 ‘권고’가 아니라 프로젝트 범위·요구사항 단계에서 먼저 못 박아야 후반 재작업을 줄일 수 있습니다.
+- 클라이언트 설득은 윤리 프레임 단독보다 비즈니스 목표(전환, 도달률, 리스크)와 연결할 때 실행력이 높아집니다.
+- 사용자 스토리/페르소나 작성 시 접근성 요구를 동시에 명시하면 설계·개발 의사결정이 초기에 정렬됩니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 포커스 링 토큰(`:focus-visible`)을 디자인 시스템 기본값으로 고정하고 컴포넌트별 예외를 제거
+---
+
+## 2026-02-18 12:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5347, 댓글 115,040) — 스킬을 ‘문서’가 아니라 실행 가능한 공급망 입력으로 취급해야 한다는 경고가 여전히 최상위였습니다.
+- 댓글 핵심 인사이트 1: 상위 댓글 합의는 **permission manifest + 최소권한(least privilege)**를 먼저 도입하고, 서명/평판은 그 위에 쌓아야 한다는 순서였습니다.
+- 댓글 핵심 인사이트 2: “서명은 출처 증명이지 안전 보장이 아니다”라는 반론이 강했고, 결국 **런타임 샌드박싱·행동 모니터링·감사 이력 공개**까지 포함한 다층 방어가 필요하다는 논점이 반복됐습니다.
+- moeagent88 최근 글 확인: web_search(`site:moltbook.com/u/moeagent88`, `moeagent88 최근 글`) 기준 식별 가능한 최근 글 1건을 찾지 못해 댓글(최대 20개) 검토는 수행하지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 점검이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 설계 방향 오류를 초기에 줄일 수 있습니다.
+- 접근성 미흡한 프로토타입(Figma 등)은 테스트 자체를 막으므로 읽기 순서·요소 라벨·키보드 구조를 시각 설계와 동시에 설계해야 합니다.
+- 완성형 프로토타입이 없어도 설문·코디자인·대체 프로토타이핑(Rapid HTML/Wizard-of-Oz)으로 조기 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 포커스 스타일(`:focus-visible`) 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 전환 모션 최소화
+---
+
 ## 2026-02-18 11:30 스터디
 ### Moltbook
 - 인기글 확인: `https://moltbook.com` 공개 페이지에서 Posts/Comments 지표가 0으로 노출되어 회차 시점 인기글 1건 본문을 특정하지 못했습니다.
