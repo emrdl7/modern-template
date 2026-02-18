@@ -32,6 +32,7 @@
 
 ```markdown
 ### Prototype A11y Check (Default)
+
 - [ ] 탭 순서 확인 (Tab / Shift+Tab)
 - [ ] 포커스 가시성 확인 (`:focus-visible`, 대비 유지)
 - [ ] 버튼/입력 라벨 확인 (`label`/`aria-label`)
@@ -62,6 +63,7 @@ Figma/프로토타입 핸드오프 전에는 아래 3가지를 추가로 확인�
 
 ```markdown
 ### A11y Acceptance Criteria
+
 - [ ] 키보드만으로 핵심 플로우(이동/열기/닫기/제출) 수행 가능
 - [ ] 포커스 표시가 모든 인터랙티브 요소에서 명확하게 보임
 - [ ] 텍스트/아이콘 대비가 WCAG AA 기준 충족 (일반 텍스트 4.5:1, 비텍스트 UI 3:1)
@@ -168,6 +170,7 @@ A11Y_PAGES="index.html,main.html" npm run a11y:e2e
 ```
 
 결과물:
+
 - `reports/a11y-axe-report.json`
 - `reports/a11y-axe-summary.txt`
 
@@ -366,6 +369,26 @@ HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩�
 - Safari (최신)
 - Edge (최신)
 - 모바일 브라우저
+
+## 변경 이력
+
+### 2026-02-18: 다크모드 토글 버그 수정 (`index.html`)
+
+**문제**: 다크모드 토글 버튼(`#darkModeToggle`)이 클릭해도 동작하지 않았고, 일부 영역이 다크모드에서 반전되지 않았음.
+
+**원인 및 수정**:
+
+1. **JS 이벤트 핸들러 누락** — 버튼 HTML/CSS는 있었지만 클릭 이벤트를 처리하는 JavaScript가 없었음
+   - `</body>` 앞에 인라인 `<script>` 추가
+   - `body`의 `data-theme="dark"` 속성 토글
+   - `aria-pressed` 상태 및 버튼 텍스트(🌙/☀️) 변경
+   - `localStorage`에 테마 저장 (새로고침 시 유지)
+
+2. **다크모드 미대응 영역 CSS 추가** — 아래 요소들의 다크모드 스타일이 누락되어 있었음
+   - `footer` 텍스트 색상
+   - `<pre>` 코드블록/디렉토리 구조 (인라인 `background` override를 위해 `!important` 사용)
+   - `<ul>` 목록 및 `<li> <strong>` 텍스트 색상
+   - `.page-link:hover` 그림자
 
 ## 라이선스
 

@@ -186,6 +186,22 @@
       color: #fff;
       border: 1px solid #616161;
     }
+    body[data-theme="dark"] footer {
+      color: #9e9e9e;
+    }
+    body[data-theme="dark"] pre {
+      background: #2c2c2c !important;
+      color: #cfd8dc;
+    }
+    body[data-theme="dark"] ul {
+      color: #b0bec5;
+    }
+    body[data-theme="dark"] .info-box ul li strong {
+      color: #e3f2fd;
+    }
+    body[data-theme="dark"] .page-link:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    }
   </style>
 </head>
 <body>
@@ -316,5 +332,35 @@ modern-template/
     <p>&copy; 2026 Modern Template. All rights reserved.</p>
     <p>Created by 야옹이 🐱</p>
   </footer>
+  <script>
+    (function() {
+      const toggle = document.getElementById('darkModeToggle');
+      const body = document.body;
+
+      // 저장된 테마 불러오기
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
+        toggle.setAttribute('aria-pressed', 'true');
+        toggle.textContent = '☀️ 라이트모드';
+      }
+
+      toggle.addEventListener('click', function() {
+        const isDark = body.getAttribute('data-theme') === 'dark';
+
+        if (isDark) {
+          body.removeAttribute('data-theme');
+          toggle.setAttribute('aria-pressed', 'false');
+          toggle.textContent = '🌙 다크모드';
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.setAttribute('data-theme', 'dark');
+          toggle.setAttribute('aria-pressed', 'true');
+          toggle.textContent = '☀️ 라이트모드';
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
