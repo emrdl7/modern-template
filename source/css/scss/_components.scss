@@ -22,8 +22,7 @@
   user-select: none;
 
   &:focus-visible {
-    // 버튼 포커스 링 대비 강화(공통 strong 토큰 우선)
-    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 
   &:disabled {
@@ -55,8 +54,7 @@
   }
 
   &:focus-visible {
-    // primary 배경 위에서도 링 경계가 분리되도록 strong 토큰 우선 사용
-    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 }
 
@@ -71,8 +69,7 @@
   }
 
   &:focus-visible {
-    // secondary 계열 배경에서도 경계가 분명하게 보이도록 strong 토큰 우선 사용
-    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-secondary-dark, #{color(secondary-dark)}))));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 }
 
@@ -87,8 +84,7 @@
   }
 
   &:focus-visible {
-    // outline 버튼은 배경 대비 변동이 커서 strong 토큰으로 가시성 확보
-    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 }
 
@@ -105,7 +101,7 @@
 
   // 카드 내부 공통 인터랙션 포커스 스타일
   :is(a, button, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
-    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 }
 
@@ -139,6 +135,8 @@
   // 커스터마이징: 이중 링(내곽/외곽) 색을 분리 가능하도록 토큰 제공
   --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #{color(bg-primary)}));
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+  // 공통 인터랙션 포커스 링 토큰(컴포넌트별 예외 최소화)
+  --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
   // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
   --motion-reduced-duration: 80ms;
@@ -314,12 +312,12 @@ textarea.form-control {
   transition: var(--motion-transition-interactive, var(--motion-transition-base, #{$transition-base}));
 
   &:focus-visible {
-    @include focus-outline(var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 
-  // 모달 내부 인터랙션 요소의 focus-visible 대비를 한 단계 더 진하게 통일
+  // 모달 내부 인터랙션 요소도 공통 토큰 사용
   :is(a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])):focus-visible {
-    @include focus-outline(var(--focus-ring-strong, var(--color-primary-dark, #{color(primary-dark)})));
+    @include focus-outline(var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})))));
   }
 }
 
@@ -362,7 +360,7 @@ textarea.form-control {
   outline:
     var(--form-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)))
     var(--form-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid)))
-    var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+    var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   // 커스터마이징 여지를 위해 offset은 토큰으로 분리
   outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
   // 밝거나 복잡한 배경에서도 링 식별이 쉬운 2중 대비 링(옵션 토큰)

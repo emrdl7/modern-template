@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 14:00 - 공통 interactive focus 링 토큰으로 예외 축소
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 기본값 고정)를 반영해 `--interactive-focus-ring` 토큰을 추가하고 버튼/카드/모달 내부 포커스 링이 같은 토큰을 우선 사용하도록 정리.
+  - `.btn-primary/.btn-secondary/.btn-outline`의 개별 색상 예외를 공통 토큰 경로로 통일해 디자인 시스템 기본값은 일관되게 유지하고 테마에서 한 지점만 바꿔도 전체 컴포넌트에 반영되게 조정.
+  - 변경 범위를 CSS 1개 소스(+빌드 산출물)로 제한해 경량 개선으로 마무리.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 다크 배경 테마에서 `--interactive-focus-ring`만 교체해도 버튼/카드/모달 포커스 대비가 동일하게 유지되는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 13:00 - 고대비 모드 focus-visible 시스템 링 보강
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
