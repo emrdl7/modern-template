@@ -136,6 +136,9 @@
   --form-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   --focus-ring-surface-color: var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)}));
   --focus-ring-gap-size: var(--focus-ring-gap, 2px);
+  // 커스터마이징: 이중 링(내곽/외곽) 색을 분리 가능하도록 토큰 제공
+  --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #{color(bg-primary)}));
+  --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
 }
 
@@ -363,9 +366,9 @@ textarea.form-control {
   // 밝거나 복잡한 배경에서도 링 식별이 쉬운 2중 대비 링(옵션 토큰)
   box-shadow:
     0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
-      var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)}))),
+      var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)})))),
     0 0 0 calc(var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) + var(--focus-ring-width-strong, max(2px, 0.15em)))
-      var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+      var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
 }
 
 :where(

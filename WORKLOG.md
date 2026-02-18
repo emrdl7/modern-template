@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 11:00 - focus-visible 이중 링 색상 토큰 분리
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 강화 + reduced-motion 전환 최소화) 흐름에 맞춰, 포커스 2중 링 색상을 `--focus-ring-inner-color`, `--focus-ring-outer-color` 토큰으로 분리.
+  - 기존 `--focus-ring-surface-color`/`--focus-ring-strong` fallback 체인은 유지해 기본 테마 동작은 그대로 두고, 프로젝트별 대비 튜닝만 가볍게 가능하도록 정리.
+  - 변경 범위를 SCSS 1개(빌드 산출물 포함)로 제한해 과도한 기능 추가 없이 커스터마이징 여지를 확장.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 라이트/다크 배경에서 `--focus-ring-inner-color`만 교체했을 때 키보드 포커스 대비가 안정적으로 유지되는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 10:00 - focus-visible 토큰 확장 및 reduced-motion 인터랙션 범위 보강
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
