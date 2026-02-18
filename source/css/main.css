@@ -669,6 +669,9 @@ summary,
   --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #ffffff));
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
+  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
+  --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
+  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
   --motion-transition-interactive: var(--motion-transition-base, all 0.3s ease-in-out);
   --motion-reduced-duration: 80ms;
 }
@@ -904,8 +907,8 @@ textarea.form-control {
 a,
 [role=button],
 [tabindex]:not([tabindex="-1"])):focus-visible {
-  outline: var(--form-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))) var(--form-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
-  outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  outline: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))) var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
+  outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
   box-shadow: 0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #ffffff)))), 0 0 0 calc(var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) + var(--focus-ring-width-strong, max(2px, 0.15em))) var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
 }
 
@@ -947,10 +950,15 @@ a,
   .btn::after,
   .form-control,
   .form-check-input,
+  input,
+  select,
+  textarea,
   .card a,
   .card button,
   a,
-  button {
+  button,
+  [role=button],
+  [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
     transition-property: opacity, background-color, border-color, color !important;
     transition-duration: var(--motion-reduced-duration, 80ms) !important;

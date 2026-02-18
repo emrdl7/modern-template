@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 18:00 - 인터랙션 focus-visible 토큰 세분화와 reduced-motion 대상 확대
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 인터랙션 포커스 링 토큰을 `--interactive-focus-ring-width/style/offset`으로 분리해 컴포넌트별 세밀 커스터마이징 여지를 확보.
+  - 공통 `:focus-visible` 규칙이 새 인터랙션 토큰을 우선 참조하도록 정리해 버튼/링크/폼의 포커스 스타일을 한 경로로 유지.
+  - `prefers-reduced-motion: reduce` 구간에 `input/select/textarea/[role="button"]/[tabindex]`를 추가해 주요 인터랙션의 전환/애니메이션 최소화 범위를 가볍게 확장.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 라이트/다크 테마에서 인터랙션 포커스 폭/오프셋 토큰만 바꿔도 전체 컴포넌트 포커스 가시성이 일관되는지 1회 점검.
+---
+
 ## 2026-02-18 (수요일) 17:00 - INP 후보 필터링과 액션→페인트 입력원 확장
 - **수정 파일:** source/js/components/perf-metrics.js
 - **변경 내용:**

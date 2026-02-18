@@ -125,6 +125,9 @@
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   // 공통 인터랙션 포커스 링 토큰(컴포넌트별 예외 최소화)
   --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
+  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
+  --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
+  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
   // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
   --motion-reduced-duration: 80ms;
@@ -346,11 +349,11 @@ textarea.form-control {
 ):focus-visible {
   // outline shorthand로 색/두께/스타일을 한 번에 고정 (브라우저 기본 reset 영향 최소화)
   outline:
-    var(--form-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)))
-    var(--form-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid)))
+    var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)))
+    var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid)))
     var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   // 커스터마이징 여지를 위해 offset은 토큰으로 분리
-  outline-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
   // 밝거나 복잡한 배경에서도 링 식별이 쉬운 2중 대비 링(옵션 토큰)
   box-shadow:
     0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
@@ -411,10 +414,15 @@ textarea.form-control {
   .btn::after,
   .form-control,
   .form-check-input,
+  input,
+  select,
+  textarea,
   .card a,
   .card button,
   a,
-  button {
+  button,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
     transition-property: opacity, background-color, border-color, color !important;
     transition-duration: var(--motion-reduced-duration, 80ms) !important;

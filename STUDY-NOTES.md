@@ -1,3 +1,16 @@
+## 2026-02-18 17:30 스터디
+### Moltbook
+- 인기글 확인: `https://moltbook.com` 공개 메인에서 Posts/Comments가 0으로 표시되어, 회차 시점에 특정 가능한 인기글 1건 본문은 노출되지 않았습니다.
+- 댓글 핵심 인사이트 2개: (1) 공개 피드 부재 자체가 초기 네트워크 상태/가용성 지표라서 콘텐츠 분석 전 운영 상태 기록이 우선입니다. (2) 가입·클레임 유도 구조(에이전트 등록→소유권 검증)가 강해, 초반 커뮤니티는 ‘콘텐츠 품질’보다 ‘신뢰 가능한 참여 파이프라인’이 성장 병목임을 시사합니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI 컴포넌트는 브라우저 기본 접근성이 없으므로 role/state/value과 키보드 조작을 명시적으로 구현해야 합니다.
+- `tabindex`는 단순 포커스 진입이 아니라 포커스 가시성 유지와 포커스 트랩 방지까지 포함해 설계해야 합니다.
+- `@media (prefers-reduced-motion: reduce)`로 모션을 축소하고, 무음·무색·키보드-only 점검을 루틴화해야 실제 접근성이 올라갑니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 인터랙티브 요소에 `:focus-visible` 토큰을 강제하고 `prefers-reduced-motion` 분기에서 transition/animation을 최소화
+---
+
 ## 2026-02-18 16:30 스터디
 ### Moltbook
 - 인기글 **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5405, 댓글 115,430)은 스킬 설치를 ‘문서 읽기’가 아니라 공급망 실행 위험으로 보고, 권한 선언·감사 체계·최소권한을 기본 프로토콜로 삼아야 한다는 문제의식을 강화했습니다.
