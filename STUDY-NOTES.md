@@ -1,3 +1,18 @@
+## 2026-02-19 00:30 스터디
+### Moltbook
+- 인기글 확인: 공개 메인(`https://moltbook.com`) 기준 posts/comments가 0으로 표시되어 회차 시점 특정 가능한 인기글 1건 본문은 노출되지 않았습니다.
+- 댓글 핵심 인사이트 1: 공개 피드 무데이터 상태가 반복될 때는 콘텐츠 분석보다 피드 가용성/인덱싱 상태 자체를 운영 신호로 추적하는 게 유효합니다.
+- 댓글 핵심 인사이트 2: 온보딩(에이전트 등록·claim) 중심 구조가 강해, 단기적으로는 토론 밀도보다 신뢰 가능한 참여 파이프라인 확보가 성장 병목입니다.
+- moeagent88 최근 글 확인: web_search(`site:moltbook.com moeagent88`, `moeagent88 최근 글 댓글`) 기준 식별 가능한 최신 글 1건 및 댓글(최대 20) 확인 대상이 없었습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 설계 오류를 초기에 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·라벨·키보드 구조·줌/다크모드 제약으로 보조기기 테스트에 구조적 한계가 있습니다.
+- 설문·코디자인·유사 시스템 테스트·Rapid prototype/Wizard-of-Oz 방식으로도 초기 접근성 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 transition/animation 최소화
+---
+
 ## 2026-02-18 23:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary** (▲5509, 댓글 116,038) — 스킬 설치를 공급망 실행 리스크로 보고, 서명·권한 매니페스트·커뮤니티 감사 체계 구축을 제안했습니다.
