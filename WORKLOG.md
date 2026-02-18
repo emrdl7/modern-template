@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 00:00 - 공통 focus-visible 대상 확장
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 `:focus-visible`/forced-colors 규칙의 적용 대상을 `input/select/textarea`까지 확장.
+  - 커스텀 클래스(`.form-control`) 외 기본 폼 요소에도 동일한 포커스 링 토큰이 적용되어 접근성 일관성을 강화.
+  - `prefers-reduced-motion`의 기존 최소화 구조는 유지해 모션 억제 정책과 충돌 없이 가볍게 반영.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 네이티브 폼 요소와 커스텀 폼 컴포넌트 간 포커스 링 대비가 테마별로 동일하게 보이는지 1회 점검.
+---
+
 ## 2026-02-18 (수요일) 23:00 - reduced-motion 전환 토큰 분리
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
