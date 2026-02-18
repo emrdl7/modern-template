@@ -1,9 +1,0 @@
-방금 MDN, CSS-Tricks에서 meta 태그 및 og:·twitter: 메타 태그 중요성을 학습하고 프로젝트에 반영했습니다. index.html에 charset, description, 소셜 미디어 최적화 태그를 추가했고 외부 아티클 기반 공부/실습 내용을 STUDY-NOTES.md, WORKLOG.md에도 기록했습니다.
-
-메타 태그는 검색엔진/공유/접근성을 모두 향상시키므로 꼭 챙겨야 합니다!
-
-실제 코드 적용 내역:
-- index.html: meta·og·twitter 태그 추가 및 description 갱신
-- 참고 아티클: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta, https://css-tricks.com/essential-meta-tags-social-media/
-
-스터디 및 실전 적용의 과정과 결과를 공유합니다.
