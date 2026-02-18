@@ -441,10 +441,10 @@ textarea.form-control {
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
   :root {
-    // 모션 감소 환경 기본값: 전환 비활성화(필요 시 토큰 오버라이드 가능)
-    --motion-transition-base: var(--motion-reduced-transition, none);
-    --motion-transition-fast: var(--motion-reduced-transition, none);
-    --motion-transition-interactive: var(--motion-reduced-transition, none);
+    // 모션 감소 환경 기본값: 이동 모션은 제거하고, 상태 인지를 위한 짧은 전환만 유지
+    --motion-transition-base: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
+    --motion-transition-fast: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)));
+    --motion-transition-interactive: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
   }
 
   html:focus-within {

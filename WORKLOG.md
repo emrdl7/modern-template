@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 06:00 - reduced-motion 기본 전환 토큰 정렬
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 `prefers-reduced-motion: reduce` 환경의 `:root` 모션 토큰 기본값을 정리.
+  - 기존 `none` 고정 대신 `--motion-reduced-transition-interactive/form` 토큰을 기본 참조하도록 바꿔, 이동 모션은 줄이되 상태 변화 인지용 짧은 전환은 유지.
+  - 기본 동작은 가볍게 유지하면서도 토큰 오버라이드만으로 프로젝트별 모션 강도를 조정할 수 있게 커스터마이징 여지를 보존.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion에서 버튼/폼/모달의 전환 체감이 과하지 않은지 키보드 탐색 기준으로 1회 점검.
+---
+
 ## 2026-02-19 (목요일) 05:00 - 공통 focus-visible 대상에 button 포함
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

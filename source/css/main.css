@@ -976,9 +976,9 @@ summary,
 }
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --motion-transition-base: var(--motion-reduced-transition, none);
-    --motion-transition-fast: var(--motion-reduced-transition, none);
-    --motion-transition-interactive: var(--motion-reduced-transition, none);
+    --motion-transition-base: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
+    --motion-transition-fast: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)));
+    --motion-transition-interactive: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
   }
   html:focus-within {
     scroll-behavior: auto;
