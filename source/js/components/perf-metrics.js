@@ -96,10 +96,13 @@ const initInpObserver = () => {
   try {
     const observer = new PerformanceObserver((list) => {
       list.getEntries().forEach((entry) => {
+        // interactionId가 0이면 사용자 상호작용 INP 후보가 아님
+        if (!entry.interactionId) return;
+
         const candidate = entry.duration || 0;
         if (candidate > maxInp) {
           maxInp = candidate;
-          maxInteractionId = entry.interactionId || 0;
+          maxInteractionId = entry.interactionId;
         }
       });
     });
@@ -164,7 +167,7 @@ const initActionToPaintDelay = () => {
     });
   };
 
-  ['click', 'keydown'].forEach((type) => {
+  ['click', 'pointerup', 'keydown'].forEach((type) => {
     document.addEventListener(type, handler, { passive: true, capture: true });
   });
 };
@@ -172,6 +175,11 @@ const initActionToPaintDelay = () => {
 export const initPerfMetrics = () => {
   // 로컬/개발 환경에서만 계측하고 싶을 때를 위한 쉬운 옵트아웃
   if (document.documentElement.dataset.perfMetrics === 'off') return;
+
+  emitMetric('PERF_CAPABILITY', 1, {
+    supportsEventTiming: 'PerformanceObserver' in window,
+    supportsPointerEvent: 'PointerEvent' in window,
+  });
 
   initLcpObserver();
   initClsObserver();

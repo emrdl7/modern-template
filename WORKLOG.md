@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 17:00 - INP 후보 필터링과 액션→페인트 입력원 확장
+- **수정 파일:** source/js/components/perf-metrics.js
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(INP + 사용자 액션→다음 페인트 지연 수집 확장)를 반영해 `interactionId`가 없는 이벤트는 INP 후보에서 제외하도록 정리.
+  - `ACTION_TO_PAINT` 계측 트리거에 `pointerup`을 추가해 클릭 외 포인터 기반 상호작용 지연도 가볍게 포착.
+  - 초기화 시 브라우저 계측 가능 여부(`supportsEventTiming`, `supportsPointerEvent`)를 `PERF_CAPABILITY`로 함께 기록해 분석 시 환경 분리를 쉽게 함.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 주요 인터랙션(클릭/터치/키보드)에서 `ACTION_TO_PAINT`와 `INP`가 중복 없이 안정적으로 찍히는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 16:00 - 프로토타입 접근성 체크 섹션 추가
 - **수정 파일:** index.html
 - **변경 내용:**
