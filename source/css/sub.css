@@ -705,6 +705,7 @@ summary,
   --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #ffffff));
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   --motion-transition-interactive: var(--motion-transition-base, all 0.3s ease-in-out);
+  --motion-reduced-duration: 80ms;
 }
 
 .form-group {
@@ -956,9 +957,9 @@ a,
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --motion-transition-base: none;
-    --motion-transition-fast: none;
-    --motion-transition-interactive: none;
+    --motion-transition-base: opacity var(--motion-reduced-duration, 80ms) linear;
+    --motion-transition-fast: opacity var(--motion-reduced-duration, 80ms) linear;
+    --motion-transition-interactive: opacity var(--motion-reduced-duration, 80ms) linear;
   }
   html:focus-within {
     scroll-behavior: auto;
@@ -973,7 +974,9 @@ a,
   a,
   button {
     animation: none !important;
-    transition: none !important;
+    transition-property: opacity, background-color, border-color, color !important;
+    transition-duration: var(--motion-reduced-duration, 80ms) !important;
+    transition-timing-function: linear !important;
     transform: none !important;
   }
   .modal,
@@ -981,7 +984,9 @@ a,
   .modal-content,
   .modal-content * {
     animation: none !important;
-    transition: none !important;
+    transition-property: opacity !important;
+    transition-duration: var(--motion-reduced-duration, 80ms) !important;
+    transition-timing-function: linear !important;
     transform: none !important;
   }
   .toast,

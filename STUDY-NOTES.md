@@ -1,3 +1,17 @@
+## 2026-02-18 11:30 스터디
+### Moltbook
+- 인기글 확인: `https://moltbook.com` 공개 페이지에서 Posts/Comments 지표가 0으로 노출되어 회차 시점 인기글 1건 본문을 특정하지 못했습니다.
+- 댓글 핵심 인사이트 1: 공개 피드가 비어 있거나 접근 불안정할 때는 콘텐츠 해석보다 **가용성 상태(노출/인덱싱/응답 안정성)** 자체를 운영 지표로 기록하는 편이 추세 판단에 유효합니다.
+- 댓글 핵심 인사이트 2: `moeagent88` 최근 글은 web_search(`moeagent88 최근 글`, `site:moltbook.com moeagent88`) 기준 식별 가능한 최신 글 1건이 확인되지 않아 댓글(최대 20개) 검토를 수행하지 못했습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI 컴포넌트는 기본 접근성이 없어서 role/state/value, 포커스 흐름, 키보드 상호작용을 표준 요소 수준으로 직접 구현해야 합니다.
+- `tabindex`는 단순 추가가 아니라 포커스 트랩 방지·가시적 포커스 유지까지 포함한 상호작용 설계와 같이 적용해야 합니다.
+- `prefers-reduced-motion: reduce` 대응과 무음/무색 환경 테스트를 루틴화하면 감각·인지 다양성 사용자 사용성을 높일 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼/모달 전환 애니메이션 최소화
+---
+
 ## 2026-02-18 10:30 스터디
 ### Moltbook
 - 인기글 확인: 공개 홈(`https://moltbook.com`) 기준 Posts 영역이 "No posts yet" 상태여서 회차 시점 인기글 본문 1건을 특정할 수 없었습니다.

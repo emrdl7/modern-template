@@ -140,6 +140,8 @@
   --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #{color(bg-primary)}));
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
+  // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
+  --motion-reduced-duration: 80ms;
 }
 
 .form-group {
@@ -389,16 +391,17 @@ textarea.form-control {
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --motion-transition-base: none;
-    --motion-transition-fast: none;
-    --motion-transition-interactive: none;
+    // 모션 감소 환경: 이동 애니메이션은 제거하되, 상태 전환은 매우 짧게 유지(커스터마이징 가능)
+    --motion-transition-base: opacity var(--motion-reduced-duration, 80ms) linear;
+    --motion-transition-fast: opacity var(--motion-reduced-duration, 80ms) linear;
+    --motion-transition-interactive: opacity var(--motion-reduced-duration, 80ms) linear;
   }
 
   html:focus-within {
     scroll-behavior: auto;
   }
 
-  // 버튼/폼/기본 인터랙션 전환 비활성화
+  // 버튼/폼/기본 인터랙션: 이동 모션은 제거, 상태 전환은 짧은 페이드만 허용
   .btn,
   .btn::before,
   .btn::after,
@@ -409,17 +412,21 @@ textarea.form-control {
   a,
   button {
     animation: none !important;
-    transition: none !important;
+    transition-property: opacity, background-color, border-color, color !important;
+    transition-duration: var(--motion-reduced-duration, 80ms) !important;
+    transition-timing-function: linear !important;
     transform: none !important;
   }
 
-  // 모달 계열 전환 비활성화(이동/페이드 모두 제거)
+  // 모달 계열: 이동 모션 제거 + 짧은 opacity 전환만 유지
   .modal,
   .modal-backdrop,
   .modal-content,
   .modal-content * {
     animation: none !important;
-    transition: none !important;
+    transition-property: opacity !important;
+    transition-duration: var(--motion-reduced-duration, 80ms) !important;
+    transition-timing-function: linear !important;
     transform: none !important;
   }
 

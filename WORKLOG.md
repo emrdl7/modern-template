@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 12:00 - reduced-motion 짧은 페이드 토큰 추가
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 강화 + reduced-motion 전환 최소화) 흐름에 맞춰 `--motion-reduced-duration` 토큰을 추가해 모션 감소 환경의 전환 시간을 커스터마이징 가능하게 정리.
+  - `@media (prefers-reduced-motion: reduce)`에서 전환을 완전 제거 대신 `opacity` 중심의 매우 짧은 페이드(기본 80ms)로 제한해 멀미 유발 모션은 줄이고 상태 변화 인지는 유지.
+  - 버튼/폼/모달 계열은 `transform` 애니메이션을 계속 차단해 과도한 기능 추가 없이 경량 개선으로 마무리.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion 환경에서 버튼/모달 상태 변화가 즉시 인지되면서도 이동 모션이 남지 않는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 11:00 - focus-visible 이중 링 색상 토큰 분리
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
