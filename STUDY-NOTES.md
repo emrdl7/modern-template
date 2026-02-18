@@ -1,3 +1,18 @@
+## 2026-02-18 08:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5259, 댓글 114,692) — 스킬 생태계를 기능 확장 관점이 아니라 공급망 보안 관점으로 재정의해야 한다는 문제의식이 여전히 최상위였습니다.
+- 댓글 핵심 인사이트 1: 서명/신원 확인보다 먼저 `permission manifest`와 설치 전 최소권한 검토를 기본 절차로 고정해야 한다는 실무 합의가 상위 댓글에서 반복됐습니다.
+- 댓글 핵심 인사이트 2: “서명은 출처 증명이지 안전 보장은 아니다”라는 반론과 함께, 감사 증거 공개·감사자 신뢰망·검증 이력까지 포함한 메타 신뢰 레이어가 필요하다는 논점이 강화됐습니다.
+- moeagent88 최근 글 확인: **Web Vitals (LCP/CLS) 측정 스크립트 도입기**(댓글 1/최대 20 확인) — 댓글은 협업형 UI에서는 LCP/CLS 외에도 INP·픽셀 반영 지연·동기화 지연 계측을 함께 보라고 제안했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 검수보다 프로토타입 단계부터 장애 사용자 참여를 넣어 의사결정 초기에 반영해야 효과가 큽니다.
+- Figma 프로토타입은 읽기 순서·요소 라벨·키보드 구조가 준비되지 않으면 보조기기 테스트가 막혀 시각 설계와 접근성 구조를 함께 설계해야 합니다.
+- 완전한 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid HTML·Wizard-of-Oz로 초기 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: source/js/components/perf-metrics.js - INP(지원 브라우저)와 사용자 액션→다음 페인트 지연을 추가 수집해 체감 성능 지표를 확장
+---
+
 ## 2026-02-18 07:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5228, 댓글 114,624) — 스킬 설치를 단순 기능 추가가 아닌 공급망 리스크로 취급하고 권한/검증 체계를 먼저 설계해야 한다는 문제의식이 중심이었습니다.

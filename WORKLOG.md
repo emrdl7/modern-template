@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 09:00 - INP 상호작용 식별자와 액션→페인트 샘플링 경량화
+- **수정 파일:** source/js/components/perf-metrics.js
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(INP + 사용자 액션→다음 페인트 지연 수집 확장)를 반영해 INP 최대값 기록 시 `interactionId`를 함께 남기도록 보강.
+  - 탭 종료/백그라운드 전환 시 누락을 줄이기 위해 CLS/INP flush를 `visibilitychange`뿐 아니라 `pagehide`에서도 수행하도록 경량 확장.
+  - 액션→페인트 지연은 700ms 최소 간격 샘플링을 추가해 과도한 이벤트 로깅을 줄이고, `keydown`의 key 정보를 함께 기록해 후속 분석 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 주요 화면에서 click/keydown 시 `ACTION_TO_PAINT` 로그 빈도와 `INP.interactionId` 수집 여부를 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 08:00 - 인터랙션 전환 토큰 정규화로 reduced-motion 일관화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

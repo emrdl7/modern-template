@@ -67,15 +67,21 @@ const initClsObserver = () => {
 
     observer.observe({ type: 'layout-shift', buffered: true });
 
+    const flushCls = () => {
+      emitMetric('CLS', Number(cls.toFixed(4)));
+      observer.disconnect();
+    };
+
     document.addEventListener(
       'visibilitychange',
       () => {
         if (document.visibilityState !== 'hidden') return;
-        emitMetric('CLS', Number(cls.toFixed(4)));
-        observer.disconnect();
+        flushCls();
       },
       { once: true },
     );
+
+    window.addEventListener('pagehide', flushCls, { once: true });
   } catch (_error) {
     // 지원하지 않는 브라우저는 조용히 skip
   }
@@ -85,29 +91,41 @@ const initInpObserver = () => {
   if (!('PerformanceObserver' in window)) return;
 
   let maxInp = 0;
+  let maxInteractionId = 0;
 
   try {
     const observer = new PerformanceObserver((list) => {
       list.getEntries().forEach((entry) => {
         const candidate = entry.duration || 0;
-        if (candidate > maxInp) maxInp = candidate;
+        if (candidate > maxInp) {
+          maxInp = candidate;
+          maxInteractionId = entry.interactionId || 0;
+        }
       });
     });
 
     // INP는 이벤트 타이밍 API 지원 브라우저에서만 동작
     observer.observe({ type: 'event', buffered: true, durationThreshold: 40 });
 
+    const flushInp = () => {
+      if (maxInp > 0) {
+        emitMetric('INP', Number(maxInp.toFixed(1)), {
+          interactionId: maxInteractionId,
+        });
+      }
+      observer.disconnect();
+    };
+
     document.addEventListener(
       'visibilitychange',
       () => {
         if (document.visibilityState !== 'hidden') return;
-        if (maxInp > 0) {
-          emitMetric('INP', Number(maxInp.toFixed(1)));
-        }
-        observer.disconnect();
+        flushInp();
       },
       { once: true },
     );
+
+    window.addEventListener('pagehide', flushInp, { once: true });
   } catch (_error) {
     // 지원하지 않는 브라우저는 조용히 skip
   }
@@ -116,8 +134,14 @@ const initInpObserver = () => {
 const initActionToPaintDelay = () => {
   if (!('requestAnimationFrame' in window)) return;
 
+  let lastMeasuredAt = 0;
+  const MIN_INTERVAL_MS = 700;
+
   const handler = (event) => {
     const startedAt = performance.now();
+
+    if (startedAt - lastMeasuredAt < MIN_INTERVAL_MS) return;
+    lastMeasuredAt = startedAt;
 
     // 2 프레임 뒤 측정으로 실제 페인트 반영 시점에 가깝게 근사
     requestAnimationFrame(() => {
@@ -126,10 +150,16 @@ const initActionToPaintDelay = () => {
         const target = event.target;
         const targetName = target instanceof Element ? target.tagName.toLowerCase() : 'unknown';
 
-        emitMetric('ACTION_TO_PAINT', Number(delay.toFixed(1)), {
+        const extra = {
           trigger: event.type,
           target: targetName,
-        });
+        };
+
+        if (event.type === 'keydown' && 'key' in event) {
+          extra.key = event.key;
+        }
+
+        emitMetric('ACTION_TO_PAINT', Number(delay.toFixed(1)), extra);
       });
     });
   };
