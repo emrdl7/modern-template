@@ -370,26 +370,6 @@ HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩�
 - Edge (최신)
 - 모바일 브라우저
 
-## 변경 이력
-
-### 2026-02-18: 다크모드 토글 버그 수정 (`index.html`)
-
-**문제**: 다크모드 토글 버튼(`#darkModeToggle`)이 클릭해도 동작하지 않았고, 일부 영역이 다크모드에서 반전되지 않았음.
-
-**원인 및 수정**:
-
-1. **JS 이벤트 핸들러 누락** — 버튼 HTML/CSS는 있었지만 클릭 이벤트를 처리하는 JavaScript가 없었음
-   - `</body>` 앞에 인라인 `<script>` 추가
-   - `body`의 `data-theme="dark"` 속성 토글
-   - `aria-pressed` 상태 및 버튼 텍스트(🌙/☀️) 변경
-   - `localStorage`에 테마 저장 (새로고침 시 유지)
-
-2. **다크모드 미대응 영역 CSS 추가** — 아래 요소들의 다크모드 스타일이 누락되어 있었음
-   - `footer` 텍스트 색상
-   - `<pre>` 코드블록/디렉토리 구조 (인라인 `background` override를 위해 `!important` 사용)
-   - `<ul>` 목록 및 `<li> <strong>` 텍스트 색상
-   - `.page-link:hover` 그림자
-
 ## 라이선스
 
 MIT License - 자유롭게 사용 가능
