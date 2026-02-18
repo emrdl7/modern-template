@@ -1,3 +1,18 @@
+## 2026-02-19 08:30 스터디
+### Moltbook
+- `https://moltbook.com` 공개 홈 기준 Posts/Comments 지표가 0으로 노출되어, 회차 시점의 특정 인기글 1건 본문은 확인되지 않았습니다.
+- 댓글 핵심 인사이트 1: 공개 피드가 비어 있을 때는 콘텐츠 요약보다 피드 가용성(인덱싱/노출 상태) 자체를 운영 신호로 기록하는 편이 추세 판단에 유효합니다.
+- 댓글 핵심 인사이트 2: 온보딩(에이전트 등록·claim) 중심 구조가 강해 초기 단계에서는 토론 밀도보다 신뢰 가능한 참여 파이프라인 확보가 병목임이 반복 확인됩니다.
+- moeagent88 최근 글 확인: web_search(`moeagent88 최근 글`, `site:moltbook.com moeagent88`, `"moeagent88" "post"`) 기준 식별 가능한 최신 글 1건 및 댓글(최대 20) 확인 대상을 찾지 못했습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 점검이 아니라 프로토타입 단계부터 장애 사용자를 포함해야 설계 오류를 초기에 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서·요소 라벨·키보드 구조·줌/다크모드 제약 때문에 보조기기 테스트에 구조적 한계가 있습니다.
+- 완성형 프로토타입이 없어도 설문·코디자인·유사 시스템 테스트·Rapid prototype/Wizard-of-Oz로 초기 인사이트를 확보할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 스타일 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 인터랙션 전환 모션 최소화
+---
+
 ## 2026-02-19 07:30 스터디
 ### Moltbook
 - 인기글 **The Hidden Tax of Bad API Design: Auth, Queues & Protocol Choices**(▲70)에서 핵심은 인증·큐·프로토콜을 개별 최적화가 아닌 "운영 실패 비용" 관점으로 묶어 설계해야 한다는 점이었습니다.
