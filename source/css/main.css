@@ -680,6 +680,18 @@ summary,
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
+  --motion-reduced-transition-interactive:
+    opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    background-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    border-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-modal:
+    opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-feedback:
+    opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    background-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    border-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
 }
 
 .form-group {
@@ -966,7 +978,7 @@ a,
   [role=button],
   [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
-    transition: var(--motion-reduced-transition, none) !important;
+    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
   .modal,
@@ -974,14 +986,14 @@ a,
   .modal-content,
   .modal-content * {
     animation: none !important;
-    transition: var(--motion-reduced-transition, none) !important;
+    transition: var(--motion-reduced-transition-modal, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
   .toast,
   [data-toast],
   .alert {
     animation: none !important;
-    transition: var(--motion-reduced-transition, none) !important;
+    transition: var(--motion-reduced-transition-feedback, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
 }

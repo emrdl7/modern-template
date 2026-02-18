@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 23:00 - reduced-motion 전환 토큰 분리
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 reduced-motion 전환 토큰을 interactive/modal/feedback 용도로 분리.
+  - 기본값은 이동 모션 제거를 유지하면서도 상태 변화 인지를 위해 80ms 선형 페이드 전환을 제공하도록 정리.
+  - `@media (prefers-reduced-motion: reduce)`에서 컴포넌트군별로 분리된 전환 토큰을 참조하도록 변경해 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 테마에서 `--motion-reduced-transition-*` 토큰만 오버라이드해도 인터랙션/모달/알림 전환 강도를 독립 제어할 수 있는지 1회 점검.
+---
+
 ## 2026-02-18 (수요일) 22:00 - focus-visible 외곽 대비 폭 토큰 추가
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

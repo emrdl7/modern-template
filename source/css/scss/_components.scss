@@ -138,6 +138,19 @@
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
+  // reduce 환경 기본: 이동 모션 제거 + 짧은 상태 페이드(토큰 오버라이드 가능)
+  --motion-reduced-transition-interactive:
+    opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    background-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    border-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-modal:
+    opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-feedback:
+    opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    background-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    border-color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear),
+    color var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
 }
 
 .form-group {
@@ -434,17 +447,17 @@ textarea.form-control {
   [role="button"],
   [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
-    transition: var(--motion-reduced-transition, none) !important;
+    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
 
-  // 모달 계열: 이동 모션 제거 + 짧은 opacity 전환만 유지
+  // 모달 계열: 이동 모션 제거 + opacity 중심의 짧은 전환만 유지
   .modal,
   .modal-backdrop,
   .modal-content,
   .modal-content * {
     animation: none !important;
-    transition: var(--motion-reduced-transition, none) !important;
+    transition: var(--motion-reduced-transition-modal, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
 
@@ -453,7 +466,7 @@ textarea.form-control {
   [data-toast],
   .alert {
     animation: none !important;
-    transition: var(--motion-reduced-transition, none) !important;
+    transition: var(--motion-reduced-transition-feedback, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
 }
