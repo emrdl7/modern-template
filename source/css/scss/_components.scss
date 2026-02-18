@@ -131,6 +131,9 @@
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
   // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
   --motion-reduced-duration: 80ms;
+  --motion-reduced-easing: linear;
+  --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
+  --motion-reduced-properties-modal: opacity;
 }
 
 .form-group {
@@ -399,9 +402,9 @@ textarea.form-control {
 @media (prefers-reduced-motion: reduce) {
   :root {
     // 모션 감소 환경: 이동 애니메이션은 제거하되, 상태 전환은 매우 짧게 유지(커스터마이징 가능)
-    --motion-transition-base: opacity var(--motion-reduced-duration, 80ms) linear;
-    --motion-transition-fast: opacity var(--motion-reduced-duration, 80ms) linear;
-    --motion-transition-interactive: opacity var(--motion-reduced-duration, 80ms) linear;
+    --motion-transition-base: opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+    --motion-transition-fast: opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
+    --motion-transition-interactive: opacity var(--motion-reduced-duration, 80ms) var(--motion-reduced-easing, linear);
   }
 
   html:focus-within {
@@ -424,9 +427,10 @@ textarea.form-control {
   [role="button"],
   [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
-    transition-property: opacity, background-color, border-color, color !important;
+    transition-property: var(--motion-reduced-properties-interactive, opacity, background-color, border-color, color) !important;
     transition-duration: var(--motion-reduced-duration, 80ms) !important;
-    transition-timing-function: linear !important;
+    transition-timing-function: var(--motion-reduced-easing, linear) !important;
+    transition-delay: 0ms !important;
     transform: none !important;
   }
 
@@ -436,9 +440,10 @@ textarea.form-control {
   .modal-content,
   .modal-content * {
     animation: none !important;
-    transition-property: opacity !important;
+    transition-property: var(--motion-reduced-properties-modal, opacity) !important;
     transition-duration: var(--motion-reduced-duration, 80ms) !important;
-    transition-timing-function: linear !important;
+    transition-timing-function: var(--motion-reduced-easing, linear) !important;
+    transition-delay: 0ms !important;
     transform: none !important;
   }
 

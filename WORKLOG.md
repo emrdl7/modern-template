@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 19:00 - reduced-motion 전환 속성 토큰화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 `:focus-visible`/모션 토큰 구조는 유지하면서 reduced-motion 커스터마이징 지점을 가볍게 확장.
+  - `--motion-reduced-easing`, `--motion-reduced-properties-interactive`, `--motion-reduced-properties-modal` 토큰을 추가해 프로젝트별로 전환 속성/이징을 한 곳에서 조정 가능하게 정리.
+  - `@media (prefers-reduced-motion: reduce)`에서 interactive/modal 전환 규칙이 새 토큰을 참조하도록 변경하고 `transition-delay: 0ms`를 명시해 상태 반응을 더 즉시화.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion 환경에서 링크/버튼/모달의 상태 변화가 토큰 변경만으로 일관 제어되는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 18:00 - 인터랙션 focus-visible 토큰 세분화와 reduced-motion 대상 확대
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
