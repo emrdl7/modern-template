@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 07:00 - focus-visible 대비 강화와 reduced-motion 축소
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 인터랙션 포커스 토큰의 기본 두께/offset을 상향(`max(3px, 0.18em)`, `3px`)해 키보드 포커스 식별성을 강화.
+  - `prefers-reduced-motion` 기본 전환 시간을 `80ms → 40ms`로 축소해 상태 인지 최소 전환만 남기고 모션 부담을 더 낮춤.
+  - 모두 CSS 토큰 기본값 레벨에서 반영해 과도한 기능 추가 없이, 테마 오버라이드로 커스터마이징 가능한 구조를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 고대비/다크 테마에서 포커스 링 두께 상향이 과하지 않은지 빠르게 시각 점검.
+---
+
 ## 2026-02-19 (목요일) 06:00 - reduced-motion 기본 전환 토큰 정렬
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

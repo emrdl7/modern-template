@@ -125,14 +125,14 @@
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
   // 공통 인터랙션 포커스 링 토큰(컴포넌트별 예외 최소화)
   --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
-  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
+  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(3px, 0.18em));
   --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
-  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px));
   // 링 가독성 강화를 위한 외곽 대비 폭 토큰 (기본: interactive ring 폭과 동일)
   --interactive-focus-ring-contrast-width: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
   // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
-  --motion-reduced-duration: 80ms;
+  --motion-reduced-duration: 40ms;
   --motion-reduced-easing: linear;
   --motion-reduced-transition: none;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;

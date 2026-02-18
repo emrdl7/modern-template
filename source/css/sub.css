@@ -669,12 +669,12 @@ summary,
   --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #ffffff));
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
+  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(3px, 0.18em));
   --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
-  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px));
   --interactive-focus-ring-contrast-width: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)));
   --motion-transition-interactive: var(--motion-transition-base, all 0.3s ease-in-out);
-  --motion-reduced-duration: 80ms;
+  --motion-reduced-duration: 40ms;
   --motion-reduced-easing: linear;
   --motion-reduced-transition: none;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
