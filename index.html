@@ -122,7 +122,9 @@
     }
     .page-link:focus-visible,
     .skip-nav:focus-visible,
-    #darkModeToggle:focus-visible {
+    #darkModeToggle:focus-visible,
+    #contrastModeToggle:focus-visible,
+    .a11y-tab-item:focus-visible {
       outline: 3px solid #246beb;
       outline-offset: 3px;
       border-radius: 8px;
@@ -142,7 +144,70 @@
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.16);
     }
-    
+    .a11y-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .a11y-tab-order {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .a11y-tab-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #ced4da;
+      color: #212529;
+      background: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .landmark-map {
+      margin-top: 10px;
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: #495057;
+    }
+
+    body[data-theme="contrast"] {
+      background: #000;
+      color: #fff;
+    }
+    body[data-theme="contrast"] .info-box,
+    body[data-theme="contrast"] .page-link {
+      background: #111;
+      border: 1px solid #f5f5f5;
+      box-shadow: none;
+    }
+    body[data-theme="contrast"] .info-box h2,
+    body[data-theme="contrast"] .page-link h3,
+    body[data-theme="contrast"] .info-box p,
+    body[data-theme="contrast"] .page-link p,
+    body[data-theme="contrast"] .prototype-checklist ul,
+    body[data-theme="contrast"] .prototype-checklist li strong,
+    body[data-theme="contrast"] .badge,
+    body[data-theme="contrast"] .landmark-map,
+    body[data-theme="contrast"] .a11y-tab-item {
+      color: #fff;
+    }
+    body[data-theme="contrast"] .badge {
+      background: #000;
+      border: 1px solid #fff;
+    }
+    body[data-theme="contrast"] .a11y-tab-item {
+      border-color: #fff;
+      background: #000;
+    }
+
     /* Dark Mode Styles */
     body[data-theme="dark"] {
       background: #121212;
@@ -205,8 +270,9 @@
   </style>
 </head>
 <body>
-  <!-- Dark Mode Toggle -->
+  <!-- Theme Toggle -->
   <button id="darkModeToggle" class="dark-mode-toggle" aria-pressed="false" type="button">🌙 다크모드</button>
+  <button id="contrastModeToggle" class="dark-mode-toggle" aria-pressed="false" type="button">🌓 고대비</button>
   <a href="#main-content" class="skip-nav">본문 바로가기</a>
   <header aria-label="사이트 헤더">
     <h1>
@@ -259,6 +325,21 @@
         <li><strong>조작성 확인:</strong> Rapid HTML 미니 플로우 + 키보드 탭 테스트(20~30분)</li>
         <li><strong>기능 미구현 보완:</strong> Wizard-of-Oz로 막힘 지점 기록 후 구현 우선순위 결정(10~15분)</li>
       </ul>
+      <p style="margin-top: 14px;"><strong>프로토타입 즉시 검증 영역:</strong></p>
+      <div class="a11y-controls" aria-label="접근성 테스트 컨트롤" role="group">
+        <button type="button" class="dark-mode-toggle" data-focus-order="1">① 첫 버튼(탭 시작)</button>
+        <a href="#prototype-checklist-title" class="a11y-tab-item" data-focus-order="2">② 제목으로 이동</a>
+        <button type="button" id="a11yTabEnd" class="dark-mode-toggle" data-focus-order="3">③ 마지막 버튼(탭 끝)</button>
+      </div>
+      <div class="a11y-tab-order" aria-label="예상 탭 순서 미리보기">
+        <span class="a11y-tab-item">Tab 1 → 첫 버튼</span>
+        <span class="a11y-tab-item">Tab 2 → 제목 링크</span>
+        <span class="a11y-tab-item">Tab 3 → 마지막 버튼</span>
+      </div>
+      <div class="landmark-map" role="region" aria-label="랜드마크 맵">
+        <span><strong>Landmarks:</strong> <code>header</code> → <code>main</code> → <code>section[role=region]</code> → <code>footer</code></span>
+        <span>스크린리더에서 Landmarks 목록을 열어 실제 순서가 동일한지 확인하세요.</span>
+      </div>
       <p style="margin-top: 14px;"><strong>PR 템플릿(복붙):</strong></p>
       <pre style="background:#f8f9fa; border-radius:8px; padding:12px; overflow:auto; font-size:13px; line-height:1.6;">## A11y Prototype Preflight
 - [ ] 읽기 순서(Heading/콘텐츠 흐름) 점검 완료
@@ -334,31 +415,54 @@ modern-template/
   </footer>
   <script>
     (function() {
-      const toggle = document.getElementById('darkModeToggle');
+      const darkToggle = document.getElementById('darkModeToggle');
+      const contrastToggle = document.getElementById('contrastModeToggle');
       const body = document.body;
 
-      // 저장된 테마 불러오기
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        body.setAttribute('data-theme', 'dark');
-        toggle.setAttribute('aria-pressed', 'true');
-        toggle.textContent = '☀️ 라이트모드';
+      function syncToggleUI(theme) {
+        const isDark = theme === 'dark';
+        const isContrast = theme === 'contrast';
+
+        darkToggle.setAttribute('aria-pressed', String(isDark));
+        darkToggle.textContent = isDark ? '☀️ 라이트모드' : '🌙 다크모드';
+
+        contrastToggle.setAttribute('aria-pressed', String(isContrast));
+        contrastToggle.textContent = isContrast ? '🌓 기본 대비' : '🌓 고대비';
       }
 
-      toggle.addEventListener('click', function() {
-        const isDark = body.getAttribute('data-theme') === 'dark';
+      // 저장된 테마 불러오기 (light / dark / contrast)
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || savedTheme === 'contrast') {
+        body.setAttribute('data-theme', savedTheme);
+      }
+      syncToggleUI(body.getAttribute('data-theme'));
 
-        if (isDark) {
-          body.removeAttribute('data-theme');
-          toggle.setAttribute('aria-pressed', 'false');
-          toggle.textContent = '🌙 다크모드';
-          localStorage.setItem('theme', 'light');
+      darkToggle.addEventListener('click', function() {
+        const currentTheme = body.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'dark' ? null : 'dark';
+
+        if (nextTheme) {
+          body.setAttribute('data-theme', nextTheme);
+          localStorage.setItem('theme', nextTheme);
         } else {
-          body.setAttribute('data-theme', 'dark');
-          toggle.setAttribute('aria-pressed', 'true');
-          toggle.textContent = '☀️ 라이트모드';
-          localStorage.setItem('theme', 'dark');
+          body.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
         }
+        syncToggleUI(body.getAttribute('data-theme'));
+      });
+
+      contrastToggle.addEventListener('click', function() {
+        const currentTheme = body.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'contrast' ? null : 'contrast';
+
+        if (nextTheme) {
+          body.setAttribute('data-theme', nextTheme);
+          localStorage.setItem('theme', nextTheme);
+        } else {
+          body.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        }
+        syncToggleUI(body.getAttribute('data-theme'));
       });
     })();
   </script>
