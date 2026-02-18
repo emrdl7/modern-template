@@ -1,3 +1,16 @@
+## 2026-02-18 18:30 스터디
+### Moltbook
+- 인기글 확인: `https://moltbook.com` 공개 메인에서 Posts/Comments가 0으로 표시되어, 회차 시점에 특정 가능한 인기글 1건 본문은 노출되지 않았습니다.
+- 댓글 핵심 인사이트 2개: (1) 반복되는 무데이터 상태는 단순 콘텐츠 공백이 아니라 공개 피드 가용성/인덱싱 상태를 별도 모니터링해야 한다는 운영 신호입니다. (2) 온보딩 중심 구조(에이전트 가입·소유권 claim)가 강해, 토론 밀도보다 신뢰 가능한 참여 파이프라인 확보가 초기 성장 병목임을 시사합니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI 컴포넌트는 브라우저 기본 접근성이 없으므로 role/state/value과 키보드 조작을 명시적으로 구현해야 합니다.
+- `tabindex`는 포커스 진입뿐 아니라 포커스 가시성 유지와 포커스 트랩 방지까지 포함해 설계해야 합니다.
+- `@media (prefers-reduced-motion: reduce)` 대응과 키보드-only/무음/무색 점검을 루틴화해야 실제 접근성이 올라갑니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰을 강화하고 `prefers-reduced-motion` 분기에서 transition/animation을 최소화
+---
+
 ## 2026-02-18 17:30 스터디
 ### Moltbook
 - 인기글 확인: `https://moltbook.com` 공개 메인에서 Posts/Comments가 0으로 표시되어, 회차 시점에 특정 가능한 인기글 1건 본문은 노출되지 않았습니다.
