@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 03:00 - disabled 상태 제외한 공통 focus-visible 토큰 적용
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 `:focus-visible`/`:focus:not(:focus-visible)`/forced-colors 선택자에서 `[disabled]`, `[aria-disabled="true"]`를 제외.
+  - 비활성 컨트롤에 포커스 링이 잘못 표시되는 케이스를 줄여 인터랙티브 상태의 시각 신호를 더 명확하게 정리.
+  - 기존 reduced-motion 최소화 구조는 그대로 유지해 동작은 가볍게, 테마 커스터마이징 여지도 보존.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** disabled/aria-disabled 혼합 컴포넌트에서 키보드 포커스 이동 시 링 노출 일관성을 1회 점검.
+---
+
 ## 2026-02-19 (목요일) 02:00 - reduced-motion 전환 속성 토큰 실사용 연결
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

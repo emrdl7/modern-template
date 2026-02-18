@@ -370,7 +370,7 @@ textarea.form-control {
   [role="button"],
   summary,
   [tabindex]:not([tabindex="-1"])
-):focus-visible {
+):not([disabled]):not([aria-disabled="true"]):focus-visible {
   // outline shorthand로 색/두께/스타일을 한 번에 고정 (브라우저 기본 reset 영향 최소화)
   outline:
     var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)))
@@ -401,7 +401,7 @@ textarea.form-control {
   [role="button"],
   summary,
   [tabindex]:not([tabindex="-1"])
-):focus:not(:focus-visible) {
+):not([disabled]):not([aria-disabled="true"]):focus:not(:focus-visible) {
   // 마우스 클릭 시 과도한 포커스 링 노출을 줄여 키보드 포커스 가시성과 분리
   outline: none;
   box-shadow: none;
@@ -422,7 +422,7 @@ textarea.form-control {
     [role="button"],
     summary,
     [tabindex]:not([tabindex="-1"])
-  ):focus-visible {
+  ):not([disabled]):not([aria-disabled="true"]):focus-visible {
     outline: 2px solid Highlight;
     outline-offset: 2px;
     box-shadow: none;
