@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 22:00 - focus-visible 외곽 대비 폭 토큰 추가
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 `:focus-visible` 링 대비를 가볍게 강화할 수 있도록 `--interactive-focus-ring-contrast-width` 토큰을 추가.
+  - 공통 인터랙션 `box-shadow` 외곽 링 폭 계산이 새 토큰을 참조하도록 정리해 배경 복잡도/테마별로 포커스 가시성을 쉽게 조정 가능하게 함.
+  - `prefers-reduced-motion` 기본 비활성화 구조는 유지해 모션 최소화 원칙을 그대로 보존.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 다크/라이트 배경에서 `--interactive-focus-ring-contrast-width` 값만 조정해 포커스 링 식별성이 일관적인지 1회 점검.
+---
+
 ## 2026-02-18 (수요일) 21:00 - reduced-motion 기본 전환 비활성화 토큰화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

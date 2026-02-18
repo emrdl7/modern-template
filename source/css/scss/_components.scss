@@ -128,6 +128,8 @@
   --interactive-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
   --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
+  // 링 가독성 강화를 위한 외곽 대비 폭 토큰 (기본: interactive ring 폭과 동일)
+  --interactive-focus-ring-contrast-width: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
   // reduce 환경에서 완전 제거 대신 "짧은 페이드"로 커스터마이징 가능
   --motion-reduced-duration: 80ms;
@@ -363,7 +365,10 @@ textarea.form-control {
   box-shadow:
     0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
       var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)})))),
-    0 0 0 calc(var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) + var(--focus-ring-width-strong, max(2px, 0.15em)))
+    0 0 0 calc(
+        var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
+        + var(--interactive-focus-ring-contrast-width, var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))))
+      )
       var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
 }
 
