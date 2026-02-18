@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 02:00 - reduced-motion 전환 속성 토큰 실사용 연결
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 `prefers-reduced-motion` 커스터마이징 토큰을 실제 전환 정의에 직접 연결.
+  - `--motion-reduced-transition-interactive/modal/feedback`가 각각 `--motion-reduced-properties-*` 토큰을 참조하도록 정리해 속성 변경을 한 지점에서 제어 가능하게 개선.
+  - 기본 동작은 심플하게 유지(짧은 선형 페이드 + 이동 모션 제거)하면서 테마/프로젝트별 커스터마이징 여지를 확대.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 토큰 오버라이드로 interactive/modal/feedback 전환 속성 분리가 실제 테마 적용에서 기대대로 동작하는지 1회 점검.
+---
+
 ## 2026-02-19 (목요일) 01:00 - summary 포커스/모션 최소화 대상 포함
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
