@@ -677,6 +677,7 @@ summary,
   --motion-reduced-easing: linear;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
   --motion-reduced-properties-modal: opacity;
+  --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
 }
 
 .form-group {
@@ -984,7 +985,10 @@ a,
   [data-toast],
   .alert {
     animation: none !important;
-    transition: none !important;
+    transition-property: var(--motion-reduced-properties-feedback, opacity, background-color, border-color, color) !important;
+    transition-duration: var(--motion-reduced-duration, 80ms) !important;
+    transition-timing-function: var(--motion-reduced-easing, linear) !important;
+    transition-delay: 0ms !important;
     transform: none !important;
   }
 }

@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 20:00 - reduced-motion 피드백 전환 토큰 추가
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 `prefers-reduced-motion` 구간의 토스트/알림 전환을 완전 제거 대신 짧은 상태 전환으로 정리.
+  - `--motion-reduced-properties-feedback` 토큰을 추가해 토스트/알림 계열의 전환 속성(`opacity/background/border/color`)을 한 지점에서 커스터마이징 가능하게 구성.
+  - 모션 민감 환경에서는 이동/변형(`transform`)을 계속 차단하면서도, 피드백 UI의 상태 변화 인지성은 유지하도록 경량 조정.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion 환경에서 토스트/알림 표시·해제 시 깜빡임 없이 인지 가능한지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 19:00 - reduced-motion 전환 속성 토큰화
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

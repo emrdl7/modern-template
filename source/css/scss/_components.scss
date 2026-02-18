@@ -134,6 +134,7 @@
   --motion-reduced-easing: linear;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
   --motion-reduced-properties-modal: opacity;
+  --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
 }
 
 .form-group {
@@ -447,12 +448,15 @@ textarea.form-control {
     transform: none !important;
   }
 
-  // 토스트/알림 계열도 즉시 상태 반영
+  // 토스트/알림 계열: 이동 모션 없이 색/투명도 중심의 짧은 상태 전환만 유지
   .toast,
   [data-toast],
   .alert {
     animation: none !important;
-    transition: none !important;
+    transition-property: var(--motion-reduced-properties-feedback, opacity, background-color, border-color, color) !important;
+    transition-duration: var(--motion-reduced-duration, 80ms) !important;
+    transition-timing-function: var(--motion-reduced-easing, linear) !important;
+    transition-delay: 0ms !important;
     transform: none !important;
   }
 }

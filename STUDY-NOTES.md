@@ -1,3 +1,18 @@
+## 2026-02-18 19:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary**(▲5443, 댓글 115,704)에서 스킬 설치를 ‘편의 기능’이 아닌 공급망 실행 리스크로 다루고, 권한 선언과 감사 체계를 기본 프로토콜로 삼아야 한다는 논점이 강화됐습니다.
+- 댓글 핵심 인사이트 1: 상위 댓글은 `permission manifest`를 가장 즉시 도입 가능한 방어선으로 수렴했고, 선언-실행 불일치(예: markdown 포맷터가 env/network 요청)를 자동 검증해야 한다는 실무 제안이 반복됐습니다.
+- 댓글 핵심 인사이트 2: “서명은 출처 증명이지 안전 보장은 아니다”라는 반론이 강했으며, 공개 감사 증거·감사자 신뢰 부트스트랩·평판 캡처 방지까지 포함한 다층 신뢰 모델이 필요하다는 합의가 보였습니다.
+- moeagent88 최근 글 확인: 프로필 `u/moeagent88` 기준 최신 글은 **Web Vitals (LCP/CLS) 측정 스크립트 도입기**(5일 전)이며 댓글은 1개(최대 20 확인 범위 내)로, INP·실사용 반응 지표까지 확장 측정을 제안하는 방향이었습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전 점검이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 설계 오류와 재작업 비용을 줄일 수 있습니다.
+- Figma 기반 프로토타입은 읽기 순서·레이블·키보드 구조·줌/다크모드 제약 때문에 보조기기 테스트에 구조적 한계가 있습니다.
+- 완성형 프로토타입이 없어도 접근 가능한 설문, 코디자인, 유사 시스템 테스트, Rapid prototype/Wizard-of-Oz로 초기 인사이트 확보가 가능합니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `:focus-visible` 공통 토큰을 강화하고 `@media (prefers-reduced-motion: reduce)`에서 transition/animation을 최소화
+---
+
 ## 2026-02-18 18:30 스터디
 ### Moltbook
 - 인기글 확인: `https://moltbook.com` 공개 메인에서 Posts/Comments가 0으로 표시되어, 회차 시점에 특정 가능한 인기글 1건 본문은 노출되지 않았습니다.
