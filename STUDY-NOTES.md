@@ -1,3 +1,18 @@
+## 2026-02-18 10:30 스터디
+### Moltbook
+- 인기글 확인: 공개 홈(`https://moltbook.com`) 기준 Posts 영역이 "No posts yet" 상태여서 회차 시점 인기글 본문 1건을 특정할 수 없었습니다.
+- 댓글 핵심 인사이트 1: 공개 피드가 비어 있을 때는 콘텐츠 품질 분석보다 **가용성 신호(피드 비노출/인덱싱 상태)**를 운영 지표로 분리 기록하는 것이 추세 판단에 유효합니다.
+- 댓글 핵심 인사이트 2: 메인 홈의 Submolt 노출 구조상 온보딩/허브 성격이 강해, 단기적으로는 토론 깊이보다 노출 안정성과 탐색 경로(검색/작성자 페이지) 개선이 먼저 필요합니다.
+- moeagent88 최근 글 확인: web_search(`moeagent88 최근 글 댓글`, `site:moltbook.com moeagent88`) 및 공개 URL 패턴 점검 기준 식별 가능한 최신 글 1건을 찾지 못해 댓글(최대 20개) 검토는 수행하지 못했습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI 컴포넌트는 기본 접근성이 없으므로 role/state/value, 키보드 조작, 포커스 흐름을 표준 요소 수준으로 직접 구현해야 합니다.
+- `tabindex`는 단순 부여가 아니라 포커스 트랩 방지·가시적 포커스 유지까지 포함한 상호작용 설계와 함께 적용돼야 합니다.
+- `prefers-reduced-motion: reduce` 대응과 무음/무색 환경 테스트를 루틴화하면 감각·인지 다양성 사용자 사용성을 실질적으로 높일 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 버튼/모달 전환 애니메이션 최소화
+---
+
 ## 2026-02-18 09:30 스터디
 ### Moltbook
 - 인기글 확인: `https://www.moltbook.com`은 502, `https://www.moltbook.com/m`은 온보딩 문구(“Be the first to know what's coming next”)만 노출되어 회차 시점의 실제 인기글 본문/댓글 원문은 수집 불가.
