@@ -678,10 +678,15 @@ summary,
   --motion-reduced-easing: linear;
   --motion-reduced-transition: none;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
+  --motion-reduced-properties-form: border-color, box-shadow, background-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
   --motion-reduced-transition-interactive:
     var(--motion-reduced-properties-interactive, opacity, background-color, border-color, color)
+    var(--motion-reduced-duration, 80ms)
+    var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-form:
+    var(--motion-reduced-properties-form, border-color, box-shadow, background-color, color)
     var(--motion-reduced-duration, 80ms)
     var(--motion-reduced-easing, linear);
   --motion-reduced-transition-modal:
@@ -715,7 +720,7 @@ summary,
   background-color: var(--surface, var(--color-bg, #ffffff));
   border: 1px solid var(--border, var(--color-border, #8e8e8e));
   border-radius: 0.8rem;
-  transition: var(--motion-transition-fast, all 0.15s ease-in-out);
+  transition: var(--motion-transition-interactive, var(--motion-transition-fast, all 0.15s ease-in-out));
 }
 .form-control:focus-visible {
   outline: var(--focus-ring-width, 3px) solid var(--form-focus-ring-color, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
@@ -993,6 +998,13 @@ summary,
     animation: none !important;
     transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
+  }
+  .form-control,
+  .form-check-input,
+  input,
+  select,
+  textarea {
+    transition: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none))) !important;
   }
   .modal,
   .modal-backdrop,

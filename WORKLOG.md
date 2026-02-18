@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 04:00 - reduced-motion 폼 전환 토큰 분리
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 `.form-control` 기본 transition이 공통 인터랙션 모션 토큰(`--motion-transition-interactive`)을 우선 참조하도록 정리.
+  - reduce 환경에서 폼 전용 전환 속성 토큰(`--motion-reduced-properties-form`, `--motion-reduced-transition-form`)을 추가해 입력 계열의 상태 변화만 가볍게 제어 가능하도록 분리.
+  - 이동 모션 제거 원칙은 유지하면서도 폼/버튼/모달 전환을 독립 커스터마이징할 수 있는 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion 환경에서 폼 포커스/에러 상태 전환이 과하지 않으면서도 인지 가능한지 1회 점검.
+---
+
 ## 2026-02-19 (목요일) 03:00 - disabled 상태 제외한 공통 focus-visible 토큰 적용
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

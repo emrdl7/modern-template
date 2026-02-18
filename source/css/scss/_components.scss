@@ -136,11 +136,16 @@
   --motion-reduced-easing: linear;
   --motion-reduced-transition: none;
   --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
+  --motion-reduced-properties-form: border-color, box-shadow, background-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
   // reduce 환경 기본: 이동 모션 제거 + 짧은 상태 페이드(토큰 오버라이드 가능)
   --motion-reduced-transition-interactive:
     var(--motion-reduced-properties-interactive, opacity, background-color, border-color, color)
+    var(--motion-reduced-duration, 80ms)
+    var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-form:
+    var(--motion-reduced-properties-form, border-color, box-shadow, background-color, color)
     var(--motion-reduced-duration, 80ms)
     var(--motion-reduced-easing, linear);
   --motion-reduced-transition-modal:
@@ -177,7 +182,7 @@
   // WCAG 2.1 1.4.11(비텍스트 대비) 기준(인접 대비 3:1+)을 만족하는 색을 우선 사용.
   border: 1px solid var(--border, var(--color-border, #{color(border)}));
   border-radius: radius(base);
-  transition: var(--motion-transition-fast, #{$transition-fast});
+  transition: var(--motion-transition-interactive, var(--motion-transition-fast, #{$transition-fast}));
 
   // 포커스 링은 전역 토큰/믹스인으로 통일(:focus-visible 우선)
   &:focus-visible {
@@ -462,6 +467,15 @@ textarea.form-control {
     animation: none !important;
     transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
+  }
+
+  // 폼 컨트롤: 값 입력 중 가시성 변화만 남기고 모션 최소화
+  .form-control,
+  .form-check-input,
+  input,
+  select,
+  textarea {
+    transition: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none))) !important;
   }
 
   // 모달 계열: 이동 모션 제거 + opacity 중심의 짧은 전환만 유지
