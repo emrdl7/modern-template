@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 08:00 - reduced-motion 모달 전환 기본 비활성화
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 reduced-motion 환경에서 모달 전환 기본값을 `none`으로 분리(`--motion-reduced-transition-modal-default`)해 기본 애니메이션을 비활성화.
+  - 버튼/폼의 짧은 상태 전환 토큰은 유지해 전체 UI는 가볍게 유지하고, 모달 전환은 토큰 오버라이드로만 선택 복원 가능하게 정리.
+  - 기능 확장 없이 CSS 토큰 레벨 조정만 수행해 커스터마이징 여지를 남김.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion에서 모달 열림/닫힘 시 상태 인지가 부족하지 않은지 시각 점검.
+---
+
 ## 2026-02-19 (목요일) 07:00 - focus-visible 대비 강화와 reduced-motion 축소
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

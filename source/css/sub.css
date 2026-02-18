@@ -681,6 +681,7 @@ summary,
   --motion-reduced-properties-form: border-color, box-shadow, background-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
+  --motion-reduced-transition-modal-default: none;
   --motion-reduced-transition-interactive:
     var(--motion-reduced-properties-interactive, opacity, background-color, border-color, color)
     var(--motion-reduced-duration, 80ms)
@@ -689,10 +690,7 @@ summary,
     var(--motion-reduced-properties-form, border-color, box-shadow, background-color, color)
     var(--motion-reduced-duration, 80ms)
     var(--motion-reduced-easing, linear);
-  --motion-reduced-transition-modal:
-    var(--motion-reduced-properties-modal, opacity)
-    var(--motion-reduced-duration, 80ms)
-    var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-modal: var(--motion-reduced-transition-modal-default, var(--motion-reduced-transition, none));
   --motion-reduced-transition-feedback:
     var(--motion-reduced-properties-feedback, opacity, background-color, border-color, color)
     var(--motion-reduced-duration, 80ms)

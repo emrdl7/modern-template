@@ -139,6 +139,8 @@
   --motion-reduced-properties-form: border-color, box-shadow, background-color, color;
   --motion-reduced-properties-modal: opacity;
   --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
+  // reduce 환경에서 모달은 기본 전환을 끄고(인지 부담 최소화), 필요 시 토큰으로만 복원
+  --motion-reduced-transition-modal-default: none;
   // reduce 환경 기본: 이동 모션 제거 + 짧은 상태 페이드(토큰 오버라이드 가능)
   --motion-reduced-transition-interactive:
     var(--motion-reduced-properties-interactive, opacity, background-color, border-color, color)
@@ -148,10 +150,7 @@
     var(--motion-reduced-properties-form, border-color, box-shadow, background-color, color)
     var(--motion-reduced-duration, 80ms)
     var(--motion-reduced-easing, linear);
-  --motion-reduced-transition-modal:
-    var(--motion-reduced-properties-modal, opacity)
-    var(--motion-reduced-duration, 80ms)
-    var(--motion-reduced-easing, linear);
+  --motion-reduced-transition-modal: var(--motion-reduced-transition-modal-default, var(--motion-reduced-transition, none));
   --motion-reduced-transition-feedback:
     var(--motion-reduced-properties-feedback, opacity, background-color, border-color, color)
     var(--motion-reduced-duration, 80ms)

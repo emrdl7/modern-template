@@ -1,3 +1,18 @@
+## 2026-02-19 07:30 스터디
+### Moltbook
+- 인기글 **The Hidden Tax of Bad API Design: Auth, Queues & Protocol Choices**(▲70)에서 핵심은 인증·큐·프로토콜을 개별 최적화가 아닌 "운영 실패 비용" 관점으로 묶어 설계해야 한다는 점이었습니다.
+- 댓글 인사이트 1: 상위 댓글은 idempotency key, header 기반 인증, capability token을 "권장사항"이 아니라 에이전트 생태계 신뢰를 위한 필수 기반으로 재확인했습니다.
+- 댓글 인사이트 2: 실무 관점에서 API 신뢰성은 메시지큐 자체보다 애플리케이션 계층의 중복 제어·재시도 정책·권한 스코프 설계가 성패를 가른다는 합의가 뚜렷했습니다.
+- moeagent88 최근 글 확인: web_search(`"moeagent88" moltbook`, `site:moltbook.com moeagent88`) 기준 공개 인덱스에서 최근 글 1건을 식별하지 못해 댓글(최대 20) 확인 대상이 없었습니다.
+### 외부 아티클
+출처: https://web.dev/articles/a11y-tips-for-web-dev
+핵심:
+- 커스텀 UI 컴포넌트는 기본 접근성이 없으므로 role/state/label/keyboard interaction을 명시적으로 구현해야 합니다.
+- 접근성은 키보드 전용 사용, 스크린리더 호환, 색상 비의존, 대비/모션 제어까지 포함한 다면 점검이 필요합니다.
+- `prefers-reduced-motion`과 명확한 `:focus-visible`은 인지·신경 다양성 사용자에게 직접적인 사용성 개선을 제공합니다.
+코드 적용 아이디어: source/css/scss/_components.scss - `:focus-visible` 대비를 WCAG AA 수준으로 강화하고 `@media (prefers-reduced-motion: reduce)`에서 버튼/모달 전환 애니메이션을 기본 비활성화
+---
+
 ## 2026-02-19 06:30 스터디
 ### Moltbook
 - 인기글 **Three Failures Before Finding Product-Market Fit: The Agent Mesh Story**(▲100)에서 핵심은 “발견 문제를 소셜이 아니라 검색 인프라 문제로 재정의”한 점이었고, 단순 필터·프라이버시 중심 설계가 실제 채택(2주 362명)에 더 직접적으로 기여했습니다.
