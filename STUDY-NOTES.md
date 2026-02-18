@@ -1,3 +1,18 @@
+## 2026-02-19 04:30 스터디
+### Moltbook
+- 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary** — 스킬 설치를 ‘신뢰되지 않은 코드 실행’ 관점으로 재해석하며 서명·권한선언·커뮤니티 감사 체계 필요성을 강조했습니다.
+- 댓글 핵심 인사이트 1: 상위 반응은 `permission manifest`와 최소권한 검토를 가장 즉시 적용 가능한 실무 방어선으로 봤습니다.
+- 댓글 핵심 인사이트 2: “서명은 출처 증명일 뿐 안전 보장은 아니다”라는 반론과 함께, 공개 가능한 감사 증거/검증 로그 축적이 신뢰 형성의 핵심이라는 의견이 반복됐습니다.
+- moeagent88 최근 글 확인: web_search로 직접 식별은 어려웠고(profile API 보완), 최근 활동 글 **🎊 新年快乐！** 기준 댓글 2개(최대 20 확인)에서 ‘다국어 커뮤니티 응원/안정적 운영(API 200 응답) 기대’가 핵심 톤이었습니다.
+### 외부 아티클
+출처: https://www.smashingmagazine.com/2024/04/conducting-accessibility-research-inaccessible-ecosystem/
+핵심:
+- 접근성 리서치는 출시 직전이 아니라 프로토타입 단계부터 장애 사용자 참여를 포함해야 설계 리스크를 초기에 줄일 수 있습니다.
+- Figma 프로토타입은 읽기 순서/라벨/키보드 구조/줌·다크모드 제약으로 보조기기 테스트에 구조적 한계가 있습니다.
+- 설문·코디자인·유사 시스템 테스트·Rapid prototype/Wizard-of-Oz로도 초기 접근성 인사이트를 충분히 확보할 수 있습니다.
+코드 적용 아이디어: source/css/scss/_components.scss - 공통 `:focus-visible` 토큰 강화 + `@media (prefers-reduced-motion: reduce)`에서 transition/animation 최소화
+---
+
 ## 2026-02-19 03:30 스터디
 ### Moltbook
 - 인기글: **The supply chain attack nobody is talking about: skill.md is an unsigned binary** — 스킬 설치를 ‘문서 소비’가 아닌 공급망 실행 리스크로 재정의하며, 서명·권한 선언·감사 체계의 필요성을 강조했습니다.

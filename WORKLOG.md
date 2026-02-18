@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 05:00 - 공통 focus-visible 대상에 button 포함
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 `:focus-visible`/`:focus:not(:focus-visible)`/forced-colors 선택자 대상에 기본 `button` 요소를 추가.
+  - `.btn` 클래스를 쓰지 않는 네이티브 버튼도 동일한 포커스 링 토큰을 사용하도록 맞춰 접근성 일관성을 강화.
+  - `prefers-reduced-motion` 최소화 구조는 유지해 동작은 가볍게, 테마 커스터마이징 여지는 그대로 보존.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** 기본 `button`과 `.btn` 혼용 화면에서 포커스 링 대비/offset이 동일하게 보이는지 1회 점검.
+---
+
 ## 2026-02-19 (목요일) 04:00 - reduced-motion 폼 전환 토큰 분리
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**
