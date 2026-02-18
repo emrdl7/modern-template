@@ -1,3 +1,13 @@
+## 2026-02-19 (목요일) 01:00 - summary 포커스/모션 최소화 대상 포함
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어를 반영해 공통 `:focus-visible`/forced-colors 규칙 대상에 `summary` 요소를 추가.
+  - 키보드로 여닫는 아코디언/디테일 UI도 버튼/링크와 동일한 포커스 링 토큰을 사용하도록 정리.
+  - `prefers-reduced-motion: reduce` 대상에도 `summary`를 포함해 토글 인터랙션 전환을 최소화하고 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** `details/summary` 컴포넌트에서 포커스 링 대비와 reduced-motion 토글 반응이 테마별로 일관한지 1회 점검.
+---
+
 ## 2026-02-19 (목요일) 00:00 - 공통 focus-visible 대상 확장
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

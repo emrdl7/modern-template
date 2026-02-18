@@ -927,6 +927,7 @@ select,
 textarea,
 a,
 [role=button],
+summary,
 [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))) var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
   outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
@@ -942,6 +943,7 @@ select,
 textarea,
 a,
 [role=button],
+summary,
 [tabindex]:not([tabindex="-1"])):focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
@@ -957,6 +959,7 @@ a,
   textarea,
   a,
   [role=button],
+  summary,
   [tabindex]:not([tabindex="-1"])):focus-visible {
     outline: 2px solid Highlight;
     outline-offset: 2px;
@@ -985,6 +988,7 @@ a,
   a,
   button,
   [role=button],
+  summary,
   [tabindex]:not([tabindex="-1"]) {
     animation: none !important;
     transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
