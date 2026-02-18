@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 10:00 - focus-visible 토큰 확장 및 reduced-motion 인터랙션 범위 보강
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 강화 + reduced-motion 전환 최소화)를 반영해 `--form-focus-ring-style`, `--focus-ring-surface-color`, `--focus-ring-gap-size` 토큰을 추가.
+  - 공통 `:focus-visible` 규칙이 새 토큰을 우선 사용하도록 정리해 포커스 링 스타일/표면 대비/간격 커스터마이징 여지를 유지.
+  - `@media (prefers-reduced-motion: reduce)`에서 `.card a`, `.card button`, 기본 `a`, `button`까지 전환 비활성화 범위를 가볍게 확대해 잔여 인터랙션 모션 가능성을 축소.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** reduced-motion ON/OFF에서 카드 내부 링크·버튼 포커스/전환 동작이 의도대로 즉시 반영되는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 09:00 - INP 상호작용 식별자와 액션→페인트 샘플링 경량화
 - **수정 파일:** source/js/components/perf-metrics.js
 - **변경 내용:**
