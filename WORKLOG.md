@@ -1,3 +1,13 @@
+## 2026-02-18 (수요일) 13:00 - 고대비 모드 focus-visible 시스템 링 보강
+- **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
+- **변경 내용:**
+  - STUDY-NOTES 최신 회차 아이디어(공통 `:focus-visible` 토큰 강화 + reduced-motion 전환 최소화) 중 포커스 가시성 강화를 우선 반영.
+  - `@media (forced-colors: active)` 구간을 추가해 버튼/폼/모달/링크 등 주요 인터랙션 요소가 시스템 색상 `Highlight` 기반 포커스 링을 사용하도록 통일.
+  - 기존 2중 box-shadow 포커스 링은 고대비 모드에서 비활성화해 과도한 스타일 충돌 없이 커스터마이징 여지를 유지.
+- **출처:** STUDY-NOTES 최신 회차
+- **다음 세션 예고:** Windows 고대비(Forced Colors)에서 탭 이동 시 포커스 링이 일관되게 보이는지 1회 스모크 점검.
+---
+
 ## 2026-02-18 (수요일) 12:00 - reduced-motion 짧은 페이드 토큰 추가
 - **수정 파일:** source/css/scss/_components.scss, source/css/main.css, source/css/sub.css
 - **변경 내용:**

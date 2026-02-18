@@ -955,6 +955,19 @@ a,
   box-shadow: none;
 }
 
+@media (forced-colors: active) {
+  :where(.btn,
+  .form-control,
+  .form-check-input,
+  .modal-content,
+  a,
+  [role=button],
+  [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   :root {
     --motion-transition-base: opacity var(--motion-reduced-duration, 80ms) linear;

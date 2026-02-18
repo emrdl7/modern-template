@@ -387,6 +387,24 @@ textarea.form-control {
   box-shadow: none;
 }
 
+// 고대비(Forced Colors) 모드에서 시스템 포커스 링 사용
+// --------------------------------------------------------------------------
+@media (forced-colors: active) {
+  :where(
+    .btn,
+    .form-control,
+    .form-check-input,
+    .modal-content,
+    a,
+    [role="button"],
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
 // 모션 감소 선호 시 컴포넌트 전환 비활성화
 // --------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
