@@ -351,34 +351,6 @@ HTML에서 엔트리 포인트만 로드하면 모듈이 자동으로 import됩�
 - Edge (최신)
 - 모바일 브라우저
 
-## 변경 기록
-
-### 2026-02-19 — 템플릿 간소화 및 다크모드 대응
-
-**삭제**
-
-- `scripts/` 폴더 전체 (접근성 검사 스크립트 5개)
-- `.github/workflows/a11y-e2e.yml` (접근성 E2E 테스트 워크플로)
-- README 내 접근성 E2E 자동 체크 섹션
-
-**간소화**
-
-- `package.json` — scripts 12개 → 3개, devDependencies에서 axe-core/playwright 제거
-- `.github/workflows/ci.yml` — CSS 빌드만 수행하도록 축소
-- `.github/pull_request_template.md` — 리서치 트랙 항목 제거
-
-**수정**
-
-- SCSS 하드코딩 색상(`color()`) → CSS 변수(`var()`) 교체 (다크모드 대응)
-  - `_layout.scss`, `_components.scss`, `_base.scss`, `pages/_main.scss`, `pages/_sub.scss`
-- `.mobile-menu-toggle` 햄버거 버튼 스타일 추가
-- `.btn-primary`, `.btn-secondary` hover 시 텍스트 색상 명시
-- `.hero .btn-outline` 흰색 테두리 스타일 추가
-
-**추가**
-
-- `source/images/placeholder.jpg` 플레이스홀더 이미지
-
 ## 라이선스
 
 MIT License - 자유롭게 사용 가능
