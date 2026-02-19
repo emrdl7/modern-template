@@ -130,8 +130,11 @@
   --interactive-focus-ring-width: var(--focus-ring-width-strong, max(4px, 0.22em));
   --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px));
+  // mixin 기반 포커스 스타일과 공통 토큰을 동일 두께/오프셋으로 동기화
+  --focus-ring-width: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em)));
+  --focus-ring-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px)));
   // 링 가독성 강화를 위한 외곽 대비 폭 토큰 (기본: 본 링보다 한 단계 두껍게)
-  --interactive-focus-ring-contrast-width: var(--focus-ring-contrast-width-strong, max(5px, 0.28em));
+  --interactive-focus-ring-contrast-width: var(--focus-ring-contrast-width-strong, max(6px, 0.32em));
   --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
   // reduce 환경 기본은 전환 제거(none). 필요 시 토큰 오버라이드로만 복원.
   --motion-reduced-duration: 40ms;
