@@ -15,9 +15,6 @@
 
 초기 프로토타입 검토 때 아래 항목을 먼저 확인하면, 개발 후반 접근성 수정 비용을 줄일 수 있습니다.
 
-- 심화/대체 방법 문서: [`docs/a11y-prototype-research-checklist.md`](docs/a11y-prototype-research-checklist.md)
-- 실행형 플레이북: [`docs/a11y-prototype-research-playbook.md`](docs/a11y-prototype-research-playbook.md)
-
 - [ ] **탭 순서**: 키보드(Tab/Shift+Tab) 이동이 시각적 흐름과 일치하는지
 - [ ] **포커스 가시성**: 현재 포커스된 요소가 명확히 보이고(outline/contrast), 키보드만으로 조작 가능한지
 - [ ] **버튼/입력 라벨**: 버튼 텍스트와 `label`/`aria-label`이 목적을 명확히 설명하는지
