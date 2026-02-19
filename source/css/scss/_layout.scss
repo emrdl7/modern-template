@@ -5,7 +5,47 @@
 // Header
 // --------------------------------------------------------------------------
 header#header {
-  // 헤더 스타일은 프로젝트별로 커스터마이징
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: spacer(4);
+    padding-bottom: spacer(4);
+  }
+}
+
+// 모바일 메뉴 토글 (햄버거 버튼)
+// --------------------------------------------------------------------------
+.mobile-menu-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: spacer(2);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: radius(sm);
+  cursor: pointer;
+  transition: $transition-fast;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 1px;
+    transition: $transition-fast;
+  }
+
+  &:hover {
+    background-color: var(--color-bg-alt);
+  }
+
+  &:focus-visible {
+    @include focus-outline;
+  }
 }
 
 // Navigation
@@ -46,16 +86,16 @@ footer#footer {
   }
 
   nav {
-    background-color: color(white);
-    border: 1px solid color(border);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: radius(md);
     padding: spacer(6);
 
     h3 {
       margin: 0 0 spacer(4) 0;
       font-size: font-size(lg);
-      color: color(text-primary);
-      border-bottom: 2px solid color(primary);
+      color: var(--color-text);
+      border-bottom: 2px solid var(--color-primary);
       padding-bottom: spacer(3);
     }
 
@@ -70,20 +110,20 @@ footer#footer {
         a {
           display: block;
           padding: spacer(3) spacer(4);
-          color: color(text-secondary);
+          color: var(--color-text);
           text-decoration: none;
           border-radius: radius(sm);
           transition: $transition-fast;
 
           &:hover {
-            background-color: color(bg-secondary);
-            color: color(primary);
+            background-color: var(--color-bg-alt);
+            color: var(--color-primary);
             text-decoration: none;
           }
 
           &[aria-current="page"] {
-            background-color: color(primary);
-            color: color(white);
+            background-color: var(--color-primary);
+            color: var(--color-white);
             font-weight: font-weight(semibold);
           }
         }
@@ -92,7 +132,7 @@ footer#footer {
         ul {
           margin-top: spacer(2);
           margin-left: spacer(4);
-          border-left: 2px solid color(border);
+          border-left: 2px solid var(--color-border);
 
           a {
             font-size: font-size(sm);
@@ -107,19 +147,20 @@ footer#footer {
 .sidebar-widget {
   margin-top: spacer(6);
   padding: spacer(6);
-  background-color: color(bg-secondary);
+  background-color: var(--color-bg-alt);
   border-radius: radius(md);
 
   h4 {
     margin: 0 0 spacer(4) 0;
     font-size: font-size(base);
-    color: color(text-primary);
+    color: var(--color-text);
   }
 
   p {
     margin-bottom: spacer(4);
     font-size: font-size(sm);
-    color: color(text-secondary);
+    color: var(--color-text);
+    opacity: 0.75;
   }
 
   ul {
@@ -137,11 +178,12 @@ footer#footer {
       a {
         display: block;
         font-size: font-size(sm);
-        color: color(text-secondary);
+        color: var(--color-text);
+        opacity: 0.75;
         text-decoration: none;
 
         &:hover {
-          color: color(primary);
+          color: var(--color-primary);
           text-decoration: underline;
         }
       }
@@ -165,7 +207,7 @@ footer#footer {
 // --------------------------------------------------------------------------
 .breadcrumb {
   padding: spacer(4) 0;
-  background-color: color(bg-secondary);
+  background-color: var(--color-bg-alt);
 
   ol {
     display: flex;
@@ -180,21 +222,23 @@ footer#footer {
       &:not(:last-child)::after {
         content: '/';
         margin: 0 spacer(2);
-        color: color(text-secondary);
+        color: var(--color-text);
+        opacity: 0.75;
       }
 
       a {
-        color: color(text-secondary);
+        color: var(--color-text);
+        opacity: 0.75;
         text-decoration: none;
 
         &:hover {
-          color: color(primary);
+          color: var(--color-primary);
           text-decoration: underline;
         }
       }
 
       &[aria-current="page"] {
-        color: color(text-primary);
+        color: var(--color-text);
         font-weight: font-weight(medium);
       }
     }
@@ -223,5 +267,5 @@ footer#footer {
 .cta-section {
   padding: spacer(10) 0;
   text-align: center;
-  background-color: color(bg-secondary);
+  background-color: var(--color-bg-alt);
 }

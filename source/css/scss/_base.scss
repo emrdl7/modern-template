@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 spacer(4) 0;
   font-weight: font-weight(bold);
   line-height: line-height(tight);
-  color: color(text-primary);
+  color: var(--color-text);
 }
 
 h1 { font-size: font-size(4xl); }
