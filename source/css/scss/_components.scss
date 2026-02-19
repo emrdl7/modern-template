@@ -375,7 +375,7 @@ textarea.form-control {
 ):not([disabled]):not([aria-disabled="true"]):focus-visible {
   // outline shorthand로 색/두께/스타일을 한 번에 고정 (브라우저 기본 reset 영향 최소화)
   outline:
-    var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em)))
+    var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em)))
     var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid)))
     var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
   // 커스터마이징 여지를 위해 offset은 토큰으로 분리
@@ -386,7 +386,7 @@ textarea.form-control {
       var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)})))),
     0 0 0 calc(
         var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
-        + var(--interactive-focus-ring-contrast-width, var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))))
+        + var(--interactive-focus-ring-contrast-width, var(--focus-ring-contrast-width-strong, max(6px, 0.32em)))
       )
       var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
 }

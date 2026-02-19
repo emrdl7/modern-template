@@ -979,9 +979,9 @@ a,
 [role=button],
 summary,
 [tabindex]:not([tabindex="-1"])):not([disabled]):not([aria-disabled=true]):focus-visible {
-  outline: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))) var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
+  outline: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em))) var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
   outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
-  box-shadow: 0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #ffffff)))), 0 0 0 calc(var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) + var(--interactive-focus-ring-contrast-width, var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(2px, 0.15em))))) var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
+  box-shadow: 0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #ffffff)))), 0 0 0 calc(var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) + var(--interactive-focus-ring-contrast-width, var(--focus-ring-contrast-width-strong, max(6px, 0.32em)))) var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
 }
 
 :where(.btn,
