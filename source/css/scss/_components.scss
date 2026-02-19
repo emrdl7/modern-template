@@ -495,4 +495,12 @@ textarea.form-control {
     transition: var(--motion-reduced-transition-feedback, var(--motion-reduced-transition, none)) !important;
     transform: none !important;
   }
+
+  // 접힘/펼침 UI: 높이 애니메이션을 제거해 모션 민감 사용자 피로를 완화
+  .collapse,
+  .collapsing,
+  .accordion-collapse {
+    animation: none !important;
+    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
+  }
 }
