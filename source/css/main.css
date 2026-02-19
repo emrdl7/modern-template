@@ -721,10 +721,10 @@ header#header .container {
   --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #ffffff));
   --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
   --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(3px, 0.2em));
+  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(4px, 0.22em));
   --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
   --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px));
-  --interactive-focus-ring-contrast-width: var(--focus-ring-contrast-width-strong, max(4px, 0.24em));
+  --interactive-focus-ring-contrast-width: var(--focus-ring-contrast-width-strong, max(5px, 0.28em));
   --motion-transition-interactive: var(--motion-transition-base, all 0.3s ease-in-out);
   --motion-reduced-duration: 40ms;
   --motion-reduced-easing: linear;
