@@ -371,6 +371,7 @@ textarea.form-control {
   a,
   [role="button"],
   summary,
+  [data-focus-ring="true"],
   [tabindex]:not([tabindex="-1"])
 ):not([disabled]):not([aria-disabled="true"]):focus-visible {
   // outline shorthand로 색/두께/스타일을 한 번에 고정 (브라우저 기본 reset 영향 최소화)
@@ -403,6 +404,7 @@ textarea.form-control {
   a,
   [role="button"],
   summary,
+  [data-focus-ring="true"],
   [tabindex]:not([tabindex="-1"])
 ):not([disabled]):not([aria-disabled="true"]):focus:not(:focus-visible) {
   // 마우스 클릭 시 과도한 포커스 링 노출을 줄여 키보드 포커스 가시성과 분리
@@ -499,7 +501,9 @@ textarea.form-control {
   // 접힘/펼침 UI: 높이 애니메이션을 제거해 모션 민감 사용자 피로를 완화
   .collapse,
   .collapsing,
-  .accordion-collapse {
+  .accordion-collapse,
+  details,
+  details > summary {
     animation: none !important;
     transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
   }

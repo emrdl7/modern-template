@@ -978,6 +978,7 @@ textarea,
 a,
 [role=button],
 summary,
+[data-focus-ring=true],
 [tabindex]:not([tabindex="-1"])):not([disabled]):not([aria-disabled=true]):focus-visible {
   outline: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em))) var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
   outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
@@ -995,6 +996,7 @@ textarea,
 a,
 [role=button],
 summary,
+[data-focus-ring=true],
 [tabindex]:not([tabindex="-1"])):not([disabled]):not([aria-disabled=true]):focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
@@ -1070,7 +1072,9 @@ summary,
   }
   .collapse,
   .collapsing,
-  .accordion-collapse {
+  .accordion-collapse,
+  details,
+  details > summary {
     animation: none !important;
     transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
   }
