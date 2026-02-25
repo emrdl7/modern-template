@@ -114,43 +114,11 @@
 
 // 입력 필드
 // --------------------------------------------------------------------------
-// 폼 컨트롤 포커스 토큰(커스터마이징 여지 확보)
+// 폼 컨트롤 포커스 토큰 (커스터마이징: 변수를 오버라이드하세요)
 :root {
-  --form-focus-ring-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
-  --form-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
-  --form-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
-  --form-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
-  --focus-ring-surface-color: var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)}));
-  --focus-ring-gap-size: var(--focus-ring-gap, 2px);
-  // 커스터마이징: 이중 링(내곽/외곽) 색을 분리 가능하도록 토큰 제공
-  --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #{color(bg-primary)}));
-  --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
-  // 공통 인터랙션 포커스 링 토큰(컴포넌트별 예외 최소화)
-  --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)})));
-  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(4px, 0.22em));
-  --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
-  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px));
-  // mixin 기반 포커스 스타일과 공통 토큰을 동일 두께/오프셋으로 동기화
-  --focus-ring-width: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em)));
-  --focus-ring-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px)));
-  // 링 가독성 강화를 위한 외곽 대비 폭 토큰 (기본: 본 링보다 한 단계 두껍게)
-  --interactive-focus-ring-contrast-width: var(--focus-ring-contrast-width-strong, max(6px, 0.32em));
-  --motion-transition-interactive: var(--motion-transition-base, #{$transition-base});
-  // reduce 환경 기본은 전환 제거(none). 필요 시 토큰 오버라이드로만 복원.
-  --motion-reduced-duration: 40ms;
-  --motion-reduced-easing: linear;
-  --motion-reduced-transition: none;
-  --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
-  --motion-reduced-properties-form: border-color, box-shadow, background-color, color;
-  --motion-reduced-properties-modal: opacity;
-  --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
-  // reduce 환경에서 모달은 기본 전환을 끄고(인지 부담 최소화), 필요 시 토큰으로만 복원
-  --motion-reduced-transition-modal-default: none;
-  // reduce 환경 기본: 이동/상태 전환 모두 제거. 필요한 경우에만 토큰으로 복원.
-  --motion-reduced-transition-interactive: var(--motion-reduced-transition, none);
-  --motion-reduced-transition-form: var(--motion-reduced-transition, none);
-  --motion-reduced-transition-modal: var(--motion-reduced-transition-modal-default, var(--motion-reduced-transition, none));
-  --motion-reduced-transition-feedback: var(--motion-reduced-transition, none);
+  --focus-ring-color: var(--color-primary-dark, #{color(primary-dark)});
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
 }
 
 .form-group {
@@ -357,154 +325,45 @@ textarea.form-control {
   justify-content: flex-end;
 }
 
-// 공통 focus-visible 토큰: 주요 인터랙션 컴포넌트 링 대비/두께를 한 번 더 고정
+// 공통 focus-visible 스타일
 // --------------------------------------------------------------------------
 :where(
-  .btn,
-  .form-control,
-  .form-check-input,
-  .modal-content,
-  button,
-  input,
-  select,
-  textarea,
-  a,
-  [role="button"],
-  summary,
-  [data-focus-ring="true"],
+  button, input, select, textarea, a,
+  .btn, .form-control, .form-check-input,
+  [role="button"], summary,
   [tabindex]:not([tabindex="-1"])
 ):not([disabled]):not([aria-disabled="true"]):focus-visible {
-  // outline shorthand로 색/두께/스타일을 한 번에 고정 (브라우저 기본 reset 영향 최소화)
-  outline:
-    var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em)))
-    var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid)))
-    var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
-  // 커스터마이징 여지를 위해 offset은 토큰으로 분리
-  outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
-  // 밝거나 복잡한 배경에서도 링 식별이 쉬운 2중 대비 링(옵션 토큰)
-  box-shadow:
-    0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
-      var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #{color(bg-primary)})))),
-    0 0 0 calc(
-        var(--focus-ring-gap-size, var(--focus-ring-gap, 2px))
-        + var(--interactive-focus-ring-contrast-width, var(--focus-ring-contrast-width-strong, max(6px, 0.32em)))
-      )
-      var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #{color(primary-dark)}))));
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 
+// 마우스 클릭 시 포커스 링 숨김
 :where(
-  .btn,
-  .form-control,
-  .form-check-input,
-  .modal-content,
-  button,
-  input,
-  select,
-  textarea,
-  a,
-  [role="button"],
-  summary,
-  [data-focus-ring="true"],
+  button, input, select, textarea, a,
+  .btn, .form-control, .form-check-input,
+  [role="button"], summary,
   [tabindex]:not([tabindex="-1"])
 ):not([disabled]):not([aria-disabled="true"]):focus:not(:focus-visible) {
-  // 마우스 클릭 시 과도한 포커스 링 노출을 줄여 키보드 포커스 가시성과 분리
   outline: none;
-  box-shadow: none;
 }
 
-// 고대비(Forced Colors) 모드에서 시스템 포커스 링 사용
-// --------------------------------------------------------------------------
+// 고대비(Forced Colors) 모드
 @media (forced-colors: active) {
-  :where(
-    .btn,
-    .form-control,
-    .form-check-input,
-    .modal-content,
-    button,
-    input,
-    select,
-    textarea,
-    a,
-    [role="button"],
-    summary,
-    [tabindex]:not([tabindex="-1"])
-  ):not([disabled]):not([aria-disabled="true"]):focus-visible {
+  :focus-visible {
     outline: 2px solid Highlight;
     outline-offset: 2px;
-    box-shadow: none;
   }
 }
 
-// 모션 감소 선호 시 컴포넌트 전환 비활성화
-// --------------------------------------------------------------------------
+// 모션 감소 선호 시
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    // 모션 감소 환경 기본값: 이동 모션은 제거하고, 상태 인지를 위한 짧은 전환만 유지
-    --motion-transition-base: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
-    --motion-transition-fast: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)));
-    --motion-transition-interactive: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
-  }
-
   html:focus-within {
     scroll-behavior: auto;
   }
 
-  // 버튼/폼/기본 인터랙션: 이동 모션은 제거, 상태 전환은 짧은 페이드만 허용
-  .btn,
-  .btn::before,
-  .btn::after,
-  .form-control,
-  .form-check-input,
-  input,
-  select,
-  textarea,
-  .card a,
-  .card button,
-  a,
-  button,
-  [role="button"],
-  summary,
-  [tabindex]:not([tabindex="-1"]) {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
-    transform: none !important;
-  }
-
-  // 폼 컨트롤: 값 입력 중 가시성 변화만 남기고 모션 최소화
-  .form-control,
-  .form-check-input,
-  input,
-  select,
-  textarea {
-    transition: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none))) !important;
-  }
-
-  // 모달 계열: 이동 모션 제거 + opacity 중심의 짧은 전환만 유지
-  .modal,
-  .modal-backdrop,
-  .modal-content,
-  .modal-content * {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-modal, var(--motion-reduced-transition, none)) !important;
-    transform: none !important;
-  }
-
-  // 토스트/알림 계열: 이동 모션 없이 색/투명도 중심의 짧은 상태 전환만 유지
-  .toast,
-  [data-toast],
-  .alert {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-feedback, var(--motion-reduced-transition, none)) !important;
-    transform: none !important;
-  }
-
-  // 접힘/펼침 UI: 높이 애니메이션을 제거해 모션 민감 사용자 피로를 완화
-  .collapse,
-  .collapsing,
-  .accordion-collapse,
-  details,
-  details > summary {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

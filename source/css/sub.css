@@ -712,34 +712,9 @@ header#header .container {
 }
 
 :root {
-  --form-focus-ring-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  --form-focus-ring-width: var(--focus-ring-width-strong, max(2px, 0.15em));
-  --form-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px));
-  --form-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
-  --focus-ring-surface-color: var(--focus-ring-surface, var(--color-bg, #ffffff));
-  --focus-ring-gap-size: var(--focus-ring-gap, 2px);
-  --focus-ring-inner-color: var(--focus-ring-surface-color, var(--color-bg, #ffffff));
-  --focus-ring-outer-color: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  --interactive-focus-ring: var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8)));
-  --interactive-focus-ring-width: var(--focus-ring-width-strong, max(4px, 0.22em));
-  --interactive-focus-ring-style: var(--focus-ring-style-strong, var(--focus-ring-style, solid));
-  --interactive-focus-ring-offset: var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px));
-  --focus-ring-width: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em)));
-  --focus-ring-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 3px)));
-  --interactive-focus-ring-contrast-width: var(--focus-ring-contrast-width-strong, max(6px, 0.32em));
-  --motion-transition-interactive: var(--motion-transition-base, all 0.3s ease-in-out);
-  --motion-reduced-duration: 40ms;
-  --motion-reduced-easing: linear;
-  --motion-reduced-transition: none;
-  --motion-reduced-properties-interactive: opacity, background-color, border-color, color;
-  --motion-reduced-properties-form: border-color, box-shadow, background-color, color;
-  --motion-reduced-properties-modal: opacity;
-  --motion-reduced-properties-feedback: opacity, background-color, border-color, color;
-  --motion-reduced-transition-modal-default: none;
-  --motion-reduced-transition-interactive: var(--motion-reduced-transition, none);
-  --motion-reduced-transition-form: var(--motion-reduced-transition, none);
-  --motion-reduced-transition-modal: var(--motion-reduced-transition-modal-default, var(--motion-reduced-transition, none));
-  --motion-reduced-transition-feedback: var(--motion-reduced-transition, none);
+  --focus-ring-color: var(--color-primary-dark, #1a4fb8);
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
 }
 
 .form-group {
@@ -967,116 +942,35 @@ textarea.form-control {
   justify-content: flex-end;
 }
 
-:where(.btn,
-.form-control,
-.form-check-input,
-.modal-content,
-button,
-input,
-select,
-textarea,
-a,
-[role=button],
-summary,
-[data-focus-ring=true],
+:where(button, input, select, textarea, a,
+.btn, .form-control, .form-check-input,
+[role=button], summary,
 [tabindex]:not([tabindex="-1"])):not([disabled]):not([aria-disabled=true]):focus-visible {
-  outline: var(--interactive-focus-ring-width, var(--focus-ring-width-strong, max(4px, 0.22em))) var(--interactive-focus-ring-style, var(--focus-ring-style-strong, var(--focus-ring-style, solid))) var(--interactive-focus-ring, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
-  outline-offset: var(--interactive-focus-ring-offset, var(--focus-ring-offset-strong, var(--focus-ring-offset, 2px)));
-  box-shadow: 0 0 0 var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) var(--focus-ring-inner-color, var(--focus-ring-surface-color, var(--focus-ring-surface, var(--color-bg, #ffffff)))), 0 0 0 calc(var(--focus-ring-gap-size, var(--focus-ring-gap, 2px)) + var(--interactive-focus-ring-contrast-width, var(--focus-ring-contrast-width-strong, max(6px, 0.32em)))) var(--focus-ring-outer-color, var(--focus-ring-strong, var(--focus-ring, var(--color-primary-dark, #1a4fb8))));
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 
-:where(.btn,
-.form-control,
-.form-check-input,
-.modal-content,
-button,
-input,
-select,
-textarea,
-a,
-[role=button],
-summary,
-[data-focus-ring=true],
+:where(button, input, select, textarea, a,
+.btn, .form-control, .form-check-input,
+[role=button], summary,
 [tabindex]:not([tabindex="-1"])):not([disabled]):not([aria-disabled=true]):focus:not(:focus-visible) {
   outline: none;
-  box-shadow: none;
 }
 
 @media (forced-colors: active) {
-  :where(.btn,
-  .form-control,
-  .form-check-input,
-  .modal-content,
-  button,
-  input,
-  select,
-  textarea,
-  a,
-  [role=button],
-  summary,
-  [tabindex]:not([tabindex="-1"])):not([disabled]):not([aria-disabled=true]):focus-visible {
+  :focus-visible {
     outline: 2px solid Highlight;
     outline-offset: 2px;
-    box-shadow: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --motion-transition-base: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
-    --motion-transition-fast: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)));
-    --motion-transition-interactive: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none));
-  }
   html:focus-within {
     scroll-behavior: auto;
   }
-  .btn,
-  .btn::before,
-  .btn::after,
-  .form-control,
-  .form-check-input,
-  input,
-  select,
-  textarea,
-  .card a,
-  .card button,
-  a,
-  button,
-  [role=button],
-  summary,
-  [tabindex]:not([tabindex="-1"]) {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
-    transform: none !important;
-  }
-  .form-control,
-  .form-check-input,
-  input,
-  select,
-  textarea {
-    transition: var(--motion-reduced-transition-form, var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none))) !important;
-  }
-  .modal,
-  .modal-backdrop,
-  .modal-content,
-  .modal-content * {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-modal, var(--motion-reduced-transition, none)) !important;
-    transform: none !important;
-  }
-  .toast,
-  [data-toast],
-  .alert {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-feedback, var(--motion-reduced-transition, none)) !important;
-    transform: none !important;
-  }
-  .collapse,
-  .collapsing,
-  .accordion-collapse,
-  details,
-  details > summary {
-    animation: none !important;
-    transition: var(--motion-reduced-transition-interactive, var(--motion-reduced-transition, none)) !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 .card-grid {

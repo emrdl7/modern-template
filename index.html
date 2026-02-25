@@ -2,12 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-<meta name="description" content="웹 출판/프론트엔드 프로젝트">
-<meta property="og:title" content="웹 출판/프론트엔드 프로젝트">
-<meta property="og:description" content="최신 웹 퍼블리싱과 프론트엔드 작업들을 MDN/CSS-Tricks 기반으로 개선">
-<meta property="og:image" content="/img/preview.png">
-<meta property="og:url" content="https://yourmodern.site/">
-<meta property="og:locale" content="ko_KR">
+<meta name="description" content="현대적인 웹 표준과 접근성을 고려한 HTML/CSS/JavaScript 템플릿">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modern Template - 프로젝트 인덱스</title>
   
@@ -111,20 +106,10 @@
       font-weight: 600;
       margin-top: 10px;
     }
-    .prototype-checklist ul {
-      margin: 12px 0 0;
-      padding-left: 20px;
-      line-height: 1.8;
-      color: #495057;
-    }
-    .prototype-checklist li strong {
-      color: #212529;
-    }
     .page-link:focus-visible,
     .skip-nav:focus-visible,
     #darkModeToggle:focus-visible,
-    #contrastModeToggle:focus-visible,
-    .a11y-tab-item:focus-visible {
+    #contrastModeToggle:focus-visible {
       outline: 3px solid #246beb;
       outline-offset: 3px;
       border-radius: 8px;
@@ -132,50 +117,8 @@
     footer {
       text-align: center;
       padding: 40px 20px;
-      /* WCAG AA: ensure footer text is readable */
       color: #495057;
       font-size: 14px;
-    }
-    .preview-img {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto 30px auto;
-      display: block;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.16);
-    }
-    .a11y-controls {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-    .a11y-tab-order {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .a11y-tab-item {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 120px;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid #ced4da;
-      color: #212529;
-      background: #fff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .landmark-map {
-      margin-top: 10px;
-      display: grid;
-      gap: 6px;
-      font-size: 14px;
-      color: #495057;
     }
 
     body[data-theme="contrast"] {
@@ -192,20 +135,12 @@
     body[data-theme="contrast"] .page-link h3,
     body[data-theme="contrast"] .info-box p,
     body[data-theme="contrast"] .page-link p,
-    body[data-theme="contrast"] .prototype-checklist ul,
-    body[data-theme="contrast"] .prototype-checklist li strong,
-    body[data-theme="contrast"] .badge,
-    body[data-theme="contrast"] .landmark-map,
-    body[data-theme="contrast"] .a11y-tab-item {
+    body[data-theme="contrast"] .badge {
       color: #fff;
     }
     body[data-theme="contrast"] .badge {
       background: #000;
       border: 1px solid #fff;
-    }
-    body[data-theme="contrast"] .a11y-tab-item {
-      border-color: #fff;
-      background: #000;
     }
 
     /* Dark Mode Styles */
@@ -232,12 +167,7 @@
     body[data-theme="dark"] .page-link p {
       color: #b0bec5;
     }
-    body[data-theme="dark"] .prototype-checklist ul {
-      color: #cfd8dc;
-    }
-    body[data-theme="dark"] .prototype-checklist li strong {
-      color: #e3f2fd;
-    }
+
     body[data-theme="dark"] .info-box code {
       background: #2c2c2c;
       color: #ff8a80;
@@ -308,53 +238,6 @@
       <p style="margin-top: 20px;"><strong>3. 개발 서버</strong></p>
       <p>Live Server 등을 사용하여 개발 서버 실행</p>
     </div>
-    <section class="info-box prototype-checklist" aria-labelledby="prototype-checklist-title">
-      <h2 id="prototype-checklist-title">✅ 프로토타입 접근성 체크리스트</h2>
-      <p>초기 프로토타입 검토 시 아래 항목만 먼저 맞춰도 QA 후반의 큰 수정 비용을 줄일 수 있습니다.</p>
-      <ul>
-        <li><strong>Heading 순서:</strong> h1 → h2 → h3 순서를 유지하고, 건너뛰지 않기</li>
-        <li><strong>버튼/입력 레이블:</strong> 버튼 텍스트와 form label을 명확하게 제공하기</li>
-        <li><strong>이미지 대체 텍스트:</strong> 의미 있는 이미지에는 alt 작성, 장식 이미지는 빈 alt 사용</li>
-        <li><strong>키보드 탭 순서:</strong> Tab 이동 순서가 시각적 흐름과 일치하는지 확인하기</li>
-        <li><strong>확대/다크모드:</strong> 200% 확대와 다크모드에서 콘텐츠 손실이 없는지 점검하기</li>
-      </ul>
-      <p style="margin-top: 14px;"><strong>대체 리서치 빠른 선택(60초):</strong></p>
-      <ul>
-        <li><strong>빠른 이해도 확인:</strong> Survey + 유사 서비스 비교(10~15분)</li>
-        <li><strong>정보 구조 검증:</strong> Co-design 스케치 + 읽기 순서 점검(15~20분)</li>
-        <li><strong>조작성 확인:</strong> Rapid HTML 미니 플로우 + 키보드 탭 테스트(20~30분)</li>
-        <li><strong>기능 미구현 보완:</strong> Wizard-of-Oz로 막힘 지점 기록 후 구현 우선순위 결정(10~15분)</li>
-      </ul>
-      <p style="margin-top: 14px;"><strong>프로토타입 즉시 검증 영역:</strong></p>
-      <div class="a11y-controls" aria-label="접근성 테스트 컨트롤" role="group">
-        <button type="button" class="dark-mode-toggle" data-focus-order="1">① 첫 버튼(탭 시작)</button>
-        <a href="#prototype-checklist-title" class="a11y-tab-item" data-focus-order="2">② 제목으로 이동</a>
-        <button type="button" id="a11yTabEnd" class="dark-mode-toggle" data-focus-order="3">③ 마지막 버튼(탭 끝)</button>
-      </div>
-      <div class="a11y-tab-order" aria-label="예상 탭 순서 미리보기">
-        <span class="a11y-tab-item">Tab 1 → 첫 버튼</span>
-        <span class="a11y-tab-item">Tab 2 → 제목 링크</span>
-        <span class="a11y-tab-item">Tab 3 → 마지막 버튼</span>
-      </div>
-      <div class="landmark-map" role="region" aria-label="랜드마크 맵">
-        <span><strong>Landmarks:</strong> <code>header</code> → <code>main</code> → <code>section[role=region]</code> → <code>footer</code></span>
-        <span>스크린리더에서 Landmarks 목록을 열어 실제 순서가 동일한지 확인하세요.</span>
-      </div>
-      <p style="margin-top: 14px;"><strong>PR 템플릿(복붙):</strong></p>
-      <pre style="background:#f8f9fa; border-radius:8px; padding:12px; overflow:auto; font-size:13px; line-height:1.6;">## A11y Prototype Preflight
-- [ ] 읽기 순서(Heading/콘텐츠 흐름) 점검 완료
-- [ ] 버튼/입력 라벨 문구 검토 완료
-- [ ] 이미지 alt 정책 적용 또는 제외 근거 명시
-- [ ] 키보드 탭 순서/포커스 복귀 확인
-
-## 대체 리서치 실행
-- [ ] Survey / Co-design / Rapid HTML / Wizard-of-Oz 중 2개 이상 실행
-- [ ] 방식별 막힘 1개 + 개선안 1개 기록
-
-## 이번 PR 범위
-- [ ] 가벼운 수정(1~2파일)만 포함
-- [ ] 다음 회차 검증 항목 1~2개 남김</pre>
-    </section>
 
     <h2 style="margin: 40px 0 20px; font-size: 28px;">📄 페이지 목록</h2>
     <div class="page-list">
@@ -410,7 +293,7 @@ modern-template/
   </main>
   <footer aria-label="사이트 정보">
     <p>&copy; 2026 Modern Template. All rights reserved.</p>
-    <p>Created by 야옹이 🐱</p>
+    <p>Created by CHO</p>
   </footer>
   <script>
     (function() {
